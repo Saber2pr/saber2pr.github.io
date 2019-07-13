@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Route, Router } from "@saber2pr/router";
+import { Route, Router, hashHistory } from "@saber2pr/router";
 import { Code } from "@saber2pr/react-code";
 
 import "./style.less";
@@ -11,7 +11,7 @@ import { useIsMobile } from "../../hooks";
 import { store } from "../../store";
 
 const BLink = (props: Omit<ALink, "act" | "uact">) => (
-  <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset={true} />
+  <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
 );
 
 export interface Blog {
@@ -33,16 +33,18 @@ export const Blog = ({ links }: Blog) => {
     <div className="Blog">
       <TwoSide>
         <div className="Blog-Main">
-          <section className="Blog-Main-Content">
-            <Router>
+          <section>
+            <Router history={hashHistory}>
               {links.map(({ name, content, href }) => (
                 <Route
                   key={href}
                   path={href}
                   component={() => (
                     <div className="animated fadeIn">
-                      <h1 className="Blog-Main-Content-Title">{name}</h1>
-                      <Code>{content}</Code>
+                      <h1 className="Blog-Main-Title">{name}</h1>
+                      <div className="Blog-Main-Content">
+                        <Code>{content}</Code>
+                      </div>
                     </div>
                   )}
                 />

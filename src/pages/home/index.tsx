@@ -11,7 +11,7 @@ export const Home = ({ title, infor }: Home) => {
     <div className="Home">
       <main className="Home-Main">
         <ul>
-          <li className="Home-Main-Title ani-color">
+          <li className="Home-Main-Title shd-blue">
             <i>{title}</i>
           </li>
           <li className="Home-Main-Infor">

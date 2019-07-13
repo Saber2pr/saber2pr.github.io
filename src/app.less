@@ -1,19 +1,20 @@
 @import url(./style/animation.less);
+@import url(./style/shadow.less);
 
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-@height: 50px;
-@borderHeight: 2px;
+@lineH-PC: 3rem;
+@lineH-Mob: 2rem;
 
 .header {
   position: fixed;
   top: 0;
 
   width: 100%;
-  line-height: @height;
+  line-height: @lineH-PC;
 
   background-color: #20232a;
 
@@ -46,10 +47,11 @@ html {
 
   &-a-active {
     color: #61dafb;
-    border-bottom: @borderHeight solid #61dafb;
+    border-bottom: 2px solid #61dafb;
   }
 
   &-start {
+    color: #d5d5d7;
     margin-left: 70px;
     width: 100px;
   }
@@ -70,8 +72,19 @@ html {
   }
 }
 
+.main {
+  margin-top: calc(@lineH-PC - 2px);
+}
+
+footer {
+  text-align: center;
+  line-height: 100px;
+}
+
 @media screen and (max-width: 740px) {
   .header {
+    line-height: @lineH-Mob;
+
     &-start {
       width: 25%;
       margin-left: 0;
@@ -87,13 +100,8 @@ html {
       display: none !important;
     }
   }
-}
 
-.main {
-  margin-top: @height - @borderHeight;
-}
-
-footer {
-  text-align: center;
-  line-height: 100px;
+  .main {
+    margin-top: calc(@lineH-Mob - 2px);
+  }
 }

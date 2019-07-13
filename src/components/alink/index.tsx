@@ -17,7 +17,9 @@ export const ALink = ({ act, uact, onClick, ...props }: ALink) => {
   return (
     <Link
       {...props}
-      className={`${props.className} ${className}`}
+      className={
+        props.className ? `${props.className} ${className}` : className
+      }
       onClick={event => {
         onClick && onClick(event);
         store.dispatch("href", props.to);

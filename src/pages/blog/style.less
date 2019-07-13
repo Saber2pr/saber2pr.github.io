@@ -1,3 +1,6 @@
+@lineH-PC: 3rem;
+@lineH-Mob: 2rem;
+
 .Blog {
   a {
     color: #6d6d6d;
@@ -27,17 +30,19 @@
     width: 70%;
     transition: 0.4s;
 
+    &-Title {
+      text-align: center;
+      line-height: 2.5rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
     &-Content {
       margin: 1rem;
       padding: 1rem;
       background-color: #f0f0f0;
       line-height: 1.5rem;
       border-radius: 10px;
-
-      &-Title {
-        text-align: center;
-        line-height: 2.5rem;
-      }
     }
   }
 
@@ -47,7 +52,7 @@
     }
 
     position: fixed;
-    top: 50px;
+    top: @lineH-PC;
     right: 0;
 
     width: 30%;
@@ -76,8 +81,17 @@
   .Blog {
     overflow: hidden;
 
+    pre {
+      font-size: 0.8rem;
+    }
+
     &-Main {
       width: 100%;
+
+      &-Title {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+      }
 
       &-Content {
         margin: 0.5rem;
@@ -91,6 +105,7 @@
       width: 100%;
       left: 0;
       height: 100%;
+      top: @lineH-Mob;
     }
 
     &-Btn {

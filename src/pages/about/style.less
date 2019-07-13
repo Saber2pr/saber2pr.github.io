@@ -1,6 +1,7 @@
 .About {
   ul {
     list-style-type: none;
+    padding-left: 0;
   }
 
   a {
@@ -11,16 +12,16 @@
     width: 75%;
     transition: 0.4s;
 
+    &-Title {
+      text-align: center;
+    }
+
     &-Content {
       margin: 1rem;
       background-color: #f0f0f0;
       border-radius: 10px;
       line-height: 1.5rem;
       padding: 1rem;
-
-      &-Title {
-        text-align: center;
-      }
     }
   }
 
@@ -30,10 +31,19 @@
     position: fixed;
     right: -15px;
     padding-right: 15px;
-    overflow-y: auto;
+
+    &-Title {
+      margin-left: 1rem;
+      animation: bounceInRight 1s;
+    }
 
     &-Content {
       margin: 1rem;
+      height: 60vh;
+      overflow-y: auto;
+
+      padding-right: 1rem;
+      width: 94%;
 
       &-Proj {
         background-color: #f0f0f0;
@@ -71,12 +81,16 @@
       width: 100%;
       position: static;
 
+      &-Title {
+        text-align: center;
+        animation: flipInX 1s;
+      }
+
       &-Content {
         margin: 0.5rem;
-
-        &-Title {
-          text-align: center;
-        }
+        height: auto;
+        padding-right: 0;
+        width: auto;
       }
     }
   }
