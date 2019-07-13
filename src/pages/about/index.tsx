@@ -8,6 +8,18 @@ export interface About {
   about: string[];
 }
 
+const Foot = () => (
+  <>
+    <p className="About-Main-Repo">
+      本项目地址
+      <a href="https://github.com/Saber2pr/saber2pr.github.io">
+        saber2pr.github.io
+      </a>
+    </p>
+    <footer>Copyright © 2019 saber2pr.</footer>
+  </>
+);
+
 export const About = ({ about, projects }: About) => {
   const isMob = useIsMob();
   return (
@@ -24,7 +36,7 @@ export const About = ({ about, projects }: About) => {
               ))}
             </ul>
           </div>
-          {isMob || <footer>Copyright © 2019 saber2pr.</footer>}
+          {isMob || <Foot />}
         </section>
         <aside className="About-Aside">
           <h2 className="About-Aside-Title">Projects</h2>
@@ -36,7 +48,7 @@ export const About = ({ about, projects }: About) => {
               </li>
             ))}
           </ul>
-          {isMob && <footer>Copyright © 2019 saber2pr.</footer>}
+          {isMob && <Foot />}
         </aside>
       </TwoSide>
     </div>
