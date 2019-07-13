@@ -1,0 +1,27 @@
+[
+  {
+    "name": "@saber2pr/ioc",
+    "href": "https://github.com/Saber2pr/saber-ioc",
+    "content": "基于Typescript反射实现控制反转容器"
+  },
+  {
+    "name": "@saber2pr/reflect",
+    "href": "https://github.com/Saber2pr/-saber2pr-reflect",
+    "content": "Typescript Reflector."
+  },
+  {
+    "name": "@saber2pr/request",
+    "href": "https://github.com/Saber2pr/-saber2pr-request",
+    "content": "提供全局拦截器配置的http请求库"
+  },
+  {
+    "name": "@saber2pr/mock",
+    "href": "https://github.com/Saber2pr/-saber2pr-mock",
+    "content": "mock server."
+  },
+  {
+    "name": "saber-react-code",
+    "href": "https://github.com/Saber2pr/saber-react-code",
+    "content": "react代码块高亮组件"
+  }
+]

@@ -1,0 +1,99 @@
+@import url(./style/animation.less);
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+@height: 50px;
+@borderHeight: 2px;
+
+.header {
+  position: fixed;
+  top: 0;
+
+  width: 100%;
+  line-height: @height;
+
+  background-color: #20232a;
+
+  display: flex;
+
+  z-index: 999;
+
+  a {
+    display: inline-block;
+
+    text-align: center;
+    text-decoration: none;
+
+    transition: 0.4s;
+  }
+
+  a:hover {
+    color: #61dafb;
+  }
+
+  a:focus {
+    color: #ffffff;
+    background-color: #373940;
+  }
+
+  &-a {
+    color: #d5d5d7;
+    border-bottom: none;
+  }
+
+  &-a-active {
+    color: #61dafb;
+    border-bottom: @borderHeight solid #61dafb;
+  }
+
+  &-start {
+    margin-left: 70px;
+    width: 100px;
+  }
+
+  &-links {
+    flex-grow: 1;
+
+    display: flex;
+    a {
+      width: 100px;
+    }
+  }
+
+  &-last {
+    color: #d5d5d7;
+    margin-right: 70px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .header {
+    &-start {
+      width: 25%;
+      margin-left: 0;
+    }
+
+    &-links {
+      a {
+        width: 33%;
+      }
+    }
+
+    &-last {
+      display: none !important;
+    }
+  }
+}
+
+.main {
+  margin-top: @height - @borderHeight;
+}
+
+footer {
+  text-align: center;
+  line-height: 100px;
+}
