@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route, hashHistory, Link, LinkProps } from "@saber2pr/router";
+import { Router, Route, Link, LinkProps } from "@saber2pr/router";
 
 import "./app.less";
 import { Home, Blog, About, Links } from "./pages";
@@ -39,7 +39,7 @@ export const App = () => {
         </a>
       </nav>
       <main className="main">
-        <Router history={hashHistory}>
+        <Router>
           <Route default path="/home" component={() => <Home {...JHome} />} />
           <Route path="/blog" component={() => <Blog links={JBlog} />} />
           <Route

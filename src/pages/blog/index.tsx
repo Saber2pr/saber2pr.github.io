@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { Route, Router, hashHistory } from "@saber2pr/router";
+import { Route, Router } from "@saber2pr/router";
 import { Code } from "@saber2pr/react-code";
 
 import "./style.less";
@@ -34,7 +34,7 @@ export const Blog = ({ links }: Blog) => {
       <TwoSide>
         <div className="Blog-Main">
           <section>
-            <Router history={hashHistory}>
+            <Router>
               {links.map(({ name, content, href }) => (
                 <Route
                   key={href}
