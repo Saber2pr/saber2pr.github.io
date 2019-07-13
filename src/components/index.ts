@@ -1,2 +1,4 @@
-export * from "./alink";
-export * from "./two-side";
+export * from './alink'
+export * from './code'
+export * from './para'
+export * from './two-side'

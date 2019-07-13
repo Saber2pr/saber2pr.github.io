@@ -11,6 +11,7 @@ import JAbout from "../data/abouts.json";
 import JProject from "../data/projects.json";
 import JLinks from "../data/links.json";
 import { store } from "./store";
+import { history } from "./history";
 
 const HLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink {...props} act="header-a-active" uact="header-a" />
@@ -39,7 +40,7 @@ export const App = () => {
         </a>
       </nav>
       <main className="main">
-        <Router>
+        <Router history={history}>
           <Route default path="/home" component={() => <Home {...JHome} />} />
           <Route path="/blog" component={() => <Blog links={JBlog} />} />
           <Route

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Route, Router } from "@saber2pr/router";
-import { Code } from "@saber2pr/react-code";
+import { Code } from "../../components";
 
 import "./style.less";
 import { Icon } from "../../iconfont";
@@ -9,6 +9,7 @@ import { TwoSide, ALink } from "../../components";
 import { useIsMobile } from "../../hooks";
 
 import { store } from "../../store";
+import { history } from "../../history";
 
 const BLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
@@ -34,7 +35,7 @@ export const Blog = ({ links }: Blog) => {
       <TwoSide>
         <div className="Blog-Main">
           <section>
-            <Router>
+            <Router history={history}>
               {links.map(({ name, content, href }) => (
                 <Route
                   key={href}
