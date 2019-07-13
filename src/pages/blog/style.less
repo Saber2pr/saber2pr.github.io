@@ -56,7 +56,7 @@
     right: 0;
 
     width: 30%;
-    height: 100%;
+    height: calc(100% - @lineH-PC);
 
     transition: 0.4s;
 
@@ -102,10 +102,12 @@
     &-Aside {
       display: none;
       background-color: #f0f0f0;
-      width: 100%;
-      left: 0;
-      height: 100%;
+
       top: @lineH-Mob;
+      left: 0;
+
+      width: 100%;
+      height: calc(100% - @lineH-Mob);
     }
 
     &-Btn {
