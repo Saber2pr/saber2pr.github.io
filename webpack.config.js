@@ -55,7 +55,7 @@ module.exports = WebpackConfig({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      templateContent: templateContent("saber2pr", {
+      templateContent: templateContent("saber2prの窝", {
         injectBody: '<div id="root"></div>'
       })
     }),
