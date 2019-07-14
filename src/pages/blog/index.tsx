@@ -33,40 +33,36 @@ export const Blog = ({ links }: Blog) => {
   return (
     <div className="Blog">
       <TwoSide>
-        <div className="Blog-Main">
-          <section>
-            <Router history={history}>
-              {links.map(({ name, content, href }) => (
-                <Route
-                  key={href}
-                  path={href}
-                  component={() => (
-                    <div className="animated fadeIn">
-                      <h1 className="Blog-Main-Title">{name}</h1>
-                      <div className="Blog-Main-Content">
-                        <Code>{content}</Code>
-                      </div>
+        <section className="Blog-Main">
+          <Router history={history}>
+            {links.map(({ name, content, href }) => (
+              <Route
+                key={href}
+                path={href}
+                component={() => (
+                  <div className="animated fadeIn">
+                    <h1 className="Blog-Main-Title">{name}</h1>
+                    <div className="Blog-Main-Content">
+                      <Code>{content}</Code>
                     </div>
-                  )}
-                />
-              ))}
-            </Router>
-          </section>
+                  </div>
+                )}
+              />
+            ))}
+          </Router>
           <footer>Copyright © 2019 saber2pr.</footer>
-        </div>
-        <div className="Blog-Aside animated bounceInDown" ref={ref}>
-          <aside>
-            <ul>
-              {links.map(({ name, href }) => (
-                <li key={href} className="Blog-Aside-Item">
-                  <BLink to={href} onClick={() => isMobile() && close()}>
-                    {name}
-                  </BLink>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </div>
+        </section>
+        <aside className="Blog-Aside animated bounceInDown" ref={ref}>
+          <ul>
+            {links.map(({ name, href }) => (
+              <li key={href} className="Blog-Aside-Item">
+                <BLink to={href} onClick={() => isMobile() && close()}>
+                  {name}
+                </BLink>
+              </li>
+            ))}
+          </ul>
+        </aside>
       </TwoSide>
       <div className="Blog-Btn animated flip" onClick={open}>
         <Icon.Mao />

@@ -10,6 +10,7 @@ import JBlog from "../data/blogs.json";
 import JAbout from "../data/abouts.json";
 import JProject from "../data/projects.json";
 import JLinks from "../data/links.json";
+
 import { store } from "./store";
 import { history } from "./history";
 

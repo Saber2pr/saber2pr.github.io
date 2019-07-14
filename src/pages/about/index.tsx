@@ -11,7 +11,6 @@ export interface About {
 const Foot = () => (
   <>
     <p className="About-Main-Repo">
-      本项目地址
       <a href="https://github.com/Saber2pr/saber2pr.github.io">
         saber2pr.github.io
       </a>
@@ -40,7 +39,7 @@ export const About = ({ about, projects }: About) => {
         </section>
         <aside className="About-Aside">
           <h2 className="About-Aside-Title">Projects</h2>
-          <ul className="About-Aside-Content animated fadeInUp">
+          <ul className="About-Aside-Content">
             {projects.map(({ name, href, content }) => (
               <li key={name} className="About-Aside-Content-Proj">
                 <a href={href}>{name}</a>

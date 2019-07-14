@@ -11,6 +11,7 @@
   &-Main {
     width: 75%;
     transition: 0.4s;
+    animation: fadeIn 0.5s;
 
     &-Title {
       text-align: center;
@@ -43,7 +44,7 @@
 
     &-Title {
       margin-left: 1rem;
-      animation: bounceInRight 1s;
+      animation: bounceInRight 0.5s;
     }
 
     &-Content {
@@ -53,6 +54,7 @@
 
       padding-right: 1rem;
       width: 94%;
+      animation: fadeInUp 0.5s;
 
       &-Proj {
         background-color: #f0f0f0;
@@ -89,10 +91,11 @@
     &-Aside {
       width: 100%;
       position: static;
+      animation: fadeIn 0.5s;
 
       &-Title {
         text-align: center;
-        animation: flipInX 1s;
+        animation: none;
       }
 
       &-Content {
@@ -100,6 +103,7 @@
         height: auto;
         padding-right: 0;
         width: auto;
+        animation: none;
       }
     }
   }
