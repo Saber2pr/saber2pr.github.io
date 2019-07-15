@@ -12,6 +12,8 @@ npm install
 npm run dev
 ```
 
+> npm 和 yarn 类似
+
 # Feature
 
 1. 前端路由无请求
