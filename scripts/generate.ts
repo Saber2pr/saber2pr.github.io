@@ -1,3 +1,9 @@
+/*
+ * @Author: saber2pr
+ * @Date: 2019-07-15 11:59:42
+ * @Last Modified by:   saber2pr
+ * @Last Modified time: 2019-07-15 11:59:42
+ */
 import { promisify } from "util";
 import { readdir, readFile, writeFile } from "fs";
 import { join, parse } from "path";

@@ -6,7 +6,7 @@
     "start": "webpack -w",
     "dev": "webpack-dev-server",
     "build": "webpack && sh scripts/cp.sh",
-    "gen": "ts-node scripts/generate"
+    "update": "ts-node scripts/generate"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.0.3",
