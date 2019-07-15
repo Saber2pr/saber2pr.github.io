@@ -3,7 +3,13 @@
 > my web-page.
 
 ```bash
-yarn install
+git clone https://github.com/Saber2pr/saber2pr.github.io.git
+
+cd ./saber2pr.github.io
+
+npm install
+
+npm run dev
 ```
 
 # Feature
