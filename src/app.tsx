@@ -12,7 +12,7 @@ import JProject from "../data/projects.json";
 import JLinks from "../data/links.json";
 
 import { store } from "./store";
-import { history } from "./history";
+import { history } from "./config";
 
 const HLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink {...props} act="header-a-active" uact="header-a" />

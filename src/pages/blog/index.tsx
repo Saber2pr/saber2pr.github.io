@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Route, Router } from "@saber2pr/router";
-import { Code } from "../../components";
+
+import MD from "@saber2pr/md2jsx";
 
 import "./style.less";
 import { Icon } from "../../iconfont";
@@ -9,7 +10,7 @@ import { TwoSide, ALink } from "../../components";
 import { useIsMobile } from "../../hooks";
 
 import { store } from "../../store";
-import { history } from "../../history";
+import { history, md_theme } from "../../config";
 
 const BLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
@@ -43,7 +44,7 @@ export const Blog = ({ links }: Blog) => {
                   <div className="animated fadeIn">
                     <h1 className="Blog-Main-Title">{name}</h1>
                     <div className="Blog-Main-Content">
-                      <Code>{content}</Code>
+                      <MD theme={md_theme}>{content}</MD>
                     </div>
                   </div>
                 )}
