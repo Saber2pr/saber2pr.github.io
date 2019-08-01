@@ -1,15 +1,15 @@
+declare const JHome: Home;
+declare const JBlog: Blog["tree"];
+declare const JAbout: About["about"];
+declare const JProject: About["projects"];
+declare const JLinks: Links["links"];
+
 import React, { useEffect } from "react";
 import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router";
 
 import "./app.less";
 import { Home, Blog, About, Links } from "./pages";
 import { ALink } from "./components";
-
-import JHome from "../data/home.json";
-import JBlog from "../data/blogs.json";
-import JAbout from "../data/abouts.json";
-import JProject from "../data/projects.json";
-import JLinks from "../data/links.json";
 
 import { store } from "./store";
 import { history } from "./config";
@@ -60,7 +60,7 @@ export const App = () => {
       <main className="main">
         <Router history={history}>
           <Route path="/home" component={() => <Home {...JHome} />} />
-          <Route path="/blog" component={() => <Blog tree={JBlog as any} />} />
+          <Route path="/blog" component={() => <Blog tree={JBlog} />} />
           <Route
             path="/about"
             component={() => <About about={JAbout} projects={JProject} />}

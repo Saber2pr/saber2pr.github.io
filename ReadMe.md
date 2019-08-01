@@ -35,16 +35,16 @@ yarn run dev
 # Publish
 
 ```bash
+# 编译项目模板(release)
+yarn run build
+
 # 解析编译markdown，并更新数据
 yarn run update
-
-# 编译项目(release)
-yarn run build
 ```
 
 # Notice
 
-build 命令会执行 scripts/cp.sh 脚本，可忽略 cp.sh。
+update 命令会执行 scripts/cp.sh 脚本，可忽略 cp.sh。
 
 # License
 

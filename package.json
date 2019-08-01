@@ -5,8 +5,8 @@
   "scripts": {
     "start": "webpack -w",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack && sh scripts/cp.sh",
-    "update": "ts-node scripts/generate"
+    "build": "cross-env NODE_ENV=production webpack",
+    "update": "ts-node scripts/generate && sh scripts/cp.sh"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.0.3",

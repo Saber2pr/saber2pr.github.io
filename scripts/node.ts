@@ -18,3 +18,6 @@ export namespace Print {
   export const notice = (message: string) =>
     console.log(`\u001b[33m${message}\u001b[33m`);
 }
+
+export const copy = (from: string, to: string) =>
+  ReadFile(from).then(buffer => WriteFile(to, buffer));
