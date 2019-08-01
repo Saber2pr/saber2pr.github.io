@@ -4,3 +4,4 @@ package-lock.json
 lib/
 build/
 template
+data/blogs.json
