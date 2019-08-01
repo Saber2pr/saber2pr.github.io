@@ -17,11 +17,6 @@
     "@types/react-syntax-highlighter" "^10.2.1"
     react-syntax-highlighter "^11.0.2"
 
-"@saber2pr/memo@0.0.1":
-  version "0.0.1"
-  resolved "http://r.cnpmjs.org/@saber2pr/memo/download/@saber2pr/memo-0.0.1.tgz#d9fdb9615ec1f9119aa379d2902cf09942823df5"
-  integrity sha1-2f25YV7B+RGao3nSkCzwmUKCPfU=
-
 "@saber2pr/rc-tree@^0.1.4":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@saber2pr/rc-tree/-/rc-tree-0.1.4.tgz#8f810813523dca034800211ca1de74a0c618dc23"
@@ -32,12 +27,11 @@
   resolved "http://r.cnpmjs.org/@saber2pr/redux/download/@saber2pr/redux-0.1.1.tgz#d6c21a2a324c53ce09d5773d345fab570a851d4a"
   integrity sha1-1sIaKjJMU84J1Xc9NF+rVwqFHUo=
 
-"@saber2pr/router@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@saber2pr/router/-/router-0.1.7.tgz#eafa7e5dae50b914a3924d4b8f0ef2f62c8a6ded"
-  integrity sha512-Fz+ZZakbI520x5chKq5NG9Zomk38bFJWZ18egg9fa508Cx4hxCaVYcGNWqC125Fk8WK6q3gRRdjzKqLJrNIz3g==
+"@saber2pr/router@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@saber2pr/router/-/router-0.1.8.tgz#b0e0411085acc2ba24133b66b9ec80ed103f8c07"
+  integrity sha512-djdNRUUKIJXLaa09lixPa6iNP2uptbkgj2RhzI48/G86rh4jiPSf8Uwep+p8TFBLMCmzJLW4ePVqwxRFeuVgew==
   dependencies:
-    "@saber2pr/memo" "0.0.1"
     "@saber2pr/schedular" "0.0.8"
 
 "@saber2pr/schedular@0.0.8":
@@ -1112,7 +1106,15 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-spawn@6.0.5, cross-spawn@^6.0.0:
+cross-env@^5.2.0:
+  version "5.2.0"
+  resolved "http://r.cnpmjs.org/cross-env/download/cross-env-5.2.0.tgz#6ecd4c015d5773e614039ee529076669b9d126f2"
+  integrity sha1-bs1MAV1Xc+YUA57lKQdmabnRJvI=
+  dependencies:
+    cross-spawn "^6.0.5"
+    is-windows "^1.0.0"
+
+cross-spawn@6.0.5, cross-spawn@^6.0.0, cross-spawn@^6.0.5:
   version "6.0.5"
   resolved "http://r.cnpmjs.org/cross-spawn/download/cross-spawn-6.0.5.tgz#4a5ec7c64dfae22c3a14124dbacdee846d80cbc4"
   integrity sha1-Sl7Hxk364iw6FBJNus3uhG2Ay8Q=
@@ -2593,7 +2595,7 @@ is-typedarray@~1.0.0:
   resolved "http://r.cnpmjs.org/is-typedarray/download/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
   integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
-is-windows@^1.0.1, is-windows@^1.0.2:
+is-windows@^1.0.0, is-windows@^1.0.1, is-windows@^1.0.2:
   version "1.0.2"
   resolved "http://r.cnpmjs.org/is-windows/download/is-windows-1.0.2.tgz#d1850eb9791ecd18e6182ce12a30f396634bb19d"
   integrity sha1-0YUOuXkezRjmGCzhKjDzlmNLsZ0=

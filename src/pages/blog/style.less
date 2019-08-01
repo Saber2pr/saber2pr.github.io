@@ -50,9 +50,15 @@
     i {
       font-size: 1rem;
     }
-    
+
     ul {
       padding-left: 1rem;
+
+      li {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     }
 
     position: fixed;
@@ -68,11 +74,10 @@
     overflow-y: auto;
 
     &-Item {
+      margin: 1rem;
+      width: 100%;
       line-height: 2rem;
       display: block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }
   }
 

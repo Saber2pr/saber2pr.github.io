@@ -11,7 +11,6 @@ const {
 } = require("@saber2pr/webpack-configer");
 
 module.exports = WebpackConfig({
-  mode: "development",
   entry: "./src/index.tsx",
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"]
