@@ -69,7 +69,7 @@ export const Blog = ({ tree }: Blog) => {
       <TwoSide>
         <main className="Blog-Main">
           <Router history={history}>{Routes}</Router>
-          <footer className="footer">
+          <footer className="Blog-Main-Footer">
             Powered By{" "}
             <a href="https://github.com/Saber2pr/press">@saber2pr/press</a>
           </footer>
