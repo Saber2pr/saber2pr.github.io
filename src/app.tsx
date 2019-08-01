@@ -1,5 +1,5 @@
-import React from "react";
-import { Router, Route, Link, LinkProps } from "@saber2pr/router";
+import React, { useEffect } from "react";
+import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router";
 
 import "./app.less";
 import { Home, Blog, About, Links } from "./pages";
@@ -13,6 +13,7 @@ import JLinks from "../data/links.json";
 
 import { store } from "./store";
 import { history } from "./config";
+import { getHash } from "./utils";
 
 const HLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink {...props} act="header-a-active" uact="header-a" />
@@ -23,6 +24,22 @@ const HNLink = (props: LinkProps) => (
 );
 
 export const App = () => {
+  const [push] = usePush();
+  const hash = getHash();
+  useEffect(() => {
+    if (hash) {
+      push(hash);
+    } else {
+      push("/home");
+    }
+  });
+
+  const onhashchange = () => store.dispatch("href", getHash());
+  useEffect(() => {
+    window.addEventListener("hashchange", onhashchange);
+    return () => window.removeEventListener("hashchange", onhashchange);
+  });
+
   return (
     <>
       <nav className="header">
@@ -42,8 +59,8 @@ export const App = () => {
       </nav>
       <main className="main">
         <Router history={history}>
-          <Route default path="/home" component={() => <Home {...JHome} />} />
-          <Route path="/blog" component={() => <Blog links={JBlog} />} />
+          <Route path="/home" component={() => <Home {...JHome} />} />
+          <Route path="/blog" component={() => <Blog tree={JBlog as any} />} />
           <Route
             path="/about"
             component={() => <About about={JAbout} projects={JProject} />}

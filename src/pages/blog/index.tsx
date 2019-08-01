@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { Route, Router } from "@saber2pr/router";
+import Tree from "@saber2pr/rc-tree";
 
 import MD from "@saber2pr/md2jsx";
 
@@ -11,58 +12,83 @@ import { useIsMobile } from "../../hooks";
 
 import { store } from "../../store";
 import { history, md_theme } from "../../config";
+import { collect, TextTree } from "../../utils/collect";
+import { getHash } from "../../utils";
 
 const BLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
 );
 
 export interface Blog {
-  links: Array<{ name: string; content: string; href: string }>;
+  tree: TextTree;
 }
 
-export const Blog = ({ links }: Blog) => {
+export const Blog = ({ tree }: Blog) => {
+  const links = collect(tree);
+  const defaultLink = links.find(l => !("children" in l));
   const ref = useRef<HTMLDivElement>();
 
   const open = () => (ref.current.style.display = "block");
   const close = () => (ref.current.style.display = "none");
   const isMobile = useIsMobile(close, open);
 
+  const hash = getHash();
+  const onhashchange = () => store.dispatch("href", getHash());
   useEffect(() => {
-    store.dispatch("href", links[0].href);
+    const init = hash === "/blog" ? defaultLink.path : hash;
+    if (hash) location.hash = `#${encodeURIComponent(init)}`;
+    window.addEventListener("hashchange", onhashchange);
+    return () => window.removeEventListener("hashchange", onhashchange);
   });
+
+  const Routes = links.reduce(
+    (acc, { title, text, path: href }) => {
+      if (text) {
+        acc.push(
+          <Route
+            key={href}
+            path={href}
+            component={() => (
+              <div className="animated fadeIn">
+                <h1 className="Blog-Main-Title">{title}</h1>
+                <div className="Blog-Main-Content">
+                  <MD theme={md_theme}>{text}</MD>
+                </div>
+              </div>
+            )}
+          />
+        );
+      }
+      return acc;
+    },
+    [] as JSX.Element[]
+  );
 
   return (
     <div className="Blog">
       <TwoSide>
-        <section className="Blog-Main">
-          <Router history={history}>
-            {links.map(({ name, content, href }) => (
-              <Route
-                key={href}
-                path={href}
-                component={() => (
-                  <div className="animated fadeIn">
-                    <h1 className="Blog-Main-Title">{name}</h1>
-                    <div className="Blog-Main-Content">
-                      <MD theme={md_theme}>{content}</MD>
-                    </div>
-                  </div>
-                )}
-              />
-            ))}
-          </Router>
-          <footer>Copyright © 2019 saber2pr.</footer>
-        </section>
+        <main className="Blog-Main">
+          <Router history={history}>{Routes}</Router>
+          <footer className="footer">
+            Powered By{" "}
+            <a href="https://github.com/Saber2pr/press">@saber2pr/press</a>
+          </footer>
+        </main>
         <aside className="Blog-Aside animated bounceInDown" ref={ref}>
-          <ul>
-            {links.map(({ name, href }) => (
-              <li key={href} className="Blog-Aside-Item">
-                <BLink to={href} onClick={() => isMobile() && close()}>
-                  {name}
-                </BLink>
-              </li>
-            ))}
-          </ul>
+          <section className="Blog-Aside-Item">
+            <Tree
+              from={tree}
+              map={({ path: href, title, children }) =>
+                children ? (
+                  <span>{title}</span>
+                ) : (
+                  <BLink to={href} onClick={() => isMobile() && close()}>
+                    {title}
+                  </BLink>
+                )
+              }
+            />
+          </section>
         </aside>
       </TwoSide>
       <div className="Blog-Btn animated flip" onClick={open}>

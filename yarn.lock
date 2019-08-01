@@ -22,15 +22,20 @@
   resolved "http://r.cnpmjs.org/@saber2pr/memo/download/@saber2pr/memo-0.0.1.tgz#d9fdb9615ec1f9119aa379d2902cf09942823df5"
   integrity sha1-2f25YV7B+RGao3nSkCzwmUKCPfU=
 
+"@saber2pr/rc-tree@^0.1.4":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@saber2pr/rc-tree/-/rc-tree-0.1.4.tgz#8f810813523dca034800211ca1de74a0c618dc23"
+  integrity sha512-GyyGLF/9YUSFRREsemm8lLUwBD/vzCyKHdqqynD530eTgUSRakE9gDZ0ij0KsY1h6ShMs0eY0m3YcUwlWum77Q==
+
 "@saber2pr/redux@^0.1.1":
   version "0.1.1"
   resolved "http://r.cnpmjs.org/@saber2pr/redux/download/@saber2pr/redux-0.1.1.tgz#d6c21a2a324c53ce09d5773d345fab570a851d4a"
   integrity sha1-1sIaKjJMU84J1Xc9NF+rVwqFHUo=
 
-"@saber2pr/router@^0.1.6":
-  version "0.1.6"
-  resolved "http://r.cnpmjs.org/@saber2pr/router/download/@saber2pr/router-0.1.6.tgz#38987b5134e93ee7a8e751f5925db311dcd5e214"
-  integrity sha1-OJh7UTTpPueo51H1kl2zEdzV4hQ=
+"@saber2pr/router@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@saber2pr/router/-/router-0.1.7.tgz#eafa7e5dae50b914a3924d4b8f0ef2f62c8a6ded"
+  integrity sha512-Fz+ZZakbI520x5chKq5NG9Zomk38bFJWZ18egg9fa508Cx4hxCaVYcGNWqC125Fk8WK6q3gRRdjzKqLJrNIz3g==
   dependencies:
     "@saber2pr/memo" "0.0.1"
     "@saber2pr/schedular" "0.0.8"
