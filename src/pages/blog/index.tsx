@@ -75,7 +75,7 @@ export const Blog = ({ tree }: Blog) => {
           </footer>
         </main>
         <aside className="Blog-Aside animated bounceInDown" ref={ref}>
-          <section className="Blog-Aside-Item">
+          <section className="Blog-Aside-Content">
             <Tree
               from={tree}
               map={({ path: href, title, children }) =>
