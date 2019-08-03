@@ -1,0 +1,51 @@
+.SearchInput {
+  color: #d5d5d7;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  cursor: pointer;
+  &-Input {
+    transition: all 0.5s;
+    background-color: #343538;
+    color: #d5d5d7;
+    border: 0;
+    padding: 0.3rem;
+  }
+
+  &-Info {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+  }
+
+  &-List {
+    list-style-type: none;
+    position: fixed;
+    margin: 0;
+    margin-top: -0.5rem;
+    padding: 0;
+    background-color: #d5d5d7;
+    color: black;
+    width: 15rem;
+    border-radius: 1rem;
+
+    li {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: #343538;
+      a {
+        color: #d5d5d7;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .SearchInput {
+    &-List {
+      width: 8rem;
+    }
+  }
+}

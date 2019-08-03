@@ -9,7 +9,7 @@ import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router";
 
 import "./app.less";
 import { Home, Blog, About, Links } from "./pages";
-import { ALink } from "./components";
+import { ALink, SearchInput } from "./components";
 
 import { store } from "./store";
 import { history } from "./config";
@@ -53,6 +53,7 @@ export const App = () => {
           </HLink>
           <HLink to="/links">链接</HLink>
         </span>
+        <SearchInput blog={JBlog} />
         <a className="header-last" href="https://github.com/Saber2pr">
           GitHub
         </a>

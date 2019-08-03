@@ -10,6 +10,31 @@ const {
   templateContent
 } = require("@saber2pr/webpack-configer");
 
+const App = {
+  JHome: JSON.stringify(require("./data/home.json")),
+  JBlog: JSON.stringify(require("./data/blogs.json")),
+  JAbout: JSON.stringify(require("./data/abouts.json")),
+  JProject: JSON.stringify(require("./data/projects.json")),
+  JLinks: JSON.stringify(require("./data/links.json"))
+};
+
+let template;
+
+if (process.env.NODE_ENV === "development") {
+  template = templateContent("saber2prの窝", {
+    injectHead: `<script>var JHome=${App.JHome};var JBlog=${
+      App.JBlog
+    };var JAbout=${App.JAbout};var JProject=${App.JProject};var JLinks=${
+      App.JLinks
+    }</script>`,
+    injectBody: '<div id="root"></div>'
+  });
+} else {
+  template = templateContent("saber2prの窝", {
+    injectBody: '<div id="root"></div>'
+  });
+}
+
 module.exports = WebpackConfig({
   entry: "./src/index.tsx",
   resolve: {
@@ -54,9 +79,7 @@ module.exports = WebpackConfig({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      templateContent: templateContent("saber2prの窝", {
-        injectBody: '<div id="root"></div>'
-      })
+      templateContent: template
     }),
     extractLess
   ]
