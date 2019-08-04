@@ -1,4 +1,6 @@
 import React from "react";
+import Audio from "@saber2pr/rc-audio";
+
 import { TwoSide } from "../../components";
 import { useIsMob } from "../../hooks";
 import "./style.less";
@@ -19,22 +21,32 @@ const Foot = () => (
   </>
 );
 
+const Main = ({ about }: { about: string[] }) => {
+  return (
+    <>
+      <h1 className="About-Main-Title">saber2pr</h1>
+      <div className="About-Main-Content">
+        <ul>
+          {about.map(a => (
+            <li key={a}>
+              <p>{a}</p>
+            </li>
+          ))}
+        </ul>
+        常听纯音乐>>
+        <Audio src="https://m10.music.126.net/20190804152726/286bd6d44f5c4ea2316ced7b96111e9e/ymusic/ffe8/7891/0744/237333383312e4cca09ef6b289f59c3c.mp3" />
+      </div>
+    </>
+  );
+};
+
 export const About = ({ about, projects }: About) => {
   const isMob = useIsMob();
   return (
     <div className="About">
       <TwoSide>
         <section className="About-Main">
-          <h1 className="About-Main-Title">saber2pr</h1>
-          <div className="About-Main-Content">
-            <ul>
-              {about.map(a => (
-                <li key={a}>
-                  <p>{a}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Main about={about} />
           {isMob || <Foot />}
         </section>
         <aside className="About-Aside">

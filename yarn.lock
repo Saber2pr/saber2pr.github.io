@@ -17,6 +17,16 @@
     "@types/react-syntax-highlighter" "^10.2.1"
     react-syntax-highlighter "^11.0.2"
 
+"@saber2pr/rc-audio@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@saber2pr/rc-audio/-/rc-audio-0.0.3.tgz#f76990bf204b054f2402b13d9cf1084b6fd7dbba"
+  integrity sha512-mBe0eC27nbbLoToSNiAoCH9SzImrpihIaK8qPULxdf1DnaKP7W9dqfXRKUe98UNJaImnPh/BEqBH0VjaaTdEnw==
+  dependencies:
+    "@types/react" "^16.8.19"
+    "@types/react-dom" "^16.8.4"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
 "@saber2pr/rc-tree@^0.1.4":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@saber2pr/rc-tree/-/rc-tree-0.1.4.tgz#8f810813523dca034800211ca1de74a0c618dc23"
