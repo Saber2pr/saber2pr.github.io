@@ -51,9 +51,9 @@ const Input = ({
   const ref = useRef<HTMLInputElement>();
   return (
     <>
-      <span onClick={() => ref.current.focus()}>
+      <span className="SearchInput-Icon" onClick={() => ref.current.focus()}>
         <Icon.Sousuo />
-        <span className="SearchInput-Info">搜索</span>
+        <span className="SearchInput-Icon-Name">搜索</span>
       </span>
       <input
         className="SearchInput-Input"

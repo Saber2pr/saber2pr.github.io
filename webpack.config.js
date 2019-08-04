@@ -18,15 +18,17 @@ const App = {
   JLinks: JSON.stringify(require("./data/links.json"))
 };
 
+const script = `<script>var JHome=${App.JHome};var JBlog=${
+  App.JBlog
+};var JAbout=${App.JAbout};var JProject=${App.JProject};var JLinks=${
+  App.JLinks
+}</script>`;
+
 let template;
 
 if (process.env.NODE_ENV === "development") {
   template = templateContent("saber2prの窝", {
-    injectHead: `<script>var JHome=${App.JHome};var JBlog=${
-      App.JBlog
-    };var JAbout=${App.JAbout};var JProject=${App.JProject};var JLinks=${
-      App.JLinks
-    }</script>`,
+    injectHead: script,
     injectBody: '<div id="root"></div>'
   });
 } else {
