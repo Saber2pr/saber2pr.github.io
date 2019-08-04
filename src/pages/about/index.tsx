@@ -7,7 +7,10 @@ import "./style.less";
 
 export interface About {
   projects: Array<{ name: string; href: string; content: string }>;
-  about: string[];
+  about: {
+    contents: string[];
+    audio: string;
+  };
 }
 
 const Foot = () => (
@@ -21,32 +24,32 @@ const Foot = () => (
   </>
 );
 
-const Main = ({ about }: { about: string[] }) => {
+const Main = ({ contents, audio }: { contents: string[]; audio: string }) => {
   return (
     <>
       <h1 className="About-Main-Title">saber2pr</h1>
       <div className="About-Main-Content">
         <ul>
-          {about.map(a => (
+          {contents.map(a => (
             <li key={a}>
               <p>{a}</p>
             </li>
           ))}
         </ul>
         常听纯音乐>>
-        <Audio src="https://m10.music.126.net/20190804152726/286bd6d44f5c4ea2316ced7b96111e9e/ymusic/ffe8/7891/0744/237333383312e4cca09ef6b289f59c3c.mp3" />
+        <Audio src={audio} />
       </div>
     </>
   );
 };
 
-export const About = ({ about, projects }: About) => {
+export const About = ({ about: { contents, audio }, projects }: About) => {
   const isMob = useIsMob();
   return (
     <div className="About">
       <TwoSide>
         <section className="About-Main">
-          <Main about={about} />
+          <Main contents={contents} audio={audio} />
           {isMob || <Foot />}
         </section>
         <aside className="About-Aside">
