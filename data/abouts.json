@@ -7,5 +7,8 @@
     "现在认为机器拥有感情，愿意使用js或者c与之交流。",
     "有生之年想要去一次秋叶原。(如果有钱的话)"
   ],
-  "audio": "http://music.163.com/song/media/outer/url?id=500392829.mp3"
+  "audio": {
+    "info": "喜欢UK-Hardcore风电音>>",
+    "src": "http://music.163.com/song/media/outer/url?id=500392829.mp3"
+  }
 }

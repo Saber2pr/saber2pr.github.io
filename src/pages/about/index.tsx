@@ -5,11 +5,16 @@ import { TwoSide } from "../../components";
 import { useIsMob } from "../../hooks";
 import "./style.less";
 
+type audio = {
+  info: string;
+  src: string;
+};
+
 export interface About {
   projects: Array<{ name: string; href: string; content: string }>;
   about: {
     contents: string[];
-    audio: string;
+    audio: audio;
   };
 }
 
@@ -24,7 +29,7 @@ const Foot = () => (
   </>
 );
 
-const Main = ({ contents, audio }: { contents: string[]; audio: string }) => {
+const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
   return (
     <>
       <h1 className="About-Main-Title">saber2pr</h1>
@@ -36,8 +41,8 @@ const Main = ({ contents, audio }: { contents: string[]; audio: string }) => {
             </li>
           ))}
         </ul>
-        常听纯音乐>>
-        <Audio src={audio} />
+        {audio.info}
+        <Audio src={audio.src} />
       </div>
     </>
   );
