@@ -1,21 +1,23 @@
-import React from "react";
-import Audio from "@saber2pr/rc-audio";
+import React from "react"
+import Audio from "@saber2pr/rc-audio"
 
-import { TwoSide } from "../../components";
-import { useIsMob } from "../../hooks";
-import "./style.less";
+import { TwoSide } from "../../components"
+import { useIsMob } from "../../hooks"
+import "./style.less"
+import { store } from "../../store"
 
 type audio = {
-  info: string;
-  src: string;
-};
+  info: string
+  src: string
+  name: string
+}
 
 export interface About {
-  projects: Array<{ name: string; href: string; content: string }>;
+  projects: Array<{ name: string; href: string; content: string }>
   about: {
-    contents: string[];
-    audio: audio;
-  };
+    contents: string[]
+    audio: audio
+  }
 }
 
 const Foot = () => (
@@ -27,7 +29,7 @@ const Foot = () => (
     </p>
     <footer>Copyright © 2019 saber2pr.</footer>
   </>
-);
+)
 
 const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
   return (
@@ -42,14 +44,22 @@ const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
           ))}
         </ul>
         {audio.info}
-        <Audio src={audio.src} />
+        <Audio
+          src={audio.src}
+          autoplay={store.getState().music}
+          start={store.getState().musicCurrent}
+          onChange={(statu, audio) => {
+            store.dispatch("musicCurrent", audio.currentTime)
+            store.dispatch("music", statu === "playing")
+          }}
+        />
       </div>
     </>
-  );
-};
+  )
+}
 
 export const About = ({ about: { contents, audio }, projects }: About) => {
-  const isMob = useIsMob();
+  const isMob = useIsMob()
   return (
     <div className="About">
       <TwoSide>
@@ -71,5 +81,5 @@ export const About = ({ about: { contents, audio }, projects }: About) => {
         </aside>
       </TwoSide>
     </div>
-  );
-};
+  )
+}

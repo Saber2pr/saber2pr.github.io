@@ -1,19 +1,19 @@
-import React from "react";
-import "./style.less";
+import React from "react"
+import "./style.less"
 
 export interface Links {
   links: Array<{
-    name: string;
-    href: string;
-    message: string;
-  }>;
+    name: string
+    href: string
+    message: string
+  }>
 }
 
 export const Links = ({ links }: Links) => {
   return (
     <div className="Links">
       {links.map(({ name, href, message }) => (
-        <a key={name} className="Links-Link" href={href}>
+        <a key={name} className="Links-Link" href={href} target="_blank">
           <p>
             <strong>{name}</strong>
           </p>
@@ -21,5 +21,5 @@ export const Links = ({ links }: Links) => {
         </a>
       ))}
     </div>
-  );
-};
+  )
+}

@@ -9,6 +9,7 @@
   ],
   "audio": {
     "info": "听首音乐放松下~",
-    "src": "http://music.163.com/song/media/outer/url?id=34002702.mp3"
+    "src": "http://music.163.com/song/media/outer/url?id=34002702.mp3",
+    "name": "ラテアート幻想郷.mp3"
   }
 }

@@ -1,3 +1,7 @@
-import { createState } from "@saber2pr/redux/lib/state";
+import { createState } from "@saber2pr/redux/lib/state"
 
-export const store = createState({ href: "/home" });
+export const store = createState({
+  href: "/home",
+  music: false,
+  musicCurrent: 0
+})

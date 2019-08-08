@@ -9,6 +9,20 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@saber2pr/gen-comp@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@saber2pr/gen-comp/-/gen-comp-0.0.1.tgz#7b24f254a6e119b7dd0f303c987015e1a9d398e7"
+  integrity sha512-VuX1JQTekoPYZnaP2s86haKNN1Eym3HXG2pfA1Vs4k1qn/ZfLgC1n0GI2yBDZhYCN5441u6uvESnjhufbNNYSA==
+  dependencies:
+    "@saber2pr/node" "^0.2.4"
+
+"@saber2pr/gen-index@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@saber2pr/gen-index/-/gen-index-0.0.2.tgz#5e5629d54ffe802c69661f28f31ff2c3dd2909ad"
+  integrity sha512-wCNL1UqhAqiNnW9Qos8vfjqH5DHreyex5LmSPAY5GpNn12jzSStBlhHGuJyH4F0sJtOfEdVsXOhErsH09pOeLA==
+  dependencies:
+    "@saber2pr/node" "^0.2.1"
+
 "@saber2pr/md2jsx@^0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@saber2pr/md2jsx/-/md2jsx-0.0.3.tgz#c24266b596b3dd0e95648d3abd592bfec3add8e5"
@@ -17,10 +31,17 @@
     "@types/react-syntax-highlighter" "^10.2.1"
     react-syntax-highlighter "^11.0.2"
 
-"@saber2pr/rc-audio@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@saber2pr/rc-audio/-/rc-audio-0.0.5.tgz#a8cc64016e58590add89b65f7dd7fb9ed73333e5"
-  integrity sha512-57NLKxpQXutBh3OK8bnI6ASH5O/v1oJiIX1xd3QHRWzVPl0sE7T54OC9o/2Lhm8hY67lzDTFY9HAWP4FcYV9nA==
+"@saber2pr/node@^0.2.1", "@saber2pr/node@^0.2.4":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@saber2pr/node/-/node-0.2.6.tgz#499ef8d3135b7fcb7dfe5d45b6baf3e4c3dfbeea"
+  integrity sha512-KEGEF/T0ulwFpcpt76vm2sXjvRI1XPT2l9EPscPFBUsfD+RIpp74PHtqdaFQvdcfy9YlcGZcPo2+KfRpowyZ9Q==
+  dependencies:
+    "@types/node" "^10.12.18"
+
+"@saber2pr/rc-audio@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@saber2pr/rc-audio/-/rc-audio-0.0.9.tgz#bf97f6dfa60c6dcbb18f31612987c834c7a01d6b"
+  integrity sha512-OaI5BtlzHZY6CpTdahakOcb00keE+Sv8SdjzxHeAqfIH0Be5RKNxfTMxJ+hcO6p1bW4Bol6CeU0e4tf4BA1sIw==
   dependencies:
     "@types/react" "^16.8.19"
     "@types/react-dom" "^16.8.4"
@@ -84,6 +105,11 @@
   version "12.6.2"
   resolved "http://r.cnpmjs.org/@types/node/download/@types/node-12.6.2.tgz#a5ccec6abb6060d5f20d256fb03ed743e9774999"
   integrity sha1-pczsartgYNXyDSVvsD7XQ+l3SZk=
+
+"@types/node@^10.12.18":
+  version "10.14.15"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.15.tgz#e8f7729b631be1b02ae130ff0b61f3e018000640"
+  integrity sha512-CBR5avlLcu0YCILJiDIXeU2pTw7UK/NIxfC63m7d7CVamho1qDEzXKkOtEauQRPMy6MI8mLozth+JJkas7HY6g==
 
 "@types/prop-types@*":
   version "15.7.1"

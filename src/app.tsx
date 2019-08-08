@@ -1,45 +1,47 @@
-declare const JHome: Home;
-declare const JBlog: Blog["tree"];
-declare const JAbout: About["about"];
-declare const JProject: About["projects"];
-declare const JLinks: Links["links"];
+declare const JHome: Home
+declare const JBlog: Blog["tree"]
+declare const JAbout: About["about"]
+declare const JProject: About["projects"]
+declare const JLinks: Links["links"]
 
-import React, { useEffect } from "react";
-import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router";
+import React, { useEffect, useRef } from "react"
+import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
-import "./app.less";
-import { Home, Blog, About, Links } from "./pages";
-import { ALink, SearchInput } from "./components";
+import "./app.less"
+import { Home, Blog, About, Links } from "./pages"
+import { ALink, SearchInput, MusicLine } from "./components"
 
-import { store } from "./store";
-import { history } from "./config";
-import { getHash } from "./utils";
+import { store } from "./store"
+import { history } from "./config"
+import { getHash } from "./utils"
+import { useShowBar } from "./hooks"
 
 const HLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink {...props} act="header-a-active" uact="header-a" />
-);
+)
 
 const HNLink = (props: LinkProps) => (
   <Link {...props} onClick={() => store.dispatch("href", "")} />
-);
+)
 
 export const App = () => {
-  const [push] = usePush();
-  const hash = getHash();
+  const [push] = usePush()
+  const hash = getHash()
   useEffect(() => {
     if (hash) {
-      push(hash);
+      push(hash)
     } else {
-      push("/home");
+      push("/home")
     }
-  });
+  })
 
-  const onhashchange = () => store.dispatch("href", getHash());
+  const onhashchange = () => store.dispatch("href", getHash())
   useEffect(() => {
-    window.addEventListener("hashchange", onhashchange);
-    return () => window.removeEventListener("hashchange", onhashchange);
-  });
+    window.addEventListener("hashchange", onhashchange)
+    return () => window.removeEventListener("hashchange", onhashchange)
+  })
 
+  const show = useShowBar()
   return (
     <>
       <nav className="header">
@@ -58,6 +60,7 @@ export const App = () => {
           GitHub
         </a>
       </nav>
+      {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />}
       <main className="main">
         <Router history={history}>
           <Route path="/home" component={() => <Home {...JHome} />} />
@@ -70,5 +73,5 @@ export const App = () => {
         </Router>
       </main>
     </>
-  );
-};
+  )
+}
