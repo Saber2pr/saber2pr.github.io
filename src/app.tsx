@@ -4,7 +4,7 @@ declare const JAbout: About["about"]
 declare const JProject: About["projects"]
 declare const JLinks: Links["links"]
 
-import React, { useEffect, useRef } from "react"
+import React, { useEffect } from "react"
 import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
 import "./app.less"
