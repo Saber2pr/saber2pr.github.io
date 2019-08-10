@@ -26,6 +26,6 @@ export async function createTree(root: Node, config = root) {
     const buffer = await ReadFile(root.path);
     root.text = buffer.toString();
   }
-  root.path = root.path.replace(new RegExp(dirname(config.path), "g"), "");
+  root.path = root.path.replace(dirname(config.path), "").replace(/\\/g, '/');
   return root;
 }
