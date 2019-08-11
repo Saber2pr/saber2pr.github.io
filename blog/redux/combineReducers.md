@@ -1,10 +1,6 @@
-redux实现就是一个对State的观察者模式。
-
-> 比较容易实现此处就不写了
-
 ### combineReducers
 
-说下combineReducers
+> 这是我实现的版本。
 
 ```ts
 export interface Action<T = any> {
