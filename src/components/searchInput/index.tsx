@@ -67,7 +67,7 @@ const Input = ({
         }}
         onBlur={() => {
           onblur && onblur();
-          update(styles.close);
+          setTimeout(() => update(styles.close), 500)
         }}
         placeholder="输入关键词"
       />
