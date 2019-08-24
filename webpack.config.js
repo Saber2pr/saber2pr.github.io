@@ -1,40 +1,39 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const CleanCSSPlugin = require("less-plugin-clean-css");
-const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const CleanCSSPlugin = require("less-plugin-clean-css")
+const path = require("path")
 
-const extractLess = new ExtractTextPlugin("style.min.css");
+const extractLess = new ExtractTextPlugin("style.min.css")
 
-const {
-  WebpackConfig,
-  templateContent
-} = require("@saber2pr/webpack-configer");
+const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
+
+const transform = text => text.replace(/</g, "&lt;").replace(/>/g, "&gt;")
 
 const App = {
-  JHome: JSON.stringify(require("./data/home.json")),
-  JBlog: JSON.stringify(require("./data/blogs.json")),
-  JAbout: JSON.stringify(require("./data/abouts.json")),
-  JProject: JSON.stringify(require("./data/projects.json")),
-  JLinks: JSON.stringify(require("./data/links.json"))
-};
+  JHome: transform(JSON.stringify(require("./data/home.json"))),
+  JBlog: transform(JSON.stringify(require("./data/blogs.json"))),
+  JAbout: transform(JSON.stringify(require("./data/abouts.json"))),
+  JProject: transform(JSON.stringify(require("./data/projects.json"))),
+  JLinks: transform(JSON.stringify(require("./data/links.json")))
+}
 
 const script = `<script>var JHome=${App.JHome};var JBlog=${
   App.JBlog
 };var JAbout=${App.JAbout};var JProject=${App.JProject};var JLinks=${
   App.JLinks
-}</script>`;
+};</script>`
 
-let template;
+let template
 
 if (process.env.NODE_ENV === "development") {
   template = templateContent("saber2prの窝", {
     injectHead: script,
     injectBody: '<div id="root"></div>'
-  });
+  })
 } else {
   template = templateContent("saber2prの窝", {
     injectBody: '<div id="root"></div>'
-  });
+  })
 }
 
 module.exports = WebpackConfig({
@@ -85,4 +84,4 @@ module.exports = WebpackConfig({
     }),
     extractLess
   ]
-});
+})
