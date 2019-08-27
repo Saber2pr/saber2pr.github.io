@@ -1,4 +1,5 @@
 export * from './alink'
+export * from './loading'
 export * from './musicLine'
 export * from './searchInput'
 export * from './two-side'

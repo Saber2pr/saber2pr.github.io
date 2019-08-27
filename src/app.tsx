@@ -1,9 +1,3 @@
-declare const JHome: Home
-declare const JBlog: Blog["tree"]
-declare const JAbout: About["about"]
-declare const JProject: About["projects"]
-declare const JLinks: Links["links"]
-
 import React, { useEffect } from "react"
 import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
@@ -24,7 +18,15 @@ const HNLink = (props: LinkProps) => (
   <Link {...props} onClick={() => store.dispatch("href", "")} />
 )
 
-export const App = () => {
+export interface App {
+  JHome: Home
+  JBlog: Blog["tree"]
+  JAbout: About["about"]
+  JProject: About["projects"]
+  JLinks: Links["links"]
+}
+
+export const App = ({ JAbout, JBlog, JHome, JLinks, JProject }: App) => {
   const [push] = usePush()
   const hash = getHash()
   useEffect(() => {
@@ -75,3 +77,5 @@ export const App = () => {
     </>
   )
 }
+
+export default App

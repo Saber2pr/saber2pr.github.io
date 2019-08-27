@@ -9,19 +9,11 @@ const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
 
 const transform = text => text.replace(/</g, "&lt;").replace(/>/g, "&gt;")
 
-const App = {
-  JHome: transform(JSON.stringify(require("./data/home.json"))),
-  JBlog: transform(JSON.stringify(require("./data/blogs.json"))),
-  JAbout: transform(JSON.stringify(require("./data/abouts.json"))),
-  JProject: transform(JSON.stringify(require("./data/projects.json"))),
-  JLinks: transform(JSON.stringify(require("./data/links.json")))
-}
+const App = require("./data/config.json")
 
-const script = `<script>var JHome=${App.JHome};var JBlog=${
-  App.JBlog
-};var JAbout=${App.JAbout};var JProject=${App.JProject};var JLinks=${
-  App.JLinks
-};</script>`
+const script = `<script>var __config__=${transform(
+  JSON.stringify(App)
+)};</script>`
 
 let template
 
