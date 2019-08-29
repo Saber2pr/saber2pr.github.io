@@ -22,17 +22,8 @@ import { request } from "./request"
 
 const App = React.lazy(async () => {
   const config = await request()
-  const { JAbout, JBlog, JHome, JLinks, JProject } = config
   return {
-    default: () => (
-      <Pages
-        JAbout={JAbout}
-        JBlog={JBlog}
-        JHome={JHome}
-        JLinks={JLinks}
-        JProject={JProject}
-      />
-    )
+    default: () => <Pages {...config} />
   }
 })
 
