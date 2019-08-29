@@ -1,8 +1,16 @@
-import React from 'react';
-import './style.less';
+import React from "react"
+import "./style.less"
 
-export interface Loading {  };
+export interface Loading {}
 
 export const Loading = ({  }: Loading) => {
-  return <div className="Loading">Loading</div>;
+  return (
+    <div className="Loading">
+      <div className="Loading-Block" />
+      <div className="Loading-Block" />
+      <div className="Loading-Block" />
+      <div className="Loading-Block" />
+      <div className="Loading-Block" />
+    </div>
+  )
 }

@@ -1,3 +1,5 @@
+declare const lastDate: string
+
 import React from "react"
 import Audio from "@saber2pr/rc-audio"
 
@@ -26,6 +28,8 @@ const Foot = () => (
       <a href="https://github.com/Saber2pr/saber2pr.github.io">
         saber2pr.github.io
       </a>
+      <br />
+      Last Modified Time: {lastDate}
     </p>
     <footer>Copyright © 2019 saber2pr.</footer>
   </>

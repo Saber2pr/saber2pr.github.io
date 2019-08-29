@@ -1,4 +1,3 @@
-import Config from "../data/config.json"
 import { join } from "path"
 import { copy, WriteFile, ReadFile } from "./node"
 
@@ -15,7 +14,8 @@ const output = {
 }
 
 export async function register() {
-  const config = `var __config__=${JSON.stringify(Config)}`
+  const dt = new Date().toLocaleString()
+  const config = `var lastDate="${dt}"`
 
   await copy(template.html, output.html)
   await copy(template.css, output.css)

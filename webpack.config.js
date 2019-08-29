@@ -7,13 +7,7 @@ const extractLess = new ExtractTextPlugin("style.min.css")
 
 const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
 
-const transform = text => text.replace(/</g, "&lt;").replace(/>/g, "&gt;")
-
-const App = require("./data/config.json")
-
-const script = `<script>var __config__=${transform(
-  JSON.stringify(App)
-)};</script>`
+const script = `<script>var lastDate="${new Date().toLocaleString()}";</script>`
 
 let template
 
