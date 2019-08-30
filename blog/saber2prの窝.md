@@ -1,3 +1,5 @@
+[loading](https://saber2pr.github.io/MyWeb/resource/image/yom.webp)
+
 你说既视感？
 
 错觉！

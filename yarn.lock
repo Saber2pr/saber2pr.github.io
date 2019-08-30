@@ -23,10 +23,10 @@
   dependencies:
     "@saber2pr/node" "^0.2.1"
 
-"@saber2pr/md2jsx@^0.0.3":
-  version "0.0.3"
-  resolved "http://r.cnpmjs.org/@saber2pr/md2jsx/download/@saber2pr/md2jsx-0.0.3.tgz#c24266b596b3dd0e95648d3abd592bfec3add8e5"
-  integrity sha1-wkJmtZaz3Q6VZI06vVkr/sOt2OU=
+"@saber2pr/md2jsx@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@saber2pr/md2jsx/-/md2jsx-0.0.4.tgz#6b6442b58d77a04682db049d050fc70185a567ce"
+  integrity sha512-BJXwkXRsLdkE4zSk8hBuzpxRbJ9XsCZCSchs5iwUW/9fob7NYpMZh7C8ZfruMKyotRJhnkprSBd8xFK2T0tpQg==
   dependencies:
     "@types/react-syntax-highlighter" "^10.2.1"
     react-syntax-highlighter "^11.0.2"
