@@ -29,7 +29,7 @@ module.exports = WebpackConfig({
   },
   output: {
     filename: "bundle.min.js",
-    path: path.join(__dirname, "template")
+    path: path.join(__dirname, "build")
   },
   module: {
     rules: [

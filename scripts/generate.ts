@@ -1,7 +1,6 @@
 import { createTree } from "./createTree"
 import { join } from "path"
 import { WriteFile, Exists, MkDir, ReadFile } from "./node"
-import { register } from "./register"
 
 async function main() {
   const Dir = join(__dirname, "../build")
@@ -16,8 +15,11 @@ async function main() {
 
   config_obj.JBlog = tree
 
+  const dt = new Date().toLocaleString()
+  const config_dt = `var lastDate="${dt}"`
+  config_obj.lastDate = config_dt
+
   await WriteFile(config_path, JSON.stringify(config_obj))
-  await register()
 }
 
 main().catch(console.log)

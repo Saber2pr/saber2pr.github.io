@@ -1,1 +1,0 @@
-cp /media/saber2pr/娱乐/WorkPlace/saber2pr.github.io/build/* /media/saber2pr/娱乐/WorkPlace/git/MyWeb/build/saber2pr.github.io/build

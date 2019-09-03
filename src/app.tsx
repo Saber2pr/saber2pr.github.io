@@ -24,9 +24,17 @@ export interface App {
   JAbout: About["about"]
   JProject: About["projects"]
   JLinks: Links["links"]
+  lastDate: string
 }
 
-export const App = ({ JAbout, JBlog, JHome, JLinks, JProject }: App) => {
+export const App = ({
+  JAbout,
+  JBlog,
+  JHome,
+  JLinks,
+  JProject,
+  lastDate
+}: App) => {
   const [push] = usePush()
   const hash = getHash()
   useEffect(() => {
@@ -69,7 +77,9 @@ export const App = ({ JAbout, JBlog, JHome, JLinks, JProject }: App) => {
           <Route path="/blog" component={() => <Blog tree={JBlog} />} />
           <Route
             path="/about"
-            component={() => <About about={JAbout} projects={JProject} />}
+            component={() => (
+              <About about={JAbout} projects={JProject} lastDate={lastDate} />
+            )}
           />
           <Route path="/links" component={() => <Links links={JLinks} />} />
         </Router>

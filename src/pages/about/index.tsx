@@ -1,5 +1,3 @@
-declare const lastDate: string
-
 import React from "react"
 import Audio from "@saber2pr/rc-audio"
 
@@ -20,9 +18,10 @@ export interface About {
     contents: string[]
     audio: audio
   }
+  lastDate: string
 }
 
-const Foot = () => (
+const Foot = ({ lastDate }: { lastDate: string }) => (
   <>
     <p className="About-Main-Repo">
       <a href="https://github.com/Saber2pr/saber2pr.github.io">
@@ -62,14 +61,18 @@ const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
   )
 }
 
-export const About = ({ about: { contents, audio }, projects }: About) => {
+export const About = ({
+  about: { contents, audio },
+  projects,
+  lastDate
+}: About) => {
   const isMob = useIsMob()
   return (
     <div className="About">
       <TwoSide>
         <section className="About-Main">
           <Main contents={contents} audio={audio} />
-          {isMob || <Foot />}
+          {isMob || <Foot lastDate={lastDate} />}
         </section>
         <aside className="About-Aside">
           <h2 className="About-Aside-Title">Projects</h2>
@@ -81,7 +84,7 @@ export const About = ({ about: { contents, audio }, projects }: About) => {
               </li>
             ))}
           </ul>
-          {isMob && <Foot />}
+          {isMob && <Foot lastDate={lastDate} />}
         </aside>
       </TwoSide>
     </div>
