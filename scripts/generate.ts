@@ -15,9 +15,7 @@ async function main() {
 
   config_obj.JBlog = tree
 
-  const dt = new Date().toLocaleString()
-  const config_dt = `var lastDate="${dt}"`
-  config_obj.lastDate = config_dt
+  config_obj.lastDate = new Date().toLocaleString()
 
   await WriteFile(config_path, JSON.stringify(config_obj))
 }
