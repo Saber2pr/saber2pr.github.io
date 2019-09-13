@@ -1,11 +1,12 @@
-import { origin_dev, origin_pro, origin_src } from "../config"
+import { origin } from "../config"
 
 export const request = async () => {
+  let url: string
   if (process.env.NODE_ENV === "development") {
-    origin = origin_dev + origin_src
+    url = origin.dev + origin.src
   } else if (process.env.NODE_ENV === "production") {
-    origin = origin_pro + origin_src
+    url = origin.pro + origin.src
   }
-  const data = await fetch(origin)
+  const data = await fetch(url)
   return data.json()
 }

@@ -23,7 +23,7 @@ export interface App {
   JBlog: Blog["tree"]
   JAbout: About["about"]
   JProject: About["projects"]
-  JLinks: Links["links"]
+  JLinks: Links
   lastDate: string
 }
 
@@ -81,7 +81,7 @@ export const App = ({
               <About about={JAbout} projects={JProject} lastDate={lastDate} />
             )}
           />
-          <Route path="/links" component={() => <Links links={JLinks} />} />
+          <Route path="/links" component={() => <Links {...JLinks} />} />
         </Router>
       </main>
     </>

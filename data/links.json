@@ -1,0 +1,41 @@
+{
+  "owns": [
+    {
+      "name": "github",
+      "href": "https://github.com/Saber2pr",
+      "message": "全球最大程(jiao)序(you)员社区"
+    },
+    {
+      "name": "bilibili",
+      "href": "https://space.bilibili.com/71959910/#/",
+      "message": "动漫废宅网qwq"
+    },
+    {
+      "name": "掘金",
+      "href": "https://juejin.im/user/5d5f7e0c5188256ec01d80f4",
+      "message": "大概每周一篇Hello World(咕咕咕)"
+    },
+    {
+      "name": "知呼",
+      "href": "https://www.zhihu.com/people/hun-po-yao-meng-15/activities",
+      "message": "欢迎分享你刚编的故事("
+    },
+    {
+      "name": "网易云",
+      "href": "https://music.163.com/#/user/home?id=412481832",
+      "message": "推是谁？[doge]"
+    },
+    {
+      "name": "csdn",
+      "href": "https://blog.csdn.net/u011607490",
+      "message": "专业IT社区?"
+    }
+  ],
+  "friends": [
+    {
+      "name": "Iriasu",
+      "href": "https://tsuinosora.moe",
+      "head": "https://avatars0.githubusercontent.com/u/22517862?s=400&v=4"
+    }
+  ]
+}
