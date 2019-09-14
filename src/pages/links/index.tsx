@@ -19,7 +19,7 @@ export interface Links {
 const OwnLinks = ({ links }: { links: MessLink[] }) => (
   <dl className="Links-Own">
     <dt className="Links-Own-Title">
-      <h3>我的</h3>
+      <h1>我的</h1>
     </dt>
     <dd className="Links-Own-Content">
       {links.map(({ name, href, message }) => (
@@ -42,7 +42,7 @@ const OwnLinks = ({ links }: { links: MessLink[] }) => (
 const FriendLinks = ({ links }: { links: Link[] }) => (
   <dl className="Links-Friend">
     <dt className="Links-Friend-Title">
-      <h3>友链</h3>
+      <h1>友链</h1>
     </dt>
     <dd className="Links-Friend-Content">
       {links.map(({ name, href }) => (

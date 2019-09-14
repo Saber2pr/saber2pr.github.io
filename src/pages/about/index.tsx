@@ -37,7 +37,7 @@ const Foot = ({ lastDate }: { lastDate: string }) => (
 const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
   return (
     <>
-      <h1 className="About-Main-Title">saber2pr</h1>
+      <h1 className="About-Main-Title">魂魄妖梦al</h1>
       <div className="About-Main-Content">
         <ul>
           {contents.map(a => (

@@ -5,7 +5,16 @@ export const history = hashHistory
 export const md_theme = MD_Theme
 
 export const origin = {
-  dev: "http://localhost:8080",
-  pro: "https://saber2pr.github.io",
-  src: "/build/config.json"
+  root: null,
+  data: "/build/config.json",
+  md: "/blog",
+  repo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master"
+}
+
+if (!origin.root) {
+  if (process.env.NODE_ENV === "development") {
+    origin.root = "http://localhost:8080"
+  } else if (process.env.NODE_ENV === "production") {
+    origin.root = "https://saber2pr.github.io"
+  }
 }

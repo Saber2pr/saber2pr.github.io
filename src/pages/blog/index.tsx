@@ -1,49 +1,50 @@
-import React, { useRef, useEffect, useState } from "react";
-import { Route, Router } from "@saber2pr/router";
-import Tree from "@saber2pr/rc-tree";
+import React, { useRef, useEffect } from "react"
+import { Route, Router } from "@saber2pr/router"
+import Tree from "@saber2pr/rc-tree"
 
-import MD from "@saber2pr/md2jsx";
+import MD from "@saber2pr/md2jsx"
 
-import "./style.less";
-import { Icon } from "../../iconfont";
+import "./style.less"
+import { Icon } from "../../iconfont"
 
-import { TwoSide, ALink } from "../../components";
-import { useIsMobile } from "../../hooks";
+import { TwoSide, ALink } from "../../components"
+import { useIsMobile } from "../../hooks"
 
-import { store } from "../../store";
-import { history, md_theme } from "../../config";
-import { collect, TextTree } from "../../utils/collect";
-import { getHash } from "../../utils";
+import { store } from "../../store"
+import { history, md_theme, origin } from "../../config"
+import { collect, TextTree } from "../../utils/collect"
+import { getHash } from "../../utils"
 
 const BLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
-);
+)
 
 export interface Blog {
-  tree: TextTree;
+  tree: TextTree
 }
 
 export const Blog = ({ tree }: Blog) => {
-  const links = collect(tree);
-  const defaultLink = links.find(l => !("children" in l));
-  const ref = useRef<HTMLDivElement>();
+  const links = collect(tree)
+  const defaultLink = links.find(l => !("children" in l))
+  const ref = useRef<HTMLDivElement>()
 
-  const open = () => (ref.current.style.display = "block");
-  const close = () => (ref.current.style.display = "none");
-  const isMobile = useIsMobile(close, open);
+  const open = () => (ref.current.style.display = "block")
+  const close = () => (ref.current.style.display = "none")
+  const isMobile = useIsMobile(close, open)
 
-  const hash = getHash();
-  const onhashchange = () => store.dispatch("href", getHash());
+  const hash = getHash()
+  const onhashchange = () => store.dispatch("href", getHash())
   useEffect(() => {
-    const init = hash === "/blog" ? defaultLink.path : hash;
-    if (hash) location.hash = `#${encodeURIComponent(init)}`;
-    window.addEventListener("hashchange", onhashchange);
-    return () => window.removeEventListener("hashchange", onhashchange);
-  });
+    const init = hash === "/blog" ? defaultLink.path : hash
+    if (hash) location.hash = `#${encodeURIComponent(init)}`
+    window.addEventListener("hashchange", onhashchange)
+    return () => window.removeEventListener("hashchange", onhashchange)
+  })
 
   const Routes = links.reduce(
     (acc, { title, text, path: href }) => {
       if (text) {
+        const url = origin.repo + href
         acc.push(
           <Route
             key={href}
@@ -53,16 +54,19 @@ export const Blog = ({ tree }: Blog) => {
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
                   <MD theme={md_theme}>{text}</MD>
+                  <a className="Blog-Main-Content-Edit" href={url}>
+                    编辑本页面
+                  </a>
                 </div>
               </div>
             )}
           />
-        );
+        )
       }
-      return acc;
+      return acc
     },
     [] as JSX.Element[]
-  );
+  )
 
   return (
     <div className="Blog">
@@ -95,5 +99,5 @@ export const Blog = ({ tree }: Blog) => {
         <Icon.Mao />
       </div>
     </div>
-  );
-};
+  )
+}
