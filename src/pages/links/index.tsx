@@ -1,5 +1,6 @@
 import React from "react"
 import "./style.less"
+import { API } from "../../request"
 
 type Link = {
   name: string
@@ -10,13 +11,9 @@ type MessLink = Link & {
   message: string
 }
 
-type HeadLink = Link & {
-  head: string
-}
-
 export interface Links {
   owns: MessLink[]
-  friends: HeadLink[]
+  friends: Link[]
 }
 
 const OwnLinks = ({ links }: { links: MessLink[] }) => (
@@ -42,13 +39,13 @@ const OwnLinks = ({ links }: { links: MessLink[] }) => (
   </dl>
 )
 
-const FriendLinks = ({ links }: { links: HeadLink[] }) => (
+const FriendLinks = ({ links }: { links: Link[] }) => (
   <dl className="Links-Friend">
     <dt className="Links-Friend-Title">
       <h3>友链</h3>
     </dt>
     <dd className="Links-Friend-Content">
-      {links.map(({ name, href, head }) => (
+      {links.map(({ name, href }) => (
         <a
           className="Links-Friend-Content-Link"
           href={href}
@@ -61,7 +58,7 @@ const FriendLinks = ({ links }: { links: HeadLink[] }) => (
                 <td>
                   <img
                     className="Links-Friend-Content-Link-Head"
-                    src={head}
+                    src={API.createAvatars(name)}
                     alt={name}
                   />
                 </td>

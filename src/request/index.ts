@@ -10,3 +10,8 @@ export const request = async () => {
   const data = await fetch(url)
   return data.json()
 }
+
+export namespace API {
+  export const createAvatars = (name: string, size = 70) =>
+    `https://avatars.githubusercontent.com/${name}?size=${size}`
+}
