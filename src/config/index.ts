@@ -8,7 +8,8 @@ export const origin = {
   root: null,
   data: "/build/config.json",
   md: "/blog",
-  repo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master"
+  repo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master",
+  comments: "https://github.com/Saber2pr/saber2pr.github.io/issues/new"
 }
 
 if (!origin.root) {

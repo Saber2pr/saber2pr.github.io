@@ -1,6 +1,7 @@
 import React from "react"
 import "./style.less"
 import { API } from "../../request"
+import { origin } from "../../config"
 
 type Link = {
   name: string
@@ -19,7 +20,8 @@ export interface Links {
 const OwnLinks = ({ links }: { links: MessLink[] }) => (
   <dl className="Links-Own">
     <dt className="Links-Own-Title">
-      <h1>我的</h1>
+      <strong>我的</strong>
+      <span className="Links-Own-Title-Tip">你找我嘛！(／≧ω＼)</span>
     </dt>
     <dd className="Links-Own-Content">
       {links.map(({ name, href, message }) => (
@@ -42,7 +44,10 @@ const OwnLinks = ({ links }: { links: MessLink[] }) => (
 const FriendLinks = ({ links }: { links: Link[] }) => (
   <dl className="Links-Friend">
     <dt className="Links-Friend-Title">
-      <h1>友链</h1>
+      <strong>友链</strong>
+      <a className="Links-Friend-Title-Tip" href={origin.comments}>
+        戳这里交换友链！
+      </a>
     </dt>
     <dd className="Links-Friend-Content">
       {links.map(({ name, href }) => (

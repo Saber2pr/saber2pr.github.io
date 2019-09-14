@@ -1,13 +1,25 @@
 .Links {
   margin: 0 4.5rem;
+  overflow: hidden;
 
   a {
     color: black;
   }
 
+  .Title {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+  }
+
   &-Own {
     &-Title {
-      overflow: hidden;
+      .Title();
+
+      &-Tip {
+        color: #bfbfbf;
+        font-size: 1rem;
+        margin-left: 1rem;
+      }
     }
 
     &-Content {
@@ -18,7 +30,6 @@
       &-Link {
         display: inline-block;
         width: 25%;
-        height: 120px;
         background-color: #f0f0f0;
         margin: 1rem;
         border-radius: 8px;
@@ -38,6 +49,16 @@
   }
 
   &-Friend {
+    &-Title {
+      .Title();
+
+      &-Tip {
+        color: #bfbfbf !important;
+        font-size: 1rem;
+        margin-left: 1rem;
+      }
+    }
+
     &-Content {
       display: flex;
       flex-wrap: wrap;
@@ -86,6 +107,8 @@
     &-Own {
       &-Title {
         text-align: center;
+        display: flex;
+        flex-direction: column;
       }
 
       &-Content {
@@ -100,6 +123,8 @@
     &-Friend {
       &-Title {
         text-align: center;
+        display: flex;
+        flex-direction: column;
       }
 
       &-Content {
