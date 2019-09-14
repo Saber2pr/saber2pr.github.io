@@ -14,6 +14,9 @@ import "animate.css/source/bouncing_entrances/bounceInRight.css"
 import "animate.css/source/flippers/flipInX.css"
 import "animate.css/source/flippers/flip.css"
 
+import "./style/animation.less"
+import "./style/shadow.less"
+
 // /
 
 import Pages from "./app"

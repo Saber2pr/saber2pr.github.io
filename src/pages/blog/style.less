@@ -36,16 +36,24 @@
       border-radius: 10px;
 
       &-Edit {
-        display: inline-block;
-        text-decoration: none;
-        color: #6d6d6d;
-        transition: all 0.2s ease;
         margin-top: 3rem;
+
+        &-A {
+          text-decoration: none;
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+          border-color: #ececec;
+          color: #6d6d6d;
+          transition: all 0.2s ease;
+          margin-top: 3rem;
+        }
       }
 
-      &-Edit:hover {
-        text-decoration: underline;
-        color: black;
+      &-Edit {
+        &-A:hover {
+          color: #1a1a1a;
+          border-color: #1a1a1a;
+        }
       }
     }
 
@@ -88,7 +96,7 @@
 
     position: fixed;
     top: @lineH-PC;
-    right: 0;
+    right: -1rem;
 
     width: 30%;
     height: calc(100% - @lineH-PC);

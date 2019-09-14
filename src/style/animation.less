@@ -1,25 +1,15 @@
-@keyframes color {
+@keyframes opacityMove {
   0% {
-    color: #bd8e79;
-  }
-
-  25% {
-    color: #a3bd79;
-  }
-
-  50% {
-    color: #79bdac;
-  }
-
-  75% {
-    color: #a479bd;
+    opacity: 0;
+    transform: translateY(-10%);
   }
 
   100% {
-    color: #bd79a9;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.ani-color {
-  animation: color 10s infinite ease-in-out;
+.ani-opacityMove {
+  animation: opacityMove 0.4s ease-out;
 }

@@ -54,9 +54,11 @@ export const Blog = ({ tree }: Blog) => {
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
                   <MD theme={md_theme}>{text}</MD>
-                  <a className="Blog-Main-Content-Edit" href={url}>
-                    编辑本页面
-                  </a>
+                  <div className="Blog-Main-Content-Edit">
+                    <a className="Blog-Main-Content-Edit-A" href={url}>
+                      编辑本页面
+                    </a>
+                  </div>
                 </div>
               </div>
             )}
@@ -78,8 +80,8 @@ export const Blog = ({ tree }: Blog) => {
             <a href="https://github.com/Saber2pr/press">@saber2pr/press</a>
           </footer>
         </main>
-        <aside className="Blog-Aside animated bounceInDown" ref={ref}>
-          <section className="Blog-Aside-Content">
+        <aside className="Blog-Aside" ref={ref}>
+          <section className="Blog-Aside-Content ani-opacityMove">
             <Tree
               from={tree}
               map={({ path: href, title, children }) =>
