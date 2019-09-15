@@ -9,6 +9,7 @@ import { store } from "./store"
 import { history } from "./config"
 import { getHash } from "./utils"
 import { useShowBar } from "./hooks"
+import { API } from "./request"
 
 const HLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink {...props} act="header-a-active" uact="header-a" />
@@ -56,7 +57,8 @@ export const App = ({
     <>
       <nav className="header">
         <HNLink className="header-start" to="/home">
-          saber2pr
+          <img className="header-start-img" src={API.createAvatars("saber2pr")} alt="loading" />
+          <span className="header-start-name">saber2pr</span>
         </HNLink>
         <span className="header-links">
           <HLink to="/blog">博客</HLink>

@@ -20,21 +20,8 @@ html {
   z-index: 999;
 
   a {
-    display: inline-block;
-
     text-align: center;
     text-decoration: none;
-
-    transition: 0.4s;
-  }
-
-  a:hover {
-    color: #61dafb;
-  }
-
-  a:focus {
-    color: #ffffff;
-    background-color: #373940;
   }
 
   &-a {
@@ -44,13 +31,32 @@ html {
 
   &-a-active {
     color: #61dafb;
-    border-bottom: 2px solid #61dafb;
+    border-bottom: 3px solid #61dafb;
   }
 
   &-start {
-    color: #d5d5d7;
+    color: #61dafb;
+    font-weight: 700;
     margin-left: 70px;
-    width: 100px;
+    display: flex;
+    margin-right: 0.5rem;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+
+    &-img {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+
+    &-name {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &-start:focus {
+    color: #d5d5d7;
   }
 
   &-links {
@@ -58,7 +64,16 @@ html {
 
     display: flex;
     a {
-      width: 100px;
+      width: 4rem;
+    }
+
+    a:hover {
+      color: #61dafb;
+    }
+
+    a:focus {
+      color: #ffffff;
+      background-color: #373940;
     }
   }
 
@@ -66,6 +81,15 @@ html {
     color: #d5d5d7;
     margin-right: 70px;
     width: 100px;
+  }
+
+  &-last:hover {
+    color: #61dafb;
+  }
+
+  &-last:focus {
+    color: #ffffff;
+    background-color: #373940;
   }
 }
 
@@ -83,13 +107,26 @@ footer {
     line-height: @lineH-Mob;
 
     &-start {
-      width: 25%;
-      margin-left: 0;
+      margin-left: 0.5rem;
+
+      &-img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+      &-name {
+        display: none;
+      }
+    }
+
+    &-a-active {
+      color: #61dafb;
+      border-bottom: none;
     }
 
     &-links {
       a {
-        width: 33%;
+        width: 3rem;
       }
     }
 

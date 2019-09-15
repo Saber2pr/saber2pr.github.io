@@ -108,7 +108,7 @@
 
     &-Content {
       margin-top: 3rem;
-      margin-bottom: 5rem;
+      margin-bottom: 10rem;
       margin-left: 0.5rem;
       margin-right: 0.5rem;
       display: block;
@@ -117,9 +117,14 @@
         line-height: 2rem;
       }
 
+      .Ul-Name {
+        display: inline-block;
+        transition: all 0.3s;
+        padding: 0.2rem;
+      }
+
       .Ul-Name:hover {
-        background-color: #cfcfcf;
-        transition: background-color 0.3s;
+        outline: -webkit-focus-ring-color auto 1px;
       }
     }
   }
@@ -156,7 +161,7 @@
 
     &-Aside {
       display: none;
-      background-color: #f0f0f0;
+      background-color: white;
 
       top: @lineH-Mob;
       left: 0;
