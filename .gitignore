@@ -2,8 +2,6 @@ node_modules/
 package-lock.json
 .vscode/
 lib/
-build/bundle.*
-build/index.*
-build/style.*
+build/index.html
 template
 data/blogs.json
