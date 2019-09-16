@@ -5,6 +5,11 @@
   margin: 0 4.5rem;
   pre {
     font-size: 1rem;
+
+    code::selection,
+    span::selection {
+      background-color: #46899b;
+    }
   }
 
   &-A {
@@ -101,8 +106,6 @@
     width: 30%;
     height: calc(100% - @lineH-PC);
 
-    transition: 0.4s;
-
     z-index: 10;
     overflow-y: auto;
 
@@ -121,10 +124,17 @@
         display: inline-block;
         transition: all 0.3s;
         padding: 0.2rem;
+        user-select: none;
       }
 
       .Ul-Name:hover {
         outline: -webkit-focus-ring-color auto 1px;
+      }
+
+      .Tree-Li {
+        a {
+          user-select: none;
+        }
       }
     }
   }

@@ -21,7 +21,9 @@ const OwnLinks = ({ links }: { links: MessLink[] }) => (
   <dl className="Links-Own">
     <dt className="Links-Own-Title">
       <strong>我的</strong>
-      <span className="Links-Own-Title-Tip">你找我嘛！(／≧ω＼)</span>
+      <div className="Links-Own-Title-Tip">
+        <span>你找我嘛！(／≧ω＼)</span>
+      </div>
     </dt>
     <dd className="Links-Own-Content">
       {links.map(({ name, href, message }) => (
@@ -45,9 +47,9 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
   <dl className="Links-Friend">
     <dt className="Links-Friend-Title">
       <strong>友链</strong>
-      <a className="Links-Friend-Title-Tip" href={origin.comments}>
-        戳这里交换友链！
-      </a>
+      <div className="Links-Friend-Title-Tip">
+        <a href={origin.comments}>戳这里交换友链！</a>
+      </div>
     </dt>
     <dd className="Links-Friend-Content">
       {links.map(({ name, href }) => (

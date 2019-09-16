@@ -57,7 +57,10 @@ export const App = ({
     <>
       <nav className="header">
         <HNLink className="header-start" to="/home">
-          <img className="header-start-img" src={API.createAvatars("saber2pr")} alt="loading" />
+          <img
+            className="header-start-img"
+            src={API.createAvatars("saber2pr")}
+          />
           <span className="header-start-name">saber2pr</span>
         </HNLink>
         <span className="header-links">
