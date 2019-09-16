@@ -3,7 +3,7 @@ import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
 import "./app.less"
 import { Home, Blog, About, Links } from "./pages"
-import { ALink, SearchInput, MusicLine } from "./components"
+import { ALink, SearchInput, MusicLine, PreImg } from "./components"
 
 import { store } from "./store"
 import { history } from "./config"
@@ -57,8 +57,9 @@ export const App = ({
     <>
       <nav className="header">
         <HNLink className="header-start" to="/home">
-          <img
+          <PreImg
             className="header-start-img"
+            defaultClassName="header-start-img header-start-img-pre"
             src={API.createAvatars("saber2pr")}
           />
           <span className="header-start-name">saber2pr</span>

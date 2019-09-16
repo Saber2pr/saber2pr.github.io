@@ -2,6 +2,7 @@ import React from "react"
 import "./style.less"
 import { API } from "../../request"
 import { origin } from "../../config"
+import { PreImg } from "../../components"
 
 type Link = {
   name: string
@@ -63,10 +64,10 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
             <tbody>
               <tr>
                 <td>
-                  <img
+                  <PreImg
                     className="Links-Friend-Content-Link-Head"
+                    defaultClassName="Links-Friend-Content-Link-Head Links-Friend-Content-Link-Head-Pre"
                     src={API.createAvatars(name)}
-                    alt={name}
                   />
                 </td>
                 <td>
