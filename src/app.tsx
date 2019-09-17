@@ -78,6 +78,7 @@ export const App = ({
       </nav>
       {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />}
       <main className="main">
+        <div className="main-bg" />
         <Router history={history}>
           <Route path="/home" component={() => <Home {...JHome} />} />
           <Route path="/blog" component={() => <Blog tree={JBlog} />} />
