@@ -2,8 +2,9 @@ import React, { useState, useRef, Fragment } from "react"
 import "./style.less"
 import { Blog } from "../../pages"
 import { collect } from "../../utils"
-import { Link } from "@saber2pr/router"
+import { Link, usePush } from "@saber2pr/router"
 import { Icon } from "../../iconfont"
+import { store } from "../../store"
 
 export interface SearchInput {
   blog: Blog["tree"]
@@ -54,6 +55,7 @@ const Input = ({
   }
   const [style, update] = useState<React.CSSProperties>(styles.close)
   const ref = useRef<HTMLInputElement>()
+  const [push] = usePush()
   return (
     <>
       <span className="SearchInput-Icon" onClick={() => ref.current.focus()}>
@@ -64,7 +66,16 @@ const Input = ({
         className="SearchInput-Input"
         ref={ref}
         list="blog"
-        onInput={e => search(e.target["value"])}
+        onInput={e => {
+          const input: string = e.target["value"]
+          if (input.startsWith("secret=")) {
+            store.dispatch("context", input)
+            push("/secret", true)
+            ref.current.value = ""
+          } else {
+            search(input)
+          }
+        }}
         style={style}
         onFocus={() => {
           onfocus && onfocus()

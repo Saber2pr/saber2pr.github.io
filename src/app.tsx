@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
 import "./app.less"
-import { Home, Blog, About, Links } from "./pages"
+import { Home, Blog, About, Links, Secret } from "./pages"
 import { ALink, SearchInput, MusicLine, PreImg } from "./components"
 
 import { store } from "./store"
@@ -88,6 +88,7 @@ export const App = ({
             )}
           />
           <Route path="/links" component={() => <Links {...JLinks} />} />
+          <Route path="/secret" component={() => <Secret />} />
         </Router>
       </main>
     </>

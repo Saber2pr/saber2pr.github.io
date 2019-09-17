@@ -70,6 +70,11 @@
   resolved "http://r.cnpmjs.org/@saber2pr/schedular/download/@saber2pr/schedular-0.0.8.tgz#f395dd1c16baeb0840902860285cb15077da034e"
   integrity sha1-85XdHBa66whAkChgKFyxUHfaA04=
 
+"@saber2pr/secret@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@saber2pr/secret/-/secret-0.0.4.tgz#24971fa066dab423034d7164473e5b1037e2c339"
+  integrity sha512-257ZMLATTdFPJ8nPilB8Q8cZjFDDIsuZGYkRsRFfSBIBeEKFVuNPh0q3ylMa+deL5UrQyjv1763Z+RpWF2PEqg==
+
 "@saber2pr/webpack-configer@0.0.9":
   version "0.0.9"
   resolved "http://r.cnpmjs.org/@saber2pr/webpack-configer/download/@saber2pr/webpack-configer-0.0.9.tgz#e3e194177bb144da8fbf3528e853e11a5c1f5e9a"
