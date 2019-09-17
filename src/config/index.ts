@@ -16,6 +16,6 @@ if (!origin.root) {
   if (process.env.NODE_ENV === "development") {
     origin.root = "http://localhost:8080"
   } else if (process.env.NODE_ENV === "production") {
-    origin.root = "http://saber2pr.top"
+    origin.root = "https://saber2pr.top"
   }
 }

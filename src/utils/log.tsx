@@ -12,10 +12,11 @@ export function LogProps<T>(
   }
 }
 
-export const welcome = (lastDate: string) =>
-  console.log(
-    createASCII(
-      `from: ${origin.root}
-    ---Last Modified Time: ${lastDate}---`
-    )
-  )
+export function welcome() {
+  console.log(createASCII(`from: ${origin.root}`))
+}
+
+export namespace welcome {
+  export const time = (lastDate: string) =>
+    console.log(`---Last Modified Time: ${lastDate}---`)
+}
