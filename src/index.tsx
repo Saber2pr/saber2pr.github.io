@@ -22,7 +22,7 @@ import "./style/shadow.less"
 import Pages from "./app"
 import { Loading } from "./components"
 import { request } from "./request"
-import { welcome } from "./utils"
+import { welcome, timeout } from "./utils"
 
 const App = React.lazy(async () => {
   welcome()

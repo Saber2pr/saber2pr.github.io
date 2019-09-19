@@ -7,7 +7,7 @@ import MD from "@saber2pr/md2jsx"
 import "./style.less"
 import { Icon } from "../../iconfont"
 
-import { TwoSide, ALink } from "../../components"
+import { TwoSide, ALink, Loading } from "../../components"
 import { useIsMobile } from "../../hooks"
 
 import { store } from "../../store"
@@ -21,6 +21,20 @@ const BLink = (props: Omit<ALink, "act" | "uact">) => (
 
 export interface Blog {
   tree: TextTree
+}
+
+const LazyMD = ({ url }: { url: string }) => {
+  const Markdown = React.lazy(async () => {
+    const content = await fetch(url).then(res => res.text())
+    return {
+      default: () => <MD theme={md_theme}>{content}</MD>
+    }
+  })
+  return (
+    <React.Suspense fallback={<Loading />}>
+      <Markdown />
+    </React.Suspense>
+  )
 }
 
 export const Blog = ({ tree }: Blog) => {
@@ -42,9 +56,8 @@ export const Blog = ({ tree }: Blog) => {
   })
 
   const Routes = links.reduce(
-    (acc, { title, text, path: href }) => {
-      if (text) {
-        const url = origin.repo + href
+    (acc, { title, path: href }) => {
+      if (href) {
         acc.push(
           <Route
             key={href}
@@ -53,9 +66,12 @@ export const Blog = ({ tree }: Blog) => {
               <div className="animated fadeIn">
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
-                  <MD theme={md_theme}>{text}</MD>
+                  <LazyMD url={href} />
                   <div className="Blog-Main-Content-Edit">
-                    <a className="Blog-Main-Content-Edit-A" href={url}>
+                    <a
+                      className="Blog-Main-Content-Edit-A"
+                      href={origin.repo + href}
+                    >
                       编辑本页面
                     </a>
                   </div>
