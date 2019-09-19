@@ -25,7 +25,7 @@ const SearchGit = (value: string): Item => ({
 })
 
 const useSearch = (blog: Blog["tree"]): [Item[], Search] => {
-  const list = collect(blog).filter(l => l.title)
+  const list = collect(blog).filter(l => l.title && !l["children"])
   const [result, set] = useState<Item[]>([])
   const search = (value: string) => {
     if (value) {
