@@ -7,7 +7,7 @@ body {
 }
 
 .Home-Main {
-  background-color: #222329;
+  background-color: #121317;
 }
 
 .Blog-Aside {
@@ -80,6 +80,19 @@ body {
 .Links-Friend-Content-Link:hover {
   background-color: black;
   border: 1px solid #c0f8ff;
+}
+
+.Blog-Main-Content-Edit-A:hover {
+  color: #a0a0a0;
+  border-color: #72537a;
+}
+
+.Blog-Main-Content-Edit-A {
+  border-color: #474747;
+}
+
+.main-bg {
+  display: none;
 }
 
 @media screen and (max-width: 740px) {

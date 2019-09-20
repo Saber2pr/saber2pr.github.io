@@ -6,3 +6,5 @@ export const store = createState({
   musicCurrent: 0,
   context: ""
 })
+
+export const localStore = localStorage

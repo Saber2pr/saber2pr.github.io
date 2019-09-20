@@ -3,7 +3,7 @@ import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
 import "./app.less"
 import { Home, Blog, About, Links, Secret } from "./pages"
-import { ALink, SearchInput, MusicLine, PreImg } from "./components"
+import { ALink, SearchInput, MusicLine, PreImg, Themer } from "./components"
 
 import { store } from "./store"
 import { history } from "./config"
@@ -75,6 +75,9 @@ export const App = ({
         <a className="header-last" href="https://github.com/Saber2pr">
           GitHub
         </a>
+        <span className="header-tool">
+          <Themer />
+        </span>
       </nav>
       {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />}
       <main className="main">

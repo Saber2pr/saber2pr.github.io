@@ -26,17 +26,24 @@
     format("woff2");
 }
 
-.iconfont {
-  font-family: "iconfont" !important;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .icon-xiazai15 {
   font-size: 16px;
 }
 
 .icon-xiazai15:before {
   content: "\e60f";
+}
+
+@font-face {
+  font-family: "iconfont";
+  src: url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAR0AAsAAAAACTwAAAQoAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCfgqGEIUWATYCJAMMCwgABCAFhG0HUhvwB8iemjxtwHQZqW5oSyxMABCCJ35/fGfuzHv+1sLJDczrBDuBLGEd+ofjAnpDcu0hbNF4OPk+eIS05w3Q1JqnfLA2UWnkazTTZD6x+npverDR1tRKIJQtF159jy5NU5oeWNqkcEBCGrHb1NIwVCwaDkgCVOuXxhF7/Bd5MX8V8GzG3xP4OgSIqcUI6Hif9UUggSFtE0BWimUukPDZsBRMCI1+zFlDTkA8QncQtgccN39f3jBYQnB4ivSmSYsnYqD/fPDzIbr3HzBTAWRvfR5AuAQKDAKCgcyI9U0ibOcGASf++CL0Su80BJ7Xs0wn1WS9/YcHggPxkXQpqP0sjjmSq/JZk8OGY8m62QeKgJCBTCRTcU01QZoW5BMl3E5X5ObnRpi/5qI5pqUltqkpurExQdFEWcj7lObmqEMdHezFlhFnz4I2XPNevzPiYai6k915vr2dwWjb2xZ/rgNK01raIez9TvkIiQ51qNmREoAR9l2UITSzIn6zWJjhNQ4UMJ7cuJnD8PjD4mS9vGuVSWc3Y6MRIqCYOmZ78VljaT89hy+nplr2JWuac93SMoOoSFxwqIPVF0LFNlxme9fYRE/v5HisRYsqRwuLQoODME1dyCNIXRzqIiwu/DNPAICmQdMBSDcQEHA89uOo5utreUyKYNLitBClcSK1qfSIFaGw1WWMult+xvfSLTMnN94nk/DPZfpI8v17eNT29H9J0c0d87+06PqOxElM810RukqE90Vv4/3Fj0zDli2F/2gkaEqTGPdC19G60rje/879ngwauWq/v23E8uffBwb9+KZ/Q7/iUXjivmtSkUHL8Nkv7lP/EuJMnzfOUpM7C5946J7Q0Fb7ggP77ptWekTdBNu8X1FvouE6JHvnf0+VoJYQBKJNTIRg+FvwRSiYtw05ctd/73DMfLU1+qakv8p+ujbb/LHfuiY78laHA0kjAGTP9Anc1cSe6uW/gAICE12giMk7fQsZAG2HBSMomj018jsI97Bf4G6R5+yzr1Kyq71lquwfUK6fE48DIDFIhhQq5KG8oSR3IwghJS44AmpACelFNOog8EgYCj4hoyBmIL6XE4rIJYxYBAygjkDIZxEcuTwBJZ99olHvwaOUJ/DJF4WYGUK/M6GPLMN55iJHKELGHsSCbUmKk1JW8xnKW4PzvEqTeYWerybB3MQsWJyhhV4dB/J2ci2fJBB4tgk+9DY0DBtUnq2hQCURkdMzNRXEPaiUaZuBFOPwQDgIRATIYA8gRsDGQtLHE6nQz5+ByGwx4PBSen5Er0A8fNTZAXNMMMtBnOmsXD37sjiPHTI18iEkdpMADxsTwAcexJBzNoAqfpUGIkCUEJXIOPQwZYYJ8upK7RvM7TsBxEhfUHGiYlTO51RSOcu0fUU1VUs2PDqZT6ZLsrVYayAA")
+    format("woff2");
+}
+
+.icon-baitianmoshimingliangmoshi:before {
+  content: "\e632";
+}
+
+.icon-yejianmoshi:before {
+  content: "\e633";
 }

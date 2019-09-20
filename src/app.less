@@ -3,6 +3,10 @@ html {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+body {
+  transition: background-color 1s;
+}
+
 @lineH-PC: 3rem;
 @lineH-Mob: 2rem;
 
@@ -84,7 +88,6 @@ html {
 
   &-last {
     color: #d5d5d7;
-    margin-right: 70px;
     width: 100px;
   }
 
@@ -95,6 +98,11 @@ html {
   &-last:focus {
     color: #ffffff;
     background-color: #373940;
+  }
+
+  &-tool {
+    margin-left: 1rem;
+    margin-right: 70px;
   }
 }
 
@@ -146,6 +154,11 @@ footer {
 
     &-last {
       display: none !important;
+    }
+
+    &-tool {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
     }
   }
 
