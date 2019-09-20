@@ -1,5 +1,5 @@
 export const themeStyle = {
-  default: "",
+  light: "",
   dark: "/static/theme/dark.css"
 }
 

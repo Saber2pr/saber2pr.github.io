@@ -5,23 +5,11 @@
  * @Last Modified time: 2019-06-12 15:25:59
  */
 import React, { useState, useRef, CSSProperties } from "react"
+import { usePreComp } from "../../hooks"
 
 export interface DefaultProps {
   className?: string
   alt?: string
-}
-
-const useDefault = ({
-  className,
-  alt
-}: DefaultProps): [JSX.Element, VoidFunction] => {
-  const defaultImg = <div className={className}>{alt}</div>
-
-  const [body, alter] = useState(defaultImg)
-
-  const destory = () => alter(null)
-
-  return [body, destory]
 }
 
 export interface PreImg
@@ -29,11 +17,11 @@ export interface PreImg
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
   > {
-  defaultClassName?: string
+  fallback?: JSX.Element
 }
 
-export const PreImg = ({ defaultClassName, onLoad, alt, ...props }: PreImg) => {
-  const [defaultImg, destory] = useDefault({ className: defaultClassName, alt })
+export const PreImg = ({ fallback, onLoad, alt, ...props }: PreImg) => {
+  const [defaultImg, destory] = usePreComp(fallback)
   const ref = useRef<HTMLImageElement>()
   const [style, setStyle] = useState<CSSProperties>({ display: "none" })
   const visu = () => setStyle({ display: "inline" })

@@ -3,6 +3,7 @@ import "./style.less"
 import { API } from "../../request"
 import { origin } from "../../config"
 import { PreImg } from "../../components"
+import { Icon } from "../../iconfont"
 
 type Link = {
   name: string
@@ -66,7 +67,7 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
                 <td>
                   <PreImg
                     className="Links-Friend-Content-Link-Head"
-                    defaultClassName="Links-Friend-Content-Link-Head Links-Friend-Content-Link-Head-Pre"
+                    fallback={<Icon.Head />}
                     src={API.createAvatars(name)}
                   />
                 </td>

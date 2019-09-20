@@ -10,6 +10,7 @@ import { history } from "./config"
 import { getHash } from "./utils"
 import { useShowBar } from "./hooks"
 import { API } from "./request"
+import { Icon } from "./iconfont"
 
 const HLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink {...props} act="header-a-active" uact="header-a" />
@@ -59,7 +60,7 @@ export const App = ({
         <HNLink className="header-start" to="/home">
           <PreImg
             className="header-start-img"
-            defaultClassName="header-start-img header-start-img-pre"
+            fallback={<Icon.Head />}
             src={API.createAvatars("saber2pr")}
           />
           <span className="header-start-name">saber2pr</span>

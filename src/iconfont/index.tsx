@@ -7,4 +7,5 @@ export namespace Icon {
   export const LightTheme = () => (
     <i className="iconfont icon-baitianmoshimingliangmoshi" />
   )
+  export const Head = () => <i className="iconfont icon-icon26" />
 }

@@ -1,7 +1,7 @@
 import { ThemeStyleType, themeStyle } from "./styles"
 import { getStyleConfiger } from "./getStyleConfiger"
 
-let currentType: ThemeStyleType = "default"
+let currentType: ThemeStyleType = "light"
 
 export const getCurrentThemeType = () => currentType
 
@@ -10,3 +10,6 @@ export const selectTheme = (type: ThemeStyleType) => {
   styleConfiger.href = themeStyle[type]
   currentType = type
 }
+
+export const testStyle = (type: any): type is ThemeStyleType =>
+  (["light", "dark"] as ThemeStyleType[]).includes(type)
