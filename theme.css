@@ -1,0 +1,99 @@
+body {
+  background-color: black;
+}
+
+* {
+  color: white;
+}
+
+.Home-Main {
+  background-color: #222329;
+}
+
+.Blog-Aside {
+  background-color: black;
+}
+
+.Blog-Aside a:hover {
+  color: rgb(211, 211, 211);
+}
+
+.Blog-A-Active {
+  color: white !important;
+  border-left: 0.25rem solid #22773d;
+}
+
+.Blog-Main-Content {
+  background-color: black;
+}
+
+.Blog pre {
+  border: 1px solid #ccb6ff;
+  background-color: black !important;
+}
+
+.About-Main-Content {
+  background-color: black;
+}
+
+.About-Aside {
+  background-color: black;
+}
+
+.About-Aside-Content-Proj {
+  background-color: black;
+  border: 1px solid black;
+}
+
+.About-Aside-Content-Proj:hover {
+  background-color: black;
+  border: 1px solid pink;
+}
+
+.About a {
+  color: white;
+}
+
+.Audio .Base-Color {
+  background-color: #22773d;
+}
+
+.Audio i {
+  color: brown;
+}
+
+.Links-Own-Content-Link {
+  background-color: black;
+  border: 1px solid black;
+}
+
+.Links-Own-Content-Link:hover {
+  background-color: black;
+  border: 1px solid #c0f8ff;
+}
+
+.Links-Friend-Content-Link {
+  background-color: black;
+  border: 1px solid black;
+}
+
+.Links-Friend-Content-Link:hover {
+  background-color: black;
+  border: 1px solid #c0f8ff;
+}
+
+@media screen and (max-width: 740px) {
+  .About-Aside-Content-Proj {
+    border: 1px solid pink;
+  }
+
+  .Links-Own-Content-Link {
+    border: 1px solid black;
+    border: 1px solid #c0f8ff;
+  }
+
+  .Links-Friend-Content-Link {
+    border: 1px solid black;
+    border: 1px solid #c0f8ff;
+  }
+}
