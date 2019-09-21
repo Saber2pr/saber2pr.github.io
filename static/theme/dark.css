@@ -100,9 +100,21 @@ body {
   border: 1px solid #72537a;
 }
 
+.Comments-Form-Input:hover {
+  box-shadow: 1px 1px 10px #ccb6ff;
+}
+
+.Comments-Form-Input:focus {
+  box-shadow: 1px 1px 10px #ccb6ff;
+}
+
 .Comments-Form-Button {
   background-color: black;
   border: 1px solid #c0f8ff;
+}
+
+.Comments-Form-Button:hover {
+  box-shadow: 1px 1px 10px #c0f8ff;
 }
 
 .Comments-Text {
