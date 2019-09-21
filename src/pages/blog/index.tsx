@@ -70,7 +70,7 @@ export const Blog = ({ tree }: Blog) => {
                   <div className="Blog-Main-Content-Edit">
                     <a
                       className="Blog-Main-Content-Edit-A"
-                      href={origin.repo + href}
+                      href={origin.sourceRepo + href}
                     >
                       编辑本页面
                     </a>

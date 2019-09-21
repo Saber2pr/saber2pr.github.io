@@ -1,4 +1,6 @@
 import React from "react"
+import { Comments } from "@saber2pr/rc-gitment"
+
 import "./style.less"
 import { API } from "../../request"
 import { origin } from "../../config"
@@ -50,7 +52,7 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
     <dt className="Links-Friend-Title">
       <strong>友链</strong>
       <div className="Links-Friend-Title-Tip">
-        <a href={origin.comments}>戳这里交换友链！</a>
+        <a href={origin.issue}>戳这里交换友链！</a>
       </div>
     </dt>
     <dd className="Links-Friend-Content">
@@ -90,6 +92,8 @@ export const Links = ({ owns, friends }: Links) => (
   <div className="Links">
     <OwnLinks links={owns} />
     <FriendLinks links={friends} />
+    <hr />
+    <Comments {...origin} />
     <footer>Copyright © 2019 saber2pr.</footer>
   </div>
 )

@@ -48,6 +48,17 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
+"@saber2pr/rc-gitment@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@saber2pr/rc-gitment/-/rc-gitment-0.0.2.tgz#66dbfcb1876057533f227ceead86dfca1db74d95"
+  integrity sha512-0i/wtm5ZYLh4jSaGcZsWoQMtyqT0gOYpJzuyUQz4HHlGL/Dcbxo/6+YZW3/n7dr5lttxQCESRAPK4I/XiiFwAg==
+  dependencies:
+    "@types/react" "^16.8.19"
+    "@types/react-dom" "^16.8.4"
+    normalize.css "^8.0.1"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
 "@saber2pr/rc-tree@^0.1.4":
   version "0.1.4"
   resolved "http://r.cnpmjs.org/@saber2pr/rc-tree/download/@saber2pr/rc-tree-0.1.4.tgz#8f810813523dca034800211ca1de74a0c618dc23"

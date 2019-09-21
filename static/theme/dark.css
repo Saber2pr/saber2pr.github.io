@@ -95,6 +95,20 @@ body {
   display: none;
 }
 
+.Comments-Form-Input {
+  background-color: black;
+  border: 1px solid #72537a;
+}
+
+.Comments-Form-Button {
+  background-color: black;
+  border: 1px solid #c0f8ff;
+}
+
+.Comments-Text {
+  background-color: #262d40;
+}
+
 @media screen and (max-width: 740px) {
   .About-Aside-Content-Proj {
     border: 1px solid pink;
