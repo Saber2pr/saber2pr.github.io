@@ -51,9 +51,7 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
   <dl className="Links-Friend">
     <dt className="Links-Friend-Title">
       <strong>友链</strong>
-      <div className="Links-Friend-Title-Tip">
-        <a href={origin.issue}>戳这里交换友链！</a>
-      </div>
+      <div className="Links-Friend-Title-Tip">来和妖梦玩吧qwq！</div>
     </dt>
     <dd className="Links-Friend-Content">
       {links.map(({ name, href }) => (

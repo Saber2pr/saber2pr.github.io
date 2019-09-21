@@ -6,6 +6,10 @@ body {
   color: white;
 }
 
+*::selection {
+  background-color: #730000;
+}
+
 .Home-Main {
   background-color: #121317;
 }
