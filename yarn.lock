@@ -48,10 +48,10 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@saber2pr/rc-gitment@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@saber2pr/rc-gitment/-/rc-gitment-0.0.2.tgz#66dbfcb1876057533f227ceead86dfca1db74d95"
-  integrity sha512-0i/wtm5ZYLh4jSaGcZsWoQMtyqT0gOYpJzuyUQz4HHlGL/Dcbxo/6+YZW3/n7dr5lttxQCESRAPK4I/XiiFwAg==
+"@saber2pr/rc-gitment@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@saber2pr/rc-gitment/-/rc-gitment-0.0.3.tgz#7d3df71325253ad8f852cf8c4004e7c964756719"
+  integrity sha512-OfuW04I9L4eRxst0fEq4C0ZdTXxWEw077jxoOqkxhjKBj+tGyyXk7dxWGnlYriUPvaky3nScCqQ+pDs+/FKWZw==
   dependencies:
     "@types/react" "^16.8.19"
     "@types/react-dom" "^16.8.4"
