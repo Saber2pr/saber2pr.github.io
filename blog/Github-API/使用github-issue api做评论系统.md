@@ -11,6 +11,8 @@
 
 > 在页面的 js 脚本中，从 location.href 中解析出 code，然后利用 code 获取 access_token。
 
+如果使用了 custom domain，获取 access_token 时可能会涉及到跨域问题，可以试试 cors-anywhere 方案。
+
 ### Issue Api
 
 准备一个 repo，在 repo 中开启一个 issue。每个 issue 有一个序号，第一个 issue 序号就是 1。
