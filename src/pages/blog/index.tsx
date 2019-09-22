@@ -7,13 +7,14 @@ import MD from "@saber2pr/md2jsx"
 import "./style.less"
 import { Icon } from "../../iconfont"
 
-import { TwoSide, ALink, Loading } from "../../components"
+import { TwoSide, ALink, Loading, LazyCom } from "../../components"
 import { useIsMobile } from "../../hooks"
 
 import { store } from "../../store"
 import { history, md_theme, origin } from "../../config"
 import { collect, TextTree } from "../../utils/collect"
-import { getHash } from "../../utils"
+import { getHash, timeDeltaFromNow } from "../../utils"
+import { requestCommitDate } from "../../request"
 
 const BLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
@@ -21,20 +22,6 @@ const BLink = (props: Omit<ALink, "act" | "uact">) => (
 
 export interface Blog {
   tree: TextTree
-}
-
-const LazyMD = ({ url }: { url: string }) => {
-  const Markdown = React.lazy(async () => {
-    const content = await fetch(url).then(res => res.text())
-    return {
-      default: () => <MD theme={md_theme}>{content}</MD>
-    }
-  })
-  return (
-    <React.Suspense fallback={<Loading />}>
-      <Markdown />
-    </React.Suspense>
-  )
 }
 
 export const Blog = ({ tree }: Blog) => {
@@ -66,7 +53,12 @@ export const Blog = ({ tree }: Blog) => {
               <div className="animated fadeIn">
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
-                  <LazyMD url={href} />
+                  <LazyCom
+                    fallback={<Loading />}
+                    await={fetch(href).then(res => res.text())}
+                  >
+                    {content => <MD theme={md_theme}>{content}</MD>}
+                  </LazyCom>
                   <div className="Blog-Main-Content-Edit">
                     <a
                       className="Blog-Main-Content-Edit-A"
@@ -75,6 +67,16 @@ export const Blog = ({ tree }: Blog) => {
                       编辑本页面
                     </a>
                   </div>
+                  <LazyCom
+                    fallback={<p className="Blog-Main-Content-Date">loading</p>}
+                    await={requestCommitDate(href)}
+                  >
+                    {res => (
+                      <p className="Blog-Main-Content-Date">
+                        最近更新 {timeDeltaFromNow(res) || "[需要登录查看]"}
+                      </p>
+                    )}
+                  </LazyCom>
                 </div>
               </div>
             )}
