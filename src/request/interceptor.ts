@@ -3,6 +3,7 @@ import { origin } from "../config"
 
 export const interceptor = (res: Response) => {
   if (res.status === 401) {
+    localStorage.clear()
     location.href = AccessCode.createCodeUrl(origin.client_id)
   }
   return res
