@@ -21,15 +21,30 @@ import "./style/shadow.less"
 
 import Pages from "./app"
 import { Loading } from "./components"
-import { request } from "./request"
+import { requestConfig, createTree } from "./request"
 import { welcome } from "./utils"
+import { AccessCode, AccessToken } from "@saber2pr/rc-gitment"
+import { origin } from "./config"
 
 const App = React.lazy(async () => {
   welcome()
-  const config = await request()
+  if (AccessCode.getCode()) {
+    if (!AccessToken.checkAccess()) {
+      const accessToken = await AccessToken.getAccessToken(
+        AccessToken.createAccessTokenUrl(
+          AccessCode.getCode(),
+          origin.client_id,
+          origin.client_secret
+        )
+      )
+      AccessToken.saveAccessToken(accessToken)
+    }
+  }
+  const config = await requestConfig()
+  const tree = await createTree()
   welcome.time(config.lastDate)
   return {
-    default: () => <Pages {...config} />
+    default: () => <Pages {...config} JBlog={tree} />
   }
 })
 

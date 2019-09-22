@@ -18,17 +18,14 @@ export interface About {
     contents: string[]
     audio: audio
   }
-  lastDate: string
 }
 
-const Foot = ({ lastDate }: { lastDate: string }) => (
+const Foot = () => (
   <>
     <p className="About-Main-Repo">
       <a href="https://github.com/Saber2pr/saber2pr.github.io">
         saber2pr.github.io
       </a>
-      <br />
-      Last Modified Time: {lastDate}
     </p>
     <footer>Copyright © 2019 saber2pr.</footer>
   </>
@@ -61,18 +58,14 @@ const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
   )
 }
 
-export const About = ({
-  about: { contents, audio },
-  projects,
-  lastDate
-}: About) => {
+export const About = ({ about: { contents, audio }, projects }: About) => {
   const isMob = useIsMob()
   return (
     <div className="About">
       <TwoSide>
         <section className="About-Main">
           <Main contents={contents} audio={audio} />
-          {isMob || <Foot lastDate={lastDate} />}
+          {isMob || <Foot />}
         </section>
         <aside className="About-Aside">
           <h2 className="About-Aside-Title">Projects</h2>
@@ -84,7 +77,7 @@ export const About = ({
               </li>
             ))}
           </ul>
-          {isMob && <Foot lastDate={lastDate} />}
+          {isMob && <Foot />}
         </aside>
       </TwoSide>
     </div>

@@ -8,7 +8,7 @@ export const origin = {
   username: "saber2pr",
   repo: "saber2pr.github.io",
   root: null,
-  data: "/build/config.json",
+  data: "/config/config.json",
   md: "/blog",
   sourceRepo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master",
   issue: "https://github.com/Saber2pr/saber2pr.github.io/issues/new",
