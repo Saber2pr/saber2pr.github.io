@@ -91,7 +91,7 @@ export const Links = ({ owns, friends }: Links) => (
     <OwnLinks links={owns} />
     <FriendLinks links={friends} />
     <hr />
-    <Comments {...origin} />
+    <Comments {...origin} repo={origin.commentRepo} />
     <footer>Copyright © 2019 saber2pr.</footer>
   </div>
 )
