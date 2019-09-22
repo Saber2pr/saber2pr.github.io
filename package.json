@@ -6,6 +6,7 @@
     "start": "webpack -w",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
+    "update": "ts-node scripts/generate",
     "new:com": "genIndex src/components & genComp src/components"
   },
   "dependencies": {

@@ -22,10 +22,6 @@ npm run dev
 
 3. 响应式布局
 
-4. 使用 OAuth 鉴权
-
-5. 使用 Github API 请求 markdown 数据，无需本地编译
-
 # Dev
 
 ```bash
@@ -34,9 +30,16 @@ yarn start
 
 # 启动server, 热更新
 yarn run dev
+```
 
-# 编译项目
+# Publish
+
+```bash
+# 编译项目(release)
 yarn run build
+
+# 解析编译markdown，并更新数据
+yarn run update
 ```
 
 # License
