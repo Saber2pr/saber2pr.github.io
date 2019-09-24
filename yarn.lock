@@ -69,6 +69,11 @@
   resolved "http://r.cnpmjs.org/@saber2pr/redux/download/@saber2pr/redux-0.1.1.tgz#d6c21a2a324c53ce09d5773d345fab570a851d4a"
   integrity sha1-1sIaKjJMU84J1Xc9NF+rVwqFHUo=
 
+"@saber2pr/request@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@saber2pr/request/-/request-0.1.2.tgz#d5722c77ad7c754000ea7462e223973124ade2b2"
+  integrity sha512-lMQYjGGCPiXaRUsyzrGMOicGJIOfoBYGaYbVj+DbEMgp3qrjO3ngfpAT4zNp5FswT5irMAUepx2KEN74YipNug==
+
 "@saber2pr/router@^0.1.8":
   version "0.1.8"
   resolved "http://r.cnpmjs.org/@saber2pr/router/download/@saber2pr/router-0.1.8.tgz#b0e0411085acc2ba24133b66b9ec80ed103f8c07"

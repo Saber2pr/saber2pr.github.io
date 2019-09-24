@@ -15,6 +15,7 @@ import { history, md_theme, origin } from "../../config"
 import { collect, TextTree } from "../../utils/collect"
 import { getHash, timeDeltaFromNow } from "../../utils"
 import { requestCommitDate } from "../../request"
+import { AccessToken } from "@saber2pr/rc-gitment"
 
 const BLink = (props: Omit<ALink, "act" | "uact">) => (
   <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
@@ -71,7 +72,11 @@ export const Blog = ({ tree }: Blog) => {
                   </div>
                   <LazyCom
                     fallback={<p className="Blog-Main-Content-Date">loading</p>}
-                    await={fetchDate(href)}
+                    await={
+                      AccessToken.checkAccess()
+                        ? fetchDate(href)
+                        : Promise.resolve()
+                    }
                   >
                     {res => (
                       <p className="Blog-Main-Content-Date">
