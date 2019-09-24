@@ -27,6 +27,8 @@ export interface Blog {
 const fetchContent = (href: string) =>
   fetch(href + ".md").then(res => res.text())
 
+const fetchDate = (href: string) => requestCommitDate(href + ".md")
+
 export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)
   const defaultLink = links.find(l => !("children" in l))
@@ -69,7 +71,7 @@ export const Blog = ({ tree }: Blog) => {
                   </div>
                   <LazyCom
                     fallback={<p className="Blog-Main-Content-Date">loading</p>}
-                    await={requestCommitDate(href)}
+                    await={fetchDate(href)}
                   >
                     {res => (
                       <p className="Blog-Main-Content-Date">

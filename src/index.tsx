@@ -27,7 +27,6 @@ import { welcome } from "./utils"
 const App = React.lazy(async () => {
   welcome()
   const config = await requestConfig()
-  welcome.time(config.lastDate)
   return {
     default: () => <Pages {...config} />
   }
