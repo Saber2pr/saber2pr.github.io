@@ -4,4 +4,6 @@ export * from "./timeout"
 export * from "./log"
 export * from "./createASCII"
 export * from "./parseUrlParam"
-export * from './timeDelta'
+export * from "./timeDelta"
+export * from "./checkTime"
+export * from "./parseTree"

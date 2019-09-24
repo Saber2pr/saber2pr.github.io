@@ -24,6 +24,9 @@ export interface Blog {
   tree: TextTree
 }
 
+const fetchContent = (href: string) =>
+  fetch(href + ".md").then(res => res.text())
+
 export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)
   const defaultLink = links.find(l => !("children" in l))
@@ -53,10 +56,7 @@ export const Blog = ({ tree }: Blog) => {
               <div className="animated fadeIn">
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
-                  <LazyCom
-                    fallback={<Loading />}
-                    await={fetch(href).then(res => res.text())}
-                  >
+                  <LazyCom fallback={<Loading />} await={fetchContent(href)}>
                     {content => <MD theme={md_theme}>{content}</MD>}
                   </LazyCom>
                   <div className="Blog-Main-Content-Edit">
