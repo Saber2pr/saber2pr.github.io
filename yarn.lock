@@ -91,10 +91,10 @@
   resolved "https://registry.yarnpkg.com/@saber2pr/secret/-/secret-0.0.4.tgz#24971fa066dab423034d7164473e5b1037e2c339"
   integrity sha512-257ZMLATTdFPJ8nPilB8Q8cZjFDDIsuZGYkRsRFfSBIBeEKFVuNPh0q3ylMa+deL5UrQyjv1763Z+RpWF2PEqg==
 
-"@saber2pr/tree-lang@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@saber2pr/tree-lang/-/tree-lang-0.0.8.tgz#1ea1d7dc0ed03939e17fdbb179910bcc58bfe7de"
-  integrity sha512-85A0yYeAckw5Of0SjNyTakJF5OPkBhnHRNC/xEu07CKAn4/5eI+f2yXJZzG9vHw7GWh2Sf5Dr+UhK2E5e1PWNw==
+"@saber2pr/tree-lang@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@saber2pr/tree-lang/-/tree-lang-0.0.9.tgz#33b0b41de33900025e8bee40c462dff4df2537cc"
+  integrity sha512-OjxX9rBukOGiGAxDSIMLto3aeoBUUYHvMVWEB2U+AlcPLmBvxgnBsBsxGZAyzq2ZwHajSJ3po+8nD47dKFJQZg==
 
 "@saber2pr/webpack-configer@0.0.9":
   version "0.0.9"
