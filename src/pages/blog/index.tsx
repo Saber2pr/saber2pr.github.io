@@ -30,6 +30,8 @@ const fetchContent = (href: string) =>
 
 const fetchDate = (href: string) => requestCommitDate(href + ".md")
 
+const createOriginHref = (href: string) => origin.sourceRepo + href + ".md"
+
 export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)
   const defaultLink = links.find(l => !("children" in l))
@@ -65,7 +67,7 @@ export const Blog = ({ tree }: Blog) => {
                   <div className="Blog-Main-Content-Edit">
                     <a
                       className="Blog-Main-Content-Edit-A"
-                      href={origin.sourceRepo + href}
+                      href={createOriginHref(href)}
                     >
                       编辑本页面
                     </a>
