@@ -6,7 +6,7 @@ import { axios } from "./axios"
 export const requestConfig = async () => {
   const url = origin.root + origin.data
   const url_blog = origin.root + origin.data_blog
-
+  console.log(url_blog)
   const res = await axios.get<any>(url)
   const res_blog = await axios.get<string>(url_blog)
 
@@ -25,6 +25,8 @@ const defaultCommitDate = [
 ]
 
 export const requestCommitDate = async (path: string) => {
+  if (path.includes("&"))
+    throw TypeError(`path type error: ${path}\ninclude '&'`)
   const res = await axios.get<any>(
     `${API.createCommitsUrl(origin.username, origin.repo)}?path=${path}`
   )

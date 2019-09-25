@@ -23,7 +23,7 @@ Javascript基础
   es6
     promise原理
   es7
-    async & await原理
+    async-await原理
   fiber遍历
   vdom渲染
   事件捕获冒泡
