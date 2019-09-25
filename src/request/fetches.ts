@@ -6,10 +6,16 @@ import { axios } from "./axios"
 export const requestConfig = async () => {
   const url = origin.root + origin.data
   const url_blog = origin.root + origin.data_blog
-  console.log(url_blog)
-  const res = await axios.get<any>(url)
-  const res_blog = await axios.get<string>(url_blog)
-
+  const res = await axios.get<any>(url, {
+    params: {
+      timestamp: Date.now()
+    }
+  })
+  const res_blog = await axios.get<string>(url_blog, {
+    params: {
+      timestamp: Date.now()
+    }
+  })
   res.data.JBlog = parseTree(res_blog.data)
   return res.data
 }
