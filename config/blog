@@ -33,7 +33,7 @@ Javascript基础
   可迭代对象(iterable)
   实现URL参数parser
   封装一个ajax
-  数组克隆&数组 ES6 API实现
+  数组克隆-数组 ES6 API实现
   深拷贝
   矩形相交
   类和继承
