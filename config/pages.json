@@ -10,7 +10,7 @@
     ],
     "audio": {
       "info": "听首音乐放松下~",
-      "src": "https://music.163.com/song/media/outer/url?id=513336178.mp3",
+      "src": "https://api.i-meto.com/meting/api?server=netease&type=url&id=513336178&auth=b286d78ec26632f2b2eb43b50ab987315cf2934da5ae9ae2ab5ff1acbe10d29c",
       "name": "Blackout - (ハルトマンの妖怪少女).mp3"
     }
   },
