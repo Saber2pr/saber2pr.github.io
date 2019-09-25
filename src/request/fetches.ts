@@ -30,7 +30,8 @@ export const requestCommitDate = async (path: string) => {
   const res = await axios.get<any>(
     `${API.createCommitsUrl(origin.username, origin.repo)}?path=${path}`
   )
-  if (res.status === 200) return res.data[0].commit.committer.date
+  if (res.status === 200 && res.data.length)
+    return res.data[0].commit.committer.date
   return defaultCommitDate[0].commit.committer.date
 }
 
