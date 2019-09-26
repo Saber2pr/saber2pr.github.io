@@ -39,6 +39,7 @@ Javascript基础
   类和继承
   节流防抖
   进入视口范围检测
+  简单算法（需求）
 Node
   koa中间件机制
   promisify
