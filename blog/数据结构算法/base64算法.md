@@ -2,8 +2,6 @@ base64 是一种用 64 个字符（1 字节 = 8bit）来表示任意 8bit 位的
 base64 一共只有 2 的 6 次方 64 个字符（6bit），而实际上 1 bytes = 8bit
 将二进制数据每 6bit 位替换成一个 base64 字符
 
-> 转自https://zhuanlan.zhihu.com/p/51407418
-
 ```js
 function base64encode(text) {
   let code = ""
