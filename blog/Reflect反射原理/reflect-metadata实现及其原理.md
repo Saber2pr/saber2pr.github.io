@@ -1,7 +1,5 @@
 最近研究了一下 reflect 机理，基本算是实现了所有的 api，也通过了全部的测试用例，所以想写一篇文章记录下来。
 
-ps: 这篇文章最先发在我的知呼上：https://zhuanlan.zhihu.com/p/65239993
-
 Reflect Metadata 是 ES7 的一个提案，它主要用来在声明的时候添加和读取元数据。Typescript 使用反射需要安装一个依赖 reflect-metadata.
 
 Typescript 拥有完整的面向对象支持，依赖注入技术(DI)已经在 Angular、Nest 等框架中大规模使用了，就像这样
