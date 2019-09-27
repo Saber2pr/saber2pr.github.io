@@ -19,7 +19,7 @@ document 是 Document 类的实例
 
 ### EventTarget
 
-基类。
+> 基类。
 
 三个方法：
 
@@ -29,7 +29,7 @@ document 是 Document 类的实例
 
 ### Node
 
-扩展了 EventTarget，成为新的基类。
+> 扩展了 EventTarget，成为新的基类。
 
 常用的属性和方法：
 
@@ -47,7 +47,7 @@ document 是 Document 类的实例
 
 ### Document
 
-继承自 Node。描述了任何类型的文档的通用属性与方法。
+> 继承自 Node。描述了任何类型的文档的通用属性与方法。
 
 常用的属性和方法：
 
@@ -59,7 +59,7 @@ document 是 Document 类的实例
 
 ### Element
 
-继承自 Node。描述了所有相同种类的元素所普遍具有的方法和属性。
+> 继承自 Node。描述了所有相同种类的元素所普遍具有的方法和属性。
 
 常用的属性和方法：
 
