@@ -36,10 +36,11 @@ Javascript基础
   数组克隆-数组 ES6 API实现
   深拷贝
   矩形相交
+  简单算法（需求）
   类和继承
   节流防抖
+  返回网页顶部
   进入视口范围检测
-  简单算法（需求）
 Node
   koa中间件机制
   promisify
@@ -107,7 +108,9 @@ saber2prの窝
   base64算法
   排序算法
 浏览器API(BOM)
+  DOM对象继承体系
   MutationObserver
+  documentElement
   requestAnimationFrame
   requestIdleCallback方法
 浏览器基础
