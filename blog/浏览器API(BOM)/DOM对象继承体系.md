@@ -50,19 +50,21 @@ document 是 Document 类的实例
 继承自 Node。描述了任何类型的文档的通用属性与方法。
 
 常用的属性和方法：
-cookie
-domain
-location
-title
-URL
+
+1. cookie
+2. domain
+3. location
+4. title
+5. URL
 
 ### Element
 
 继承自 Node。描述了所有相同种类的元素所普遍具有的方法和属性。
 
 常用的属性和方法：
-className
-id
-innerHTML
-getElementsByClassName
-scroll
+
+1. className
+2. id
+3. innerHTML
+4. getElementsByClassName
+5. scroll

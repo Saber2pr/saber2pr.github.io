@@ -6,7 +6,7 @@
 
 返回 body 元素。
 
-```js
+```ts
 document.body.parentElement === document.documentElement // true
 ```
 
