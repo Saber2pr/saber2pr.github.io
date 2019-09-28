@@ -59,12 +59,16 @@ export const App = ({ JAbout, JBlog, JHome, JLinks, JProject, JActs }: App) => {
           <span className="header-start-name">saber2pr</span>
         </HNLink>
         <span className="header-links">
-          <HLink to="/activity">动态</HLink>
+          <HLink to="/activity" scrollReset>
+            动态
+          </HLink>
           <HLink to="/blog">博客</HLink>
           <HLink to="/about" scrollReset>
             关于
           </HLink>
-          <HLink to="/links">链接</HLink>
+          <HLink to="/links" scrollReset>
+            链接
+          </HLink>
         </span>
         <SearchInput blog={JBlog} />
         <a className="header-last" href="https://github.com/Saber2pr">
