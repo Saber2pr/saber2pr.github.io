@@ -8,7 +8,7 @@ document 是 Document 类的实例
 
 ### 类继承体系
 
-[loading](https://saber2pr.top/MyWeb/resource/image/dom-class.webp)
+![loading](https://saber2pr.top/MyWeb/resource/image/dom-class.webp)
 
 1. 所有类都继承自 Node。而 Node 继承自 EventTarget。(图中未画出)
 

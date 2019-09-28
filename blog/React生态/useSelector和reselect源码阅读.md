@@ -214,7 +214,7 @@ function areArgumentsShallowlyEqual(equalityCheck, prev, next) {
 
 在 react-router 库中 compilePath 的 memo 优化
 
-https://github.com/ReactTraining/react-router/blob/master/packages/react-router/modules/matchPath.js#L4
+[matchPath.js#L4](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/modules/matchPath.js#L4)
 
 ```js
 const cache = {}

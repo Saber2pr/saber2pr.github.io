@@ -7,10 +7,12 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
     "update": "ts-node scripts/generate",
-    "new:com": "genIndex src/components & genComp src/components"
+    "new:com": "genIndex src/components & genComp src/components",
+    "new:page": "genIndex src/pages & genComp src/pages",
+    "test": "ts-node src/utils/parseUpdateStr"
   },
   "dependencies": {
-    "@saber2pr/md2jsx": "^0.0.5",
+    "@saber2pr/md2jsx": "^0.0.6",
     "@saber2pr/rc-audio": "^0.0.9",
     "@saber2pr/rc-gitment": "^0.0.4",
     "@saber2pr/rc-tree": "^0.1.4",
@@ -29,6 +31,7 @@
   "devDependencies": {
     "@saber2pr/gen-comp": "^0.0.1",
     "@saber2pr/gen-index": "^0.0.2",
+    "@saber2pr/git": "^0.0.2",
     "@saber2pr/webpack-configer": "0.0.9",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
@@ -40,7 +43,7 @@
     "style-loader": "^0.23.1",
     "ts-loader": "^6.0.2",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.1",
+    "typescript": "^3.6.3",
     "url-loader": "^2.0.0",
     "webpack": "^4.33.0",
     "webpack-cli": "^3.3.3",

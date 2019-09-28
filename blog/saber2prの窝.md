@@ -1,4 +1,4 @@
-[loading](https://saber2pr.top/MyWeb/resource/image/yom.webp)
+![loading](https://saber2pr.top/MyWeb/resource/image/yom.webp)
 
 你说既视感？
 

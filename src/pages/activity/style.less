@@ -1,0 +1,43 @@
+.Activity {
+  margin: 0 4.5rem;
+  transition: 0.4s;
+  animation: fadeIn 0.5s;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+
+  a {
+    text-decoration: none;
+  }
+
+  td {
+    width: 90%;
+  }
+
+  &-Type {
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    word-break: keep-all;
+    line-height: 1.5rem;
+
+    i {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &-Time {
+    color: rgb(182, 182, 182);
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .Activity {
+    margin: 0;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+
+    &-Type {
+      padding-right: 0.5rem;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 export * from "./about"
+export * from "./activity"
 export * from "./blog"
 export * from "./home"
 export * from "./links"

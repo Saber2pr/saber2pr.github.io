@@ -15,11 +15,14 @@ export function collect(tree: TextTree, stack = [tree]) {
   }
 
   whenInDEV(() => {
+    const chars = ["&", "(", ")"]
     result.forEach(({ path }) => {
-      if (path.includes("&"))
-        setTimeout(() => {
-          throw TypeError(`path type error: ${path}\ninclude '&'`)
-        })
+      chars.forEach(ch => {
+        if (path.includes(ch))
+          setTimeout(() => {
+            throw TypeError(`path type error: ${path}\ninclude '${ch}'`)
+          })
+      })
     })
   })
 

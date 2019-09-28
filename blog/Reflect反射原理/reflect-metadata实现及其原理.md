@@ -19,9 +19,9 @@ IOC 框架会获取到 Controller 所依赖的类，并注入一个实例或类�
 ```typescript
 function Injectable(): ClassDecorator {
   return target => {
-    const metadata = Reflect.getMetadata("design:paramtypes", target);
-    console.log(metadata);
-  };
+    const metadata = Reflect.getMetadata("design:paramtypes", target)
+    console.log(metadata)
+  }
 }
 
 class Service {
@@ -46,17 +46,17 @@ var __metadata =
   (this && this.__metadata) ||
   function(k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
-      return Reflect.metadata(k, v);
-  };
+      return Reflect.metadata(k, v)
+  }
 
 var Service = /** @class */ (function() {
   function Service() {}
-  return Service;
-})();
+  return Service
+})()
 
 var Controller = /** @class */ (function() {
   function Controller(Service) {
-    this.Service = Service;
+    this.Service = Service
   }
   Controller = __decorate(
     [
@@ -65,14 +65,14 @@ var Controller = /** @class */ (function() {
       __metadata("design:paramtypes", [Service])
     ],
     Controller
-  );
-  return Controller;
-})();
+  )
+  return Controller
+})()
 
 function Injectable() {
   return function(target) {
-    Reflect.getMetadata("design:paramtypes", target);
-  };
+    Reflect.getMetadata("design:paramtypes", target)
+  }
 }
 ```
 
@@ -84,11 +84,11 @@ function Injectable() {
 
 [[Metadata]] internal slot
 
-https://github.com/rbuckton/reflect-metadata/blob/master/Reflect.ts#L685
+[Reflect.ts#L685](https://github.com/rbuckton/reflect-metadata/blob/master/Reflect.ts#L685)
 
 naive WeakMap shim
 
-https://github.com/rbuckton/reflect-metadata/blob/master/Reflect.ts#L1725
+[Reflect.ts#L1725](https://github.com/rbuckton/reflect-metadata/blob/master/Reflect.ts#L1725)
 
 下面开始实现。
 
@@ -97,7 +97,7 @@ https://github.com/rbuckton/reflect-metadata/blob/master/Reflect.ts#L1725
 首先创建一个 WeakMap，它将负责维护所有类和类实例的元数据，以及解决自动回收问题。
 
 ```typescript
-const Metadata = new WeakMap<Object, Map<PropertyKey, MetadataMap>>();
+const Metadata = new WeakMap<Object, Map<PropertyKey, MetadataMap>>()
 ```
 
 这是一个高维的 Map，对于每个 Object 也就是类或者类实例，它都关联一个 Map。这个 Map 里又关联了属性 key 和属性所对应的 Map，所以又是一个高维的 Map。所以这个 Metadata 就是一个 3 维的 Map。
@@ -111,29 +111,29 @@ export function defineMetadata(
 ) {
   // 判断target类型，因为target将作为WeakMap的键，必须是对象类型
   if (typeof target !== "object" && typeof target !== "function") {
-    throw new TypeError();
+    throw new TypeError()
   }
 
   // 如果传入propertyKey，要求类型为string或symbol
   if (propertyKey && !["string", "symbol"].includes(typeof propertyKey)) {
-    throw new TypeError();
+    throw new TypeError()
   }
 
   // 从Metadata中获取target关联的Map，若没有就创建一个新的Map
   const targetMetadata =
-    Metadata.get(target) || new Map<PropertyKey, MetadataMap>();
+    Metadata.get(target) || new Map<PropertyKey, MetadataMap>()
 
   // 将targetMetadata再保存回Metadata中
-  Metadata.set(target, targetMetadata);
+  Metadata.set(target, targetMetadata)
 
   // 从targetMetadata中获取propertyKey关联的Map，若没有就创建一个新的Map
-  const metadataMap: MetadataMap = targetMetadata.get(propertyKey) || new Map();
+  const metadataMap: MetadataMap = targetMetadata.get(propertyKey) || new Map()
 
   // 将metadataMap再保存回targetMetadata中
-  targetMetadata.set(propertyKey, metadataMap);
+  targetMetadata.set(propertyKey, metadataMap)
 
   // 设置元数据到metadataMap，键为metadataKey，值metadataValue
-  metadataMap.set(metadataKey, metadataValue);
+  metadataMap.set(metadataKey, metadataValue)
 }
 ```
 
@@ -150,19 +150,19 @@ export function getOwnMetadataMap(
 ) {
   // 判断target类型，因为target将作为WeakMap的键，必须是对象类型
   if (typeof target !== "object" && typeof target !== "function") {
-    throw new TypeError();
+    throw new TypeError()
   }
 
   // 从Metadata中获取target关联的Map，如果没有就返回undefined
-  const targetMetadata = Metadata.get(target);
-  if (!targetMetadata) return;
+  const targetMetadata = Metadata.get(target)
+  if (!targetMetadata) return
 
   // 从targetMetadata中获取propertyKey关联的Map，如果没有就返回undefined
-  const metadataMap = targetMetadata.get(propertyKey);
-  if (!metadataMap) return;
+  const metadataMap = targetMetadata.get(propertyKey)
+  if (!metadataMap) return
 
   // 返回metadataMap
-  return metadataMap;
+  return metadataMap
 }
 ```
 
@@ -177,19 +177,19 @@ export function getMetadataMap(
 ) {
   // 如果自身有了propertyKey对应的map
   if (Boolean(getOwnMetadataMap(target, propertyKey))) {
-    return getOwnMetadataMap(target, propertyKey);
+    return getOwnMetadataMap(target, propertyKey)
   }
 
   // 去原型上找propertyKey对应的map，如果没有就返回undefined
-  const targetMetadata = Metadata.get(Object.getPrototypeOf(target));
-  if (!targetMetadata) return;
+  const targetMetadata = Metadata.get(Object.getPrototypeOf(target))
+  if (!targetMetadata) return
 
   // 从targetMetadata中获取propertyKey关联的Map，如果没有就返回undefined
-  const metadataMap = targetMetadata.get(propertyKey);
-  if (!metadataMap) return;
+  const metadataMap = targetMetadata.get(propertyKey)
+  if (!metadataMap) return
 
   // 返回metadataMap
-  return metadataMap;
+  return metadataMap
 }
 ```
 
@@ -204,11 +204,11 @@ export function getMetadata<T>(
   propertyKey?: PropertyKey
 ): T {
   // 根据propertyKey获取target的metadataMap，如果没有就返回undefined
-  const metadataMap = getMetadataMap(target, propertyKey);
-  if (!metadataMap) return;
+  const metadataMap = getMetadataMap(target, propertyKey)
+  if (!metadataMap) return
 
   // 返回metadataKey对应的metadataValue
-  return metadataMap.get(metadataKey);
+  return metadataMap.get(metadataKey)
 }
 ```
 
@@ -230,11 +230,11 @@ export function getOwnMetadataKeys(
   propertyKey?: PropertyKey
 ): MetadataKey[] {
   // 获取target身上与propertyKey关联的metadataMap，若没有返回空数组
-  const metadataMap = getOwnMetadataMap(target, propertyKey);
-  if (!metadataMap) return [];
+  const metadataMap = getOwnMetadataMap(target, propertyKey)
+  if (!metadataMap) return []
 
   // metadataMap转为数组并返回
-  return Array.from(metadataMap.keys());
+  return Array.from(metadataMap.keys())
 }
 ```
 
@@ -248,16 +248,16 @@ export function getMetadataKeys(
   propertyKey?: PropertyKey
 ): MetadataKey[] {
   // 获取target自身与propertyKey关联的metadataKeys
-  const ownKeys = getOwnMetadataKeys(target, propertyKey);
+  const ownKeys = getOwnMetadataKeys(target, propertyKey)
 
   // 获取target原型与propertyKey关联的metadataKeys
   const protoKeys = getOwnMetadataKeys(
     Object.getPrototypeOf(target),
     propertyKey
-  );
+  )
 
   // 返回结果
-  return [...ownKeys, ...protoKeys];
+  return [...ownKeys, ...protoKeys]
 }
 ```
 
@@ -273,8 +273,8 @@ export function hasMetadata(
   target: Object,
   propertyKey?: PropertyKey
 ) {
-  const metadataKeys = getMetadataKeys(target, propertyKey);
-  return metadataKeys.includes(metadataKey);
+  const metadataKeys = getMetadataKeys(target, propertyKey)
+  return metadataKeys.includes(metadataKey)
 }
 ```
 
@@ -290,10 +290,10 @@ export function deleteMetadata(
   target: Object,
   propertyKey?: PropertyKey
 ) {
-  const metadataMap = getOwnMetadataMap(target, propertyKey);
-  if (!metadataMap) return false;
+  const metadataMap = getOwnMetadataMap(target, propertyKey)
+  if (!metadataMap) return false
 
-  return metadataMap.delete(metadataKey);
+  return metadataMap.delete(metadataKey)
 }
 ```
 
@@ -305,31 +305,31 @@ export function deleteMetadata(
 // reflect-decorate.test.ts
 
 it("DecoratorCorrectTargetInPipelineForFunctionOverload", () => {
-  let sent: Function[] = [];
-  let A = function A(): void {};
-  let B = function B(): void {};
+  let sent: Function[] = []
+  let A = function A(): void {}
+  let B = function B(): void {}
   let decorators = [
     (target: Function): any => {
-      sent.push(target);
-      return undefined;
+      sent.push(target)
+      return undefined
     },
     (target: Function): any => {
-      sent.push(target);
-      return undefined;
+      sent.push(target)
+      return undefined
     },
     (target: Function): any => {
-      sent.push(target);
-      return A;
+      sent.push(target)
+      return A
     },
     (target: Function): any => {
-      sent.push(target);
-      return B;
+      sent.push(target)
+      return B
     }
-  ];
-  let target = function(): void {};
-  Reflect.decorate(decorators, target);
-  expect(sent).toEqual([target, B, A, A]);
-});
+  ]
+  let target = function(): void {}
+  Reflect.decorate(decorators, target)
+  expect(sent).toEqual([target, B, A, A])
+})
 ```
 
 测试中给出的 decorators 是 4 个箭头函数的数组，把 target 参数 push 到 sent 里，然后返回一个结果
@@ -353,14 +353,14 @@ export function decorate(
 ): PropertyDescriptor {
   // 如果decorators是空数组则抛出TypeError
   if (0 === decorators.length) {
-    throw new TypeError();
+    throw new TypeError()
   }
 
   // target作为initialValue，遍历decorators，将上一个decorator的结果作为target传给下一个decorator
   return decorators.reduceRight(
     (target, decorator) => decorator(target, propertyKey, attributes) || target,
     <any>target
-  );
+  )
 }
 ```
 
@@ -369,8 +369,8 @@ export function decorate(
 为了避免类型冲突，首先需要给原生 Reflect 的 type 起个别名，就叫 IReflect 吧
 
 ```typescript
-export type IReflect = typeof Reflect;
-export const reflect = Reflect;
+export type IReflect = typeof Reflect
+export const reflect = Reflect
 ```
 
 然后混入 Reflector
@@ -379,19 +379,15 @@ export const reflect = Reflect;
 export const Reflect: typeof Reflector & IReflect = Object.assign(
   reflect,
   Reflector
-);
+)
 ```
 
 因为原生 Reflect 对象的属性不可枚举，所以只能往原生 reflect 合并
 
-ps: 之前我写的 IOC 框架依赖的 reflect-metadata 也换成了现在实现的这个版本，demo 也能跑起来，感觉还不错。
+### Github
 
-Saber2pr/saber-ioc
+[@saber2pr/reflect](https://github.com/Saber2pr/-saber2pr-reflect)
 
-https://github.com/Saber2pr/saber-ioc
+> ps: 之前我写的 IOC 框架依赖的 reflect-metadata 也换成了现在实现的这个版本，demo 也能跑起来，感觉还不错。
 
-Github
-
-@saber2pr/reflect
-
-https://github.com/Saber2pr/-saber2pr-reflect
+[@saber2pr/ioc](https://github.com/Saber2pr/saber-ioc)

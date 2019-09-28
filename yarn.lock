@@ -23,10 +23,17 @@
   dependencies:
     "@saber2pr/node" "^0.2.1"
 
-"@saber2pr/md2jsx@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@saber2pr/md2jsx/-/md2jsx-0.0.5.tgz#7ae853beeaf2c1d8b898d963a643b9aa3fb772af"
-  integrity sha512-NeIcCHLlxjTvTtv88ep6iokjcMAho5jjsyKFJa0OvgTLhOPIjOI8YZHPi8DQpQr2OEnISci4hGAEt1XTM3I9+w==
+"@saber2pr/git@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@saber2pr/git/-/git-0.0.2.tgz#338d3943c4ce3ca9feaf81a5b4d576beae02a6e5"
+  integrity sha512-v9t3hYUyisPVq7lMSifKUYIiAq2CNmaskr7NIFBhiK19YWPwujONdZKLlM7MtklZt/XdAPobwS5H7r7G58cJHA==
+  dependencies:
+    "@saber2pr/node" "^0.3.0"
+
+"@saber2pr/md2jsx@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@saber2pr/md2jsx/-/md2jsx-0.0.6.tgz#c52a9bab0e1df539fd099c2a5f6ce47890ccc329"
+  integrity sha512-PGJB1yGKZ7GeFaVFCw7scKuC77lPA2Wk95h/imQGBsmOuflkoN8uzvp444866Tu1cB9zNM6OlSZUBPkHwtfYIQ==
   dependencies:
     "@types/react-syntax-highlighter" "^10.2.1"
     react-syntax-highlighter "^11.0.2"
@@ -35,6 +42,13 @@
   version "0.2.6"
   resolved "http://r.cnpmjs.org/@saber2pr/node/download/@saber2pr/node-0.2.6.tgz#499ef8d3135b7fcb7dfe5d45b6baf3e4c3dfbeea"
   integrity sha1-SZ740xNbf8t9/l1Ftrrz5MPfvuo=
+  dependencies:
+    "@types/node" "^10.12.18"
+
+"@saber2pr/node@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@saber2pr/node/-/node-0.3.0.tgz#bda136ac535b96d2a475af9addb76328c486ab74"
+  integrity sha512-EV0/B9JHmKp+LP9lXccpHyIcnB3lweMoYIkGJG2Sp88wKuM3Lp2zyG6L6yIm5qJZOTY2jnhMBY3XU5s6LtGjXA==
   dependencies:
     "@types/node" "^10.12.18"
 
@@ -4787,10 +4801,10 @@ typedarray@^0.0.6:
   resolved "http://r.cnpmjs.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.5.1:
-  version "3.5.3"
-  resolved "http://r.cnpmjs.org/typescript/download/typescript-3.5.3.tgz#c830f657f93f1ea846819e929092f5fe5983e977"
-  integrity sha1-yDD2V/k/HqhGgZ6SkJL1/lmD6Xc=
+typescript@^3.6.3:
+  version "3.6.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.6.3.tgz#fea942fabb20f7e1ca7164ff626f1a9f3f70b4da"
+  integrity sha512-N7bceJL1CtRQ2RiG0AQME13ksR7DiuQh/QehubYcghzv20tnh+MQnQIuJddTmsbqYj+dztchykemz0zFzlvdQw==
 
 uglify-js@3.4.x:
   version "3.4.10"

@@ -10,6 +10,7 @@ export const origin = {
   root: null,
   data: "/config/pages.json",
   data_blog: "/config/blog",
+  data_blog_update: "/config/blog_update",
   md: "/blog",
   sourceRepo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master",
   issue: "https://github.com/Saber2pr/saber2pr.github.io/issues/new",

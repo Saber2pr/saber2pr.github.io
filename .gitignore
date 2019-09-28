@@ -5,3 +5,4 @@ lib/
 build/index.html
 template
 data/blogs.json
+__blog__

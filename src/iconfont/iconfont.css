@@ -62,3 +62,29 @@
 .icon-icon26:before {
   content: "\e630";
 }
+
+@font-face {
+  font-family: "iconfont";
+  src: url("data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAATcAAsAAAAACXQAAASOAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqGFIUvATYCJAMUCwwABCAFhG0HSBs7CBFVnGXJfhS4e8IgvPLLhhfiUjEEy9YXf3fEf9323X26aSaQAE8gwAiyCCJMLaA8I+qsHkWzBqKDmWTXk6xxooMz63+vbE01YxOkAOIFczzmWfyH3t7yyfoMthkuQgWwBaywP9wv9dL/geW7SpeMxqgNcIKzWUXqQDeQ4UB8CuLZDDwm8HQCGHBDCIicvBIxBKChrBdAFi+YNwOCkB10DiEQmHgpu9Ig2sFAQDaTDwG3/fP5gyhCADQwFJRNj7m5s5HxzeH7PkppVJpsoqBozwtuL+iACSggK1P9Jyg3P0FB9MnSyAC+WQFIkG0tRH3nvu8zGoF6RkaR6odq5R+PBMKDol+A362FlVPoHAp4KR3bwMEqMOxDQQPs164MwAr4yEwoxo3Wd7WS52Fi4iDyMRALKytBoXCdXS9nI5Yy7FXaSsTdDLY9anuZ5PAHVHZSWZ9KpteItTUSXYvMUCvXaqT6WkfTEnzCmnWX9XlarVipk2DkWSx75oU7YTAQKv1kEddrR7Do7p60ExgE24h3v0jUtHcfy4b/RNVr91gvNRhkOp1Eq92k/SrWfZMYfsj039fr05zTZo9GOpDsvL7R0zPSs32ERAl+CbUhvfKpdp5I5ZRQzWkTsp4Y8vklBjaKu3tYVt1nV02zQl+2z57t6bERd3Mre/b1n+T2LlA6HQcXWPY79o+MKtkmJy+nJjsz0uzYbBmQxiWqth+E5tGRSzht7ujSKDo1mk6FpqtTrehSq7sUZ78p1pdoyAZFCaLYUKJZ714G77QPV4R9rKeOHiPrpJUtBUGXeVYVmgov3mX2cypapOlhK252a4QXhfHn4oUP3fmOtvKkV1XmXq5e5r/MolyjzKpfJctFY7Uf81chn5zPcfMNDclKsDjy81bBg1K+oj08aKJ5BSnUfofpjjMX6f//aWgu0lKo6cWjLwkJe/fsc852Hrx61fpy+yoq/zVsgNH+IP3tG33QxDSfYlmy9dLFVipzTfgf6562hILeAisLi9qzu+rIqKkuQxs9V3o9Hac+3rMes464emfZXes45iMdZ730rrdAX/dnyYv4GJHnfcmJ78xi3HLcst2i70nMo92j3WLcYzAfwH+VUruVwP+YSqai5OJP6jvl8Jj9Dp6GWK9p5vCUfwFLAwBenVp/tmPGe6knf1YMKK14qBQlp+ivSnEwJffqcjnBKPPI6MlPWQQwImzltx2jbelmgCBg6wOJzxUoAj5oGh8CDFYM8Aikg0iwdG+WNTZGlBBAkA8BgoUvIJm5AhQL32ga/wMMO3/AY5ExiEhjfUiWX4pVNqMStKBvUBhqneaSldO6w8zXioMqm3hC7osUxEEULaXYIrexRX/OEhEHjqmBLTkb1jVBx1SikSAX6TZh6NJeKDDUDFayMaQIZAHtBhQM0nLm3GIV+/4dlPFqCuf0/YifINYr5g9igagEOtW3pfqO5S69s0xCCAc4jDTAlnhRreYJ6NJXKiFDBPIa2c5GSM3myuqD/o3NMVa80QOVqzEhCYqgCYbggX/lqjW5H0VGU6sy8pFar65FOxgAAAA=")
+    format("woff2");
+}
+
+.icon-delete:before {
+  content: "\e68a";
+  color: red;
+}
+
+.icon-idea:before {
+  content: "\e6a9";
+  color: yellow;
+}
+
+.icon-create:before {
+  content: "\e603";
+  color: green;
+}
+
+.icon-update:before {
+  content: "\e518";
+  color: blue;
+}
