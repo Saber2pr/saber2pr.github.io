@@ -44,7 +44,7 @@ module.exports = WebpackConfig({
         })
       },
       {
-        test: /\.(woff|svg|eot|ttf)$/,
+        test: /\.(woff|svg|eot|ttf|png)$/,
         use: ["url-loader"]
       }
     ]

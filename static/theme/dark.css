@@ -4,6 +4,12 @@ body {
 
 * {
   color: white;
+  cursor: url(/static/image/cursor.png), auto;
+}
+
+.Activity a:hover {
+  border-bottom: 1px solid#730000;
+  padding-bottom: 2px;
 }
 
 *::selection {
