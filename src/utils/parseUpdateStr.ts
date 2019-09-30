@@ -7,10 +7,13 @@
 import { lift } from "./util"
 
 export const parseUpdateStr = (updateStr: string) =>
-  updateStr.split("\n").map(update =>
-    lift(update.split("&"), ([type, text, date]) => ({
-      type,
-      text,
-      date
-    }))
-  )
+  updateStr
+    .split("\n")
+    .filter(l => l)
+    .map(update =>
+      lift(update.split("&"), ([type, text, date]) => ({
+        type,
+        text,
+        date
+      }))
+    )
