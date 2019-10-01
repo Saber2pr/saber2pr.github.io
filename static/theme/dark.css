@@ -4,12 +4,15 @@ body {
 
 * {
   color: white;
-  cursor: url(/static/image/cursor.png), auto;
+}
+
+.MusicLine {
+  background: #0000007d;
+  border-bottom: 1px solid white;
 }
 
 .Activity a:hover {
-  border-bottom: 1px solid#730000;
-  padding-bottom: 2px;
+  border: 1px solid#730000;
 }
 
 *::selection {
@@ -38,6 +41,11 @@ body {
 }
 
 .Blog pre {
+  border: 1px solid #ccb6ff;
+  background-color: black !important;
+}
+
+.Activity pre {
   border: 1px solid #ccb6ff;
   background-color: black !important;
 }
