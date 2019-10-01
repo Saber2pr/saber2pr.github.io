@@ -77,6 +77,7 @@
 .icon-idea:before {
   content: "\e6a9";
   color: yellow;
+  font-size: 1.3rem;
 }
 
 .icon-create:before {

@@ -9,7 +9,7 @@
     "update": "ts-node scripts/generate",
     "new:com": "genIndex src/components & genComp src/components",
     "new:page": "genIndex src/pages & genComp src/pages",
-    "test": "ts-node src/utils/parseUpdateStr"
+    "add:idea": "ts-node scripts/addIdea"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.0.6",
@@ -32,6 +32,7 @@
     "@saber2pr/gen-comp": "^0.0.1",
     "@saber2pr/gen-index": "^0.0.2",
     "@saber2pr/git": "^0.0.2",
+    "@saber2pr/node": "^0.3.0",
     "@saber2pr/webpack-configer": "0.0.9",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
