@@ -6,6 +6,15 @@
   padding-top: 2rem;
   padding-bottom: 5rem;
 
+  pre {
+    font-size: 1rem;
+
+    code::selection,
+    span::selection {
+      background-color: #46899b;
+    }
+  }
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -26,13 +35,6 @@
 
   &-Content {
     width: 43rem;
-
-    .Ul-Name {
-      display: inline-block;
-      transition: all 0.3s;
-      padding: 0.2rem;
-      user-select: none;
-    }
   }
 
   &-Type {
