@@ -25,7 +25,7 @@ export const collectUpdates = async (root = "./blog") => {
 }
 
 export const stringifyUpdates = (updates: Update[]): string =>
-  updates.map(({ type, path, date }) => `${type}&${path}&${date}`).join("\n")
+  updates.map(({ type, path, date }) => `${type}&${path}&${date}`).join(";")
 
 export const addUpdateStringToFile = async (
   path: string,
@@ -33,9 +33,9 @@ export const addUpdateStringToFile = async (
 ) => {
   if (!(await Exists(path))) await WriteFile(path, "")
   const text = await ReadFile(path).then(b => b.toString())
-  const subUpdateStr = [...updateStr.split("\n"), ...text.split("\n")]
+  const subUpdateStr = [...updateStr.split(";"), ...text.split(";")]
     .slice(0, 50)
     .filter(u => u)
-    .join("\n")
+    .join(";")
   await WriteFile(path, subUpdateStr)
 }

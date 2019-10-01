@@ -8,11 +8,11 @@ import { lift } from "./util"
 
 export const parseUpdateStr = (updateStr: string) =>
   updateStr
-    .split("\n")
+    .split(";")
     .filter(l => l)
     .map(update =>
       lift(update.split("&"), ([type, text, date]) => ({
-        type,
+        type: type.replace("\n", ""),
         text,
         date
       }))

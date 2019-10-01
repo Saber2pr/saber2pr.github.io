@@ -1,29 +1,44 @@
-想法&国庆愉快！qwq&2019-10-1 10:05:01
-create&/HTML超文本标记语言/列表.md&2019-9-30 19:09:11
-create&/Reflect反射原理/依赖注入（IOC）实现.md&2019-9-28 13:43:36
-create&/Javascript基础/可迭代对象（iterable）.md&2019-9-28 13:43:36
-create&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架（上）.md&2019-9-28 13:43:36
-create&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架（下）.md&2019-9-28 13:43:36
-delete&/Javascript基础/可迭代对象(iterable).md&2019-9-28 13:43:36
-delete&/Reflect反射原理/依赖注入(IOC)实现.md&2019-9-28 13:43:36
-delete&/Reflect反射原理/实现基于IOC的HttpServer/上篇.md&2019-9-28 13:43:36
-delete&/Reflect反射原理/实现基于IOC的HttpServer/下篇.md&2019-9-28 13:43:36
-create&/Reflect反射原理/实现基于IOC的HttpServer/下篇.md&2019-9-28 13:41:17
-create&/Reflect反射原理/实现基于IOC的HttpServer/上篇.md&2019-9-28 13:41:17
-delete&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架(上).md&2019-9-28 13:41:17
-delete&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架(下).md&2019-9-28 13:41:17
-create&/浏览器API/DOM对象继承体系.md&2019-9-28 13:39:38
-create&/浏览器API/documentElement.md&2019-9-28 13:39:38
-create&/浏览器API/MutationObserver.md&2019-9-28 13:39:38
-create&/浏览器API/requestIdleCallback方法.md&2019-9-28 13:39:38
-create&/浏览器API/requestAnimationFrame.md&2019-9-28 13:39:38
-delete&/浏览器API(BOM)/DOM对象继承体系.md&2019-9-28 13:39:38
-delete&/浏览器API(BOM)/MutationObserver.md&2019-9-28 13:39:38
-delete&/浏览器API(BOM)/documentElement.md&2019-9-28 13:39:38
-delete&/浏览器API(BOM)/requestAnimationFrame.md&2019-9-28 13:39:38
-delete&/浏览器API(BOM)/requestIdleCallback方法.md&2019-9-28 13:39:38
-update&/saber2prの窝.md&2019-9-28 12:28:41
-update&/浏览器基础/页面渲染原理.md&2019-9-28 12:28:41
-update&/React生态/React生态源码阅读.md&2019-9-28 12:28:41
-update&/浏览器API(BOM)/DOM对象继承体系.md&2019-9-28 12:28:41
+update&/HTML超文本标记语言/列表.md&2019-10-1 10:55:42;想法&想做一个基于Stack的Router
+> 类似微信小程序的history那样..
+```js
+// 伪代码
+const Router = ({ children }) => {
+  const [stack, setState] = useState(children)
+  const push = route => setState([...stack, route])
+  const pop = () => setState([...stack.slice(0, stack.length - 1)])
+  const replace = route => 
+    setState([...stack.slice(0, stack.length - 1), route])
+  return renderStack(children)
+}
+```
+路由覆盖到上层，应该需要绝对定位...
+&2019-10-1 10:48:00;
+想法&国庆愉快！qwq&2019-10-1 10:05:01;
+create&/HTML超文本标记语言/列表.md&2019-9-30 19:09:11;
+create&/Reflect反射原理/依赖注入（IOC）实现.md&2019-9-28 13:43:36;
+create&/Javascript基础/可迭代对象（iterable）.md&2019-9-28 13:43:36;
+create&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架（上）.md&2019-9-28 13:43:36;
+create&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架（下）.md&2019-9-28 13:43:36;
+delete&/Javascript基础/可迭代对象(iterable).md&2019-9-28 13:43:36;
+delete&/Reflect反射原理/依赖注入(IOC)实现.md&2019-9-28 13:43:36;
+delete&/Reflect反射原理/实现基于IOC的HttpServer/上篇.md&2019-9-28 13:43:36;
+delete&/Reflect反射原理/实现基于IOC的HttpServer/下篇.md&2019-9-28 13:43:36;
+create&/Reflect反射原理/实现基于IOC的HttpServer/下篇.md&2019-9-28 13:41:17;
+create&/Reflect反射原理/实现基于IOC的HttpServer/上篇.md&2019-9-28 13:41:17;
+delete&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架(上).md&2019-9-28 13:41:17;
+delete&/Reflect反射原理/实现一个基于IOC的HttpServer框架/实现一个基于IOC的HttpServer框架(下).md&2019-9-28 13:41:17;
+create&/浏览器API/DOM对象继承体系.md&2019-9-28 13:39:38;
+create&/浏览器API/documentElement.md&2019-9-28 13:39:38;
+create&/浏览器API/MutationObserver.md&2019-9-28 13:39:38;
+create&/浏览器API/requestIdleCallback方法.md&2019-9-28 13:39:38;
+create&/浏览器API/requestAnimationFrame.md&2019-9-28 13:39:38;
+delete&/浏览器API(BOM)/DOM对象继承体系.md&2019-9-28 13:39:38;
+delete&/浏览器API(BOM)/MutationObserver.md&2019-9-28 13:39:38;
+delete&/浏览器API(BOM)/documentElement.md&2019-9-28 13:39:38;
+delete&/浏览器API(BOM)/requestAnimationFrame.md&2019-9-28 13:39:38;
+delete&/浏览器API(BOM)/requestIdleCallback方法.md&2019-9-28 13:39:38;
+update&/saber2prの窝.md&2019-9-28 12:28:41;
+update&/浏览器基础/页面渲染原理.md&2019-9-28 12:28:41;
+update&/React生态/React生态源码阅读.md&2019-9-28 12:28:41;
+update&/浏览器API(BOM)/DOM对象继承体系.md&2019-9-28 12:28:41;
 update&/React生态/React-Redux干了什么.md&2019-9-28 12:28:41

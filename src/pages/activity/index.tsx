@@ -67,18 +67,28 @@ const matchText = (type: Act["type"], text: Act["text"]) => {
 }
 
 export const Activity = ({ acts }: Activity) => (
-  <table className="Activity">
-    <tbody>
-      {acts.map(({ type, text, date }, i) => (
-        <tr key={text + i}>
-          <th className="Activity-Type">{matchType(type)}</th>
-          <td>
-            <MD theme={md_theme}>{matchText(type, text)}</MD>
-            <p className="Activity-Time">{timeDeltaFromNow(date)}</p>
+  <ul className="Activity">
+    {acts.map(({ type, text, date }, i) => (
+      <li key={text + i}>
+        <dl className="Activity-Content">
+          <dt className="Activity-Type">
+            <strong>{matchType(type)}</strong>
+          </dt>
+          <dd>
+            <ul>
+              <li>
+                <MD theme={md_theme}>{matchText(type, text)}</MD>
+              </li>
+              <li className="Activity-Time">
+                <p>{timeDeltaFromNow(date)}</p>
+              </li>
+            </ul>
+          </dd>
+          <dd>
             <hr />
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+          </dd>
+        </dl>
+      </li>
+    ))}
+  </ul>
 )

@@ -6,10 +6,11 @@
     "start": "webpack -w",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
-    "update": "ts-node scripts/generate",
     "new:com": "genIndex src/components & genComp src/components",
     "new:page": "genIndex src/pages & genComp src/pages",
-    "add:idea": "ts-node scripts/addIdea"
+    "update": "ts-node scripts/generate",
+    "add:idea": "ts-node scripts/addIdea",
+    "add:idea-f": "ts-node scripts/addIdeaFromFile"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.0.6",

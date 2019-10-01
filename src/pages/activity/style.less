@@ -1,16 +1,31 @@
 .Activity {
   margin: 0 4.5rem;
+  margin-left: 3rem;
   transition: 0.4s;
   animation: fadeIn 0.5s;
   padding-top: 2rem;
   padding-bottom: 5rem;
 
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  dl {
+    margin: 0;
+    dt {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
   a {
     text-decoration: none;
   }
 
-  td {
-    width: 90%;
+  &-Content {
+    width: 43rem;
   }
 
   &-Type {
@@ -29,6 +44,10 @@
   }
 }
 
+.Activity > li {
+  display: flex;
+}
+
 @media screen and (max-width: 740px) {
   .Activity {
     margin: 0;
@@ -38,6 +57,14 @@
 
     &-Type {
       padding-right: 0.5rem;
+    }
+
+    &-Content {
+      width: 100%;
+
+      dd {
+        margin-left: 1rem;
+      }
     }
   }
 }
