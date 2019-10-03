@@ -32,6 +32,7 @@ Javascript基础
   vdom渲染
   事件捕获冒泡
   作用域和闭包
+  判断页面滚动到底部（React）
   原型链
   双向绑定
   可迭代对象（iterable）
@@ -116,6 +117,7 @@ saber2prの窝
 浏览器API
   DOM对象继承体系
   MutationObserver
+  clientHeight与scrollHeight区别
   documentElement
   requestAnimationFrame
   requestIdleCallback方法
