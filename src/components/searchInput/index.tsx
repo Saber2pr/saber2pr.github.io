@@ -103,12 +103,12 @@ export const SearchInput = ({ blog }: SearchInput) => {
       />
       <ul className="SearchInput-List">
         {enable &&
-          result.map(({ title, path, isBlank }) => {
+          result.map(({ title, path, isBlank }, i) => {
             if (isBlank) {
               return (
-                <Fragment key={title}>
+                <Fragment key={title + path + i}>
                   <li>
-                    <a href={path} target="_blank" title={title}>
+                    <a href={path} target="_blank" title={path}>
                       {title}
                     </a>
                   </li>
@@ -117,8 +117,8 @@ export const SearchInput = ({ blog }: SearchInput) => {
               )
             }
             return (
-              <li key={title}>
-                <Link to={path} onClick={() => location.reload()} title={title}>
+              <li key={title + path + i}>
+                <Link to={path} onClick={() => location.reload()} title={path}>
                   {title}
                 </Link>
               </li>
