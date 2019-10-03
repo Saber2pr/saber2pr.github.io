@@ -2,10 +2,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const CleanCSSPlugin = require("less-plugin-clean-css")
 const path = require("path")
+const webpack = require("webpack")
 
 const extractLess = new ExtractTextPlugin("style.min.css")
-
 const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
+const version = () => `Last Modified time: ${new Date().toLocaleString()}`
 
 module.exports = WebpackConfig({
   entry: "./src/index.tsx",
@@ -55,6 +56,10 @@ module.exports = WebpackConfig({
         injectBody: '<div id="root"></div>'
       })
     }),
-    extractLess
+    extractLess,
+    new webpack.BannerPlugin({
+      banner: `console.log("${version()}");`,
+      raw: true
+    })
   ]
 })

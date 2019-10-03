@@ -5,6 +5,8 @@ import MD from "@saber2pr/md2jsx"
 import { origin, md_theme } from "../../config"
 import { lift, timeDeltaFromNow } from "../../utils"
 import { Icon } from "../../iconfont"
+import { useOnScroll } from "../../hooks/useOnScroll"
+import { useOnScrollBottom } from "../../hooks/useOnScrollBottom"
 
 type Act = {
   type: "update" | "create" | "delete"
@@ -68,7 +70,8 @@ const matchText = (type: Act["type"], text: Act["text"]) => {
 
 export const Activity = ({ acts }: Activity) => {
   const [length, setLength] = useState(10)
-
+  const hasMore = length <= acts.length
+  useOnScrollBottom(() => hasMore && setLength(length + 10))
   return (
     <ul className="Activity">
       {acts.slice(0, length).map(({ type, text, date }, i) => (
@@ -100,12 +103,14 @@ export const Activity = ({ acts }: Activity) => {
             width: "100%"
           }}
         >
-          <span
-            style={{ textDecoration: "underline", cursor: "pointer" }}
-            onClick={() => setLength(length + 5)}
-          >
-            更多
-          </span>
+          {hasMore && (
+            <span
+              style={{ textDecoration: "underline", cursor: "pointer" }}
+              onClick={() => setLength(length + 5)}
+            >
+              更多
+            </span>
+          )}
         </div>
       </li>
     </ul>
