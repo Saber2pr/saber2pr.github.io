@@ -46,6 +46,10 @@ Javascript基础
   节流防抖
   返回网页顶部
   进入视口范围检测
+Linux相关
+  shell命令
+  tty终端
+  ubuntu维护
 Node
   koa中间件机制
   promisify
@@ -101,6 +105,15 @@ Reflect反射原理
 Typescript基础
   对比Monad在TS和Haskell中的使用
 saber2prの窝
+其他常用命令
+  cad基础命令
+  cmd常用命令
+前端构建工具
+  webpack
+    plugin
+      BannerPlugin
+  包管理器
+    npm常用命令
 性能优化
   前端性能优化
 我的思考
