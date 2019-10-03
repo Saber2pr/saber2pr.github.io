@@ -1,3 +1,5 @@
+declare const version: string
+
 import React from "react"
 import Audio from "@saber2pr/rc-audio"
 
@@ -27,6 +29,7 @@ const Foot = () => (
         saber2pr.github.io
       </a>
     </p>
+    <p className="About-Main-Repo">{version}</p>
     <footer>Copyright © 2019 saber2pr.</footer>
   </>
 )

@@ -10,7 +10,9 @@
     "new:page": "genIndex src/pages & genComp src/pages",
     "update": "ts-node scripts/generate",
     "add:idea": "ts-node scripts/addIdea",
-    "add:idea-f": "ts-node scripts/addIdeaFromFile"
+    "add:idea-f": "ts-node scripts/addIdeaFromFile",
+    "push:blog": "sh scripts/push-blog.sh",
+    "push:build": "sh scripts/push-build.sh"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.0.6",

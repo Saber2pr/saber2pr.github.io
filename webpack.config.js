@@ -6,7 +6,8 @@ const webpack = require("webpack")
 
 const extractLess = new ExtractTextPlugin("style.min.css")
 const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
-const version = () => `Last Modified time: ${new Date().toLocaleString()}`
+const version = () =>
+  `var version="Last Modified time: ${new Date().toLocaleString()}"`
 
 module.exports = WebpackConfig({
   entry: "./src/index.tsx",
@@ -58,7 +59,7 @@ module.exports = WebpackConfig({
     }),
     extractLess,
     new webpack.BannerPlugin({
-      banner: `console.log("${version()}");`,
+      banner: `${version()};console.log(version);`,
       raw: true,
       test: /\.js/
     })
