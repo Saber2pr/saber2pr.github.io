@@ -59,7 +59,8 @@ module.exports = WebpackConfig({
     extractLess,
     new webpack.BannerPlugin({
       banner: `console.log("${version()}");`,
-      raw: true
+      raw: true,
+      test: /\.js/
     })
   ]
 })

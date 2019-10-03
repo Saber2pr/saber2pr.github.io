@@ -21,7 +21,8 @@ module.exports = WebpackConfig({
   plugins: [
     new webpack.BannerPlugin({
       banner: `console.log('copyright saber2pr.')`,
-      raw: true
+      raw: true,
+      test: /\.js/
     })
   ]
 })
