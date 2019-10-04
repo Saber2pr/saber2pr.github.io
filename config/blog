@@ -14,7 +14,9 @@ Git版本控制
   github与git
   log
 HTML超文本标记语言
+  iframe
   列表
+  可编辑区域
   表单输入
   表格
 HTTP协议
@@ -24,6 +26,10 @@ Javascript基础
   HTML特殊字符转义
   JSONP跨域
   bind call apply和原理
+  canvas
+    ImageData操作
+    rgba与hex转换
+    打印到图片
   es6
     promise原理
   es7
@@ -32,8 +38,10 @@ Javascript基础
   vdom渲染
   事件捕获冒泡
   作用域和闭包
+  保存文件到本地
   判断页面滚动到底部（React）
   原型链
+  去除文档中nbsp
   双向绑定
   可迭代对象（iterable）
   实现URL参数parser
@@ -132,6 +140,8 @@ saber2prの窝
   MutationObserver
   clientHeight与scrollHeight区别
   documentElement
+  offset、client、scroll区别
+  pageX,pageY,clientX,clientY,scrollX,scrollY,screenX,screenY,offsetX,offsetY区别
   requestAnimationFrame
   requestIdleCallback方法
 浏览器基础
