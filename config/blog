@@ -141,7 +141,7 @@ saber2prの窝
   clientHeight与scrollHeight区别
   documentElement
   offset、client、scroll区别
-  pageX,pageY,clientX,clientY,scrollX,scrollY,screenX,screenY,offsetX,offsetY区别
+  pageX,pageY,offsetX,offsetY,clientX,clientY,x,y,screenX,screenY区别
   requestAnimationFrame
   requestIdleCallback方法
 浏览器基础
