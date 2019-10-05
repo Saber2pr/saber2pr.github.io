@@ -19,8 +19,14 @@ type Item = {
 type Search = (value: string) => void
 
 const SearchGit = (value: string): Item => ({
-  title: `使用Github搜索: "${value}"`,
+  title: `> 在Github上搜索: "${value}"`,
   path: `https://github.com/search?q=${value}`,
+  isBlank: true
+})
+
+const SearchMDN = (value: string): Item => ({
+  title: `> 在MDN上搜索: "${value}"`,
+  path: `https://developer.mozilla.org/zh-CN/search?q=${value}`,
   isBlank: true
 })
 
@@ -32,7 +38,7 @@ const useSearch = (blog: Blog["tree"]): [Item[], Search] => {
       const res = list
         .filter(l => l.title.toLowerCase().includes(value.toLowerCase()))
         .slice(0, 5)
-      set([SearchGit(value), ...res])
+      set([SearchGit(value), SearchMDN(value), ...res])
     } else {
       set([])
     }
@@ -91,6 +97,37 @@ const Input = ({
   )
 }
 
+const renderResult = (result: Item[]) => {
+  const blanks: JSX.Element[] = []
+  const items: JSX.Element[] = []
+  for (const { title, path, isBlank } of result) {
+    if (isBlank) {
+      blanks.push(
+        <li key={path}>
+          <a href={path} target="_blank" title={path}>
+            {title}
+          </a>
+        </li>
+      )
+    } else {
+      items.push(
+        <li key={path}>
+          <Link to={path} onClick={() => location.reload()} title={path}>
+            {title}
+          </Link>
+        </li>
+      )
+    }
+  }
+  return (
+    <>
+      {blanks}
+      {items.length !== 0 && <hr />}
+      {items}
+    </>
+  )
+}
+
 export const SearchInput = ({ blog }: SearchInput) => {
   const [result, search] = useSearch(blog)
   const [enable, set] = useState(true)
@@ -101,30 +138,7 @@ export const SearchInput = ({ blog }: SearchInput) => {
         onblur={() => setTimeout(() => set(false), 500)}
         onfocus={() => set(true)}
       />
-      <ul className="SearchInput-List">
-        {enable &&
-          result.map(({ title, path, isBlank }, i) => {
-            if (isBlank) {
-              return (
-                <Fragment key={title + path + i}>
-                  <li>
-                    <a href={path} target="_blank" title={path}>
-                      {title}
-                    </a>
-                  </li>
-                  <hr />
-                </Fragment>
-              )
-            }
-            return (
-              <li key={title + path + i}>
-                <Link to={path} onClick={() => location.reload()} title={path}>
-                  {title}
-                </Link>
-              </li>
-            )
-          })}
-      </ul>
+      <ul className="SearchInput-List">{enable && renderResult(result)}</ul>
     </span>
   )
 }
