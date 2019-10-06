@@ -60,7 +60,10 @@ Linux相关
   ubuntu维护
 Node
   koa中间件机制
+  node解析url参数
+  node路由
   promisify
+  获取post-body
 React原理
   React-Fiber实现
   reconciler实现
@@ -134,6 +137,7 @@ saber2prの窝
   障
 数据库
   mongodb
+    Nodejs操作mongodb
     mongodb增删査改
 数据结构算法
   base64算法
