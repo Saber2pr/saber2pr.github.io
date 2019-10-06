@@ -130,6 +130,7 @@ body {
 }
 
 .Comments-Form-Button {
+  box-shadow: none;
   background-color: black;
   border: 1px solid #c0f8ff;
 }
