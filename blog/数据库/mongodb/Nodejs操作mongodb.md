@@ -5,9 +5,7 @@
 在 npm 上有操作 mongodb 的库，安装
 
 ```bash
-yarn add mongodb
-
-yarn add @types/mongodb
+yarn add mongodb @types/mongodb
 ```
 
 > 本机需要安装 mongodb 数据库服务
