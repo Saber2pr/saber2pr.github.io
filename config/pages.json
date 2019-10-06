@@ -80,5 +80,94 @@
       "href": "https://github.com/Saber2pr/leetcode",
       "content": "My leetcode progress."
     }
-  ]
+  ],
+  "JSites": {
+    "程序语言": [
+      {
+        "name": "Typescript",
+        "icon": "http://www.typescriptlang.org/assets/images/icons/favicon.ico",
+        "href": "https://www.tslang.cn/docs/home.html"
+      },
+      {
+        "name": "Less",
+        "icon": "http://s.nodejs.cn/less/img/logo.png",
+        "href": "http://lesscss.cn/"
+      }
+    ],
+    "前端UI库": [
+      {
+        "name": "React",
+        "icon": "https://www.reactjscn.com/favicon.ico",
+        "href": "https://www.reactjscn.com/docs/hello-world.html"
+      },
+      {
+        "name": "Redux",
+        "icon": "https://redux.js.org/img/redux.svg",
+        "href": "https://www.redux.org.cn/"
+      },
+      {
+        "name": "React-Redux",
+        "icon": "https://redux.js.org/img/redux.svg",
+        "href": "https://react-redux.js.org/introduction/quick-start"
+      },
+      {
+        "name": "React-Router",
+        "icon": "https://github.com/ReactTraining.png",
+        "href": "https://reacttraining.com/react-router/web/guides/quick-start"
+      }
+    ],
+    "工具库": [
+      {
+        "name": "Axios",
+        "icon": "http://www.axios-js.com/logo.svg",
+        "href": "http://www.axios-js.com/zh-cn/docs/"
+      },
+      {
+        "name": "Lodash",
+        "icon": "https://github.com/lodash.png",
+        "href": "https://lodash.com/docs/"
+      }
+    ],
+    "构建工具": [
+      {
+        "name": "Webpack",
+        "href": "https://www.webpackjs.com/concepts/",
+        "icon": "https://github.com/webpack.png"
+      },
+      {
+        "name": "Rollup",
+        "href": "https://www.rollupjs.com/",
+        "icon": "https://www.rollupjs.com/assets/images/logo.svg"
+      }
+    ],
+    "数据库": [
+      {
+        "name": "MongoDB",
+        "href": "http://www.mongoing.com/docs/crud.html",
+        "icon": "https://github.com/mongodb.png"
+      }
+    ],
+    "服务端": [
+      {
+        "name": "Nodejs",
+        "icon": "http://static.nodejs.cn/_static/img/favicon.png",
+        "href": "http://nodejs.cn/api/"
+      },
+      {
+        "name": "Nestjs",
+        "href": "https://exlley.gitbooks.io/nest-js/content/",
+        "icon": "https://github.com/nestjs.png"
+      },
+      {
+        "name": "Koa",
+        "href": "https://koa.bootcss.com/",
+        "icon": "https://github.com/koajs.png"
+      },
+      {
+        "name": "Express",
+        "href": "http://www.expressjs.com.cn/starter/hello-world.html",
+        "icon": "https://github.com/expressjs.png"
+      }
+    ]
+  }
 }

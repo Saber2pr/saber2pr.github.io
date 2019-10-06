@@ -61,6 +61,7 @@ body {
 .About-Aside-Content-Proj {
   background-color: black;
   border: 1px solid black;
+  box-shadow: none;
 }
 
 .About-Aside-Content-Proj:hover {
@@ -83,6 +84,7 @@ body {
 .Links-Own-Content-Link {
   background-color: black;
   border: 1px solid black;
+  box-shadow: none;
 }
 
 .Links-Own-Content-Link:hover {
@@ -93,6 +95,7 @@ body {
 .Links-Friend-Content-Link {
   background-color: black;
   border: 1px solid black;
+  box-shadow: none;
 }
 
 .Links-Friend-Content-Link:hover {
@@ -137,6 +140,25 @@ body {
 
 .Comments-Text {
   background-color: #262d40;
+}
+
+.Learn .libs {
+  border-radius: 0;
+  border-bottom: 1px #72537a solid;
+  background: black;
+  box-shadow: none;
+}
+
+.Learn .libs li:hover {
+  box-shadow: 1px 1px 10px #c0f8ff;
+}
+
+.Learn .libs li:hover .libs-A {
+  color: #6ec0e0;
+}
+
+.Learn .libs-A {
+  color: #cedaff;
 }
 
 @media screen and (max-width: 740px) {

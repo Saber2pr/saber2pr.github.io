@@ -102,10 +102,7 @@ export const Blog = ({ tree }: Blog) => {
       <TwoSide>
         <main className="Blog-Main">
           <Router history={history}>{Routes}</Router>
-          <footer className="Blog-Main-Footer">
-            Powered By{" "}
-            <a href="https://github.com/Saber2pr/press">@saber2pr/press</a>
-          </footer>
+          <footer>Copyright © 2019 saber2pr.</footer>
         </main>
         <aside className="Blog-Aside" ref={ref}>
           <section className="Blog-Aside-Content ani-opacityMove">

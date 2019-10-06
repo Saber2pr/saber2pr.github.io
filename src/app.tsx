@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
 import "./app.less"
-import { Home, Blog, About, Links, Secret, Activity } from "./pages"
+import { Home, Blog, About, Links, Secret, Activity, Learn } from "./pages"
 import { ALink, SearchInput, MusicLine, PreImg, Themer } from "./components"
 
 import { store } from "./store"
@@ -27,9 +27,18 @@ export interface App {
   JProject: About["projects"]
   JLinks: Links
   JActs: Activity["acts"]
+  JSites: Learn["sites"]
 }
 
-export const App = ({ JAbout, JBlog, JHome, JLinks, JProject, JActs }: App) => {
+export const App = ({
+  JAbout,
+  JBlog,
+  JHome,
+  JLinks,
+  JProject,
+  JActs,
+  JSites
+}: App) => {
   const [push] = usePush()
   const hash = getHash()
   useEffect(() => {
@@ -63,6 +72,9 @@ export const App = ({ JAbout, JBlog, JHome, JLinks, JProject, JActs }: App) => {
             动态
           </HLink>
           <HLink to="/blog">博客</HLink>
+          <HLink to="/learn" scrollReset>
+            文档
+          </HLink>
           <HLink to="/about" scrollReset>
             关于
           </HLink>
@@ -91,6 +103,7 @@ export const App = ({ JAbout, JBlog, JHome, JLinks, JProject, JActs }: App) => {
           <Route path="/links" component={() => <Links {...JLinks} />} />
           <Route path="/secret" component={() => <Secret />} />
           <Route path="/activity" component={() => <Activity acts={JActs} />} />
+          <Route path="/learn" component={() => <Learn sites={JSites} />} />
         </Router>
       </main>
     </>
