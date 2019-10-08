@@ -1,0 +1,139 @@
+{
+  "程序语言": [
+    {
+      "name": "Typescript",
+      "icon": "http://www.typescriptlang.org/assets/images/icons/favicon.ico",
+      "href": "https://www.tslang.cn/docs/home.html"
+    },
+    {
+      "name": "Less",
+      "icon": "http://s.nodejs.cn/less/img/logo.png",
+      "href": "http://lesscss.cn/"
+    },
+    {
+      "name": "C/C++",
+      "icon": "https://github.com/isocpp.png",
+      "href": "http://www.cplusplus.com/reference/"
+    },
+    {
+      "name": "Haskell",
+      "icon": "https://github.com/haskell.png",
+      "href": "https://downloads.haskell.org/ghc/6.12.2/docs/html/libraries/index.html"
+    }
+  ],
+  "前端UI库": [
+    {
+      "name": "React",
+      "icon": "https://www.reactjscn.com/favicon.ico",
+      "href": "https://www.reactjscn.com/docs/hello-world.html"
+    },
+    {
+      "name": "Redux",
+      "icon": "https://redux.js.org/img/redux.svg",
+      "href": "https://www.redux.org.cn/"
+    },
+    {
+      "name": "React-Redux",
+      "icon": "https://redux.js.org/img/redux.svg",
+      "href": "https://react-redux.js.org/introduction/quick-start"
+    },
+    {
+      "name": "React-Router",
+      "icon": "https://github.com/ReactTraining.png",
+      "href": "https://reacttraining.com/react-router/web/guides/quick-start"
+    },
+    {
+      "name": "Taro",
+      "icon": "https://github.com/NervJS.png",
+      "href": "https://taro-docs.jd.com/taro/docs/GETTING-STARTED.html"
+    }
+  ],
+  "工具库": [
+    {
+      "name": "Axios",
+      "icon": "http://www.axios-js.com/logo.svg",
+      "href": "http://www.axios-js.com/zh-cn/docs/"
+    },
+    {
+      "name": "Lodash",
+      "icon": "https://github.com/lodash.png",
+      "href": "https://lodash.com/docs/"
+    },
+    {
+      "name": "Immer",
+      "icon": "https://github.com/immerjs.png",
+      "href": "https://immerjs.github.io/immer/docs/introduction"
+    },
+    {
+      "name": "Immutable.js",
+      "icon": "https://github.com/immutable-js.png",
+      "href": "https://immutable-js.github.io/immutable-js/"
+    },
+    {
+      "name": "RxJS",
+      "icon": "https://github.com/ReactiveX.png",
+      "href": "https://rxjs-cn.github.io/learn-rxjs-operators/"
+    },
+    {
+      "name": "Jquery",
+      "icon": "https://github.com/jquery.png",
+      "href": "https://www.jquery123.com/"
+    }
+  ],
+  "构建工具": [
+    {
+      "name": "Webpack",
+      "href": "https://www.webpackjs.com/concepts/",
+      "icon": "https://github.com/webpack.png"
+    },
+    {
+      "name": "Rollup",
+      "href": "https://www.rollupjs.com/",
+      "icon": "https://www.rollupjs.com/assets/images/logo.svg"
+    },
+    {
+      "name": "Gulp",
+      "href": "https://www.gulpjs.com.cn/docs/getting-started/quick-start/",
+      "icon": "https://www.gulpjs.com.cn/img/favicon.png"
+    },
+    {
+      "name": "Parcel",
+      "href": "https://www.gulpjs.com.cn/docs/getting-started/quick-start/",
+      "icon": "https://zh.parceljs.org/assets/parcel.png"
+    }
+  ],
+  "数据库": [
+    {
+      "name": "MongoDB",
+      "href": "http://www.mongoing.com/docs/crud.html",
+      "icon": "https://github.com/mongodb.png"
+    }
+  ],
+  "服务端": [
+    {
+      "name": "Nodejs",
+      "icon": "http://static.nodejs.cn/_static/img/favicon.png",
+      "href": "http://nodejs.cn/api/"
+    },
+    {
+      "name": "Nestjs",
+      "href": "https://exlley.gitbooks.io/nest-js/content/",
+      "icon": "https://github.com/nestjs.png"
+    },
+    {
+      "name": "Koa",
+      "href": "https://koa.bootcss.com/",
+      "icon": "https://github.com/koajs.png"
+    },
+    {
+      "name": "Express",
+      "href": "http://www.expressjs.com.cn/starter/hello-world.html",
+      "icon": "https://github.com/expressjs.png"
+    },
+    {
+      "name": "Next.js",
+      "href": "https://nextjs.frontendx.cn/docs/#%E5%AE%89%E8%A3%85",
+      "icon": "https://nextjs.frontendx.cn/static/favicon/favicon.ico"
+    }
+  ]
+}

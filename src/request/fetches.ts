@@ -3,24 +3,14 @@ import { API } from "./api"
 import { parseTree, parseUpdateStr } from "../utils"
 import { axios } from "./axios"
 
-export const requestConfig = async () => {
-  const url = origin.root + origin.data
-  const res = await axios.get<any>(url)
-  res.data.JBlog = await requestBlogs()
-  res.data.JActs = await requestUpdates()
+export const request = async (type: keyof typeof origin.data): Promise<any> => {
+  const url = origin.root + origin.data[type]
+  const res = await axios.get<string>(url)
+
+  if (type === "blog") return parseTree(res.data)
+  if (type === "activity") return parseUpdateStr(res.data)
+
   return res.data
-}
-
-export const requestBlogs = async () => {
-  const url_blog = origin.root + origin.data_blog
-  const res_blog = await axios.get<string>(url_blog)
-  return parseTree(res_blog.data)
-}
-
-export const requestUpdates = async () => {
-  const url_blog_update = origin.root + origin.data_blog_update
-  const res = await axios.get<string>(url_blog_update)
-  return parseUpdateStr(res.data)
 }
 
 export const requestCommitDate = async (path: string) => {

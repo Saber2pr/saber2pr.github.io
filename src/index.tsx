@@ -21,14 +21,15 @@ import "./style/shadow.less"
 
 import Pages from "./app"
 import { Loading } from "./components"
-import { requestConfig } from "./request"
 import { welcome } from "./utils"
+import { request } from "./request"
 
 const App = React.lazy(async () => {
   welcome()
-  const config = await requestConfig()
+  const JABout = await request("about")
+  const JBlog = await request("blog")
   return {
-    default: () => <Pages {...config} />
+    default: () => <Pages JAbout={JABout} JBlog={JBlog} />
   }
 })
 

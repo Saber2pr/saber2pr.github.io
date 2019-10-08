@@ -3,24 +3,11 @@ declare const version: string
 import React from "react"
 import Audio from "@saber2pr/rc-audio"
 
-import { TwoSide } from "../../components"
+import { TwoSide, LazyCom, Loading } from "../../components"
 import { useIsMob } from "../../hooks"
 import "./style.less"
 import { store } from "../../store"
-
-type audio = {
-  info: string
-  src: string
-  name: string
-}
-
-export interface About {
-  projects: Array<{ name: string; href: string; content: string }>
-  about: {
-    contents: string[]
-    audio: audio
-  }
-}
+import { request } from "../../request"
 
 const Foot = () => (
   <>
@@ -61,7 +48,19 @@ const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
   )
 }
 
-export const About = ({ about: { contents, audio }, projects }: About) => {
+type audio = {
+  info: string
+  src: string
+  name: string
+}
+
+export interface About {
+  contents: string[]
+  audio: audio
+  projects: Array<{ name: string; href: string; content: string }>
+}
+
+export const About = ({ contents, audio, projects }: About) => {
   const isMob = useIsMob()
   return (
     <div className="About">
@@ -86,3 +85,9 @@ export const About = ({ about: { contents, audio }, projects }: About) => {
     </div>
   )
 }
+
+export const AboutLazy = () => (
+  <LazyCom await={request("about")} fallback={<Loading />}>
+    {JAbout => <About {...JAbout} />}
+  </LazyCom>
+)

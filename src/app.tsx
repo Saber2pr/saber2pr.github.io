@@ -2,7 +2,16 @@ import React, { useEffect } from "react"
 import { Router, Route, Link, LinkProps, usePush } from "@saber2pr/router"
 
 import "./app.less"
-import { Home, Blog, About, Links, Secret, Activity, Learn } from "./pages"
+import {
+  Blog,
+  About,
+  Secret,
+  HomeLazy,
+  AboutLazy,
+  LinksLazy,
+  ActivityLazy,
+  LearnLazy
+} from "./pages"
 import { ALink, SearchInput, MusicLine, PreImg, Themer } from "./components"
 
 import { store } from "./store"
@@ -21,24 +30,11 @@ const HNLink = (props: LinkProps) => (
 )
 
 export interface App {
-  JHome: Home
   JBlog: Blog["tree"]
-  JAbout: About["about"]
-  JProject: About["projects"]
-  JLinks: Links
-  JActs: Activity["acts"]
-  JSites: Learn["sites"]
+  JAbout: About
 }
 
-export const App = ({
-  JAbout,
-  JBlog,
-  JHome,
-  JLinks,
-  JProject,
-  JActs,
-  JSites
-}: App) => {
+export const App = ({ JAbout, JBlog }: App) => {
   const [push] = usePush()
   const hash = getHash()
   useEffect(() => {
@@ -94,16 +90,13 @@ export const App = ({
       <main className="main">
         <div className="main-bg" />
         <Router history={history}>
-          <Route path="/home" component={() => <Home {...JHome} />} />
+          <Route path="/home" component={() => <HomeLazy />} />
           <Route path="/blog" component={() => <Blog tree={JBlog} />} />
-          <Route
-            path="/about"
-            component={() => <About about={JAbout} projects={JProject} />}
-          />
-          <Route path="/links" component={() => <Links {...JLinks} />} />
+          <Route path="/about" component={() => <AboutLazy />} />
+          <Route path="/links" component={() => <LinksLazy />} />
           <Route path="/secret" component={() => <Secret />} />
-          <Route path="/activity" component={() => <Activity acts={JActs} />} />
-          <Route path="/learn" component={() => <Learn sites={JSites} />} />
+          <Route path="/activity" component={() => <ActivityLazy />} />
+          <Route path="/learn" component={() => <LearnLazy />} />
         </Router>
       </main>
     </>

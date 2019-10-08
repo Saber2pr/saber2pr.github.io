@@ -3,10 +3,11 @@ import "./style.less"
 
 import MD from "@saber2pr/md2jsx"
 import { origin, md_theme } from "../../config"
-import { lift, timeDeltaFromNow } from "../../utils"
+import { lift, timeDeltaFromNow, checkDarkTime } from "../../utils"
 import { Icon } from "../../iconfont"
-import { useOnScroll } from "../../hooks/useOnScroll"
 import { useOnScrollBottom } from "../../hooks/useOnScrollBottom"
+import { LazyCom, Loading } from "../../components"
+import { request } from "../../request"
 
 type Act = {
   type: "update" | "create" | "delete"
@@ -73,46 +74,67 @@ export const Activity = ({ acts }: Activity) => {
   const hasMore = length <= acts.length
   useOnScrollBottom(() => hasMore && setLength(length + 10))
   return (
-    <ul className="Activity">
-      {acts.slice(0, length).map(({ type, text, date }, i) => (
-        <li key={text + i}>
-          <dl className="Activity-Content">
-            <dt className="Activity-Type">
-              <strong>{matchType(type)}</strong>
-            </dt>
-            <dd>
-              <ul>
-                <li>
-                  <MD theme={md_theme}>{matchText(type, text)}</MD>
-                </li>
-                <li className="Activity-Time">
-                  <p>{timeDeltaFromNow(date)}</p>
-                </li>
-              </ul>
-            </dd>
-            <dd>
-              <hr />
-            </dd>
-          </dl>
+    <div className="Activity">
+      <ul>
+        {acts.slice(0, length).map(({ type, text, date }, i) => (
+          <li key={text + i}>
+            <dl className="Activity-Content">
+              <dt className="Activity-Type">
+                <strong>{matchType(type)}</strong>
+              </dt>
+              <dd>
+                <ul>
+                  <li>
+                    <MD theme={md_theme}>{matchText(type, text)}</MD>
+                  </li>
+                  <li className="Activity-Time">
+                    <p>{timeDeltaFromNow(date)}</p>
+                  </li>
+                </ul>
+              </dd>
+              <dd>
+                <hr />
+              </dd>
+            </dl>
+          </li>
+        ))}
+        <li>
+          <div
+            style={{
+              textAlign: "center",
+              width: "100%"
+            }}
+          >
+            {hasMore && (
+              <span
+                style={{ textDecoration: "underline", cursor: "pointer" }}
+                onClick={() => setLength(length + 5)}
+              >
+                更多
+              </span>
+            )}
+          </div>
         </li>
-      ))}
-      <li>
-        <div
-          style={{
-            textAlign: "center",
-            width: "100%"
-          }}
-        >
-          {hasMore && (
-            <span
-              style={{ textDecoration: "underline", cursor: "pointer" }}
-              onClick={() => setLength(length + 5)}
-            >
-              更多
-            </span>
-          )}
+      </ul>
+      {checkDarkTime() && (
+        <div className="Activity-Aside" title="from sayo...">
+          <p>
+            <i>无意义记号的罗列</i>
+          </p>
+          <p>
+            <i>无意义语言的增殖</i>
+          </p>
+          <p>
+            <i>无意义行为的重复</i>
+          </p>
         </div>
-      </li>
-    </ul>
+      )}
+    </div>
   )
 }
+
+export const ActivityLazy = () => (
+  <LazyCom await={request("activity")} fallback={<Loading />}>
+    {JActs => <Activity acts={JActs} />}
+  </LazyCom>
+)

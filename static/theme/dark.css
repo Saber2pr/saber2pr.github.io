@@ -12,7 +12,8 @@ body {
 }
 
 .Activity a:hover {
-  border: 1px solid#730000;
+  background: #730000;
+  color: black;
 }
 
 *::selection {
@@ -41,7 +42,7 @@ body {
 }
 
 .Blog pre {
-  border: 1px solid #ccb6ff;
+  border: 1px solid #ccb6ff !important;
   background-color: black !important;
 }
 
@@ -162,6 +163,18 @@ body {
   color: #cedaff;
 }
 
+.Activity-Content hr {
+  border-bottom: 1px solid greenyellow;
+}
+
+.Activity-Aside {
+  display: block;
+}
+
+.Activity-Aside i {
+  color: red;
+}
+
 @media screen and (max-width: 740px) {
   .About-Aside-Content-Proj {
     border: 1px solid pink;
@@ -175,5 +188,9 @@ body {
   .Links-Friend-Content-Link {
     border: 1px solid black;
     border: 1px solid #c0f8ff;
+  }
+
+  .Activity-Aside {
+    display: none;
   }
 }

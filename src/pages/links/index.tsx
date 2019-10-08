@@ -2,9 +2,9 @@ import React from "react"
 import { Comments } from "@saber2pr/rc-gitment"
 
 import "./style.less"
-import { API } from "../../request"
+import { API, request } from "../../request"
 import { origin } from "../../config"
-import { PreImg } from "../../components"
+import { PreImg, LazyCom, Loading } from "../../components"
 import { Icon } from "../../iconfont"
 
 type Link = {
@@ -94,4 +94,10 @@ export const Links = ({ owns, friends }: Links) => (
     <Comments {...origin} repo={origin.commentRepo} />
     <footer>Copyright © 2019 saber2pr.</footer>
   </div>
+)
+
+export const LinksLazy = () => (
+  <LazyCom await={request("links")} fallback={<Loading />}>
+    {JLinks => <Links {...JLinks} />}
+  </LazyCom>
 )

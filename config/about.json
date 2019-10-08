@@ -1,0 +1,47 @@
+{
+  "contents": [
+    "5w4/INTJ/处女座/番茄酱/BPD……",
+    "曾经在一场脸红的冒险中失败导致现在变得没有感情。",
+    "认为yooo梦是世界上最帅最吼看的人。",
+    "现在认为机器拥有感情，愿意使用js或者c与之交流。",
+    "正在做什么？如你所见。",
+    "有生之年想要去一次秋叶原。(如果有钱的话)"
+  ],
+  "audio": {
+    "info": "听首音乐放松下~",
+    "src": "https://api.i-meto.com/meting/api?server=netease&type=url&id=26582520&auth=8592ff6bfbabca04084062ebab271095756351209c043d3660167eb12b501939",
+    "name": "Claiomh Solais.mp3"
+  },
+  "projects": [
+    {
+      "name": "@saber2pr/react",
+      "href": "https://github.com/Saber2pr/react",
+      "content": "React-Like in Typescript."
+    },
+    {
+      "name": "@saber2pr/ioc",
+      "href": "https://github.com/Saber2pr/saber-ioc",
+      "content": "Injector for Typescript IOC."
+    },
+    {
+      "name": "@saber2pr/reflect",
+      "href": "https://github.com/Saber2pr/-saber2pr-reflect",
+      "content": "Typescript Reflector."
+    },
+    {
+      "name": "@saber2pr/request",
+      "href": "https://github.com/Saber2pr/-saber2pr-request",
+      "content": "HTTP Request Library."
+    },
+    {
+      "name": "@saber2pr/fp",
+      "href": "https://github.com/Saber2pr/fp",
+      "content": "Functional programing in async | sync | lazy."
+    },
+    {
+      "name": "leetcode",
+      "href": "https://github.com/Saber2pr/leetcode",
+      "content": "My leetcode progress."
+    }
+  ]
+}

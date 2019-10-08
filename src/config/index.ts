@@ -1,4 +1,4 @@
-import { hashHistory, browserHistory } from "@saber2pr/router"
+import { hashHistory } from "@saber2pr/router"
 import MD_Theme from "@saber2pr/md2jsx/lib/theme/atom-dark"
 
 export const history = hashHistory
@@ -8,9 +8,14 @@ export const origin = {
   username: "saber2pr",
   repo: "saber2pr.github.io",
   root: null,
-  data: "/config/pages.json",
-  data_blog: "/config/blog",
-  data_blog_update: "/config/blog_update",
+  data: {
+    home: "/config/home.json",
+    activity: "/config/activity",
+    blog: "/config/blog_menu",
+    learn: "/config/learn.json",
+    about: "/config/about.json",
+    links: "/config/links.json"
+  },
   md: "/blog",
   sourceRepo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master",
   issue: "https://github.com/Saber2pr/saber2pr.github.io/issues/new",
