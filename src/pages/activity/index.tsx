@@ -3,7 +3,7 @@ import "./style.less"
 
 import MD from "@saber2pr/md2jsx"
 import { origin, md_theme } from "../../config"
-import { lift, timeDeltaFromNow, checkDarkTime } from "../../utils"
+import { lift, timeDeltaFromNow, checkDarknessTime } from "../../utils"
 import { Icon } from "../../iconfont"
 import { useOnScrollBottom } from "../../hooks/useOnScrollBottom"
 import { LazyCom, Loading } from "../../components"
@@ -116,7 +116,7 @@ export const Activity = ({ acts }: Activity) => {
           </div>
         </li>
       </ul>
-      {checkDarkTime() && (
+      {checkDarknessTime() && (
         <div className="Activity-Aside" title="from sayo...">
           <p>
             <i>无意义记号的罗列</i>

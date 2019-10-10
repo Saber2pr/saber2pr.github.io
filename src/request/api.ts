@@ -1,4 +1,4 @@
-import { origin } from "../config"
+import { origin } from "../config/origin"
 
 export namespace API {
   export const createAvatars = (name: string, size = 70) =>

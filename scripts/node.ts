@@ -1,5 +1,9 @@
 import { promisify } from "util"
 import { readdir, readFile, stat, exists, mkdir, writeFile } from "fs"
+import https from "https"
+import { URL } from "url"
+import { OutgoingHttpHeaders } from "http"
+import { Terminal } from "@saber2pr/node"
 
 export const ReadDir = promisify(readdir)
 export const ReadFile = promisify(readFile)
@@ -26,3 +30,42 @@ export namespace Print {
 
 export const copy = (from: string, to: string) =>
   ReadFile(from).then(buffer => WriteFile(to, buffer))
+
+export const fetch = ({
+  path,
+  headers
+}: {
+  path: string
+  headers: OutgoingHttpHeaders
+}) =>
+  new Promise<string>((resolve, reject) => {
+    const url = new URL(encodeURI(path))
+    https.get(
+      {
+        hostname: url.hostname,
+        path: url.pathname + url.search,
+        headers
+      },
+      res => {
+        const data = []
+        const handle = setTimeout(() => reject(""), 10000)
+        res
+          .on("data", chunk => data.push(chunk.toString()))
+          .on("end", () => {
+            resolve(data.join(""))
+            clearTimeout(handle)
+          })
+          .on("error", reject)
+      }
+    )
+  })
+
+export const displayProgress = async (max: number) => {
+  let index = 0
+  return () => {
+    Terminal.success(
+      `[Progress]: ...${Number((index * 100) / max).toFixed(1)}%`
+    )
+    index++
+  }
+}

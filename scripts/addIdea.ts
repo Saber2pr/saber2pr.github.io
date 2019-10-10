@@ -7,6 +7,9 @@ async function createIdea() {
   Terminal.tips("--创建想法--")
   const type = (await Terminal.getUserInput("类型(想法):")) || "想法"
   const content = await Terminal.getUserInput("内容:")
+  if (content.includes(";")) {
+    throw new TypeError("includes `;`")
+  }
   const newUpdate = createUpdate(type, content)
   await addUpdateStringToFile(paths.config_blog_update, newUpdate)
 }

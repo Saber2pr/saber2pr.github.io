@@ -12,10 +12,12 @@
     "add:idea": "ts-node scripts/addIdea",
     "add:idea-f": "ts-node scripts/addIdeaFromFile",
     "push:blog": "sh scripts/push-blog.sh",
-    "push:build": "sh scripts/push-build.sh"
+    "push:build": "sh scripts/push-build.sh",
+    "test": "ts-node scripts/createStatusTree"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.0.6",
+    "@saber2pr/memo": "^0.0.2",
     "@saber2pr/rc-audio": "^0.0.9",
     "@saber2pr/rc-gitment": "^0.0.4",
     "@saber2pr/rc-tree": "^0.1.4",

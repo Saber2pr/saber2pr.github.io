@@ -1,11 +1,14 @@
 import { origin } from "../config"
 import { API } from "./api"
-import { parseTree, parseUpdateStr } from "../utils"
+import { parseTree, parseUpdateStr, Node, findNodeByPath } from "../utils"
 import { axios } from "./axios"
+import memo from "@saber2pr/memo"
+
+const memoGet = memo(axios.get, axios)
 
 export const request = async (type: keyof typeof origin.data): Promise<any> => {
   const url = origin.root + origin.data[type]
-  const res = await axios.get<string>(url)
+  const res = await memoGet<string>(url)
 
   if (type === "blog") return parseTree(res.data)
   if (type === "activity") return parseUpdateStr(res.data)
@@ -14,22 +17,10 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
 }
 
 export const requestCommitDate = async (path: string) => {
-  const res = await axios.get<any>(
-    `${API.createCommitsUrl(origin.username, origin.repo)}?path=${path}`,
-    {
-      params: {
-        timestamp: Date.now()
-      }
-    }
-  )
-
-  if (res.status === 200 && res.data.length) {
-    const commited = res.data[0]
-    if (commited) return commited.commit.committer.date
-  }
-
-  return "登录后查看内容"
+  const status = await memoGet<Node>(origin.data.status)
+  const res = findNodeByPath(path.replace("/blog", ""), status.data)
+  return res["LastModified"]
 }
 
 export const requestContent = (path: string) =>
-  axios.get(API.createContentUrl(origin.username, origin.repo, path))
+  memoGet(API.createContentUrl(origin.username, origin.repo, path))

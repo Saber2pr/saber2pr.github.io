@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-09-28 10:54:52
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-09-28 11:13:36
+ * @Last Modified time: 2019-10-09 21:46:58
  */
 import { diff, commit, Commit } from "@saber2pr/git"
 import { ReadFile, WriteFile, Exists } from "./node"
@@ -21,7 +21,7 @@ export const collectUpdates = async (root = "./blog") => {
     date: new Date().toLocaleString()
   }))
   await commit(commits)
-  return stringifyUpdates(updates)
+  return updates
 }
 
 export const stringifyUpdates = (updates: Update[]): string =>
