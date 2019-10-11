@@ -2,7 +2,7 @@ import { join } from "path"
 import { origin } from "../src/config/origin"
 
 export const paths = {
-  access_token: join(process.cwd(), "/auth/access_token"),
+  auth: join(process.cwd(), "/auth/auth.json"),
   username: origin.username,
   repo: origin.repo,
   blog: join(process.cwd(), origin.md),

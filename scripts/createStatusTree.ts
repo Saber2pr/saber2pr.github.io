@@ -53,7 +53,7 @@ const fetchStatusFromOrigin = (path: string) =>
   fetch({
     path: `${API.createCommitsUrl(paths.username, paths.repo)}?path=${path}`,
     headers: {
-      Authorization: `token ${paths.access_token}`,
+      Authorization: `token ${require(paths.auth).access_token}`,
       "User-Agent": "Mozilla/5.0"
     }
   }).then(res => JSON.parse(res))
