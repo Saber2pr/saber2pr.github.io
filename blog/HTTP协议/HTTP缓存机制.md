@@ -38,7 +38,7 @@ Etag 是上一次加载资源时，服务器返回的 response header，是对�
 
 Last-Modified 是该资源文件最后一次更改时间，服务器会在 response header 里返回。
 
-同时浏览器会将这个值保存起来，下一次发送请求时，放到 request headr 里的 If-Modified-Since 里。
+同时浏览器会将这个值保存起来，下一次发送请求时，放到 request header 里的 If-Modified-Since 里。
 
 服务器在接收到后也会做对比，如果相同则命中协商缓存。
 
