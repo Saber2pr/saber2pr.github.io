@@ -20,6 +20,7 @@ HTML超文本标记语言
   表单输入
   表格
 HTTP协议
+  HTTP缓存机制
   HTTP跨域之OPTIONS请求
   基本概念
 Javascript基础
@@ -36,6 +37,7 @@ Javascript基础
     async-await原理
   fiber遍历
   vdom渲染
+  上传和发送图片
   事件捕获冒泡
   作用域和闭包
   保存文件到本地
@@ -64,7 +66,9 @@ Node
   node解析url参数
   node路由
   promisify
+  接收base64图片
   获取post-body
+  获取本机外网IP（IPV4）
 React原理
   React-Fiber实现
   reconciler实现
@@ -90,6 +94,7 @@ React原理
     关于TSX的类型定义
   浏览器API
     requestIdleCallback方法
+  生命周期
 React基本布局
   下拉菜单
 React生态

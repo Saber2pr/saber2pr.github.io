@@ -43,3 +43,5 @@ console.log(isIterable(arguments)) // true
 console.log(isIterable(document.getElementsByTagName("script"))) // true
 console.log(isIterable((function*() {})())) // true
 ```
+
+> FileList 也是伪数组

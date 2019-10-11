@@ -6,30 +6,30 @@
 
 ```typescript
 type Fiber = {
-  type: FiberType;
-  tag: Tag | React.FC;
-  effectType: EffectType;
-  parent: Fiber;
-  child: Fiber;
-  sibling: Fiber;
-  alternate: Fiber;
-  props: Props;
-  state: Dict;
-  memorize: Dict;
-  effects: Effect[];
-  effectList: Fiber[];
-  instance: FiberInstance;
-  stateNode: Fiber;
-  expirationTime: number;
-  isMount: boolean = false;
-  refChild: Fiber;
-};
+  type: FiberType
+  tag: Tag | React.FC
+  effectType: EffectType
+  parent: Fiber
+  child: Fiber
+  sibling: Fiber
+  alternate: Fiber
+  props: Props
+  state: Dict
+  memorize: Dict
+  effects: Effect[]
+  effectList: Fiber[]
+  instance: FiberInstance
+  stateNode: Fiber
+  expirationTime: number
+  isMount: boolean = false
+  refChild: Fiber
+}
 ```
 
 ### Fiber.type
 
 ```typescript
-type FiberType = "host" | "hook";
+type FiberType = "host" | "hook"
 ```
 
 如果一个 Fiber 的 type 值为 "host"，那么表示它的实例(Fiber.instance)是原生 DOM 节点。
@@ -39,18 +39,18 @@ type FiberType = "host" | "hook";
 
 ```typescript
 type Fiber = {
-  tag: Tag | React.FC;
-};
+  tag: Tag | React.FC
+}
 
 // Dict 字典类型
-type Dict = { [k: string]: any };
+type Dict = { [k: string]: any }
 
 namespace React {
   // FC 函数组件类型
-  export type FC<T extends Dict = Dict> = (props: T) => JSX.Element;
+  export type FC<T extends Dict = Dict> = (props: T) => JSX.Element
 }
 
-type Tag = keyof HTMLElementTagNameMap | "text";
+type Tag = keyof HTMLElementTagNameMap | "text"
 ```
 
 Fiber.tag 的类型可以是 string 类型，也可以是 function 类型。string 类型就是原生 DOM 节点的 TagNameMap 集合成员，这里在集合中添加了一个新的 tag: "text"，用于表示原生 Text 对象，即文本节点。
@@ -60,7 +60,7 @@ Fiber.tag 的类型可以是 string 类型，也可以是 function 类型。stri
 ### Fiber.effectType
 
 ```typescript
-type EffectType = "place" | "delete" | "update";
+type EffectType = "place" | "delete" | "update"
 ```
 
 effectType 有三种类型，替换，删除，更新。
@@ -71,13 +71,15 @@ effectType 有三种类型，替换，删除，更新。
 
 ```typescript
 type Fiber = {
-  parent: Fiber;
-  child: Fiber;
-  sibling: Fiber;
-};
+  parent: Fiber
+  child: Fiber
+  sibling: Fiber
+}
 ```
 
 Fiber 链表的空间结构
+
+![loading](https://saber2pr.top/MyWeb/resource/image/fiber-tree.webp)
 
 ```typescript
 parent
@@ -93,8 +95,8 @@ child
 
 ```typescript
 type Fiber = {
-  alternate: Fiber;
-};
+  alternate: Fiber
+}
 ```
 
 alternate 用于链接到旧的自己。
@@ -106,11 +108,11 @@ alternate 用于链接到旧的自己。
 ### Fiber.props
 
 ```typescript
-type Dict = { [k: string]: any };
+type Dict = { [k: string]: any }
 
 interface Props extends Dict {
-  children?: Fiber | Fiber[];
-  ref?: React.RefAttributes<any>;
+  children?: Fiber | Fiber[]
+  ref?: React.RefAttributes<any>
 }
 ```
 
@@ -122,8 +124,8 @@ interface Props extends Dict {
 
 ```typescript
 type Fiber = {
-  state: Dict;
-};
+  state: Dict
+}
 ```
 
 Fiber 函数组件状态。在 useState Hook 中读取和更新。
@@ -132,8 +134,8 @@ Fiber 函数组件状态。在 useState Hook 中读取和更新。
 
 ```typescript
 type Fiber = {
-  memorize: Dict;
-};
+  memorize: Dict
+}
 ```
 
 记录 memo hook 上次的输入。
@@ -141,11 +143,11 @@ type Fiber = {
 ### Fiber.effects
 
 ```typescript
-type Effect = (...args: any) => Effect | void;
+type Effect = (...args: any) => Effect | void
 
 type Fiber = {
-  effects: Effect[];
-};
+  effects: Effect[]
+}
 ```
 
 Fiber 函数组件中的副作用操作，在该 Fiber 最终的 commit 阶段执行。
@@ -159,8 +161,8 @@ Fiber 函数组件中的副作用操作，在该 Fiber 最终的 commit 阶段�
 
 ```typescript
 type Fiber = {
-  effectList: Fiber[];
-};
+  effectList: Fiber[]
+}
 ```
 
 用于向上收集打上 effectType 标记的 Fiber 节点，最终收集到 rootFiber。在 commit 阶段遍历 effectList 中所有 Fiber。
@@ -168,11 +170,11 @@ type Fiber = {
 ### Fiber.instance
 
 ```typescript
-type FiberInstance = Fiber & HTMLElement;
+type FiberInstance = Fiber & HTMLElement
 
 type Fiber = {
-  instance: FiberInstance;
-};
+  instance: FiberInstance
+}
 ```
 
 Fiber 实例，当 Fiber.type 值为'host'时，instance 就是真实 DOM，值为'hook'时，instance 就是函数组件对应 Fiber(自己)。
@@ -181,8 +183,8 @@ Fiber 实例，当 Fiber.type 值为'host'时，instance 就是真实 DOM，值�
 
 ```typescript
 type Fiber = {
-  stateNode: Fiber;
-};
+  stateNode: Fiber
+}
 ```
 
 在 rootFiber 实例(rootContainer 也就是 div#root 节点) 上链接到 rootFiber。
@@ -191,8 +193,8 @@ type Fiber = {
 
 ```typescript
 type Fiber = {
-  expirationTime: number;
-};
+  expirationTime: number
+}
 ```
 
 Fiber 完成一次 reconcile 所需要的最少时间。
@@ -201,8 +203,8 @@ Fiber 完成一次 reconcile 所需要的最少时间。
 
 ```typescript
 type Fiber = {
-  isMount: boolean;
-};
+  isMount: boolean
+}
 ```
 
 标记 Fiber Mount 状态
@@ -211,8 +213,8 @@ type Fiber = {
 
 ```typescript
 type Fiber = {
-  refChild: Fiber;
-};
+  refChild: Fiber
+}
 ```
 
 当 Fiber.effectType 为'delete'时将自己的 sibling 标记到 parent 的 refChild 属性，用于 commit effectType:'place'阶段的 insertBefore。
