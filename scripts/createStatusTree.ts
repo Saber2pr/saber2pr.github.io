@@ -1,6 +1,6 @@
 import { createTree, findNodeByPath, collect, Node } from "./createTree"
 import { paths } from "./paths"
-import { WriteFile, Exists, fetch, displayProgress } from "./node"
+import { WriteFile, fetch, displayProgress, Exists } from "./node"
 import { API } from "../src/request/api"
 
 export const createStatusTree = async () => {
@@ -29,7 +29,12 @@ export const createStatusTree = async () => {
 
 export const updateStatusTree = async (queryPath: string, document: object) => {
   const tree = require(paths.config_blog_status)
-  const target = findNodeByPath(queryPath, tree)
+  let target = findNodeByPath(queryPath, tree)
+  if (!target) {
+    target = { path: queryPath }
+    tree.children.push(target)
+  }
+
   Object.assign(target, document)
   await WriteFile(paths.config_blog_status, JSON.stringify(tree))
 }
