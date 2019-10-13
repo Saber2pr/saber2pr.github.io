@@ -120,7 +120,6 @@ Reflect反射原理
     实现一个基于IOC的HttpServer框架（下）
 Typescript基础
   对比Monad在TS和Haskell中的使用
-saber2prの窝
 其他常用命令
   cad基础命令
   cmd常用命令
@@ -130,16 +129,20 @@ saber2prの窝
       BannerPlugin
   包管理器
     npm常用命令
-性能优化
-  前端性能优化
-我的思考
-  INTJ的自我救赎
+心理学
+  16型人格八维
+  INFJ八维功能
+  INTJ八维功能
+  sayo教の角色16型人格
   保持学习
   如何面对选择
   学习方法论
   对失败的思考
+  荣格八维功能概括
   计划优先级
   障
+性能优化
+  前端性能优化
 数据库
   mongodb
     Nodejs操作mongodb
@@ -147,6 +150,7 @@ saber2prの窝
 数据结构算法
   base64算法
   排序算法
+永恒の幻想乡
 浏览器API
   DOM对象继承体系
   MutationObserver

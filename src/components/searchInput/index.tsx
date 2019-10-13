@@ -74,7 +74,7 @@ const Input = ({
         list="blog"
         onInput={e => {
           const input: string = e.target["value"]
-          if (input.startsWith("secret=")) {
+          if (input.startsWith("encode=") || input.startsWith("decode=")) {
             store.dispatch("context", input)
             push("/secret", true)
             ref.current.value = ""
