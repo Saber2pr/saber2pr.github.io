@@ -21,10 +21,12 @@ HTML超文本标记语言
   表单输入
   表格
 HTTP协议
+  HTTP加密
   HTTP缓存机制
   HTTP跨域之OPTIONS请求
   基本概念
 Javascript基础
+  ES7,ES8,ES9,ES10新特性
   HTML特殊字符转义
   JSONP跨域
   bind call apply和原理
@@ -148,6 +150,7 @@ Typescript基础
     Nodejs操作mongodb
     mongodb增删査改
 数据结构算法
+  KMP算法
   base64算法
   排序算法
 永恒の幻想乡
