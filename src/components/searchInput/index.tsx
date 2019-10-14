@@ -1,10 +1,11 @@
-import React, { useState, useRef, Fragment } from "react"
+import React, { useState, useRef } from "react"
 import "./style.less"
 import { Blog } from "../../pages"
 import { collect } from "../../utils"
 import { Link, usePush } from "@saber2pr/router"
 import { Icon } from "../../iconfont"
 import { store } from "../../store"
+import { useIsMob } from "../../hooks"
 
 export interface SearchInput {
   blog: Blog["tree"]
@@ -55,8 +56,9 @@ const Input = ({
   onblur?: Function
   onfocus?: Function
 }) => {
+  const isMob = useIsMob()
   const styles = {
-    open: { width: "6rem" },
+    open: { width: isMob ? "6rem" : "10rem" },
     close: { width: "0" }
   }
   const [style, update] = useState<React.CSSProperties>(styles.close)
