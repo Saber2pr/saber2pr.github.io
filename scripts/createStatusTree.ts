@@ -21,10 +21,10 @@ export const createStatusTree = async () => {
       }
       node["LastModified"] = await fetchModifiedDateFromOrigin(node.path)
       node.path = node.path.replace("/blog", "")
-      await WriteFile(paths.config_blog_status, JSON.stringify(tree, null, 2))
       progress()
     })
   )
+  await WriteFile(paths.config_blog_status, JSON.stringify(tree, null, 2))
 }
 
 export const updateStatusTree = async (queryPath: string, document: object) => {
