@@ -32,6 +32,7 @@ Javascript基础
   bind call apply和原理
   canvas
     ImageData操作
+    canvas路径绘制
     rgba与hex转换
     打印到图片
   es6
