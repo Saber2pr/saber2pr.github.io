@@ -1,6 +1,5 @@
-export const themeStyle = {
-  light: "",
-  dark: "/static/theme/dark.css"
-}
+import { origin } from "../config"
 
-export type ThemeStyleType = keyof typeof themeStyle
+export const themeStyle = origin.theme
+
+export type ThemeStyleType = keyof typeof origin.theme

@@ -3,18 +3,22 @@ export const origin = {
   repo: "saber2pr.github.io",
   root: null,
   data: {
-    home: "/config/home.json",
-    activity: "/config/activity",
-    blog: "/config/blog_menu",
-    learn: "/config/learn.json",
-    about: "/config/about.json",
-    links: "/config/links.json",
-    status: "/config/blog_status.json"
+    home: "/static/data/home.json",
+    activity: "/static/data/activity",
+    blog: "/static/data/blog_menu",
+    learn: "/static/data/learn.json",
+    about: "/static/data/about.json",
+    links: "/static/data/links.json",
+    status: "/static/data/blog_status.json"
   },
   md: "/blog",
   sourceRepo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master",
   issue: "https://github.com/Saber2pr/saber2pr.github.io/issues/new",
-  commentRepo: "rc-gitment"
+  commentRepo: "rc-gitment",
+  theme: {
+    light: "",
+    dark: "/static/style/dark.css"
+  }
 }
 
 if (!origin.root) {

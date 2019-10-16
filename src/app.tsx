@@ -16,7 +16,7 @@ import { ALink, SearchInput, MusicLine, PreImg, Themer } from "./components"
 
 import { store } from "./store"
 import { getHash, queryRootFirstChild } from "./utils"
-import { useShowBar } from "./hooks"
+import { useShowBar, useEvent } from "./hooks"
 import { API } from "./request"
 import { Icon } from "./iconfont"
 
@@ -39,15 +39,13 @@ export const App = ({ JAbout, JBlog }: App) => {
   store.dispatch("blogRoot", firstBlog.path)
   useEffect(() => {
     store.dispatch("href", hash)
-    const onpopstate = () => store.dispatch("href", getHash())
-    window.addEventListener("popstate", onpopstate)
-    return () => window.removeEventListener("popstate", onpopstate)
   }, [])
+  useEvent("popstate", () => store.dispatch("href", getHash()), [])
 
-  // const show = useShowBar()
+  const show = useShowBar()
   return (
     <>
-      {/* {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />} */}
+      {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />}
       <main className="main">
         <div className="main-bg" />
         <Router history={HashHistory}>

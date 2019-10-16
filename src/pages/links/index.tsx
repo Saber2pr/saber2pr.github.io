@@ -14,12 +14,26 @@ type Link = {
 
 type MessLink = Link & {
   message: string
+  icon: string
 }
 
 export interface Links {
   owns: MessLink[]
   friends: Link[]
 }
+
+const PreImage = (
+  <div
+    style={{
+      width: "3rem",
+      height: "3rem",
+      backgroundColor: "lightgrey",
+      margin: "0 auto",
+      marginRight: "0.5rem",
+      borderRadius: '0.5rem'
+    }}
+  />
+)
 
 const OwnLinks = ({ links }: { links: MessLink[] }) => (
   <dl className="Links-Own">
@@ -30,17 +44,32 @@ const OwnLinks = ({ links }: { links: MessLink[] }) => (
       </div>
     </dt>
     <dd className="Links-Own-Content">
-      {links.map(({ name, href, message }) => (
+      {links.map(({ name, href, message, icon }) => (
         <a
           key={name}
           className="Links-Own-Content-Link"
           href={href}
           target="_blank"
         >
-          <p>
-            <strong>{name}</strong>
-          </p>
-          <p className="Links-Own-Content-Link-Message">{message}</p>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <PreImg
+                    className="Links-Friend-Content-Link-Head"
+                    fallback={PreImage}
+                    src={icon}
+                  />
+                </td>
+                <td>
+                  <p>
+                    <strong>{name}</strong>
+                  </p>
+                  <p className="Links-Own-Content-Link-Message">{message}</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </a>
       ))}
     </dd>

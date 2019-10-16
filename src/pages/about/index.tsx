@@ -1,6 +1,6 @@
 declare const version: string
 
-import React, { useEffect } from "react"
+import React from "react"
 import Audio from "@saber2pr/rc-audio"
 
 import { TwoSide, LazyCom, Loading } from "../../components"
@@ -39,8 +39,8 @@ const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
           autoplay={musicStore.getState().music}
           start={musicStore.getState().musicCurrent}
           onChange={(statu, audio) => {
-            // musicStore.getState().music = statu === "playing"
-            // musicStore.dispatch("musicCurrent", audio.currentTime)
+            musicStore.dispatch("music", statu === "playing")
+            musicStore.dispatch("musicCurrent", audio.currentTime)
           }}
         />
       </div>
