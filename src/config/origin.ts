@@ -1,5 +1,5 @@
 export const origin = {
-  username: "saber2pr",
+  userId: "saber2pr",
   repo: "saber2pr.github.io",
   root: null,
   data: {
@@ -12,8 +12,6 @@ export const origin = {
     status: "/static/data/blog_status.json"
   },
   md: "/blog",
-  sourceRepo: "https://github.com/Saber2pr/saber2pr.github.io/blob/master",
-  issue: "https://github.com/Saber2pr/saber2pr.github.io/issues/new",
   commentRepo: "rc-gitment",
   theme: {
     light: "",

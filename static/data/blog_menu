@@ -99,8 +99,11 @@ React原理
   浏览器API
     requestIdleCallback方法
   生命周期
-React基本布局
+React常用组件
+  Event Hook组件
   下拉菜单
+  图片预占位组件
+  懒加载组件
 React生态
   React-Redux干了什么
   React生态源码阅读

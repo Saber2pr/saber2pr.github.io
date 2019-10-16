@@ -1,10 +1,7 @@
 import { origin } from "../config"
 import { API } from "./api"
 import { parseTree, parseUpdateStr, Node, findNodeByPath } from "../utils"
-import { axios } from "./axios"
-import memo from "@saber2pr/memo"
-
-const memoGet = memo(axios.get, axios)
+import { memoGet } from "./axios"
 
 export const request = async (type: keyof typeof origin.data): Promise<any> => {
   const url = origin.root + origin.data[type]
@@ -23,4 +20,4 @@ export const requestCommitDate = async (path: string) => {
 }
 
 export const requestContent = (path: string) =>
-  memoGet(API.createContentUrl(origin.username, origin.repo, path))
+  memoGet(API.createContentUrl(origin.userId, origin.repo, path))

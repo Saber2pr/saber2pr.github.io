@@ -13,7 +13,7 @@ import { useIsMobile } from "../../hooks"
 import { md_theme, origin } from "../../config"
 import { collect, TextTree } from "../../utils/collect"
 import { timeDeltaFromNow, getHash } from "../../utils"
-import { requestCommitDate } from "../../request"
+import { requestCommitDate, API } from "../../request"
 import { store } from "../../store"
 
 const BLink = (props: Link) => (
@@ -29,7 +29,8 @@ const fetchContent = (href: string) =>
 
 const fetchDate = (href: string) => requestCommitDate(href + ".md")
 
-const createOriginHref = (href: string) => origin.sourceRepo + href + ".md"
+const createOriginHref = (href: string) =>
+  API.createBlobHref(origin.userId, origin.repo, href + ".md")
 
 export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)

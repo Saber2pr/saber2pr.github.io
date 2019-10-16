@@ -10,4 +10,9 @@ export namespace API {
     repo: string,
     path: string
   ) => `${origin.root}/${username}/${repo}/master${path}`
+  export const createBlobHref = (
+    username: string,
+    repo: string,
+    path: string
+  ) => `https://github.com/${username}/${repo}/blob/master${path}`
 }

@@ -3,7 +3,7 @@ import { origin } from "../src/config/origin"
 
 export const paths = {
   auth: join(process.cwd(), "/auth/auth.json"),
-  username: origin.username,
+  username: origin.userId,
   repo: origin.repo,
   blog: join(process.cwd(), origin.md),
   config_blog: join(process.cwd(), origin.data.blog),

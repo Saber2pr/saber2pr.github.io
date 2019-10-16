@@ -2,15 +2,10 @@
  * @Author: saber2pr
  * @Date: 2019-06-12 10:35:34
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-06-12 15:25:59
+ * @Last Modified time: 2019-10-16 22:13:09
  */
 import React, { useState, useRef, CSSProperties } from "react"
 import { usePreComp } from "../../hooks"
-
-export interface DefaultProps {
-  className?: string
-  alt?: string
-}
 
 export interface PreImg
   extends React.DetailedHTMLProps<
