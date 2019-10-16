@@ -8,6 +8,7 @@ import { Icon } from "../../iconfont"
 import { useOnScrollBottom } from "../../hooks/useOnScrollBottom"
 import { LazyCom, Loading } from "../../components"
 import { request } from "../../request"
+import { store } from "../../store"
 
 type Act = {
   type: "update" | "create" | "delete"
@@ -70,9 +71,14 @@ const matchText = (type: Act["type"], text: Act["text"]) => {
 }
 
 export const Activity = ({ acts }: Activity) => {
-  const [length, setLength] = useState(10)
+  const [length, setLength] = useState(store.getState().actLen)
   const hasMore = length <= acts.length
-  useOnScrollBottom(() => hasMore && setLength(length + 10))
+  useOnScrollBottom(() => {
+    if (hasMore) {
+      setLength(length + 10)
+      store.dispatch("actLen", length + 10)
+    }
+  })
   return (
     <div className="Activity">
       <ul>
