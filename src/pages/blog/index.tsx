@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { Route, Router } from "@saber2pr/router"
+import { Route, Link } from "@saber2pr/react-router"
 import Tree from "@saber2pr/rc-tree"
 
 import MD from "@saber2pr/md2jsx"
@@ -10,14 +10,14 @@ import { Icon } from "../../iconfont"
 import { TwoSide, ALink, Loading, LazyCom } from "../../components"
 import { useIsMobile } from "../../hooks"
 
-import { store } from "../../store"
-import { history, md_theme, origin } from "../../config"
+import { md_theme, origin } from "../../config"
 import { collect, TextTree } from "../../utils/collect"
-import { getHash, timeDeltaFromNow } from "../../utils"
+import { timeDeltaFromNow, getHash } from "../../utils"
 import { requestCommitDate } from "../../request"
+import { store } from "../../store"
 
-const BLink = (props: Omit<ALink, "act" | "uact">) => (
-  <ALink act="Blog-A-Active" uact="Blog-A" {...props} scrollReset />
+const BLink = (props: Link) => (
+  <ALink act="Blog-A-Active" uact="Blog-A" {...props} />
 )
 
 export interface Blog {
@@ -33,7 +33,6 @@ const createOriginHref = (href: string) => origin.sourceRepo + href + ".md"
 
 export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)
-  const defaultLink = links.find(l => !("children" in l))
   const ref = useRef<HTMLDivElement>()
 
   const open = () => (ref.current.style.display = "block")
@@ -41,17 +40,13 @@ export const Blog = ({ tree }: Blog) => {
   const isMobile = useIsMobile(close, open)
 
   const hash = getHash()
-  const onhashchange = () => store.dispatch("href", getHash())
   useEffect(() => {
-    const init = hash === "/blog" ? defaultLink.path : hash
-    if (hash) location.hash = `#${encodeURIComponent(init)}`
-    window.addEventListener("hashchange", onhashchange)
-    return () => window.removeEventListener("hashchange", onhashchange)
-  })
+    store.dispatch("href", hash)
+  }, [])
 
   const Routes = links.reduce(
-    (acc, { title, path: href }) => {
-      if (href) {
+    (acc, { title, path: href, children }) => {
+      if (!children) {
         acc.push(
           <Route
             key={href}
@@ -96,7 +91,7 @@ export const Blog = ({ tree }: Blog) => {
     <div className="Blog">
       <TwoSide>
         <main className="Blog-Main">
-          <Router history={history}>{Routes}</Router>
+          {Routes}
           <footer>Copyright © 2019 saber2pr.</footer>
         </main>
         <aside className="Blog-Aside" ref={ref}>

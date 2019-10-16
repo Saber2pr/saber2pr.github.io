@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react"
 import "./style.less"
 import { Blog } from "../../pages"
 import { collect } from "../../utils"
-import { Link, usePush } from "@saber2pr/router"
+import { Link, usePush } from "@saber2pr/react-router"
 import { Icon } from "../../iconfont"
 import { store } from "../../store"
 import { useIsMob } from "../../hooks"
@@ -78,7 +78,7 @@ const Input = ({
           const input: string = e.target["value"]
           if (input.startsWith("encode=") || input.startsWith("decode=")) {
             store.dispatch("context", input)
-            push("/secret", true)
+            push("/secret")
             ref.current.value = ""
           } else {
             search(input)
@@ -102,6 +102,7 @@ const Input = ({
 const renderResult = (result: Item[]) => {
   const blanks: JSX.Element[] = []
   const items: JSX.Element[] = []
+  const [push] = usePush()
   for (const { title, path, isBlank } of result) {
     if (isBlank) {
       blanks.push(
@@ -114,7 +115,14 @@ const renderResult = (result: Item[]) => {
     } else {
       items.push(
         <li key={path}>
-          <Link to={path} onClick={() => location.reload()} title={path}>
+          <Link
+            to={path}
+            title={path}
+            onClick={() => {
+              push(path)
+              location.reload()
+            }}
+          >
             {title}
           </Link>
         </li>

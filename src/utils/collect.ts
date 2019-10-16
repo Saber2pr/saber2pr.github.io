@@ -7,7 +7,7 @@ export interface TextTree extends TreeNode {
 }
 
 export function collect(tree: TextTree, stack = [tree]) {
-  const result: Array<{ path: string; title: string }> = []
+  const result: Array<TextTree> = []
   while (stack.length) {
     const node = stack.shift()
     node === tree || result.push(node)

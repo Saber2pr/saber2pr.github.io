@@ -2,7 +2,7 @@ import React from "react"
 import "./style.less"
 
 import Sec from "@saber2pr/secret"
-import { usePush } from "@saber2pr/router"
+import { usePush } from "@saber2pr/react-router"
 import { store } from "../../store"
 
 export const Secret = () => {

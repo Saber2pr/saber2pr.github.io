@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react"
 import { store } from "../store"
-import { usePush } from "@saber2pr/router"
+import { getHash } from "@saber2pr/react-router"
 
 export const useShowBar = () => {
-  const [_, getHref] = usePush()
   const [show, setShow] = useState(store.getState().music)
   useEffect(
     () =>
       store.subscribe(() => {
-        getHref() === "/about" || getHref() === "/home"
+        getHash() === "/about" || getHash() === "/home"
           ? setShow(false)
           : setShow(store.getState().music)
       }),

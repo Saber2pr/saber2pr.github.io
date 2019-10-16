@@ -26,3 +26,10 @@ export const findNodeByPath = (path: string, entry: Node) => {
     node.children && stack.push(...node.children)
   }
 }
+
+export const queryRootFirstChild = (entry: Node) => {
+  const children = entry.children
+  for (const ch of children) {
+    if (!ch.children) return ch
+  }
+}

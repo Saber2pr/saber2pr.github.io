@@ -83,6 +83,16 @@
   resolved "http://r.cnpmjs.org/@saber2pr/rc-tree/download/@saber2pr/rc-tree-0.1.4.tgz#8f810813523dca034800211ca1de74a0c618dc23"
   integrity sha1-j4EIE1I9ygNIACEcod50oMYY3CM=
 
+"@saber2pr/react-router@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@saber2pr/react-router/-/react-router-0.0.1.tgz#ac9b5be79a9b4c0b7d03e5f6eb6a05b6bb73adc7"
+  integrity sha512-hqCEkYVdK9uUMhKzqO5K2IvPLqQomd9KNsCooxA8PZj9llxr0FXG6j1sZUHDF8cBAw2jp4RejgYhJXMxUTFzVg==
+  dependencies:
+    "@types/react" "^16.8.19"
+    "@types/react-dom" "^16.8.4"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
 "@saber2pr/redux@^0.1.1":
   version "0.1.1"
   resolved "http://r.cnpmjs.org/@saber2pr/redux/download/@saber2pr/redux-0.1.1.tgz#d6c21a2a324c53ce09d5773d345fab570a851d4a"
@@ -92,18 +102,6 @@
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@saber2pr/request/-/request-0.1.2.tgz#d5722c77ad7c754000ea7462e223973124ade2b2"
   integrity sha512-lMQYjGGCPiXaRUsyzrGMOicGJIOfoBYGaYbVj+DbEMgp3qrjO3ngfpAT4zNp5FswT5irMAUepx2KEN74YipNug==
-
-"@saber2pr/router@^0.1.8":
-  version "0.1.8"
-  resolved "http://r.cnpmjs.org/@saber2pr/router/download/@saber2pr/router-0.1.8.tgz#b0e0411085acc2ba24133b66b9ec80ed103f8c07"
-  integrity sha1-sOBBEIWswrokEztmueyA7RA/jAc=
-  dependencies:
-    "@saber2pr/schedular" "0.0.8"
-
-"@saber2pr/schedular@0.0.8":
-  version "0.0.8"
-  resolved "http://r.cnpmjs.org/@saber2pr/schedular/download/@saber2pr/schedular-0.0.8.tgz#f395dd1c16baeb0840902860285cb15077da034e"
-  integrity sha1-85XdHBa66whAkChgKFyxUHfaA04=
 
 "@saber2pr/secret@^0.0.4":
   version "0.0.4"
