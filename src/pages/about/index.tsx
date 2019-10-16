@@ -1,12 +1,12 @@
 declare const version: string
 
-import React from "react"
+import React, { useEffect } from "react"
 import Audio from "@saber2pr/rc-audio"
 
 import { TwoSide, LazyCom, Loading } from "../../components"
 import { useIsMob } from "../../hooks"
 import "./style.less"
-import { store } from "../../store"
+import { musicStore } from "../../store"
 import { request } from "../../request"
 
 const Foot = () => (
@@ -36,11 +36,11 @@ const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
         {audio.info}
         <Audio
           src={audio.src}
-          autoplay={store.getState().music}
-          start={store.getState().musicCurrent}
+          autoplay={musicStore.getState().music}
+          start={musicStore.getState().musicCurrent}
           onChange={(statu, audio) => {
-            store.dispatch("musicCurrent", audio.currentTime)
-            store.dispatch("music", statu === "playing")
+            // musicStore.getState().music = statu === "playing"
+            // musicStore.dispatch("musicCurrent", audio.currentTime)
           }}
         />
       </div>

@@ -44,10 +44,10 @@ export const App = ({ JAbout, JBlog }: App) => {
     return () => window.removeEventListener("popstate", onpopstate)
   }, [])
 
-  const show = useShowBar()
+  // const show = useShowBar()
   return (
     <>
-      {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />}
+      {/* {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />} */}
       <main className="main">
         <div className="main-bg" />
         <Router history={HashHistory}>
