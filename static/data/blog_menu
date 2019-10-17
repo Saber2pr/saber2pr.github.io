@@ -133,6 +133,7 @@ Typescript基础
   webpack
     plugin
       BannerPlugin
+    真机（远程）调试
   包管理器
     npm常用命令
 心理学
