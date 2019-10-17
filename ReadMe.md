@@ -1,51 +1,43 @@
 # [saber2pr.github.io](https://saber2pr.github.io/)
 
-> my web-page.
+> saber2pr's blog.
 
 ```bash
 git clone https://github.com/Saber2pr/saber2pr.github.io.git
 
 cd ./saber2pr.github.io
 
-npm install
+yarn install
 
-npm run dev
+yarn dev
 ```
-
-> npm 和 yarn 类似
 
 # Feature
 
-1. 前端路由无请求
+1. 前端路由
 
-2. markdown 解析器(支持语法高亮)
+2. markdown 博客
 
 3. 响应式布局
 
-# Dev
+4. 更新日志生成
 
-```bash
-# 只编译，不启动服务
-yarn start
-
-# 启动server, 热更新
-yarn run dev
-```
+5. 基于 github api 的留言(OAuth)
 
 # Publish
 
 ```bash
-# 编译项目(release)
-yarn run build
+# 编译项目
+yarn build
+```
 
-# 解析编译markdown，并更新数据
-yarn run update
+```bash
+# 生成更新日志
+yarn update
 ```
 
 # License
 
 MIT
 
-> Author
-
-> saber2pr
+> Author: saber2pr

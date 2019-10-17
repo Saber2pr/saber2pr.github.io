@@ -36,7 +36,10 @@ export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)
   const ref = useRef<HTMLDivElement>()
 
-  const open = () => (ref.current.style.display = "block")
+  const open = () => {
+    ref.current.style.display = "block"
+    setTimeout(() => (ref.current.style.opacity = "1"), 400)
+  }
   const close = () => (ref.current.style.display = "none")
   const isMobile = useIsMobile(close, open)
 
@@ -95,8 +98,8 @@ export const Blog = ({ tree }: Blog) => {
           {Routes}
           <footer>Copyright © 2019 saber2pr.</footer>
         </main>
-        <aside className="Blog-Aside" ref={ref}>
-          <section className="Blog-Aside-Content ani-opacityMove">
+        <aside className="Blog-Aside ani-opacityMove" ref={ref}>
+          <section className="Blog-Aside-Content">
             <Tree
               from={tree}
               map={({ path: href, title, children }) =>
