@@ -104,15 +104,15 @@ export const Blog = ({ tree }: Blog) => {
           <section className="Blog-Aside-Content">
             <Tree
               from={tree}
-              map={({ path: href, title, children }) =>
-                children ? (
-                  <span>{title}</span>
-                ) : (
+              map={({ path: href, title, children }) => {
+                if (href === store.getState().blogRoot) return <></>
+                if (children) return <span>{title}</span>
+                return (
                   <BLink to={href} onClick={() => isMobile() && close()}>
                     {title}
                   </BLink>
                 )
-              }
+              }}
             />
           </section>
         </aside>

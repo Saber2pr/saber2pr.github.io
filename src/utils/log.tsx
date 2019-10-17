@@ -1,6 +1,5 @@
 import React from "react"
 import { createASCII } from "./createASCII"
-import { origin } from "../config"
 
 export function LogProps<T>(
   Component: (props: T) => JSX.Element,
@@ -13,5 +12,5 @@ export function LogProps<T>(
 }
 
 export function welcome() {
-  console.log(createASCII(`from: ${origin.root}`))
+  console.log(createASCII(`from: ${location.origin}`))
 }

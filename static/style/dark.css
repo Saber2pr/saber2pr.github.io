@@ -17,7 +17,8 @@ body {
 }
 
 *::selection {
-  background-color: #730000;
+  background-color: #a50000;
+  color: black;
 }
 
 .Home-Main {
@@ -192,5 +193,10 @@ body {
 
   .Activity-Aside {
     display: none;
+  }
+
+  .Blog pre {
+    border-left: none !important;
+    border-right: none !important;
   }
 }

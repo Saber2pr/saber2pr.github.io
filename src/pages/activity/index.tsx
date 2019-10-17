@@ -123,7 +123,7 @@ export const Activity = ({ acts }: Activity) => {
         </li>
       </ul>
       {checkDarknessTime() && (
-        <div className="Activity-Aside" title="from sayo...">
+        <div className="Activity-Aside" title="by saber2pr qwq..">
           <p>
             <i>无意义记号的罗列</i>
           </p>

@@ -1,5 +1,3 @@
-import { origin } from "../config/origin"
-
 export namespace API {
   export const createAvatars = (name: string, size = 70) =>
     `https://avatars.githubusercontent.com/${name}?size=${size}`
@@ -9,7 +7,7 @@ export namespace API {
     username: string,
     repo: string,
     path: string
-  ) => `${origin.root}/${username}/${repo}/master${path}`
+  ) => `/${username}/${repo}/master${path}`
   export const createBlobHref = (
     username: string,
     repo: string,

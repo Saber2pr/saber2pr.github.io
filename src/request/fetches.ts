@@ -4,7 +4,7 @@ import { parseTree, parseUpdateStr, Node, findNodeByPath } from "../utils"
 import { memoGet } from "./axios"
 
 export const request = async (type: keyof typeof origin.data): Promise<any> => {
-  const url = origin.root + origin.data[type]
+  const url = origin.data[type]
   const res = await memoGet<string>(url)
 
   if (type === "blog") return parseTree(res.data)
