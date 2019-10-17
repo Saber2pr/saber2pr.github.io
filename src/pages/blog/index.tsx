@@ -36,15 +36,17 @@ export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)
   const ref = useRef<HTMLDivElement>()
 
+  const aniOp = () => setTimeout(() => (ref.current.style.opacity = "1"), 400)
   const open = () => {
     ref.current.style.display = "block"
-    setTimeout(() => (ref.current.style.opacity = "1"), 400)
+    aniOp()
   }
   const close = () => (ref.current.style.display = "none")
   const isMobile = useIsMobile(close, open)
 
   const hash = getHash()
   useEffect(() => {
+    isMobile || aniOp()
     store.dispatch("href", hash)
   }, [])
 
