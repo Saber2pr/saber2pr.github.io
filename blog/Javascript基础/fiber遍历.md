@@ -1,4 +1,4 @@
-# 虚拟 dom 构造函数
+### 虚拟 dom 构造函数
 
 ```js
 function VDom(props, children) {
@@ -7,7 +7,7 @@ function VDom(props, children) {
 }
 ```
 
-# Fiber 构造函数
+### Fiber 构造函数
 
 ```js
 function Fiber(instance, parent, child, sibling) {
@@ -18,7 +18,7 @@ function Fiber(instance, parent, child, sibling) {
 }
 ```
 
-# Link
+### Link
 
 > 链接 fiber 实例 vdom 的 children 为单向链表，并返回第一个子节点，若 fiber 实例 vdom 没有 children，则返回 null
 
@@ -32,7 +32,7 @@ function link(fiber) {
 }
 ```
 
-# Fiber 迭代算法
+### Fiber 迭代算法
 
 > 深度优先遍历
 
