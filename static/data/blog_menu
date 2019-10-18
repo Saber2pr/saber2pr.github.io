@@ -125,6 +125,7 @@ Reflect反射原理
     实现一个基于IOC的HttpServer框架（上）
     实现一个基于IOC的HttpServer框架（下）
 Typescript基础
+  Typescript类型运算
   对比Monad在TS和Haskell中的使用
 其他常用命令
   cad基础命令
@@ -136,6 +137,9 @@ Typescript基础
     真机（远程）调试
   包管理器
     npm常用命令
+博客建设日志
+  网站建设过程
+  网站架构和技术栈
 心理学
   16型人格八维
   INFJ八维功能
