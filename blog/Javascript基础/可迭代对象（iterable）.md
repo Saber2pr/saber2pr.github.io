@@ -1,4 +1,4 @@
-# 可迭代对象(iterable)
+### 可迭代对象(iterable)
 
 可迭代对象(iterable)就是部署有 Symbol.iterator 的对象
 
@@ -16,7 +16,7 @@ for (let i of obj) {
 }
 ```
 
-# 判断一个对象是否是可遍历对象
+### 判断一个对象是否是可遍历对象
 
 > 就是看有没有部署 Symbol.iterator 接口，该属性是 function 类型
 
@@ -26,7 +26,7 @@ function isIterable(obj) {
 }
 ```
 
-# js 内置 iterable
+### js 内置 iterable
 
 String、Array、Map、Set、arguments 和其他伪数组、generator
 
