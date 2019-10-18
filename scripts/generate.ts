@@ -7,6 +7,7 @@ import {
 } from "./collectUpdates"
 import { paths } from "./paths"
 import { Status, createStatusTree } from "./createStatusTree"
+import { checkJson } from "./checkJson"
 
 const createBlogConfig = async (root: string) =>
   await createMenu(root).then(text => {
@@ -36,6 +37,9 @@ async function main() {
     paths.config_blog_update,
     stringifyUpdates(updates)
   )
+
+  // check json
+  await checkJson(paths.config_blog_status)
 }
 
 main().catch(console.log)
