@@ -1,4 +1,4 @@
-# 虚拟 dom 构造函数
+### 虚拟 dom 构造函数
 
 ```js
 function VDom(type, props, children) {
@@ -14,7 +14,7 @@ function h(type, props, children = []) {
 const tree = h("div", {}, [h("p", { innerText: "hello" })])
 ```
 
-# 渲染函数
+### 渲染函数
 
 ```js
 function renderDom(vdom, container) {
@@ -27,7 +27,7 @@ function renderDom(vdom, container) {
 renderDom(tree, document.getElementById("root"))
 ```
 
-# 迭代器遍历
+### 迭代器遍历
 
 ```js
 function* toIterable(vdom, stack = [vdom]) {
