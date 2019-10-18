@@ -1,5 +1,11 @@
 import React, { useEffect } from "react"
-import { Router, Route, Link, HashHistory } from "@saber2pr/react-router"
+import {
+  Router,
+  Route,
+  Link,
+  HashHistory,
+  Switch
+} from "@saber2pr/react-router"
 
 import "./app.less"
 import {
@@ -7,10 +13,10 @@ import {
   About,
   Secret,
   HomeLazy,
-  AboutLazy,
   LinksLazy,
   ActivityLazy,
-  LearnLazy
+  LearnLazy,
+  NotFound
 } from "./pages"
 import { ALink, SearchInput, MusicLine, PreImg, Themer } from "./components"
 
@@ -36,7 +42,7 @@ export interface App {
 export const App = ({ JAbout, JBlog }: App) => {
   const hash = getHash()
   const firstBlog = queryRootFirstChild(JBlog)
-  store.dispatch("blogRoot", firstBlog.path)
+  store.getState().blogRoot = firstBlog.path
   useEffect(() => {
     store.dispatch("href", hash)
   }, [])
@@ -73,13 +79,16 @@ export const App = ({ JAbout, JBlog }: App) => {
               <Themer />
             </span>
           </nav>
-          <Route exact path="/" component={() => <HomeLazy />} />
-          <Route path="/blog" component={() => <Blog tree={JBlog} />} />
-          <Route path="/about" component={() => <AboutLazy />} />
-          <Route path="/links" component={() => <LinksLazy />} />
-          <Route path="/secret" component={() => <Secret />} />
-          <Route path="/activity" component={() => <ActivityLazy />} />
-          <Route path="/learn" component={() => <LearnLazy />} />
+          <Switch>
+            <Route exact path="/" component={() => <HomeLazy />} />
+            <Route path="/blog" component={() => <Blog tree={JBlog} />} />
+            <Route path="/about" component={() => <About {...JAbout} />} />
+            <Route path="/links" component={() => <LinksLazy />} />
+            <Route path="/secret" component={() => <Secret />} />
+            <Route path="/activity" component={() => <ActivityLazy />} />
+            <Route path="/learn" component={() => <LearnLazy />} />
+            <Route path="*" component={() => <NotFound />} />
+          </Switch>
         </Router>
       </main>
     </>

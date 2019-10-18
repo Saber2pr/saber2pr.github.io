@@ -176,6 +176,10 @@ body {
   color: red;
 }
 
+.NotFound-Back:hover {
+  color: white;
+}
+
 @media screen and (max-width: 740px) {
   .About-Aside-Content-Proj {
     border: 1px solid pink;

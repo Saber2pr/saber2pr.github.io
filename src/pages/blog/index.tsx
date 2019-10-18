@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react"
-import { Route, Link } from "@saber2pr/react-router"
+import { Route, Link, Switch } from "@saber2pr/react-router"
 import Tree from "@saber2pr/rc-tree"
 
 import MD from "@saber2pr/md2jsx"
@@ -15,6 +15,7 @@ import { collect, TextTree } from "../../utils/collect"
 import { timeDeltaFromNow, getHash } from "../../utils"
 import { requestCommitDate, API } from "../../request"
 import { store } from "../../store"
+import { NotFound } from "../not-found"
 
 const BLink = (props: Link) => (
   <ALink act="Blog-A-Active" uact="Blog-A" {...props} />
@@ -97,7 +98,12 @@ export const Blog = ({ tree }: Blog) => {
     <div className="Blog">
       <TwoSide>
         <main className="Blog-Main">
-          {Routes}
+          <Switch>
+            {[
+              ...Routes,
+              <Route key="not-found" path="*" component={() => <NotFound />} />
+            ]}
+          </Switch>
           <footer>Copyright © 2019 saber2pr.</footer>
         </main>
         <aside className="Blog-Aside ani-opacityMove" ref={ref}>
