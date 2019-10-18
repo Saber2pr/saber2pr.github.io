@@ -1,4 +1,4 @@
-# es5 生成器 generator
+### es5 生成器 generator
 
 > yield 会保存执行位置，外部调用 next 回到 yield 处往下执行
 
@@ -21,7 +21,7 @@ console.log(iterator.next()) // done true 意思是后面没有yield了，迭代
 // next函数可接受一个值，会覆盖生成器中yield左边的值
 ```
 
-# async 实现
+### async 实现
 
 ```js
 function async(generator) {
