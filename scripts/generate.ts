@@ -15,7 +15,7 @@ async function main() {
 
   // create blog tree from md
   const tree = await createTree({ path: paths.md }, node => {
-    const old = status.find(n => join(origin.md, n.path) === node.path)
+    const old = status.find(n => n.path === node.path)
     if (old) {
       node["LastModified"] = old["LastModified"]
     }
