@@ -15,7 +15,7 @@ async function main() {
 
   // create blog tree from md
   const tree = await createTree({ path: paths.md }, node => {
-    const old = status.find(n => n.path === node.path)
+    const old = status.find(n => join(origin.md, n.path) === node.path)
     if (old) {
       node["LastModified"] = old["LastModified"]
     }
@@ -52,8 +52,8 @@ async function main() {
 
   // update file
   await WriteFile(paths.blog, JSON.stringify(tree))
-  await WriteFile(paths.status, JSON.stringify(status.slice(0, 50)))
-  await WriteFile(paths.acts, JSON.stringify(acts))
+  await WriteFile(paths.status, JSON.stringify(status))
+  await WriteFile(paths.acts, JSON.stringify(acts.slice(0, 50)))
 
   // check
   await checkJson(paths.blog)
