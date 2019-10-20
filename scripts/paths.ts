@@ -5,8 +5,8 @@ export const paths = {
   auth: join(process.cwd(), "/auth/auth.json"),
   username: origin.userId,
   repo: origin.repo,
-  blog: join(process.cwd(), origin.md),
-  config_blog: join(process.cwd(), origin.data.blog),
-  config_blog_update: join(process.cwd(), origin.data.activity),
-  config_blog_status: join(process.cwd(), origin.data.status)
+  md: join(process.cwd(), origin.md),
+  blog: join(process.cwd(), origin.data.blog),
+  status: join(process.cwd(), "/scripts/temp/blog_status.json"),
+  acts: join(process.cwd(), origin.data.activity)
 }

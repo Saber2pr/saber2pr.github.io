@@ -13,7 +13,7 @@
     "add:idea-f": "ts-node scripts/addIdeaFromFile",
     "push:blog": "sh scripts/push-blog.sh",
     "push:build": "sh scripts/push-build.sh",
-    "test": "ts-node scripts/createStatusTree"
+    "test": "ts-node scripts/test"
   },
   "dependencies": {
     "@saber2pr/md2jsx": "^0.0.7",

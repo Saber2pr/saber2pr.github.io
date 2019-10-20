@@ -12,8 +12,8 @@ import { useIsMobile } from "../../hooks"
 
 import { md_theme, origin } from "../../config"
 import { collect, TextTree } from "../../utils/collect"
-import { timeDeltaFromNow, getHash } from "../../utils"
-import { requestCommitDate, API } from "../../request"
+import { timeDeltaFromNow, getHash, findNodeByPath } from "../../utils"
+import { API, requestContent } from "../../request"
 import { store } from "../../store"
 import { NotFound } from "../not-found"
 
@@ -24,11 +24,6 @@ const BLink = (props: Link) => (
 export interface Blog {
   tree: TextTree
 }
-
-const fetchContent = (href: string) =>
-  fetch(href + ".md").then(res => res.text())
-
-const fetchDate = (href: string) => requestCommitDate(href + ".md")
 
 const createOriginHref = (href: string) =>
   API.createBlobHref(origin.userId, origin.repo, href + ".md")
@@ -51,6 +46,9 @@ export const Blog = ({ tree }: Blog) => {
     store.dispatch("href", hash)
   }, [])
 
+  const getLastModified = (href: string): string =>
+    findNodeByPath(href, tree)["LastModified"]
+
   const Routes = links.reduce(
     (acc, { title, path: href, children }) => {
       if (!children) {
@@ -62,7 +60,10 @@ export const Blog = ({ tree }: Blog) => {
               <div className="animated fadeIn">
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
-                  <LazyCom fallback={<Loading />} await={fetchContent(href)}>
+                  <LazyCom
+                    fallback={<Loading />}
+                    await={requestContent(href + ".md")}
+                  >
                     {content => <MD theme={md_theme}>{content}</MD>}
                   </LazyCom>
                   <div className="Blog-Main-Content-Edit">
@@ -73,16 +74,9 @@ export const Blog = ({ tree }: Blog) => {
                       编辑本页面
                     </a>
                   </div>
-                  <LazyCom
-                    fallback={<p className="Blog-Main-Content-Date">loading</p>}
-                    await={fetchDate(href)}
-                  >
-                    {res => (
-                      <p className="Blog-Main-Content-Date">
-                        最近更新 {timeDeltaFromNow(res)}
-                      </p>
-                    )}
-                  </LazyCom>
+                  <p className="Blog-Main-Content-Date">
+                    最近更新 {timeDeltaFromNow(getLastModified(href))}
+                  </p>
                 </div>
               </div>
             )}

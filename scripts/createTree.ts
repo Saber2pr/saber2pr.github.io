@@ -14,18 +14,25 @@ export interface Node {
   title?: string
 }
 
-export async function createTree(root: Node, config = root) {
+export async function createTree(
+  root: Node,
+  callback?: (node: Node) => any,
+  config = root
+) {
   const sta = await Stat(root.path)
   root.title = parse(root.path).name
   if (sta.isDirectory()) {
     const children = await ReadDir(root.path)
     root.children = await Promise.all(
-      children.map(path => createTree({ path: join(root.path, path) }, config))
+      children.map(path =>
+        createTree({ path: join(root.path, path) }, callback, config)
+      )
     )
+    root.path = root.path.replace(dirname(config.path), "").replace(/\\/g, "/")
   } else {
-    // root.text, if need
+    root.path = root.path.replace(dirname(config.path), "").replace(/\\/g, "/")
+    callback && callback(root)
   }
-  root.path = root.path.replace(dirname(config.path), "").replace(/\\/g, "/")
   return root
 }
 
@@ -49,6 +56,6 @@ export const traverse = (tree: Node, callback: (node: Node) => void) => {
 
 export const collect = (tree: Node) => {
   const result: Node[] = []
-  traverse(tree, node => result.push(node))
+  traverse(tree, node => node.children || result.push(node))
   return result
 }

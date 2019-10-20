@@ -60,7 +60,7 @@ export const fetch = ({
     )
   })
 
-export const displayProgress = async (max: number) => {
+export const displayProgress = (max: number) => {
   let index = 0
   return () => {
     Terminal.success(

@@ -3,12 +3,11 @@ export const origin = {
   repo: "saber2pr.github.io",
   data: {
     home: "/static/data/home.json",
-    activity: "/static/data/activity",
-    blog: "/static/data/blog_menu",
+    activity: "/static/data/activity.json",
+    blog: "/static/data/blog.json",
     learn: "/static/data/learn.json",
     about: "/static/data/about.json",
-    links: "/static/data/links.json",
-    status: "/static/data/blog_status.json"
+    links: "/static/data/links.json"
   },
   md: "/blog",
   commentRepo: "rc-gitment",

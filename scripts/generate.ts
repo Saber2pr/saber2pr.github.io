@@ -1,45 +1,64 @@
-import { WriteFile } from "./node"
-import { createMenu } from "./createMenu"
-import {
-  collectUpdates,
-  addUpdateStringToFile,
-  stringifyUpdates
-} from "./collectUpdates"
+import { WriteFile, ReadFile } from "./node"
+import { collectUpdates } from "./collectUpdates"
 import { paths } from "./paths"
-import { Status, createStatusTree } from "./createStatusTree"
+import { createTree, Node, traverse } from "./createTree"
+import { findNodeByPath } from "../src/utils"
 import { checkJson } from "./checkJson"
-
-const createBlogConfig = async (root: string) =>
-  await createMenu(root).then(text => {
-    const lines = text.split("\n")
-    lines.shift()
-    return lines.map(l => l.slice(2)).join("\n")
-  })
+import { join } from "path"
+import { origin } from "../src/config/origin"
 
 async function main() {
-  // create blog menu
-  const menu = await createBlogConfig(paths.blog)
-  await WriteFile(paths.config_blog, menu)
-
-  // create status tree
-  await createStatusTree()
-
-  // create blog updates
-  const updates = await collectUpdates(paths.blog)
-
-  // update status tree
-  await Promise.all(
-    updates.map(({ path, date }) => Status.update("LastModified", path, date))
+  // get status
+  const status: Node[] = await ReadFile(paths.status).then(b =>
+    JSON.parse(b.toString())
   )
 
-  // update blog updates
-  await addUpdateStringToFile(
-    paths.config_blog_update,
-    stringifyUpdates(updates)
+  // create blog tree from md
+  const tree = await createTree({ path: paths.md }, node => {
+    const old = status.find(n => n.path === node.path)
+    if (old) {
+      node["LastModified"] = old["LastModified"]
+    }
+  })
+
+  // create updates from md
+  const updates = await collectUpdates(paths.md)
+
+  // update tree modified date
+  const cleans: string[] = []
+  for (const { path, date } of updates) {
+    const node = findNodeByPath(join(origin.md, path), tree)
+    if (node) {
+      node["LastModified"] = date
+      const old = status.find(n => join(origin.md, n.path) === node.path)
+      if (old) old["LastModified"] = date
+    } else {
+      cleans.push(path)
+    }
+  }
+
+  cleans.forEach(clean =>
+    status.splice(status.findIndex(n => n.path === clean), 1)
   )
 
-  // check json
-  await checkJson(paths.config_blog_status)
+  const acts: any[] = await ReadFile(paths.acts).then(b =>
+    JSON.parse(b.toString())
+  )
+  acts.unshift(...updates.map(({ path, type }) => ({ type, text: path })))
+
+  traverse(tree, node => {
+    node.path = node.path.replace(/.md$/, "")
+  })
+
+  // update file
+  await WriteFile(paths.blog, JSON.stringify(tree))
+  await WriteFile(paths.status, JSON.stringify(status.slice(0, 50)))
+  await WriteFile(paths.acts, JSON.stringify(acts))
+
+  // check
+  await checkJson(paths.blog)
+  await checkJson(paths.status)
+  await checkJson(paths.acts)
 }
 
 main().catch(console.log)
