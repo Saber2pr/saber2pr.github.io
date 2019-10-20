@@ -7,10 +7,6 @@ import { Icon } from "../../iconfont"
 import { store } from "../../store"
 import { useIsMob } from "../../hooks"
 
-export interface SearchInput {
-  blog: Blog["tree"]
-}
-
 type Item = {
   path: string
   title: string
@@ -115,14 +111,7 @@ const renderResult = (result: Item[]) => {
     } else {
       items.push(
         <li key={path}>
-          <Link
-            to={path}
-            title={path}
-            onClick={() => {
-              push(path)
-              location.reload()
-            }}
-          >
+          <Link to={path} title={path} onClick={() => push(path)}>
             {title}
           </Link>
         </li>
@@ -136,6 +125,10 @@ const renderResult = (result: Item[]) => {
       {items}
     </>
   )
+}
+
+export interface SearchInput {
+  blog: Blog["tree"]
 }
 
 export const SearchInput = ({ blog }: SearchInput) => {

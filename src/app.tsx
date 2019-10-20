@@ -25,6 +25,7 @@ import { getHash, queryRootFirstChild } from "./utils"
 import { useShowBar, useEvent } from "./hooks"
 import { API } from "./request"
 import { Icon } from "./iconfont"
+import { useBlogMenu } from "./hooks/useBlogMenu"
 
 const HLink = (props: Link) => (
   <ALink {...props} act="header-a-active" uact="header-a" />
@@ -49,6 +50,12 @@ export const App = ({ JAbout, JBlog }: App) => {
   useEvent("popstate", () => store.dispatch("href", getHash()), [])
 
   const show = useShowBar()
+  const expand = useBlogMenu(JBlog)
+  useEvent(
+    "hashchange",
+    () => getHash().startsWith(JBlog.path) && expand(getHash())
+  )
+
   return (
     <>
       {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />}

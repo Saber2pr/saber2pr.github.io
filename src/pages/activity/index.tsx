@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import "./style.less"
 
 import MD from "@saber2pr/md2jsx"
@@ -79,6 +79,7 @@ export const Activity = ({ acts }: Activity) => {
       store.dispatch("actLen", length + 10)
     }
   })
+
   return (
     <div className="Activity">
       <ul>

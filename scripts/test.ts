@@ -1,13 +1,15 @@
-import { WriteFile, ReadFile } from "./node"
-import { join } from "path"
-import { collect } from "./createTree"
+const os = require("os")
 
-async function main() {
-  const json = await ReadFile(
-    join(process.cwd(), "/static/data/blog_status.json")
-  ).then(s => JSON.parse(s.toString()))
-  const nodes = collect(json)
-  await WriteFile("./test.json", JSON.stringify(nodes))
+function getLocalIP() {
+  const interfaces = os.networkInterfaces()
+  for (const name of Object.keys(interfaces)) {
+    for (const interf of interfaces[name]) {
+      const { address, family, internal } = interf
+      if (family === "IPv4" && !internal) {
+        return address
+      }
+    }
+  }
 }
 
-main()
+console.log(getLocalIP())

@@ -4,7 +4,8 @@ export const store = createState({
   href: "/home",
   context: "",
   blogRoot: "",
-  actLen: 10
+  actLen: 10,
+  blogScrollTop: 0
 })
 
 export const localStore = localStorage

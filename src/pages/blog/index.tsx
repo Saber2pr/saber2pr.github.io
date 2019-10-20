@@ -32,7 +32,10 @@ export const Blog = ({ tree }: Blog) => {
   const links = collect(tree)
   const ref = useRef<HTMLDivElement>()
 
-  const aniOp = () => setTimeout(() => (ref.current.style.opacity = "1"), 400)
+  const aniOp = () =>
+    setTimeout(() => {
+      if (ref.current) ref.current.style.opacity = "1"
+    }, 400)
   const open = () => {
     ref.current.style.display = "block"
     aniOp()
@@ -48,6 +51,11 @@ export const Blog = ({ tree }: Blog) => {
 
   const getLastModified = (href: string): string =>
     findNodeByPath(href, tree)["LastModified"]
+
+  useEffect(() => {
+    ref.current.scrollTop = store.getState().blogScrollTop
+    return () => store.dispatch("blogScrollTop", ref.current.scrollTop)
+  }, [])
 
   const Routes = links.reduce(
     (acc, { title, path: href, children }) => {
@@ -100,7 +108,7 @@ export const Blog = ({ tree }: Blog) => {
           </Switch>
           <footer>Copyright © 2019 saber2pr.</footer>
         </main>
-        <aside className="Blog-Aside ani-opacityMove" ref={ref}>
+        <aside className="Blog-Aside" ref={ref}>
           <section className="Blog-Aside-Content">
             <Tree
               from={tree}
