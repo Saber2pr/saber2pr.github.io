@@ -30,7 +30,7 @@ const PreImage = (
       backgroundColor: "lightgrey",
       margin: "0 auto",
       marginRight: "0.5rem",
-      borderRadius: '0.5rem'
+      borderRadius: "0.5rem"
     }}
   />
 )
@@ -120,7 +120,11 @@ export const Links = ({ owns, friends }: Links) => (
     <OwnLinks links={owns} />
     <FriendLinks links={friends} />
     <hr />
-    <Comments {...origin as any} repo={origin.commentRepo} />
+    <Comments
+      {...origin as any}
+      repo={origin.commentRepo}
+      username={origin.userId}
+    />
     <footer>Copyright © 2019 saber2pr.</footer>
   </div>
 )
