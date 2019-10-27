@@ -44,7 +44,9 @@ async function main() {
   const acts: any[] = await ReadFile(paths.acts).then(b =>
     JSON.parse(b.toString())
   )
-  acts.unshift(...updates.map(({ path, type }) => ({ type, text: path })))
+  acts.unshift(
+    ...updates.map(({ path, type, date }) => ({ type, text: path, date }))
+  )
 
   traverse(tree, node => {
     node.path = node.path.replace(/.md$/, "")
