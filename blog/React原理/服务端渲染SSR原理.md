@@ -29,6 +29,6 @@ React 中有一个叫副作用的概念，凡是 DOM 操作都应该在 useEffec
 
 解决办法：使用 postcss-less 库提供的 parse 函数，同步处理。
 
-2. 服务器使用 ts-node 启动问题：不要用 ts-node，应为在 SSR 时会遇到 jsx 标记，ts-node 不会做转换所以无法识别。
+2. 服务器使用 ts-node 启动问题：不要用 ts-node，因为在 SSR 时会遇到 jsx 标记，ts-node 不会做转换所以无法识别。
 
 解决办法：使用 tsc 将服务器源码进行编译，然后用 node 执行。
