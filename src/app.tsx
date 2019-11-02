@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
+import React from "react"
 import {
   Router,
   Route,
-  Link,
   HashHistory,
-  Switch
+  Switch,
+  NavLink
 } from "@saber2pr/react-router"
 
 import "./app.less"
@@ -18,7 +18,7 @@ import {
   LearnLazy,
   NotFound
 } from "./pages"
-import { ALink, SearchInput, MusicLine, PreImg, Themer } from "./components"
+import { SearchInput, MusicLine, PreImg, Themer } from "./components"
 
 import { store } from "./store"
 import { getHash, queryRootFirstChild } from "./utils"
@@ -27,27 +27,22 @@ import { API } from "./request"
 import { Icon } from "./iconfont"
 import { useBlogMenu } from "./hooks/useBlogMenu"
 
-const HLink = (props: Link) => (
-  <ALink {...props} act="header-a-active" uact="header-a" />
-)
-
-const HNLink = (props: Link) => (
-  <Link {...props} onClick={() => store.dispatch("href", "")} />
-)
-
 export interface App {
   JBlog: Blog["tree"]
   JAbout: About
 }
 
+const AppNavLink = ({
+  className = "header-a",
+  activeClassName = "header-a-active",
+  ...props
+}: NavLink) => (
+  <NavLink className={className} activeClassName={activeClassName} {...props} />
+)
+
 export const App = ({ JAbout, JBlog }: App) => {
-  const hash = getHash()
   const firstBlog = queryRootFirstChild(JBlog)
   store.getState().blogRoot = firstBlog.path
-  useEffect(() => {
-    store.dispatch("href", hash)
-  }, [])
-  useEvent("popstate", () => store.dispatch("href", getHash()), [])
 
   const show = useShowBar()
   const expand = useBlogMenu(JBlog)
@@ -63,20 +58,25 @@ export const App = ({ JAbout, JBlog }: App) => {
         <div className="main-bg" />
         <Router history={HashHistory}>
           <nav className="header">
-            <HNLink className="header-start" to="/">
+            <AppNavLink className="header-start" to="/">
               <PreImg
                 className="header-start-img"
                 fallback={<Icon.Head />}
                 src={API.createAvatars("saber2pr")}
               />
               <span className="header-start-name">saber2pr</span>
-            </HNLink>
+            </AppNavLink>
             <span className="header-links">
-              <HLink to="/activity">动态</HLink>
-              <HLink to={firstBlog.path}>博客</HLink>
-              <HLink to="/learn">文档</HLink>
-              <HLink to="/about">关于</HLink>
-              <HLink to="/links">链接</HLink>
+              <AppNavLink to="/activity">动态</AppNavLink>
+              <AppNavLink
+                to={firstBlog.path}
+                isActive={(_, ctxPath) => ctxPath.startsWith(JBlog.path)}
+              >
+                博客
+              </AppNavLink>
+              <AppNavLink to="/learn">文档</AppNavLink>
+              <AppNavLink to="/about">关于</AppNavLink>
+              <AppNavLink to="/links">链接</AppNavLink>
             </span>
             <SearchInput blog={JBlog} />
             <a className="header-last" href="https://github.com/Saber2pr">

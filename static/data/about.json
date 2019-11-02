@@ -9,8 +9,8 @@
   ],
   "audio": {
     "info": "听首音乐放松下~",
-    "src": "https://api.i-meto.com/meting/api?server=netease&type=url&id=26582520&auth=8592ff6bfbabca04084062ebab271095756351209c043d3660167eb12b501939",
-    "name": "Claiomh Solais.mp3"
+    "src": "http://music.163.com/song/media/outer/url?id=26582520.mp3",
+    "name": "Indiana (New World Remix).mp3"
   },
   "projects": [
     {

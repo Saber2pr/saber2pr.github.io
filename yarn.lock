@@ -83,10 +83,10 @@
   resolved "http://r.cnpmjs.org/@saber2pr/rc-tree/download/@saber2pr/rc-tree-0.1.4.tgz#8f810813523dca034800211ca1de74a0c618dc23"
   integrity sha1-j4EIE1I9ygNIACEcod50oMYY3CM=
 
-"@saber2pr/react-router@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@saber2pr/react-router/-/react-router-0.0.2.tgz#e40f7647edb8246994560114e75e144773fa9301"
-  integrity sha512-NYo/8qAmCaBpuceM2CUpbGfGsR8owNdr8Ufk0ZuAK5nz/uie8Ad8ZV+Nd18oXuFMA6JboaaA0Hw+sHhDr6bFOA==
+"@saber2pr/react-router@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@saber2pr/react-router/-/react-router-0.0.5.tgz#4a3ae73b7c9b957b4cc913f8b5f19cb050b39d89"
+  integrity sha512-3T9Amppe/0mVMXX2Dvs18wK9M/NuY3sAVNoRNr9lK9owjypMWxymMykicyI7uKGF7snpO2tprHy0mnuT4KgaAA==
   dependencies:
     "@types/react" "^16.8.19"
     "@types/react-dom" "^16.8.4"

@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react"
-import { Route, Link, Switch } from "@saber2pr/react-router"
+import React, { useRef, useEffect, useLayoutEffect } from "react"
+import { Route, Link, Switch, NavLink } from "@saber2pr/react-router"
 import Tree from "@saber2pr/rc-tree"
 
 import MD from "@saber2pr/md2jsx"
@@ -7,18 +7,18 @@ import MD from "@saber2pr/md2jsx"
 import "./style.less"
 import { Icon } from "../../iconfont"
 
-import { TwoSide, ALink, Loading, LazyCom } from "../../components"
+import { TwoSide, Loading, LazyCom } from "../../components"
 import { useIsMobile } from "../../hooks"
 
 import { md_theme, origin } from "../../config"
 import { collect, TextTree } from "../../utils/collect"
-import { timeDeltaFromNow, getHash, findNodeByPath } from "../../utils"
+import { timeDeltaFromNow, findNodeByPath } from "../../utils"
 import { API, requestContent } from "../../request"
 import { store } from "../../store"
 import { NotFound } from "../not-found"
 
 const BLink = (props: Link) => (
-  <ALink act="Blog-A-Active" uact="Blog-A" {...props} />
+  <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
 )
 
 export interface Blog {
@@ -43,16 +43,14 @@ export const Blog = ({ tree }: Blog) => {
   const close = () => (ref.current.style.display = "none")
   const isMobile = useIsMobile(close, open)
 
-  const hash = getHash()
   useEffect(() => {
     isMobile || aniOp()
-    store.dispatch("href", hash)
   }, [])
 
   const getLastModified = (href: string): string =>
     findNodeByPath(href, tree)["LastModified"]
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     ref.current.scrollTop = store.getState().blogScrollTop
     return () => store.dispatch("blogScrollTop", ref.current.scrollTop)
   }, [])
