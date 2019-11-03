@@ -18,6 +18,8 @@ async function main() {
     const old = status.find(n => join(origin.md, n.path) === node.path)
     if (old) {
       node["LastModified"] = old["LastModified"]
+    } else {
+      status.push({ path: node.path.replace(origin.md, ""), title: node.title })
     }
   })
 
@@ -30,7 +32,7 @@ async function main() {
     const node = findNodeByPath(join(origin.md, path), tree)
     if (node) {
       node["LastModified"] = date
-      const old = status.find(n => n.path === node.path)
+      const old = status.find(n => join(origin.md, n.path) === node.path)
       if (old) old["LastModified"] = date
     } else {
       cleans.push(path)
