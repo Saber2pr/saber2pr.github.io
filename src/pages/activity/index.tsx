@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react"
+import React, { useState } from "react"
 import "./style.less"
 
 import MD from "@saber2pr/md2jsx"

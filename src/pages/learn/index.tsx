@@ -49,7 +49,6 @@ export const Learn = ({ sites }: Learn) => (
         </li>
       ))}
     </ul>
-    <footer>Copyright © 2019 saber2pr.</footer>
   </div>
 )
 

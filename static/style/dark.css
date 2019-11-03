@@ -21,7 +21,7 @@ body {
   color: black;
 }
 
-.Home-Main {
+.Home {
   background-color: #121317;
 }
 
@@ -178,6 +178,22 @@ body {
 
 .NotFound-Back:hover {
   color: white;
+}
+
+.SearchInput-List {
+  background-color: black;
+  box-shadow: 2px 2px 2px #565b88;
+}
+
+.SearchInput-List a {
+  color: white !important;
+  background-color: black !important;
+  border: 1px solid transparent;
+}
+
+.SearchInput-List a:hover {
+  color: white !important;
+  border: 1px solid aqua;
 }
 
 @media screen and (max-width: 740px) {

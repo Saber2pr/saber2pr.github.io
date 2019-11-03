@@ -9,19 +9,14 @@ export interface Home {
 }
 
 export const Home = ({ title, infor }: Home) => (
-  <div className="Home">
-    <main className="Home-Main">
-      <ul>
-        <li className="Home-Main-Title shd-blue">
-          <i>{title}</i>
-        </li>
-        <li className="Home-Main-Infor">
-          <i>{infor}</i>
-        </li>
-      </ul>
-    </main>
-    <footer>Copyright © 2019 saber2pr.</footer>
-  </div>
+  <ul className="Home">
+    <li className="Home-Title shd-blue">
+      <i>{title}</i>
+    </li>
+    <li className="Home-Infor">
+      <i>{infor}</i>
+    </li>
+  </ul>
 )
 
 export const HomeLazy = () => (

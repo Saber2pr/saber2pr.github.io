@@ -125,7 +125,6 @@ export const Links = ({ owns, friends }: Links) => (
       repo={origin.commentRepo}
       username={origin.userId}
     />
-    <footer>Copyright © 2019 saber2pr.</footer>
   </div>
 )
 

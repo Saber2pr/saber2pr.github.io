@@ -7,26 +7,44 @@ body {
   transition: background-color 1s;
 }
 
-@lineH-PC: 3rem;
+@lineH-PC: 2.5rem;
 @lineH-Mob: 2rem;
 
-.header {
+.nav {
   position: fixed;
   top: 0;
-
   width: 100%;
   line-height: @lineH-PC;
-
   background-color: #20232a;
-
-  display: flex;
-
   z-index: 999;
 
-  a {
-    text-align: center;
-    text-decoration: none;
-    user-select: none;
+  &-ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+
+    li {
+      display: inline-block;
+
+      a {
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        display: inline-block;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+      }
+
+      a:hover {
+        color: #61dafb;
+      }
+
+      a:focus {
+        color: #ffffff;
+        background-color: #373940;
+      }
+    }
   }
 
   &-a {
@@ -46,7 +64,7 @@ body {
     display: flex;
     margin-right: 0.5rem;
     align-items: center;
-    border-bottom: 3px solid transparent;
+    border-bottom: transparent;
 
     &-img {
       width: 2rem;
@@ -60,40 +78,13 @@ body {
     }
   }
 
-  &-start:focus {
-    color: #d5d5d7;
-  }
-
-  &-links {
+  &-block {
     flex-grow: 1;
-
-    display: flex;
-    a {
-      width: 4rem;
-    }
-
-    a:hover {
-      color: #61dafb;
-    }
-
-    a:focus {
-      color: #ffffff;
-      background-color: #373940;
-    }
   }
 
-  &-last {
+  &-last a {
     color: #d5d5d7;
-    width: 100px;
-  }
-
-  &-last:hover {
-    color: #61dafb;
-  }
-
-  &-last:focus {
-    color: #ffffff;
-    background-color: #373940;
+    width: 70px;
   }
 
   &-tool {
@@ -121,11 +112,21 @@ footer {
 }
 
 @media screen and (max-width: 790px) {
-  .header {
+  .nav {
     line-height: @lineH-Mob;
 
+    &-ul {
+      li {
+        a {
+          padding-left: 0.3rem;
+          padding-right: 0.3rem;
+        }
+      }
+    }
+
     &-start {
-      margin-left: 0.5rem;
+      margin-left: 0.1rem;
+      margin-right: 0.1rem;
 
       &-img {
         width: 1.5rem;
@@ -140,14 +141,6 @@ footer {
     &-a-active {
       color: #61dafb;
       border-bottom: none;
-    }
-
-    &-links {
-      a {
-        width: auto;
-        padding-left: 0.3rem;
-        padding-right: 0.3rem;
-      }
     }
 
     &-last {

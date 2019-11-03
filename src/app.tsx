@@ -22,83 +22,100 @@ import { SearchInput, MusicLine, PreImg, Themer } from "./components"
 
 import { store } from "./store"
 import { getHash, queryRootFirstChild } from "./utils"
-import { useShowBar, useEvent } from "./hooks"
+import { useShowBar, useEvent, useBlogMenu } from "./hooks"
 import { API } from "./request"
 import { Icon } from "./iconfont"
-import { useBlogMenu } from "./hooks/useBlogMenu"
 
 export interface App {
-  JBlog: Blog["tree"]
-  JAbout: About
+  blogTree: Blog["tree"]
+  aboutInfo: About
 }
 
 const AppNavLink = ({
-  className = "header-a",
-  activeClassName = "header-a-active",
+  className = "nav-a",
+  activeClassName = "nav-a-active",
   ...props
 }: NavLink) => (
   <NavLink className={className} activeClassName={activeClassName} {...props} />
 )
 
-export const App = ({ JAbout, JBlog }: App) => {
-  const firstBlog = queryRootFirstChild(JBlog)
+export const App = ({ aboutInfo, blogTree }: App) => {
+  const firstBlog = queryRootFirstChild(blogTree)
   store.getState().blogRoot = firstBlog.path
 
   const show = useShowBar()
-  const expand = useBlogMenu(JBlog)
+  const expand = useBlogMenu(blogTree)
   useEvent(
     "hashchange",
-    () => getHash().startsWith(JBlog.path) && expand(getHash())
+    () => getHash().startsWith(blogTree.path) && expand(getHash())
   )
 
   return (
-    <>
-      {show && <MusicLine src={JAbout.audio.src} name={JAbout.audio.name} />}
-      <main className="main">
-        <div className="main-bg" />
-        <Router history={HashHistory}>
-          <nav className="header">
-            <AppNavLink className="header-start" to="/">
-              <PreImg
-                className="header-start-img"
-                fallback={<Icon.Head />}
-                src={API.createAvatars("saber2pr")}
-              />
-              <span className="header-start-name">saber2pr</span>
-            </AppNavLink>
-            <span className="header-links">
+    <Router history={HashHistory}>
+      <header>
+        <nav className="nav">
+          <ul className="nav-ul">
+            <li>
+              <AppNavLink className="nav-start" to="/">
+                <PreImg
+                  className="nav-start-img"
+                  fallback={<Icon.Head />}
+                  src={API.createAvatars("saber2pr")}
+                />
+                <span className="nav-start-name">saber2pr</span>
+              </AppNavLink>
+            </li>
+            <li>
               <AppNavLink to="/activity">动态</AppNavLink>
+            </li>
+            <li>
               <AppNavLink
                 to={firstBlog.path}
-                isActive={(_, ctxPath) => ctxPath.startsWith(JBlog.path)}
+                isActive={(_, ctxPath) => ctxPath.startsWith(blogTree.path)}
               >
                 博客
               </AppNavLink>
+            </li>
+            <li>
               <AppNavLink to="/learn">文档</AppNavLink>
+            </li>
+            <li>
               <AppNavLink to="/about">关于</AppNavLink>
+            </li>
+            <li>
               <AppNavLink to="/links">链接</AppNavLink>
-            </span>
-            <SearchInput blog={JBlog} />
-            <a className="header-last" href="https://github.com/Saber2pr">
-              GitHub
-            </a>
-            <span className="header-tool">
+            </li>
+            <li className="nav-block" />
+            <li>
+              <SearchInput blog={blogTree} />
+            </li>
+            <li className="nav-last">
+              <a href="https://github.com/Saber2pr">GitHub</a>
+            </li>
+            <li className="nav-tool">
               <Themer />
-            </span>
-          </nav>
-          <Switch>
-            <Route exact path="/" component={() => <HomeLazy />} />
-            <Route path="/blog" component={() => <Blog tree={JBlog} />} />
-            <Route path="/about" component={() => <About {...JAbout} />} />
-            <Route path="/links" component={() => <LinksLazy />} />
-            <Route path="/secret" component={() => <Secret />} />
-            <Route path="/activity" component={() => <ActivityLazy />} />
-            <Route path="/learn" component={() => <LearnLazy />} />
-            <Route path="*" component={() => <NotFound />} />
-          </Switch>
-        </Router>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      {show && (
+        <MusicLine src={aboutInfo.audio.src} name={aboutInfo.audio.name} />
+      )}
+      <main className="main">
+        <picture className="main-bg" />
+        <Switch>
+          <Route exact path="/" component={() => <HomeLazy />} />
+          <Route path="/blog" component={() => <Blog tree={blogTree} />} />
+          <Route path="/about" component={() => <About {...aboutInfo} />} />
+          <Route path="/links" component={() => <LinksLazy />} />
+          <Route path="/secret" component={() => <Secret />} />
+          <Route path="/activity" component={() => <ActivityLazy />} />
+          <Route path="/learn" component={() => <LearnLazy />} />
+          <Route path="*" component={() => <NotFound />} />
+        </Switch>
       </main>
-    </>
+      <footer>Copyright © 2019 saber2pr.</footer>
+    </Router>
   )
 }
 

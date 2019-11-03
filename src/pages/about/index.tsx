@@ -17,7 +17,6 @@ const Foot = () => (
       </a>
     </p>
     <p className="About-Main-Repo">{version}</p>
-    <footer>Copyright © 2019 saber2pr.</footer>
   </>
 )
 

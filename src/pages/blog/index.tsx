@@ -104,7 +104,6 @@ export const Blog = ({ tree }: Blog) => {
               <Route key="not-found" path="*" component={() => <NotFound />} />
             ]}
           </Switch>
-          <footer>Copyright © 2019 saber2pr.</footer>
         </main>
         <aside className="Blog-Aside" ref={ref}>
           <section className="Blog-Aside-Content">

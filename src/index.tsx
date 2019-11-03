@@ -29,7 +29,7 @@ const App = React.lazy(async () => {
   const JABout = await request("about")
   const JBlog = await request("blog")
   return {
-    default: () => <Pages JAbout={JABout} JBlog={JBlog} />
+    default: () => <Pages aboutInfo={JABout} blogTree={JBlog} />
   }
 })
 
