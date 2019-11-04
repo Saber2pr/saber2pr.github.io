@@ -7,17 +7,13 @@ ref 第一次（mount）初始化，被赋值给 currentHook.memoizedState；随
 ```ts
 function updateWorkInProgressHook(): Hook {
   ...
-
   const newHook: Hook = {
-      memoizedState: currentHook.memoizedState,
-
+      memoizedState: currentHook.memoizedState, // 传递memoizedState
       baseState: currentHook.baseState,
       queue: currentHook.queue,
       baseUpdate: currentHook.baseUpdate,
-
       next: null
   }
-
   ...
 }
 ```
@@ -29,7 +25,7 @@ function updateWorkInProgressHook(): Hook {
 ```ts
 function mountRef<T>(initialValue: T): { current: T } {
   const hook = mountWorkInProgressHook()
-  const ref = { current: initialValue }
+  const ref = { current: initialValue } // 对象
   hook.memoizedState = ref
   return ref
 }
