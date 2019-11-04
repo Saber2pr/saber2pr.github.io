@@ -14,8 +14,8 @@ export interface Learn {
 const PreImage = (
   <div
     style={{
-      width: "3rem",
-      height: "3rem",
+      width: "2rem",
+      height: "2rem",
       borderRadius: "50%",
       backgroundColor: "lightgrey",
       margin: "0 auto",
