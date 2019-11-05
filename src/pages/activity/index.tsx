@@ -79,7 +79,7 @@ const Info = ({ path }: { path: string }) => (
     {res => (
       <p className="Activity-Info">
         {res.slice(0, 60)}...
-        <Link to={origin.md + path}>查看内容</Link>
+        <Link to={origin.md + path.split(".")[0]}>查看内容</Link>
       </p>
     )}
   </LazyCom>
