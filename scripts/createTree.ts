@@ -17,7 +17,7 @@ export interface Node {
 const verPath = (path: string, basePath: string) =>
   path.replace(dirname(basePath), "").replace(/\\/g, "/")
 
-const sortChildren = (children: Node[], basePath: string) => {
+const sortChildren = (children: Node[]) => {
   const dir = []
   const file = []
   for (const ch of children) {
@@ -40,7 +40,7 @@ export async function createTree(
         createTree({ path: join(root.path, path) }, callback, config)
       )
     )
-    root.children = sortChildren(root.children, config.path)
+    root.children = sortChildren(root.children)
     root.path = verPath(root.path, config.path)
   } else {
     root.path = verPath(root.path, config.path)
