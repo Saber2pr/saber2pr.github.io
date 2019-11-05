@@ -1,14 +1,14 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./style.less"
 
-import MD from "@saber2pr/md2jsx"
-import { origin, md_theme } from "../../config"
-import { lift, timeDeltaFromNow, checkDarknessTime } from "../../utils"
+import { origin } from "../../config"
+import { timeDeltaFromNow, checkDarknessTime } from "../../utils"
 import { Icon } from "../../iconfont"
 import { useOnScrollBottom } from "../../hooks/useOnScrollBottom"
-import { LazyCom, Loading } from "../../components"
-import { request } from "../../request"
+import { LazyCom, Loading, ScrollToTop } from "../../components"
+import { request, requestContent } from "../../request"
 import { store } from "../../store"
+import { Link } from "@saber2pr/react-router"
 
 type Act = {
   type: "update" | "create" | "delete"
@@ -55,9 +55,13 @@ const matchType = (type: Act["type"]) => {
 
 const matchText = (type: Act["type"], text: Act["text"]) => {
   if ((["create", "update"] as Act["type"][]).includes(type)) {
-    return lift(
-      text.split(".")[0],
-      href => `[${href.split("/").pop()}](#${origin.md + href})`
+    return (
+      <strong>
+        {text
+          .split(".")[0]
+          .split("/")
+          .pop()}
+      </strong>
     )
   }
   if (type === "delete") {
@@ -70,7 +74,19 @@ const matchText = (type: Act["type"], text: Act["text"]) => {
   return text
 }
 
+const Info = ({ path }: { path: string }) => (
+  <LazyCom await={requestContent(origin.md + path)} fallback={<Loading />}>
+    {res => (
+      <p className="Activity-Info">
+        {res.slice(0, 60)}...
+        <Link to={origin.md + path}>查看内容</Link>
+      </p>
+    )}
+  </LazyCom>
+)
+
 export const Activity = ({ acts }: Activity) => {
+  const deleted = acts.filter(a => a.type === "delete").map(d => d.text)
   const [length, setLength] = useState(store.getState().actLen)
   const hasMore = length <= acts.length
   useOnScrollBottom(() => {
@@ -80,29 +96,36 @@ export const Activity = ({ acts }: Activity) => {
     }
   })
 
+  useEffect(() => {
+    const d = document.documentElement
+    setTimeout(() => {
+      d.scrollTop = store.getState().actsScrollTop
+    }, 100)
+    return () => store.dispatch("actsScrollTop", d.scrollTop)
+  }, [])
+
   return (
     <div className="Activity">
       <ul>
         {acts.slice(0, length).map(({ type, text, date }, i) => (
           <li key={text + i}>
-            <dl className="Activity-Content">
-              <dt className="Activity-Type">
+            <div className="Activity-Content">
+              <div className="Activity-Type">
                 <strong>{matchType(type)}</strong>
-              </dt>
-              <dd>
-                <ul>
+              </div>
+              <ul>
+                <li className="Activity-Name">{matchText(type, text)}</li>
+                {type !== "delete" && !deleted.includes(text) && (
                   <li>
-                    <MD theme={md_theme}>{matchText(type, text)}</MD>
+                    <Info path={text} />
                   </li>
-                  <li className="Activity-Time">
-                    <p>{timeDeltaFromNow(date)}</p>
-                  </li>
-                </ul>
-              </dd>
-              <dd>
-                <hr />
-              </dd>
-            </dl>
+                )}
+                <li className="Activity-Time">
+                  <p>{timeDeltaFromNow(date)}</p>
+                </li>
+              </ul>
+            </div>
+            <hr />
           </li>
         ))}
         <li>
@@ -136,6 +159,7 @@ export const Activity = ({ acts }: Activity) => {
           </p>
         </div>
       )}
+      <ScrollToTop />
     </div>
   )
 }

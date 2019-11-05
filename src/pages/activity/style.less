@@ -1,9 +1,9 @@
 .Activity {
   margin: 0 4.5rem;
-  margin-left: 5rem;
+  margin-left: 6rem;
   transition: 0.4s;
   animation: fadeIn 0.5s;
-  padding-top: 2rem;
+  padding-top: 3rem;
   padding-bottom: 5rem;
 
   pre {
@@ -21,36 +21,33 @@
     padding: 0;
   }
 
-  dl {
-    margin: 0;
-    dt {
-      margin: 0;
-      padding: 0;
-    }
+  &-Content {
+    word-break: break-all;
+    display: flex;
   }
 
-  &-Content {
-    width: 43rem;
-    word-break: break-all;
+  &-Info {
+    line-height: 1.5rem;
   }
 
   &-Type {
-    padding-right: 2rem;
-    padding-bottom: 2rem;
     word-break: keep-all;
     line-height: 1.5rem;
-
+    padding-right: 2rem;
+    p {
+      display: flex;
+    }
     i {
       margin-right: 0.5rem;
     }
   }
 
+  &-Name {
+    margin-top: 1rem;
+  }
+
   &-Time {
     color: rgb(182, 182, 182);
-
-    p {
-      line-height: 0.5rem;
-    }
   }
 
   &-Aside {
@@ -73,7 +70,7 @@
 @media screen and (max-width: 740px) {
   .Activity {
     margin: 0;
-    padding-top: 1rem;
+    padding-top: 2rem;
     padding-left: 0.5rem;
     padding-right: 1rem;
 
@@ -82,7 +79,8 @@
     }
 
     &-Type {
-      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+      padding-right: 1rem;
     }
 
     &-Content {

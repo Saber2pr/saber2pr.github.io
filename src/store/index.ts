@@ -4,7 +4,8 @@ export const store = createState({
   context: "",
   blogRoot: "",
   actLen: 10,
-  blogScrollTop: 0
+  blogScrollTop: 0,
+  actsScrollTop: 0
 })
 
 export const localStore = localStorage
