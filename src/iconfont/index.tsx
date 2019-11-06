@@ -12,4 +12,5 @@ export namespace Icon {
   export const Delete = () => <i className="iconfont icon-delete" />
   export const Update = () => <i className="iconfont icon-update" />
   export const Idea = () => <i className="iconfont icon-idea" />
+  export const Top = () => <i className="iconfont icon-top" />
 }

@@ -52,6 +52,10 @@ body {
   background-color: black !important;
 }
 
+.Activity-Content {
+  border-bottom: 1px #72537a solid;
+}
+
 .About-Main-Content {
   background-color: black;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, memo } from "react"
 import "./style.less"
 
 import { origin } from "../../config"
@@ -74,7 +74,7 @@ const matchText = (type: Act["type"], text: Act["text"]) => {
   return text
 }
 
-const Info = ({ path }: { path: string }) => (
+const Info = memo(({ path }: { path: string }) => (
   <LazyCom await={requestContent(origin.md + path)} fallback={<Loading />}>
     {res => (
       <p className="Activity-Info">
@@ -83,7 +83,7 @@ const Info = ({ path }: { path: string }) => (
       </p>
     )}
   </LazyCom>
-)
+))
 
 export const Activity = ({ acts }: Activity) => {
   const deleted = acts.filter(a => a.type === "delete").map(d => d.text)
@@ -125,19 +125,22 @@ export const Activity = ({ acts }: Activity) => {
                 </li>
               </ul>
             </div>
-            <hr />
           </li>
         ))}
         <li>
           <div
             style={{
               textAlign: "center",
-              width: "100%"
+              width: "100%",
+              lineHeight: "2rem"
             }}
           >
             {hasMore && (
               <span
-                style={{ textDecoration: "underline", cursor: "pointer" }}
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer"
+                }}
                 onClick={() => setLength(length + 5)}
               >
                 更多

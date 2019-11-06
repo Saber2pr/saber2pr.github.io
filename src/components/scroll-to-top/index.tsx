@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./style.less"
 import { useEvent } from "../../hooks"
 import { throttle } from "../../utils"
+import { Icon } from "../../iconfont"
 
 export interface ScrollToTop {}
 
@@ -27,7 +28,7 @@ export const ScrollToTop = ({  }: ScrollToTop) => {
           })
         }}
       >
-        顶部
+        <Icon.Top />
       </div>
     )
   }
