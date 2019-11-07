@@ -7,7 +7,7 @@ const webpack = require("webpack")
 const extractLess = new ExtractTextPlugin("style.min.css")
 const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
 const version = () =>
-  `var version="Last Modified time: ${new Date().toLocaleString()}"`
+  `var version="Last Modified Time: ${new Date().toLocaleString()}"`
 
 const auth = require("./auth/auth.json")
 
