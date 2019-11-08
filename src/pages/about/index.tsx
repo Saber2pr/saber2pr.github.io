@@ -15,17 +15,6 @@ const Foot = () => (
       <a href="//github.com/Saber2pr/saber2pr.github.io">saber2pr.github.io</a>
     </p>
     <p className="About-Main-Repo">{version}</p>
-    <p className="About-Main-Repo">
-      <script
-        async
-        src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
-      />
-      <span id="busuanzi_container_site_uv">
-        本站访客数
-        <span id="busuanzi_value_site_uv" />
-        人次
-      </span>
-    </p>
   </>
 )
 

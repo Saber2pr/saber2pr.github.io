@@ -59,7 +59,8 @@ module.exports = WebpackConfig({
   plugins: [
     new HtmlWebpackPlugin({
       templateContent: templateContent("saber2prの窝", {
-        injectBody: '<div id="root"></div>'
+        injectBody:
+          '<div id="root"></div><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>'
       })
     }),
     extractLess,

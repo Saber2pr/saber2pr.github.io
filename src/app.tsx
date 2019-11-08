@@ -114,7 +114,14 @@ export const App = ({ aboutInfo, blogTree }: App) => {
           <Route path="*" component={() => <NotFound />} />
         </Switch>
       </main>
-      <footer>Copyright © 2019 saber2pr</footer>
+      <footer>
+        Copyright © 2019 saber2pr
+        <span id="busuanzi_container_site_uv">
+          <span className="uv_split">|</span>
+          uv:
+          <span id="busuanzi_value_site_uv" />
+        </span>
+      </footer>
     </Router>
   )
 }
