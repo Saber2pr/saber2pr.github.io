@@ -186,7 +186,7 @@ body {
 
 .SearchInput-List {
   background-color: black;
-  box-shadow: 2px 2px 2px #565b88;
+  box-shadow: 1px 1px 1px #565b88;
 }
 
 .SearchInput-List a {
@@ -198,6 +198,11 @@ body {
 .SearchInput-List a:hover {
   color: white !important;
   border: 1px solid aqua;
+}
+
+.SearchInput-List-Key {
+  background-color: #9ac1c7;
+  color: black;
 }
 
 @media screen and (max-width: 740px) {

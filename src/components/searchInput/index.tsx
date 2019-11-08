@@ -1,41 +1,69 @@
 import React, { useState, useRef } from "react"
 import "./style.less"
 import { Blog } from "../../pages"
-import { collect } from "../../utils"
+import { collect, debounce } from "../../utils"
 import { Link, usePush } from "@saber2pr/react-router"
 import { Icon } from "../../iconfont"
 import { store } from "../../store"
-import { useIsMob } from "../../hooks"
+import { useIsMob, useSingleton } from "../../hooks"
+import { requestContent } from "../../request"
+import { HighLightHTML } from "../highLight-html"
 
 type Item = {
   path: string
   title: string
   isBlank?: boolean
+  details?: string
+  searchMeta?: string
 }
 
 type Search = (value: string) => void
 
 const SearchGit = (value: string): Item => ({
-  title: `> 在Github上搜索: "${value}"`,
+  title: `在Github上搜索: "${value}"`,
   path: `https://github.com/search?q=${value}`,
   isBlank: true
 })
 
 const SearchMDN = (value: string): Item => ({
-  title: `> 在MDN上搜索: "${value}"`,
+  title: `在MDN上搜索: "${value}"`,
   path: `https://developer.mozilla.org/zh-CN/search?q=${value}`,
   isBlank: true
 })
 
+const getList = (list: Item[]) =>
+  Promise.all(
+    list.map<Promise<Item>>(({ path, title }) =>
+      requestContent(path + ".md").then(details => ({
+        path,
+        title,
+        details
+      }))
+    )
+  )
+
 const useSearch = (blog: Blog["tree"]): [Item[], Search] => {
   const list = collect(blog).filter(l => l.title && !l["children"])
   const [result, set] = useState<Item[]>([])
+  const listIns = useSingleton(() => getList(list))
+
   const search = (value: string) => {
     if (value) {
-      const res = list
-        .filter(l => l.title.toLowerCase().includes(value.toLowerCase()))
-        .slice(0, 5)
-      set([SearchGit(value), SearchMDN(value), ...res])
+      listIns.then(res => {
+        set([
+          SearchGit(value),
+          SearchMDN(value),
+          ...res
+            .reduce(
+              (acc, item) =>
+                item.details.includes(value)
+                  ? acc.concat({ ...item, searchMeta: value })
+                  : acc,
+              []
+            )
+            .slice(0, 5)
+        ])
+      })
     } else {
       set([])
     }
@@ -77,7 +105,7 @@ const Input = ({
             push("/secret")
             ref.current.value = ""
           } else {
-            search(input)
+            debounce(() => search(input))
           }
         }}
         style={style}
@@ -99,7 +127,7 @@ const renderResult = (result: Item[]) => {
   const blanks: JSX.Element[] = []
   const items: JSX.Element[] = []
   const [push] = usePush()
-  for (const { title, path, isBlank } of result) {
+  for (const { title, path, isBlank, details, searchMeta } of result) {
     if (isBlank) {
       blanks.push(
         <li key={path}>
@@ -111,8 +139,13 @@ const renderResult = (result: Item[]) => {
     } else {
       items.push(
         <li key={path}>
+          <div className="SearchInput-List-Name">{title}</div>
           <Link to={path} title={path} onClick={() => push(path)}>
-            {title}
+            <HighLightHTML
+              source={details}
+              target={searchMeta}
+              highClassName="SearchInput-List-Key"
+            />
           </Link>
         </li>
       )
@@ -120,8 +153,13 @@ const renderResult = (result: Item[]) => {
   }
   return (
     <>
+      {blanks[0] && (
+        <>
+          <span className="SearchInput-Head" />
+          <div className="SearchInput-List-Name">在Internet上搜索</div>
+        </>
+      )}
       {blanks}
-      {items.length !== 0 && <hr />}
       {items}
     </>
   )

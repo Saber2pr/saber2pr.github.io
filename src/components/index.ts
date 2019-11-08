@@ -1,3 +1,4 @@
+export * from './highLight-html'
 export * from './lazy-com'
 export * from './loading'
 export * from './musicLine'
