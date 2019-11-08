@@ -114,7 +114,7 @@ export const App = ({ aboutInfo, blogTree }: App) => {
           <Route path="*" component={() => <NotFound />} />
         </Switch>
       </main>
-      <footer>Copyright © 2019 saber2pr.</footer>
+      <footer>Copyright © 2019 saber2pr</footer>
     </Router>
   )
 }

@@ -1,4 +1,5 @@
 import React from "react"
+import ReactDOM from "react-dom/server"
 import "./style.less"
 
 export interface HighLightHTML {
@@ -7,6 +8,8 @@ export interface HighLightHTML {
   offset?: number
   highClassName?: string
 }
+
+const transform = (element: string) => ReactDOM.renderToString(<>{element}</>)
 
 export const HighLightHTML = ({
   source,
@@ -22,9 +25,9 @@ export const HighLightHTML = ({
       className="HighLightHTML"
       dangerouslySetInnerHTML={{
         __html:
-          source.slice(index - offsetLeft, index) +
+          transform(source.slice(index - offsetLeft, index)) +
           `<span class="${highClassName}">${target}</span>` +
-          source.slice(index + target.length)
+          transform(source.slice(index + target.length))
       }}
       {...props}
     />
