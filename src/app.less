@@ -106,17 +106,24 @@ body {
   }
 }
 
-footer {
+.footer {
   text-align: center;
-  line-height: 100px;
   margin-bottom: 5rem;
-}
+  margin-top: 3rem;
+  line-height: 1.5rem;
 
-#busuanzi_container_site_uv {
-  display: none;
-  .uv_split {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+  &-uv {
+    visibility: hidden;
+    @color: #cccccc;
+    color: @color;
+    font-size: 0.5rem;
+    * {
+      color: @color;
+    }
+  }
+
+  &:hover &-uv {
+    visibility: visible;
   }
 }
 

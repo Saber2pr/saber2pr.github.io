@@ -6,7 +6,9 @@ body {
   color: white;
 }
 
-
+.footer-uv * {
+  color: #303030;
+}
 
 .MusicLine {
   background: #0000007d;

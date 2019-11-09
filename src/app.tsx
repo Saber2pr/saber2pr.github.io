@@ -114,16 +114,21 @@ export const App = ({ aboutInfo, blogTree }: App) => {
           <Route path="*" component={() => <NotFound />} />
         </Switch>
       </main>
-      <footer>
+      <footer className="footer">
         Copyright © 2019 saber2pr
-        <span id="busuanzi_container_site_uv">
-          <span className="uv_split">|</span>
-          uv:
-          <span id="busuanzi_value_site_uv" />
-        </span>
+        <UV />
       </footer>
     </Router>
   )
 }
+
+const UV = () => (
+  <div className="footer-uv">
+    <span id="busuanzi_container_site_uv">
+      uv:
+      <span id="busuanzi_value_site_uv" />
+    </span>
+  </div>
+)
 
 export default App
