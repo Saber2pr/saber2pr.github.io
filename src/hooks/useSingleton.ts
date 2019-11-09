@@ -1,11 +1,12 @@
 import { useRef } from "react"
 
-export const useSingleton = async <T>(lazyValue: () => Promise<T>) => {
+export const useSingleton = <T>(lazyValue: () => Promise<T>) => {
   const ref = useRef<T>()
-  if (ref.current) return ref.current
+  if (ref.current) return async () => ref.current
 
-  const value = await lazyValue()
-  ref.current = value
-
-  return ref.current
+  return async () => {
+    const value = await lazyValue()
+    ref.current = value
+    return ref.current
+  }
 }

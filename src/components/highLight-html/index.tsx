@@ -14,7 +14,7 @@ const transform = (element: string) => ReactDOM.renderToString(<>{element}</>)
 export const HighLightHTML = ({
   source,
   target,
-  offset: offsetLeft = 20,
+  offset = 20,
   highClassName,
   ...props
 }: HighLightHTML) => {
@@ -25,9 +25,9 @@ export const HighLightHTML = ({
       className="HighLightHTML"
       dangerouslySetInnerHTML={{
         __html:
-          transform(source.slice(index - offsetLeft, index)) +
+        transform(source.slice(index - offset, index)) +
           `<span class="${highClassName}">${target}</span>` +
-          transform(source.slice(index + target.length))
+          transform(source.slice(index + target.length, index + target.length + offset))
       }}
       {...props}
     />

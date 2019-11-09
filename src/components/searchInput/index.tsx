@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import "./style.less"
 import { Blog } from "../../pages"
 import { collect, debounce } from "../../utils"
@@ -8,6 +8,7 @@ import { store } from "../../store"
 import { useIsMob, useSingleton } from "../../hooks"
 import { requestContent } from "../../request"
 import { HighLightHTML } from "../highLight-html"
+import { Loading } from "../loading"
 
 type Item = {
   path: string
@@ -42,33 +43,31 @@ const getList = (list: Item[]) =>
     )
   )
 
-const useSearch = (blog: Blog["tree"]): [Item[], Search] => {
+const useSearch = (blog: Blog["tree"]): [Item[], Search, string] => {
   const list = collect(blog).filter(l => l.title && !l["children"])
+  const listMon = useSingleton(() => getList(list))
   const [result, set] = useState<Item[]>([])
-  const listIns = useSingleton(() => getList(list))
+  const [query, setSearch] = useState("")
 
-  const search = (value: string) => {
-    if (value) {
-      listIns.then(res => {
-        set([
-          SearchGit(value),
-          SearchMDN(value),
-          ...res
-            .reduce(
-              (acc, item) =>
-                item.details.includes(value)
-                  ? acc.concat({ ...item, searchMeta: value })
-                  : acc,
-              []
-            )
-            .slice(0, 5)
-        ])
+  useEffect(() => {
+    if (query) {
+      listMon().then(res => {
+        const acc: Item[] = [SearchGit(query), SearchMDN(query)]
+        for (const item of res) {
+          if (acc.length > 5) break
+          if (item.details.includes(query)) {
+            item.searchMeta = query
+            acc.push(item)
+          }
+        }
+        set(acc)
       })
     } else {
       set([])
     }
-  }
-  return [result, search]
+  }, [query])
+
+  return [result, setSearch, query]
 }
 
 const Input = ({
@@ -123,7 +122,7 @@ const Input = ({
   )
 }
 
-const renderResult = (result: Item[]) => {
+const renderResult = (result: Item[], enable: boolean) => {
   const blanks: JSX.Element[] = []
   const items: JSX.Element[] = []
   const [push] = usePush()
@@ -140,17 +139,25 @@ const renderResult = (result: Item[]) => {
       items.push(
         <li key={path}>
           <div className="SearchInput-List-Name">{title}</div>
-          <Link to={path} title={path} onClick={() => push(path)}>
+          <Link
+            to={path}
+            title={path}
+            onClick={() => push(path)}
+            className="SearchInput-List-AText"
+          >
             <HighLightHTML
               source={details}
               target={searchMeta}
               highClassName="SearchInput-List-Key"
             />
+            ...<span className="SearchInput-List-Btn">查看内容</span>
           </Link>
         </li>
       )
     }
   }
+  if (!enable) return <></>
+  if (result.length === 0) return <Loading />
   return (
     <>
       {blanks[0] && (
@@ -170,8 +177,8 @@ export interface SearchInput {
 }
 
 export const SearchInput = ({ blog }: SearchInput) => {
-  const [result, search] = useSearch(blog)
-  const [enable, set] = useState(true)
+  const [result, search, query] = useSearch(blog)
+  const [enable, set] = useState(false)
   return (
     <span className="SearchInput">
       <Input
@@ -179,7 +186,9 @@ export const SearchInput = ({ blog }: SearchInput) => {
         onblur={() => setTimeout(() => set(false), 500)}
         onfocus={() => set(true)}
       />
-      <ul className="SearchInput-List">{enable && renderResult(result)}</ul>
+      <ul className="SearchInput-List">
+        {renderResult(result, enable && !!query)}
+      </ul>
     </span>
   )
 }
