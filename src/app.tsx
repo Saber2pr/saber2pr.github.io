@@ -22,7 +22,7 @@ import { SearchInput, MusicLine, PreImg, Themer } from "./components"
 
 import { store } from "./store"
 import { getHash, queryRootFirstChild } from "./utils"
-import { useShowBar, useEvent, useBlogMenu } from "./hooks"
+import { useShowBar, useEvent, useBlogMenu, useValue } from "./hooks"
 import { API } from "./request"
 import { Icon } from "./iconfont"
 
@@ -45,10 +45,14 @@ export const App = ({ aboutInfo, blogTree }: App) => {
 
   const show = useShowBar()
   const expand = useBlogMenu(blogTree)
-  useEvent(
-    "hashchange",
-    () => getHash().startsWith(blogTree.path) && expand(getHash())
-  )
+
+  const val = useValue(() => document.title)
+
+  useEvent("hashchange", () => {
+    const hash = getHash()
+    hash.startsWith(blogTree.path) && expand(hash)
+    document.title = hash.split("/").pop() || val
+  })
 
   return (
     <Router history={HashHistory}>
@@ -66,7 +70,7 @@ export const App = ({ aboutInfo, blogTree }: App) => {
               </AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/activity">动态</AppNavLink>
+              <AppNavLink to="/动态">动态</AppNavLink>
             </li>
             <li>
               <AppNavLink
@@ -77,13 +81,13 @@ export const App = ({ aboutInfo, blogTree }: App) => {
               </AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/learn">文档</AppNavLink>
+              <AppNavLink to="/文档">文档</AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/about">关于</AppNavLink>
+              <AppNavLink to="/关于">关于</AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/links">链接</AppNavLink>
+              <AppNavLink to="/链接">链接</AppNavLink>
             </li>
             <li className="nav-block" />
             <li>
@@ -106,11 +110,11 @@ export const App = ({ aboutInfo, blogTree }: App) => {
         <Switch>
           <Route exact path="/" component={() => <HomeLazy />} />
           <Route path="/blog" component={() => <Blog tree={blogTree} />} />
-          <Route path="/about" component={() => <About {...aboutInfo} />} />
-          <Route path="/links" component={() => <LinksLazy />} />
+          <Route path="/关于" component={() => <About {...aboutInfo} />} />
+          <Route path="/链接" component={() => <LinksLazy />} />
           <Route path="/secret" component={() => <Secret />} />
-          <Route path="/activity" component={() => <ActivityLazy />} />
-          <Route path="/learn" component={() => <LearnLazy />} />
+          <Route path="/动态" component={() => <ActivityLazy />} />
+          <Route path="/文档" component={() => <LearnLazy />} />
           <Route path="*" component={() => <NotFound />} />
         </Switch>
       </main>

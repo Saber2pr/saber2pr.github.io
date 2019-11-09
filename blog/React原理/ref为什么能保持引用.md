@@ -41,7 +41,7 @@ const usePrevious = value => {
   const ref = useRef()
   useEffect(() => {
     ref.current = value
-  }, value)
+  }, [value])
   return ref.current
 }
 ```
