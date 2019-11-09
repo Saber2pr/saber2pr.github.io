@@ -8,7 +8,7 @@ export const useShowBar = () => {
   useEvent(
     "hashchange",
     () => {
-      if (getHash() === "/about" || getHash() === "/home") {
+      if (getHash() === "/关于") {
         setShow(false)
       } else {
         setShow(musicStore.getState().music)

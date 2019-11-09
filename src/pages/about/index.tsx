@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import Audio from "@saber2pr/rc-audio"
 
 import { TwoSide, LazyCom, Loading } from "../../components"
@@ -64,8 +64,8 @@ export const About = ({ contents, audio, projects }: About) => (
   </div>
 )
 
-export const AboutLazy = () => (
+export const AboutLazy = memo(() => (
   <LazyCom await={request("about")} fallback={<Loading />}>
     {JAbout => <About {...JAbout} />}
   </LazyCom>
-)
+))

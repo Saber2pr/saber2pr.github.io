@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import { Comments } from "@saber2pr/rc-gitment"
 
 import "./style.less"
@@ -128,8 +128,8 @@ export const Links = ({ owns, friends }: Links) => (
   </div>
 )
 
-export const LinksLazy = () => (
+export const LinksLazy = memo(() => (
   <LazyCom await={request("links")} fallback={<Loading />}>
     {JLinks => <Links {...JLinks} />}
   </LazyCom>
-)
+))

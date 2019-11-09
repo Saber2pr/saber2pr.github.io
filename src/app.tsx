@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useMemo, useEffect } from "react"
 import {
   Router,
   Route,
@@ -20,9 +20,8 @@ import {
 } from "./pages"
 import { SearchInput, MusicLine, PreImg, Themer } from "./components"
 
-import { store } from "./store"
-import { getHash, queryRootFirstChild } from "./utils"
-import { useShowBar, useEvent, useBlogMenu, useValue } from "./hooks"
+import { getHash, queryRootFirstChildMemo } from "./utils"
+import { useShowBar, useEvent, useBlogMenu } from "./hooks"
 import { API } from "./request"
 import { Icon } from "./iconfont"
 
@@ -40,19 +39,19 @@ const AppNavLink = ({
 )
 
 export const App = ({ aboutInfo, blogTree }: App) => {
-  const firstBlog = queryRootFirstChild(blogTree)
-  store.getState().blogRoot = firstBlog.path
+  const firstBlog = queryRootFirstChildMemo(blogTree)
 
   const show = useShowBar()
   const expand = useBlogMenu(blogTree)
 
-  const val = useValue(() => document.title)
-
-  useEvent("hashchange", () => {
+  const title = useMemo(() => document.title, [])
+  const setTitle = () => {
     const hash = getHash()
     hash.startsWith(blogTree.path) && expand(hash)
-    document.title = hash.split("/").pop() || val
-  })
+    document.title = hash.split("/").pop() || title
+  }
+  useEvent("hashchange", setTitle)
+  useEffect(setTitle, [])
 
   return (
     <Router history={HashHistory}>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import "./style.less"
 import { PreImg, LazyCom, Loading } from "../../components"
 import { request } from "../../request"
@@ -52,8 +52,8 @@ export const Learn = ({ sites }: Learn) => (
   </div>
 )
 
-export const LearnLazy = () => (
+export const LearnLazy = memo(() => (
   <LazyCom await={request("learn")} fallback={<Loading />}>
     {JSites => <Learn sites={JSites} />}
   </LazyCom>
-)
+))

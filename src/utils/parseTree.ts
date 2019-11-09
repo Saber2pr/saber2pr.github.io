@@ -1,3 +1,5 @@
+import memo from "@saber2pr/memo"
+
 export interface Node {
   path: string
   children?: Array<Node>
@@ -20,3 +22,5 @@ export const queryRootFirstChild = (entry: Node) => {
     if (!ch.children) return ch
   }
 }
+
+export const queryRootFirstChildMemo = memo(queryRootFirstChild)

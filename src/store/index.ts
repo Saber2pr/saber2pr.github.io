@@ -2,7 +2,6 @@ import { createState } from "@saber2pr/redux/lib/state"
 
 export const store = createState({
   context: "",
-  blogRoot: "",
   actLen: 10,
   blogScrollTop: 0,
   actsScrollTop: 0

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { memo } from "react"
 import "./style.less"
 import { LazyCom, Loading } from "../../components"
 import { request } from "../../request"
@@ -19,8 +19,8 @@ export const Home = ({ title, infor }: Home) => (
   </ul>
 )
 
-export const HomeLazy = () => (
+export const HomeLazy = memo(() => (
   <LazyCom await={request("home")} fallback={<Loading />}>
     {JHome => <Home {...JHome} />}
   </LazyCom>
-)
+))

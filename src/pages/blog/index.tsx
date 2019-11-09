@@ -12,7 +12,11 @@ import { useIsMobile } from "../../hooks"
 
 import { md_theme, origin } from "../../config"
 import { collect, TextTree } from "../../utils/collect"
-import { timeDeltaFromNow, findNodeByPath } from "../../utils"
+import {
+  timeDeltaFromNow,
+  findNodeByPath,
+  queryRootFirstChildMemo
+} from "../../utils"
 import { API, requestContent } from "../../request"
 import { store } from "../../store"
 import { NotFound } from "../not-found"
@@ -29,9 +33,9 @@ const createOriginHref = (href: string) =>
   API.createBlobHref(origin.userId, origin.repo, href + ".md")
 
 export const Blog = ({ tree }: Blog) => {
+  const firstBlog = queryRootFirstChildMemo(tree)
   const links = collect(tree)
   const ref = useRef<HTMLDivElement>()
-
   const aniOp = () =>
     setTimeout(() => {
       if (ref.current) ref.current.style.opacity = "1"
@@ -110,7 +114,7 @@ export const Blog = ({ tree }: Blog) => {
             <Tree
               from={tree}
               map={({ path: href, title, children }) => {
-                if (href === store.getState().blogRoot) return <></>
+                if (href === firstBlog.path) return <></>
                 if (children) return <span>{title}</span>
                 return (
                   <BLink to={href} onClick={() => isMobile() && close()}>

@@ -167,8 +167,8 @@ export const Activity = ({ acts }: Activity) => {
   )
 }
 
-export const ActivityLazy = () => (
+export const ActivityLazy = memo(() => (
   <LazyCom await={request("activity")} fallback={<Loading />}>
     {JActs => <Activity acts={JActs} />}
   </LazyCom>
-)
+))
