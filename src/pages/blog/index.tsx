@@ -56,7 +56,9 @@ export const Blog = ({ tree }: Blog) => {
 
   useLayoutEffect(() => {
     ref.current.scrollTop = store.getState().blogScrollTop
-    return () => store.dispatch("blogScrollTop", ref.current.scrollTop)
+    return () => {
+      store.getState().blogScrollTop = ref.current.scrollTop
+    }
   }, [])
 
   const Routes = links.reduce(

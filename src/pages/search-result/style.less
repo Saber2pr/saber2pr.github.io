@@ -1,0 +1,64 @@
+.SearchResult {
+  margin: 2rem 5rem;
+  ol {
+    margin: 0;
+    padding: 0 1rem 0 1rem;
+    overflow: hidden;
+  }
+
+  ol li:first-child h2::before {
+    content: " ";
+    display: block;
+    border-bottom: 0;
+    padding-top: 40px;
+    margin-top: -80px;
+  }
+
+  dl {
+    margin: 0;
+    padding: 0;
+
+    dd {
+      margin: 1rem;
+    }
+  }
+
+  &-Name {
+    &::before {
+      content: " ";
+      display: block;
+      border-bottom: 1px solid #ececec;
+      padding-top: 44px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &-Link {
+    background-color: rgba(187, 239, 253, 0.3);
+    border-bottom-color: #1a1a1a;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    color: #1a1a1a;
+    text-decoration: none;
+    line-height: 1.2rem;
+    font-size: 1.2rem;
+
+    &:hover {
+      background-color: #bbeffd;
+    }
+  }
+
+  &-Key {
+    color: black;
+  }
+
+  &-Details {
+    line-height: 1.5rem;
+    background-color: white;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .SearchResult {
+    margin: 2rem 0.5rem;
+  }
+}

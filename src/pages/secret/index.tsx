@@ -7,7 +7,10 @@ import { store } from "../../store"
 
 export const Secret = () => {
   const context = store.getState().context
+  const [push] = usePush()
+  if (typeof context !== "string") push("/")
   const meta = context.replace(/encode=|decode=/, "")
+  if (meta === "") push("/")
 
   const result = context.startsWith("en")
     ? Sec.encode(meta)
@@ -16,9 +19,6 @@ export const Secret = () => {
     : Sec.decode(meta)
         .split("\n")
         .map(l => <p key={l}>{l}</p>)
-
-  const [push] = usePush()
-  if (meta === "") push("/home")
 
   return (
     <div className="Secret">

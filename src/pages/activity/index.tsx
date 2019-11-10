@@ -98,10 +98,13 @@ export const Activity = ({ acts }: Activity) => {
 
   useEffect(() => {
     const d = document.documentElement
-    setTimeout(() => {
+    const handle = setTimeout(() => {
       d.scrollTop = store.getState().actsScrollTop
     }, 100)
-    return () => store.dispatch("actsScrollTop", d.scrollTop)
+    return () => {
+      store.getState().actsScrollTop = d.scrollTop
+      clearTimeout(handle)
+    }
   }, [])
 
   return (

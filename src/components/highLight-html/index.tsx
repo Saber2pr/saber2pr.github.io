@@ -5,29 +5,33 @@ import "./style.less"
 export interface HighLightHTML {
   source: string
   target: string
+  transform?: (target: string) => string
   offset?: number
-  highClassName?: string
 }
 
-const transform = (element: string) => ReactDOM.renderToString(<>{element}</>)
+const transformHTML = (element: string) =>
+  ReactDOM.renderToString(<>{element}</>)
 
 export const HighLightHTML = ({
   source,
   target,
   offset = 20,
-  highClassName,
+  transform = _ => _,
   ...props
 }: HighLightHTML) => {
   const index = source.indexOf(target)
   if (index === -1) return <></>
+  const element = transform(target)
   return (
     <span
       className="HighLightHTML"
       dangerouslySetInnerHTML={{
         __html:
-        transform(source.slice(index - offset, index)) +
-          `<span class="${highClassName}">${target}</span>` +
-          transform(source.slice(index + target.length, index + target.length + offset))
+          transformHTML(source.slice(index - offset, index)) +
+          element +
+          transformHTML(
+            source.slice(index + target.length, index + target.length + offset)
+          )
       }}
       {...props}
     />

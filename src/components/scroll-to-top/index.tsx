@@ -10,7 +10,7 @@ const useNeedToTop = () => {
   const [state, setState] = useState(false)
   const d = document.documentElement
   useEvent("scroll", () => {
-    throttle(() => setState(d.scrollTop > d.clientHeight), 350)
+    throttle(() => setState(d.scrollTop > d.clientHeight), 300)
   })
   return state
 }

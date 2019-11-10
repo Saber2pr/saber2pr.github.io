@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, useImperativeHandle } from "react"
 import "./style.less"
 import { Blog } from "../../pages"
-import { collect, debounce } from "../../utils"
+import { collect, debounce, checkIsMob } from "../../utils"
 import { Link, usePush } from "@saber2pr/react-router"
 import { Icon } from "../../iconfont"
 import { store } from "../../store"
@@ -54,7 +54,6 @@ const useSearch = (blog: Blog["tree"]): [Item[], Search, string] => {
       listMon().then(res => {
         const acc: Item[] = [SearchGit(query), SearchMDN(query)]
         for (const item of res) {
-          if (acc.length > 5) break
           if (item.details.includes(query)) {
             item.searchMeta = query
             acc.push(item)
@@ -70,39 +69,50 @@ const useSearch = (blog: Blog["tree"]): [Item[], Search, string] => {
   return [result, setSearch, query]
 }
 
-const Input = ({
-  search,
-  onblur,
-  onfocus
-}: {
-  search: Search
-  onblur?: Function
-  onfocus?: Function
-}) => {
+const Input = React.forwardRef<
+  { blur: Function },
+  {
+    search: Search
+    onblur?: Function
+    onfocus?: Function
+  }
+>(({ search, onblur, onfocus }, ref) => {
   const isMob = useIsMob()
   const styles = {
     open: { width: isMob ? "6rem" : "10rem" },
     close: { width: "0" }
   }
   const [style, update] = useState<React.CSSProperties>(styles.close)
-  const ref = useRef<HTMLInputElement>()
+
+  const inputRef = useRef<HTMLInputElement>()
+  useImperativeHandle(
+    ref,
+    () => ({
+      blur: () => inputRef.current.blur()
+    }),
+    []
+  )
+
   const [push] = usePush()
   return (
     <>
-      <span className="SearchInput-Icon" onClick={() => ref.current.focus()}>
+      <span
+        className="SearchInput-Icon"
+        onClick={() => inputRef.current.focus()}
+      >
         <Icon.Sousuo />
         <span className="SearchInput-Icon-Name">搜索</span>
       </span>
       <input
         className="SearchInput-Input"
-        ref={ref}
+        ref={inputRef}
         list="blog"
         onInput={e => {
           const input: string = e.target["value"]
           if (input.startsWith("encode=") || input.startsWith("decode=")) {
             store.dispatch("context", input)
             push("/secret")
-            ref.current.value = ""
+            inputRef.current.value = ""
           } else {
             debounce(() => search(input))
           }
@@ -120,9 +130,9 @@ const Input = ({
       />
     </>
   )
-}
+})
 
-const renderResult = (result: Item[], enable: boolean) => {
+const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
   const blanks: JSX.Element[] = []
   const items: JSX.Element[] = []
   const [push] = usePush()
@@ -148,7 +158,9 @@ const renderResult = (result: Item[], enable: boolean) => {
             <HighLightHTML
               source={details}
               target={searchMeta}
-              highClassName="SearchInput-List-Key"
+              transform={str =>
+                `<span class="SearchInput-List-Key">${str}</span>`
+              }
             />
             ...<span className="SearchInput-List-Btn">查看内容</span>
           </Link>
@@ -161,13 +173,16 @@ const renderResult = (result: Item[], enable: boolean) => {
   return (
     <>
       {blanks[0] && (
-        <>
-          <span className="SearchInput-Head" />
+        <li>
+          <span className="SearchInput-List-Head" />
           <div className="SearchInput-List-Name">在Internet上搜索</div>
-        </>
+        </li>
       )}
       {blanks}
       {items}
+      <li className="SearchInput-List-More">
+        <a onClick={() => onSubmit()}>更多结果</a>
+      </li>
     </>
   )
 }
@@ -179,15 +194,43 @@ export interface SearchInput {
 export const SearchInput = ({ blog }: SearchInput) => {
   const [result, search, query] = useSearch(blog)
   const [enable, set] = useState(false)
+  const ref = useRef<HTMLInputElement>()
+  const [push] = usePush()
+  const onSubmit = () => {
+    set(false)
+    ref.current.blur()
+    if (!result[0]) return
+    push(`/搜索结果?q=${query}`)
+    store.dispatch("searchScrollTop", 0)
+    store.getState().context = result
+  }
+
+  const [isMob, setIsMob] = useState(false)
+  useEffect(() => {
+    setIsMob(checkIsMob())
+  }, [])
+
   return (
     <span className="SearchInput">
-      <Input
-        search={search}
-        onblur={() => setTimeout(() => set(false), 500)}
-        onfocus={() => set(true)}
-      />
+      <form
+        onSubmit={event => {
+          event.preventDefault()
+          onSubmit()
+        }}
+      >
+        <Input
+          ref={ref}
+          search={search}
+          onblur={() => setTimeout(() => set(false), 500)}
+          onfocus={() => set(true)}
+        />
+      </form>
       <ul className="SearchInput-List">
-        {renderResult(result, enable && !!query)}
+        {renderResult(
+          result.slice(0, isMob ? 5 : 6),
+          enable && !!query,
+          onSubmit
+        )}
       </ul>
     </span>
   )

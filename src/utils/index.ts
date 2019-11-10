@@ -1,3 +1,4 @@
+export * from './checkIsMob'
 export * from './checkTime'
 export * from './collect'
 export * from './createASCII'

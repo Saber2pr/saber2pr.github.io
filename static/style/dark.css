@@ -209,6 +209,31 @@ body {
   color: black;
 }
 
+.SearchInput-List-More a:hover {
+  color: black !important;
+  background: #730000 !important;
+}
+
+.SearchResult-Details {
+  background: black;
+}
+
+.SearchResult-Name::before {
+  border-bottom: 1px solid #ccb6ff;
+}
+
+.SearchResult-Link {
+  color: #a9a9a9;
+  background: black;
+  border-bottom: 1px solid #a9a9a9;
+  padding: 0.2rem;
+}
+
+.SearchResult-Link:hover {
+  color: black;
+  background: #730000;
+}
+
 @media screen and (max-width: 740px) {
   .About-Aside-Content-Proj {
     border: 1px solid pink;

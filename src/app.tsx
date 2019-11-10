@@ -16,7 +16,8 @@ import {
   LinksLazy,
   ActivityLazy,
   LearnLazy,
-  NotFound
+  NotFound,
+  SearchResult
 } from "./pages"
 import { SearchInput, MusicLine, PreImg, Themer } from "./components"
 
@@ -48,7 +49,11 @@ export const App = ({ aboutInfo, blogTree }: App) => {
   const setTitle = () => {
     const hash = getHash()
     hash.startsWith(blogTree.path) && expand(hash)
-    document.title = hash.split("/").pop() || title
+    document.title =
+      hash
+        .split("/")
+        .pop()
+        .split("?")[0] || title
   }
   useEvent("hashchange", setTitle)
   useEffect(setTitle, [])
@@ -114,6 +119,7 @@ export const App = ({ aboutInfo, blogTree }: App) => {
           <Route path="/secret" component={() => <Secret />} />
           <Route path="/动态" component={() => <ActivityLazy />} />
           <Route path="/文档" component={() => <LearnLazy />} />
+          <Route path="/搜索结果" component={() => <SearchResult />} />
           <Route path="*" component={() => <NotFound />} />
         </Switch>
       </main>
