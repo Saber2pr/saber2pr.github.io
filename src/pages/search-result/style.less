@@ -1,12 +1,13 @@
 .SearchResult {
   margin: 2rem 5rem;
-  ol {
+
+  ul {
     margin: 0;
     padding: 0 1rem 0 1rem;
-    overflow: hidden;
+    list-style-type: none;
   }
 
-  ol li:first-child h2::before {
+  ul li:first-child h2::before {
     content: " ";
     display: block;
     border-bottom: 0;
@@ -24,6 +25,7 @@
   }
 
   &-Name {
+    overflow: hidden;
     &::before {
       content: " ";
       display: block;
@@ -41,6 +43,7 @@
     text-decoration: none;
     line-height: 1.2rem;
     font-size: 1.2rem;
+    margin-left: 0.5rem;
 
     &:hover {
       background-color: #bbeffd;

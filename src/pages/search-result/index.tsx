@@ -40,7 +40,7 @@ export const SearchResult = ({  }: SearchResult) => {
     )
   }
   const [length, setLength] = useState(store.getState().searchLen)
-  const hasMore = length <= result.length
+  const hasMore = length <= result.length - 2
 
   useOnScrollBottom(() => {
     if (hasMore) {
@@ -72,12 +72,13 @@ export const SearchResult = ({  }: SearchResult) => {
   return (
     <div className="SearchResult">
       <h1>共找到{result.length - 2}个结果</h1>
-      <ol>
+      <ul>
         {result
           .slice(2, 2 + length)
-          .map(({ path, title, details, searchMeta }) => (
+          .map(({ path, title, details, searchMeta }, i) => (
             <li key={path}>
               <h2 className="SearchResult-Name">
+                {i + 1}.
                 <Link className="SearchResult-Link" to={path}>
                   {title}
                 </Link>
@@ -95,7 +96,7 @@ export const SearchResult = ({  }: SearchResult) => {
               </p>
             </li>
           ))}
-      </ol>
+      </ul>
       <div
         style={{
           textAlign: "center",
