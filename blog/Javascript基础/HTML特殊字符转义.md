@@ -1,4 +1,4 @@
-# 利用正则转义
+### 利用正则转义
 
 正则对象(全局 g)的 exec 方法可用来迭代搜索字符串，并把匹配到的位置记录到 lastIndex 属性
 
@@ -28,7 +28,7 @@ const transform0 = element => {
 console.log(transform0(element))
 ```
 
-# 利用 dom innerText 转义
+### 利用 dom innerText 转义
 
 ```js
 // innerText输入,innerHTML输出
@@ -39,4 +39,14 @@ const transform1 = element => {
 }
 
 console.log(transform1(element))
+```
+
+### 利用 react-dom/server
+
+使用 ReactDOM 的 renderToString/XSS 处理。
+
+```ts
+import ReactDOM from "react-dom/server"
+
+const transformHTML = element => ReactDOM.renderToString(<>{element}</>)
 ```
