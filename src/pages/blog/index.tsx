@@ -76,7 +76,11 @@ export const Blog = ({ tree }: Blog) => {
                     fallback={<Loading />}
                     await={requestContent(href + ".md")}
                   >
-                    {content => <MD theme={md_theme}>{content}</MD>}
+                    {content => (
+                      <MD theme={md_theme}>
+                        {content.replace(/```tsx/g, "```ts")}
+                      </MD>
+                    )}
                   </LazyCom>
                   <div className="Blog-Main-Content-Edit">
                     <a
