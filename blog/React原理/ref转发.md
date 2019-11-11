@@ -1,6 +1,6 @@
 在 React 中获取真实 DOM 可以通过 ref。
 
-```ts
+```tsx
 const Input = () => {
   const ref = useRef()
 
@@ -18,7 +18,7 @@ ref 的初始化在视图渲染完成后进行。所以需要在 useEffect 中�
 
 如果这样：
 
-```ts
+```tsx
 const Form = () => {
   const parentRef = useRef()
   return (
@@ -35,7 +35,7 @@ const Form = () => {
 
 Input 组件需要利用 React.forwardRef 进行 ref 转发。
 
-```ts
+```tsx
 const Input = React.forwardRef((props, parentRef) => {
   const ref = useRef()
 
@@ -51,7 +51,7 @@ const Input = React.forwardRef((props, parentRef) => {
 
 > forwardRef 传递的 parentRef 为 React.Ref 类型，没有 current 属性！
 
-```ts
+```tsx
 const Input = React.forwardRef((props, parentRef) => {
   const ref = useRef()
 

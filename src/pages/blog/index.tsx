@@ -11,11 +11,12 @@ import { TwoSide, Loading, LazyCom } from "../../components"
 import { useIsMobile } from "../../hooks"
 
 import { md_theme, origin } from "../../config"
-import { collect, TextTree } from "../../utils/collect"
 import {
   timeDeltaFromNow,
   findNodeByPath,
-  queryRootFirstChildMemo
+  queryRootFirstChildMemo,
+  collect,
+  TextTree
 } from "../../utils"
 import { API, requestContent } from "../../request"
 import { store } from "../../store"
@@ -76,11 +77,7 @@ export const Blog = ({ tree }: Blog) => {
                     fallback={<Loading />}
                     await={requestContent(href + ".md")}
                   >
-                    {content => (
-                      <MD theme={md_theme}>
-                        {content.replace(/```tsx/g, "```ts")}
-                      </MD>
-                    )}
+                    {content => <MD theme={md_theme}>{content}</MD>}
                   </LazyCom>
                   <div className="Blog-Main-Content-Edit">
                     <a

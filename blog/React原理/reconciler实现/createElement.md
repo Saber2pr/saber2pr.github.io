@@ -9,7 +9,7 @@ function createElement<K extends keyof HTMLElementTagNameMap>(
   tag: K,
   props: Partial<HTMLElementTagNameMap[K]>,
   ...childNodes: JSX.Element[]
-): JSX.Element;
+): JSX.Element
 ```
 
 K 泛型参数约束为 keyof HTMLElementTagNameMap，例如"div"、"a"、"button"等，可以看看 TS 标准库中对 HTMLElementTagNameMap 的定义:
@@ -46,7 +46,7 @@ const List = React.createElement(
   null,
   React.createElement("li", null),
   React.createElement("li", null)
-);
+)
 ```
 
 这个 List 是个 JSX.Element 实例，其 childNodes 为[{tag:"li", props:null}, {tag:"li", props:null}]，渲染到真实 DOM 就是
@@ -72,25 +72,25 @@ export function createElement<K extends keyof HTMLElementTagNameMap>(
   const mapper = (c: any): any =>
     typeof c === "string" || typeof c === "number"
       ? createElement("text" as "span", { nodeValue: c as string })
-      : c;
+      : c
 
   // 对childNodes中每个子节点执行上面的映射函数
-  const children = [].concat(...childNodes).map(mapper);
+  const children = [].concat(...childNodes).map(mapper)
   // 将处理好的children保存在props中然后返回一个VNode节点
-  return <any>{ tag, props: { ...props, children } };
+  return <any>{ tag, props: { ...props, children } }
 }
 ```
 
 这里有个非常有趣的操作，看似无用
 
 ```typescript
-[].concat(...childNodes);
+;[].concat(...childNodes)
 ```
 
 [].concat(...array) 这个表达式常用来对 array 数组降维，例如
 
 ```typescript
-[].concat(...[1, 2, [3, 4]]); // [1, 2, 3, 4]
+;[].concat(...[1, 2, [3, 4]]) // [1, 2, 3, 4]
 ```
 
 那么 childNodes 数组什么时候可能会变的不“平坦”呢？
@@ -109,7 +109,7 @@ export function createElement<K extends keyof HTMLElementTagNameMap>(
 
 在 React 中 JSX 标签可以看作是值，那么可以使用数组 map 来高效生成：
 
-```typescript
+```tsx
 <ul>
   {["a", "b"].map(ch => (
     <li key={ch}>{ch}</li>
@@ -136,7 +136,7 @@ React.createElement(
     null,
     React.createElement("text", { nodeValue: "c" })
   )
-);
+)
 ```
 
 分析一下它生成的 VNode 树

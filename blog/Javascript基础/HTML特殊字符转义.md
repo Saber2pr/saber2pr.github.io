@@ -45,7 +45,7 @@ console.log(transform1(element))
 
 使用 ReactDOM 的 renderToString/XSS 处理。
 
-```ts
+```tsx
 import ReactDOM from "react-dom/server"
 
 const transformHTML = element => ReactDOM.renderToString(<>{element}</>)

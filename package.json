@@ -14,7 +14,7 @@
     "test": "ts-node scripts/test"
   },
   "dependencies": {
-    "@saber2pr/md2jsx": "^0.0.7",
+    "@saber2pr/md2jsx": "^0.0.8",
     "@saber2pr/memo": "^0.0.2",
     "@saber2pr/rc-audio": "^0.0.9",
     "@saber2pr/rc-gitment": "^0.0.4",
