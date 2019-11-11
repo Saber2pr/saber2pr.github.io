@@ -68,3 +68,7 @@ const Input = React.forwardRef((props, parentRef) => {
 ```
 
 这样就行了。需要借助 useImperativeHandle 来关联两个 ref 的行为。
+
+源码里，useImperativeHandle 的实现就是同步阶段给 ref.current 赋值第二个参数的返回值，然后在 useEffect（异步）里读取。
+
+[facebook/react/react-reconciler/ReactFiberHooks.js#L1009](https://github.com/facebook/react/blob/master/packages/react-reconciler/src/ReactFiberHooks.js#L1009)

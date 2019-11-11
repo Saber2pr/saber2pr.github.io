@@ -11,7 +11,7 @@ origin["client_secret"] = client_secret
 const Routes = {
   home: {
     href: "/",
-    name: "saber2pr"
+    name: origin.userId
   },
   about: {
     href: "/关于",
