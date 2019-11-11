@@ -105,6 +105,7 @@ const Input = React.forwardRef<
       </span>
       <input
         className="SearchInput-Input"
+        type="search"
         ref={inputRef}
         list="blog"
         onInput={e => {
