@@ -4,13 +4,20 @@ import "./style.less"
 import Sec from "@saber2pr/secret"
 import { usePush } from "@saber2pr/react-router"
 import { store } from "../../store"
+import { Routes } from "../../config"
 
 export const Secret = () => {
   const context = store.getState().context
   const [push] = usePush()
-  if (typeof context !== "string") push("/")
+  if (typeof context !== "string") {
+    push(Routes.home.href)
+    return <></>
+  }
   const meta = context.replace(/encode=|decode=/, "")
-  if (meta === "") push("/")
+  if (meta === "") {
+    push(Routes.home.href)
+    return <></>
+  }
 
   const result = context.startsWith("en")
     ? Sec.encode(meta)

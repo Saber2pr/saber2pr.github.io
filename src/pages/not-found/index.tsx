@@ -1,6 +1,7 @@
 import React from "react"
 import "./style.less"
 import { usePush } from "@saber2pr/react-router"
+import { Routes } from "../../config"
 
 export interface NotFound {}
 
@@ -12,7 +13,10 @@ export const NotFound = ({  }: NotFound) => {
       <h1>404 NotFound</h1>
       <ul>
         <li>
-          <button className="NotFound-Btn" onClick={() => push("/")}>
+          <button
+            className="NotFound-Btn"
+            onClick={() => push(Routes.home.href)}
+          >
             首页
           </button>
         </li>

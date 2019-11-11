@@ -15,14 +15,17 @@ body {
   border-bottom: 1px solid white;
 }
 
-.Activity a:hover {
-  background: #730000;
-  color: black;
+.Activity a {
+  color: #a9a9a9;
 }
 
-*::selection {
-  background-color: #a50000;
+.Activity a:hover {
+  color: white;
+}
+
+*:not(.token)::selection {
   color: black;
+  background-color: #a9a9a9;
 }
 
 .Home {
@@ -209,9 +212,12 @@ body {
   color: black;
 }
 
+.SearchInput-List-More a {
+  color: #a9a9a9 !important;
+}
+
 .SearchInput-List-More a:hover {
-  color: black !important;
-  background: #730000 !important;
+  color: white !important;
 }
 
 .SearchResult-Details {
@@ -225,13 +231,12 @@ body {
 .SearchResult-Link {
   color: #a9a9a9;
   background: black;
-  border-bottom: 1px solid #a9a9a9;
-  padding: 0.2rem;
+  text-decoration: underline;
 }
 
 .SearchResult-Link:hover {
-  color: black;
-  background: #730000;
+  color: white;
+  background: black;
 }
 
 @media screen and (max-width: 740px) {

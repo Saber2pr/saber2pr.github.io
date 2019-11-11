@@ -4,6 +4,7 @@ import { store } from "../../store"
 import { Link, usePush } from "@saber2pr/react-router"
 import { HighLightHTML, ScrollToTop } from "../../components"
 import { useOnScrollBottom } from "../../hooks"
+import { Routes } from "../../config"
 
 export interface SearchResult {}
 
@@ -19,7 +20,7 @@ export const SearchResult = ({  }: SearchResult) => {
   const result: Item[] = store.getState().context
   const [push] = usePush()
   if (!result) {
-    push("/")
+    push(Routes.home.href)
     return <></>
   }
   if (result.length === 2) {

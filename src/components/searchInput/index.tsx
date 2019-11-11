@@ -9,6 +9,7 @@ import { useIsMob, useSingleton } from "../../hooks"
 import { requestContent } from "../../request"
 import { HighLightHTML } from "../highLight-html"
 import { Loading } from "../loading"
+import { Routes } from "../../config"
 
 type Item = {
   path: string
@@ -79,7 +80,7 @@ const Input = React.forwardRef<
 >(({ search, onblur, onfocus }, ref) => {
   const isMob = useIsMob()
   const styles = {
-    open: { width: isMob ? "6rem" : "10rem" },
+    open: { width: isMob ? "7rem" : "10rem" },
     close: { width: "0" }
   }
   const [style, update] = useState<React.CSSProperties>(styles.close)
@@ -112,7 +113,7 @@ const Input = React.forwardRef<
           const input: string = e.target["value"]
           if (input.startsWith("encode=") || input.startsWith("decode=")) {
             store.dispatch("context", input)
-            push("/secret")
+            push(Routes.secret.href)
             inputRef.current.value = ""
           } else {
             debounce(() => search(input))
@@ -201,7 +202,7 @@ export const SearchInput = ({ blog }: SearchInput) => {
     set(false)
     ref.current.blur()
     if (!result[0]) return
-    push(`/搜索结果?q=${query}`)
+    push(`${Routes.search.href}?q=${query}`)
     store.dispatch("searchScrollTop", 0)
     store.getState().context = result
   }

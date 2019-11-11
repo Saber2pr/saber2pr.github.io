@@ -25,6 +25,7 @@ import { getHash, queryRootFirstChildMemo } from "./utils"
 import { useShowBar, useEvent, useBlogMenu } from "./hooks"
 import { API } from "./request"
 import { Icon } from "./iconfont"
+import { Routes as RS } from "./config"
 
 export interface App {
   blogTree: Blog["tree"]
@@ -70,28 +71,28 @@ export const App = ({ aboutInfo, blogTree }: App) => {
                   fallback={<Icon.Head />}
                   src={API.createAvatars("saber2pr")}
                 />
-                <span className="nav-start-name">saber2pr</span>
+                <span className="nav-start-name">{RS.home.name}</span>
               </AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/动态">动态</AppNavLink>
+              <AppNavLink to={RS.acts.href}>{RS.acts.name}</AppNavLink>
             </li>
             <li>
               <AppNavLink
                 to={firstBlog.path}
                 isActive={(_, ctxPath) => ctxPath.startsWith(blogTree.path)}
               >
-                博客
+                {RS.blog.name}
               </AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/文档">文档</AppNavLink>
+              <AppNavLink to={RS.learn.href}>{RS.learn.name}</AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/关于">关于</AppNavLink>
+              <AppNavLink to={RS.about.href}>{RS.about.name}</AppNavLink>
             </li>
             <li>
-              <AppNavLink to="/链接">链接</AppNavLink>
+              <AppNavLink to={RS.links.href}>{RS.links.name}</AppNavLink>
             </li>
             <li className="nav-block" />
             <li>
@@ -112,15 +113,21 @@ export const App = ({ aboutInfo, blogTree }: App) => {
       <main className="main">
         <picture className="main-bg" />
         <Switch>
-          <Route exact path="/" component={() => <HomeLazy />} />
-          <Route path="/blog" component={() => <Blog tree={blogTree} />} />
-          <Route path="/关于" component={() => <About {...aboutInfo} />} />
-          <Route path="/链接" component={() => <LinksLazy />} />
-          <Route path="/secret" component={() => <Secret />} />
-          <Route path="/动态" component={() => <ActivityLazy />} />
-          <Route path="/文档" component={() => <LearnLazy />} />
-          <Route path="/搜索结果" component={() => <SearchResult />} />
-          <Route path="*" component={() => <NotFound />} />
+          <Route exact path={RS.home.href} component={() => <HomeLazy />} />
+          <Route
+            path={RS.blog.href}
+            component={() => <Blog tree={blogTree} />}
+          />
+          <Route
+            path={RS.about.href}
+            component={() => <About {...aboutInfo} />}
+          />
+          <Route path={RS.links.href} component={() => <LinksLazy />} />
+          <Route path={RS.secret.href} component={() => <Secret />} />
+          <Route path={RS.acts.href} component={() => <ActivityLazy />} />
+          <Route path={RS.learn.href} component={() => <LearnLazy />} />
+          <Route path={RS.search.href} component={() => <SearchResult />} />
+          <Route path={RS.notFound.href} component={() => <NotFound />} />
         </Switch>
       </main>
       <footer className="footer">
