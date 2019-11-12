@@ -18,7 +18,7 @@ export const Home = ({ title, infor, pic }: Home) => (
       <i>{infor}</i>
     </li>
     <li className="Home-Img">
-      <img src={pic} alt="saber2pr" />
+      <img src={pic} alt={title} />
     </li>
   </ul>
 )
