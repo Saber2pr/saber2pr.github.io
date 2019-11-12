@@ -19,7 +19,7 @@ import {
   NotFound,
   SearchResult
 } from "./pages"
-import { SearchInput, MusicLine, PreImg, Themer } from "./components"
+import { SearchInput, MusicLine, PreImg, Themer, Uv } from "./components"
 
 import { getHash, queryRootFirstChildMemo } from "./utils"
 import { useShowBar, useEvent, useBlogMenu } from "./hooks"
@@ -132,19 +132,10 @@ export const App = ({ aboutInfo, blogTree }: App) => {
       </main>
       <footer className="footer">
         Copyright © 2019 saber2pr
-        <UV />
+        <Uv />
       </footer>
     </Router>
   )
 }
-
-const UV = () => (
-  <div className="footer-uv">
-    <span id="busuanzi_container_site_uv">
-      uv:
-      <span id="busuanzi_value_site_uv" />
-    </span>
-  </div>
-)
 
 export default App
