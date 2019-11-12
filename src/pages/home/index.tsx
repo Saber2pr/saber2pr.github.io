@@ -1,14 +1,15 @@
 import React, { memo } from "react"
 import "./style.less"
 import { LazyCom, Loading } from "../../components"
-import { request, API } from "../../request"
+import { request } from "../../request"
 
 export interface Home {
   title: string
   infor: string
+  pic: string
 }
 
-export const Home = ({ title, infor }: Home) => (
+export const Home = ({ title, infor, pic }: Home) => (
   <ul className="Home">
     <li className="Home-Title shd-blue">
       <i>{title}</i>
@@ -17,13 +18,13 @@ export const Home = ({ title, infor }: Home) => (
       <i>{infor}</i>
     </li>
     <li className="Home-Img">
-      <img src={API.createAvatars("saber2pr", 1000)} alt="saber2pr" />
+      <img src={pic} alt="saber2pr" />
     </li>
   </ul>
 )
 
 export const HomeLazy = memo(() => (
   <LazyCom await={request("home")} fallback={<Loading />}>
-    {JHome => <Home {...JHome} />}
+    {res => <Home {...res} />}
   </LazyCom>
 ))

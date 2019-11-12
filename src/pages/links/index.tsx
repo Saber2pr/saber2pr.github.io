@@ -130,6 +130,6 @@ export const Links = ({ owns, friends }: Links) => (
 
 export const LinksLazy = memo(() => (
   <LazyCom await={request("links")} fallback={<Loading />}>
-    {JLinks => <Links {...JLinks} />}
+    {res => <Links {...res} />}
   </LazyCom>
 ))

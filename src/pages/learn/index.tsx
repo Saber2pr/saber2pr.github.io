@@ -54,6 +54,6 @@ export const Learn = ({ sites }: Learn) => (
 
 export const LearnLazy = memo(() => (
   <LazyCom await={request("learn")} fallback={<Loading />}>
-    {JSites => <Learn sites={JSites} />}
+    {res => <Learn sites={res} />}
   </LazyCom>
 ))
