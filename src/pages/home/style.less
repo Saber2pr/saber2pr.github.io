@@ -6,6 +6,7 @@
   background-color: #282c34;
   transition: background-color 1s;
   height: 300px;
+  position: relative;
 
   text-align: center;
   padding-top: 120px;
@@ -19,5 +20,16 @@
   &-Infor {
     color: #d5d5d7;
     line-height: 3rem;
+  }
+
+  &-Img {
+    img {
+      opacity: 0.2;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(0%, -50%);
+    }
   }
 }

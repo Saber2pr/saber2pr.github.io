@@ -1,7 +1,7 @@
 import React, { memo } from "react"
 import "./style.less"
 import { LazyCom, Loading } from "../../components"
-import { request } from "../../request"
+import { request, API } from "../../request"
 
 export interface Home {
   title: string
@@ -15,6 +15,9 @@ export const Home = ({ title, infor }: Home) => (
     </li>
     <li className="Home-Infor">
       <i>{infor}</i>
+    </li>
+    <li className="Home-Img">
+      <img src={API.createAvatars("saber2pr", 1000)} alt="saber2pr" />
     </li>
   </ul>
 )
