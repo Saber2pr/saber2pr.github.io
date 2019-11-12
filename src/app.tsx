@@ -12,22 +12,22 @@ import {
   Blog,
   About,
   Secret,
-  HomeLazy,
   LinksLazy,
   ActivityLazy,
   LearnLazy,
   NotFound,
-  SearchResult
+  SearchResult,
+  Home
 } from "./pages"
 import { SearchInput, MusicLine, PreImg, Themer, Uv } from "./components"
 
 import { getHash, queryRootFirstChildMemo } from "./utils"
 import { useShowBar, useEvent, useBlogMenu } from "./hooks"
-import { API } from "./request"
 import { Icon } from "./iconfont"
 import { Routes as RS } from "./config"
 
 export interface App {
+  homeInfo: Home
   blogTree: Blog["tree"]
   aboutInfo: About
 }
@@ -40,7 +40,7 @@ const AppNavLink = ({
   <NavLink className={className} activeClassName={activeClassName} {...props} />
 )
 
-export const App = ({ aboutInfo, blogTree }: App) => {
+export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
 
   const show = useShowBar()
@@ -69,7 +69,7 @@ export const App = ({ aboutInfo, blogTree }: App) => {
                 <PreImg
                   className="nav-start-img"
                   fallback={<Icon.Head />}
-                  src={API.createAvatars("saber2pr")}
+                  src={homeInfo.pic}
                 />
                 <span className="nav-start-name">{RS.home.name}</span>
               </AppNavLink>
@@ -113,7 +113,11 @@ export const App = ({ aboutInfo, blogTree }: App) => {
       <main className="main">
         <picture className="main-bg" />
         <Switch>
-          <Route exact path={RS.home.href} component={() => <HomeLazy />} />
+          <Route
+            exact
+            path={RS.home.href}
+            component={() => <Home {...homeInfo} />}
+          />
           <Route
             path={RS.blog.href}
             component={() => <Blog tree={blogTree} />}

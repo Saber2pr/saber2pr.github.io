@@ -20,10 +20,13 @@ import { request } from "./request"
 
 const App = React.lazy(async () => {
   welcome()
-  const JABout = await request("about")
-  const JBlog = await request("blog")
+  const homeInfo = await request("home")
+  const aboutInfo = await request("about")
+  const blogTree = await request("blog")
   return {
-    default: () => <Pages aboutInfo={JABout} blogTree={JBlog} />
+    default: () => (
+      <Pages homeInfo={homeInfo} aboutInfo={aboutInfo} blogTree={blogTree} />
+    )
   }
 })
 
