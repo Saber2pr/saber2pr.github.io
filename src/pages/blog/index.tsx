@@ -70,7 +70,7 @@ export const Blog = ({ tree }: Blog) => {
             key={href}
             path={href}
             component={() => (
-              <div className="animated fadeIn">
+              <>
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
                   <LazyCom
@@ -91,7 +91,7 @@ export const Blog = ({ tree }: Blog) => {
                     最近更新 {timeDeltaFromNow(getLastModified(href))}
                   </p>
                 </div>
-              </div>
+              </>
             )}
           />
         )
