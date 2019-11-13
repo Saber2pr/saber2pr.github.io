@@ -3,10 +3,7 @@ import ReactDOM from "react-dom"
 
 import "normalize.css"
 
-import "animate.css/source/_base.css"
-
 import "animate.css/source/flippers/flipInX.css"
-import "animate.css/source/flippers/flip.css"
 
 import "./style/animation.less"
 import "./style/shadow.less"
