@@ -1,4 +1,4 @@
-@keyframes opacityMove {
+@keyframes opacityMoveUp {
   0% {
     transform: translateY(40px);
     opacity: 0;
@@ -10,6 +10,22 @@
   }
 }
 
-.ani-opacityMove {
-  animation: opacityMove 0.5s ease;
+.ani-opacityMoveUp {
+  animation: opacityMoveDown 0.5s ease;
+}
+
+@keyframes opacityMoveDown {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}
+
+.ani-opacityMoveDown {
+  animation: opacityMoveDown 0.5s ease;
 }

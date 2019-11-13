@@ -114,7 +114,7 @@
     width: 30%;
     height: calc(100% - @lineH-PC);
 
-    z-index: 10;
+    z-index: 2;
     overflow-y: auto;
 
     &-Content {
@@ -145,10 +145,6 @@
         }
       }
     }
-  }
-
-  &-Btn {
-    display: none;
   }
 }
 
@@ -184,10 +180,11 @@
       display: none;
       background-color: white;
       border-left: none;
-      animation: opacityMove 0.5s ease;
+      animation: opacityMoveUp 0.5s ease;
 
-      top: @lineH-Mob;
+      top: 0;
       left: 0;
+      padding-top: @lineH-Mob;
 
       width: 100%;
       height: calc(100% - @lineH-Mob);
@@ -195,21 +192,6 @@
       &-Content {
         margin-top: 1.5rem;
       }
-    }
-
-    &-Btn {
-      display: block;
-      position: fixed;
-      text-align: center;
-      right: 10%;
-      bottom: 10%;
-      width: 60px;
-      height: 60px;
-      line-height: 60px;
-      background-color: #20232a;
-      color: #61dafb;
-      border-radius: 30px;
-      cursor: pointer;
     }
   }
 }

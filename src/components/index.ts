@@ -1,3 +1,4 @@
+export * from './ani-btn'
 export * from './highLight-html'
 export * from './lazy-com'
 export * from './loading'

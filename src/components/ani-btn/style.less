@@ -1,0 +1,37 @@
+.AniBtn {
+  @pad: calc(43px / 2);
+  padding-left: @pad;
+  padding-right: @pad;
+
+  display: block;
+  background-color: #20232a;
+  bottom: 44px;
+  color: #61dafb;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  z-index: 3;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+
+  &:focus {
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  &-Col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 58px;
+  }
+  &-Btn {
+    transition: transform 0.2s ease;
+  }
+}
+
+@media screen and (min-width: 740px) {
+  .AniBtn {
+    display: none;
+  }
+}

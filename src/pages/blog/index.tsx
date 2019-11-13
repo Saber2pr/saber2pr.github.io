@@ -1,14 +1,13 @@
-import React, { useRef, useEffect, useLayoutEffect } from "react"
+import React, { useRef, useLayoutEffect } from "react"
 import { Route, Link, Switch, NavLink } from "@saber2pr/react-router"
 import Tree from "@saber2pr/rc-tree"
 
 import MD from "@saber2pr/md2jsx"
 
 import "./style.less"
-import { Icon } from "../../iconfont"
 
-import { TwoSide, Loading, LazyCom } from "../../components"
-import { useIsMobile } from "../../hooks"
+import { TwoSide, Loading, LazyCom, AniBtn } from "../../components"
+import { useIsMobile, useAniLayout } from "../../hooks"
 
 import { md_theme, origin } from "../../config"
 import {
@@ -36,21 +35,11 @@ const createOriginHref = (href: string) =>
 export const Blog = ({ tree }: Blog) => {
   const firstBlog = queryRootFirstChildMemo(tree)
   const links = collect(tree)
-  const ref = useRef<HTMLDivElement>()
-  const aniOp = () =>
-    setTimeout(() => {
-      if (ref.current) ref.current.style.opacity = "1"
-    }, 400)
-  const open = () => {
-    ref.current.style.display = "block"
-    aniOp()
-  }
-  const close = () => (ref.current.style.display = "none")
-  const isMobile = useIsMobile(close, open)
 
-  useEffect(() => {
-    isMobile || aniOp()
-  }, [])
+  const isOpen = useRef(false)
+  const aniBtnRef = useRef<{ close: Function }>()
+  const [ref, open, close] = useAniLayout()
+  const isMobile = useIsMobile(close, open)
 
   const getLastModified = (href: string): string =>
     findNodeByPath(href, tree)["LastModified"]
@@ -120,7 +109,14 @@ export const Blog = ({ tree }: Blog) => {
                 if (href === firstBlog.path) return <></>
                 if (children) return <span>{title}</span>
                 return (
-                  <BLink to={href} onClick={() => isMobile() && close()}>
+                  <BLink
+                    to={href}
+                    onClick={() => {
+                      if (!isMobile()) return
+                      isOpen.current = close(false)
+                      aniBtnRef.current.close()
+                    }}
+                  >
                     {title}
                   </BLink>
                 )
@@ -129,9 +125,12 @@ export const Blog = ({ tree }: Blog) => {
           </section>
         </aside>
       </TwoSide>
-      <div className="Blog-Btn animated flip" onClick={open}>
-        <Icon.Mao />
-      </div>
+      <AniBtn
+        ref={aniBtnRef}
+        onClick={() => {
+          isOpen.current = isOpen.current ? close() : open()
+        }}
+      />
     </div>
   )
 }

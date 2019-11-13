@@ -262,4 +262,16 @@ body {
     border-left: none !important;
     border-right: none !important;
   }
+
+  .ScrollToTop {
+    border: 1px solid #9e78c11a;
+    box-shadow: 0 0 20px rgba(158, 124, 154, 0.3);
+    background: black;
+  }
+
+  .AniBtn {
+    border: 1px solid #9e78c11a;
+    box-shadow: 0 0 20px rgba(158, 124, 154, 0.3);
+    background: black;
+  }
 }
