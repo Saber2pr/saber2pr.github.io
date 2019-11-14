@@ -125,6 +125,17 @@ body {
   border-color: #474747;
 }
 
+.Blog-Main-Content a:not(.Blog-Main-Content-Edit-A) {
+  color: #a9a9a9;
+  background: black;
+  text-decoration: underline;
+}
+
+.Blog-Main-Content a:not(.Blog-Main-Content-Edit-A):hover {
+  color: white;
+  background: black;
+}
+
 .main-bg {
   display: none;
 }

@@ -51,6 +51,7 @@ export const Blog = ({ tree }: Blog) => {
     findNodeByPath(href, tree)["LastModified"]
 
   useLayoutEffect(() => {
+    window.scroll(0, 0)
     ref.current.scrollTop = store.getState().blogScrollTop
     return () => {
       store.getState().blogScrollTop = ref.current.scrollTop

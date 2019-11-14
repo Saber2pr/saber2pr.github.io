@@ -11,7 +11,7 @@ import "./style/shadow.less"
 // /
 
 import Pages from "./app"
-import { Loading } from "./components"
+import { Loading, ErrorBoundary } from "./components"
 import { welcome } from "./utils"
 import { request } from "./request"
 
@@ -28,8 +28,10 @@ const App = React.lazy(async () => {
 })
 
 ReactDOM.render(
-  <React.Suspense fallback={<Loading />}>
-    <App />
-  </React.Suspense>,
+  <ErrorBoundary>
+    <React.Suspense fallback={<Loading />}>
+      <App />
+    </React.Suspense>
+  </ErrorBoundary>,
   document.getElementById("root")
 )
