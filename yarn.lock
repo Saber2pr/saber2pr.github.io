@@ -38,10 +38,10 @@
     "@types/react-syntax-highlighter" "^10.2.1"
     react-syntax-highlighter "^11.0.2"
 
-"@saber2pr/memo@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@saber2pr/memo/-/memo-0.0.2.tgz#546572da917beabc2c9a4feb63f8f5f7292a8a97"
-  integrity sha512-YFo00DHXzymzE+3U3Nb4l5PdSk/rikfnlkVboagWBp9VeYUWeV2XwimTVShfTsrj+YzuS4kLIcOMA5S2+IVYWg==
+"@saber2pr/memo@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@saber2pr/memo/-/memo-0.0.3.tgz#9ed12ad9030df4c530fb2bbd0af04f8f19be9b05"
+  integrity sha512-OvD4fV5HCwkbKCvOsC2capN0YCLL7UgqNrGlXMT6KzqTw91TmDPWEAvY8fKiGWbjzwnON3RNMw3IhDIOuy29oA==
 
 "@saber2pr/node@^0.2.1", "@saber2pr/node@^0.2.4":
   version "0.2.6"
