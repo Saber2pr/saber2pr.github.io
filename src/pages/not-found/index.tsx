@@ -13,15 +13,12 @@ export const NotFound = ({  }: NotFound) => {
       <h1>404 NotFound</h1>
       <ul>
         <li>
-          <button
-            className="NotFound-Btn"
-            onClick={() => push(Routes.home.href)}
-          >
+          <button className="ButtonHigh" onClick={() => push(Routes.home.href)}>
             首页
           </button>
         </li>
         <li>
-          <a className="NotFound-Back" onClick={() => history.back()}>
+          <a className="AnchorHigh" onClick={() => history.back()}>
             或者返回上页
           </a>
         </li>

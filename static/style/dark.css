@@ -209,10 +209,6 @@ body {
   color: red;
 }
 
-.NotFound-Back:hover {
-  color: white;
-}
-
 .SearchInput-List {
   background-color: black;
   box-shadow: 1px 1px 1px #565b88;
