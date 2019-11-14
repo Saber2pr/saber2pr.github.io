@@ -25,6 +25,12 @@ const BLink = (props: Link) => (
   <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
 )
 
+const LoadingBlock = () => (
+  <div className="Blog-Main-Content-Loading">
+    <Loading />
+  </div>
+)
+
 export interface Blog {
   tree: TextTree
 }
@@ -63,7 +69,7 @@ export const Blog = ({ tree }: Blog) => {
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
                   <LazyCom
-                    fallback={<Loading />}
+                    fallback={<LoadingBlock />}
                     await={requestContent(href + ".md")}
                   >
                     {content => <MD theme={md_theme}>{content}</MD>}
