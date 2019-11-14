@@ -31,7 +31,7 @@ export const SearchResult = ({  }: SearchResult) => {
           <dt>尝试以下方式：</dt>
           {result.map(({ path, title }) => (
             <dd key={path}>
-              <a className="SearchResult-Link" href={path}>
+              <a className="SearchResult-Link AnchorHigh" href={path}>
                 {title}
               </a>
             </dd>
@@ -80,7 +80,7 @@ export const SearchResult = ({  }: SearchResult) => {
             <li key={path}>
               <h2 className="SearchResult-Name">
                 {i + 1}.
-                <Link className="SearchResult-Link" to={path}>
+                <Link className="SearchResult-Link AnchorHigh" to={path}>
                   {title}
                 </Link>
               </h2>

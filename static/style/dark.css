@@ -6,6 +6,17 @@ body {
   color: white;
 }
 
+.AnchorHigh {
+  color: #a9a9a9;
+  background: black;
+  text-decoration: underline;
+}
+
+.AnchorHigh:hover {
+  color: white;
+  background: black;
+}
+
 .footer-uv {
   color: #303030;
 }
@@ -237,17 +248,6 @@ body {
 
 .SearchResult-Name::before {
   border-bottom: 1px solid #ccb6ff;
-}
-
-.SearchResult-Link {
-  color: #a9a9a9;
-  background: black;
-  text-decoration: underline;
-}
-
-.SearchResult-Link:hover {
-  color: white;
-  background: black;
 }
 
 @media screen and (max-width: 740px) {
