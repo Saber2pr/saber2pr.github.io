@@ -30,10 +30,10 @@
   dependencies:
     "@saber2pr/node" "^0.3.0"
 
-"@saber2pr/md2jsx@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@saber2pr/md2jsx/-/md2jsx-0.0.8.tgz#7a79d852eb266a9564d53c583f7be1a1b1a88f56"
-  integrity sha512-qBPw9b82S74fJZE15E4ew7njfqmShuvGZ5i+zCfApWUUMAfAZU++zY8e2gFiiytE9Q/jjDO7NEP01Dd0aYxpWg==
+"@saber2pr/md2jsx@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@saber2pr/md2jsx/-/md2jsx-0.1.0.tgz#5876a8a37621b92483bd64a1303dc783c31ecd68"
+  integrity sha512-9fykffacKq/rNV5oBugfmHBVukVJRUGy9/WOumaW7dAl+5gaGZ3D+JWLfNzrG8L3FZrjOpjRlQZPZTO4yx611w==
   dependencies:
     "@types/react-syntax-highlighter" "^10.2.1"
     react-syntax-highlighter "^11.0.2"

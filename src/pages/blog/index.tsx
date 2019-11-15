@@ -2,14 +2,12 @@ import React, { useRef, useLayoutEffect } from "react"
 import { Route, Link, Switch, NavLink } from "@saber2pr/react-router"
 import Tree from "@saber2pr/rc-tree"
 
-import MD from "@saber2pr/md2jsx"
-
 import "./style.less"
 
 import { TwoSide, Loading, LazyCom, AniBtn } from "../../components"
 import { useIsMobile, useAniLayout } from "../../hooks"
 
-import { md_theme, origin } from "../../config"
+import { md_theme, origin, Md2jsx } from "../../config"
 import {
   timeDeltaFromNow,
   findNodeByPath,
@@ -73,7 +71,7 @@ export const Blog = ({ tree }: Blog) => {
                     fallback={<LoadingBlock />}
                     await={requestContent(href + ".md")}
                   >
-                    {content => <MD theme={md_theme}>{content}</MD>}
+                    {content => <Md2jsx theme={md_theme}>{content}</Md2jsx>}
                   </LazyCom>
                   <div className="Blog-Main-Content-Edit">
                     <a
