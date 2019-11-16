@@ -17,6 +17,14 @@ body {
   background: black;
 }
 
+.footer {
+  background: #0d0e10;
+}
+
+.footer-info {
+  color: #999;
+}
+
 .footer-uv {
   color: #303030;
 }

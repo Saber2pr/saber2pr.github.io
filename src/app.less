@@ -95,7 +95,6 @@ body {
 
 .main {
   margin-top: @lineH-PC;
-  overflow: hidden;
   &-bg {
     background: url(/static/image/bg-pc.webp);
     width: 100%;
@@ -108,9 +107,12 @@ body {
 
 .footer {
   text-align: center;
-  margin-bottom: 5rem;
-  margin-top: 3rem;
+  background-color: #20232a;
+  color: #999;
   line-height: 1.5rem;
+
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
 @media screen and (max-width: 790px) {
@@ -156,7 +158,7 @@ body {
   }
 
   .main {
-    margin-top: calc(@lineH-Mob - 2px);
+    margin-top: @lineH-Mob;
 
     &-bg {
       background: url(/static/image/bg-mb.webp);

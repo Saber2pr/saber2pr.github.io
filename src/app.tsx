@@ -135,8 +135,10 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
         </Switch>
       </main>
       <footer className="footer">
-        Copyright © 2019 saber2pr
-        <Uv />
+        <span className="footer-info">
+          Copyright © 2019 saber2pr
+          <Uv />
+        </span>
       </footer>
     </Router>
   )

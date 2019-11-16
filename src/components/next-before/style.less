@@ -1,0 +1,25 @@
+.NextBefore {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    li {
+      display: flex;
+      flex-basis: 50%;
+    }
+  }
+
+  dd {
+    margin: 0.5rem 0;
+  }
+
+  &-Left {
+    justify-content: flex-start;
+  }
+
+  &-Right {
+    justify-content: flex-end;
+    text-align: right;
+  }
+}

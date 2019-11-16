@@ -4,7 +4,7 @@ import Tree from "@saber2pr/rc-tree"
 
 import "./style.less"
 
-import { TwoSide, Loading, LazyCom, AniBtn } from "../../components"
+import { TwoSide, Loading, LazyCom, AniBtn, NextBefore } from "../../components"
 import { useIsMobile, useAniLayout } from "../../hooks"
 
 import { md_theme, origin, Md2jsx } from "../../config"
@@ -57,7 +57,7 @@ export const Blog = ({ tree }: Blog) => {
   }, [])
 
   const Routes = links.reduce(
-    (acc, { title, path: href, children }) => {
+    (acc, { title, path: href, children }, i) => {
       if (!children) {
         acc.push(
           <Route
@@ -84,6 +84,7 @@ export const Blog = ({ tree }: Blog) => {
                   <p className="Blog-Main-Content-Date">
                     最近更新 {timeDeltaFromNow(getLastModified(href))}
                   </p>
+                  <NextBefore before={links[i - 1]} next={links[i + 1]} />
                 </div>
               </>
             )}

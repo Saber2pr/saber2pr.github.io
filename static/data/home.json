@@ -1,5 +1,19 @@
 {
   "title": "saber2pr",
-  "infor": "魂魄妖梦al、web前端",
-  "pic": "https://saber2pr.top/MyWeb/resource/image/saber2pr.webp"
+  "infor": "魂魄妖梦al、React Developer",
+  "pic": "https://saber2pr.top/MyWeb/resource/image/saber2pr.webp",
+  "items": [
+    {
+      "type": "动漫",
+      "content": "看到我的头像大概也知道我是个动漫(fei)宅，甚至还是车万。为什么是妖梦在这里？如果你是西行寺幽幽子，请务必加我。找你挺不容易的（"
+    },
+    {
+      "type": "编程",
+      "content": "如果是从Github过来的，应该看到我的一些仓库。很多是Typescript代码和React App，也有少量C/C++。可以告诉你我是从C语言开始学的。对了，就是谭浩强那本书！"
+    },
+    {
+      "type": "游戏",
+      "content": "作为资质统合思念体的其他终端机，与现在世界交叉共存...在圣芙蕾雅学园作为master，在格里芬担任指挥官，在迦勒底是御主，在成子坂製作所当隊長..."
+    }
+  ]
 }
