@@ -132,15 +132,15 @@ export const Activity = ({ acts }: Activity) => {
             </div>
           </li>
         ))}
-        <li>
-          <div
-            style={{
-              textAlign: "center",
-              width: "100%",
-              lineHeight: "2rem"
-            }}
-          >
-            {hasMore && (
+        {hasMore && (
+          <li>
+            <div
+              style={{
+                textAlign: "center",
+                width: "100%",
+                lineHeight: "2rem"
+              }}
+            >
               <span
                 style={{
                   textDecoration: "underline",
@@ -150,9 +150,9 @@ export const Activity = ({ acts }: Activity) => {
               >
                 更多
               </span>
-            )}
-          </div>
-        </li>
+            </div>
+          </li>
+        )}
       </ul>
       {checkDarknessTime() && (
         <div className="Activity-Aside" title="by saber2pr qwq..">

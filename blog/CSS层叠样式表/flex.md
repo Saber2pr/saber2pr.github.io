@@ -1,6 +1,6 @@
-# 容器属性(父元素)
+### 容器属性(父元素)
 
-## flex-direction
+1. flex-direction
 
 定义 flex 布局的主轴方向(默认 row)
 
@@ -10,7 +10,7 @@
 }
 ```
 
-## flex-wrap
+2. flex-wrap
 
 默认情况下，flex 布局容器会把子元素排在同一行，设置 flex-wrap 可以决定是否允许溢出换行。
 
@@ -20,7 +20,7 @@
 }
 ```
 
-## justify-content
+3. justify-content
 
 定义子元素沿主轴方向的对齐方式
 
@@ -30,29 +30,29 @@
 }
 ```
 
-#### flex-start
+(1) flex-start
 
 默认值，贴主轴起点。
 
-#### flex-end
+(2) flex-end
 
 贴主轴终点。
 
-#### center
+(3) center
 
 沿主轴方向居中。
 
-#### space-between
+(4) space-between
 
 贴主轴两端，第一个子元素在主轴起点，最后一个子元素在主轴终点。
 
-#### space-around
+(5) space-around
 
 沿主轴子元素之间均匀分布。
 
 > 要注意的是子元素看起来间隙是不均匀的，第一个子元素和最后一个子元素离父元素的边缘有一个单位的间隙，但两个子元素之间有两个单位的间隙，因为每个子元素的两侧都有一个单位的间隙。
 
-## align-items
+(6) align-items
 
 定义了子元素在交叉轴方向的对齐方向
 
@@ -62,7 +62,7 @@
 }
 ```
 
-## align-content
+(7) align-content
 
 > 类似于 justify-content
 
@@ -75,9 +75,9 @@
 }
 ```
 
-# 子元素属性
+### 子元素属性
 
-## order
+1. order
 
 默认情况下，子元素按照代码书写的先后顺序布局，但 order 属性可以更改子元素排列顺序。
 
@@ -87,7 +87,7 @@
 }
 ```
 
-## flex-grow
+2. flex-grow
 
 决定在空间允许的情况下，子元素如何按照比例分配可用剩余空间。
 
@@ -103,11 +103,11 @@
 }
 ```
 
-## flex-shrink
+3. flex-shrink
 
 当空间不足时子元素的缩小比例。
 
-## align-self
+4. align-self
 
 > 可以覆盖父元素中 align-items 所设置的对齐方式
 
@@ -118,3 +118,7 @@
 ```
 
 > float,clear 和 vertical-align 对 flex 子元素无效。
+
+5. flex-basis
+
+如果 flex 容器子元素的内容为空，设置的占位空间。

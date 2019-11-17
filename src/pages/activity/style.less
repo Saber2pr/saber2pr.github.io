@@ -20,11 +20,16 @@
     padding: 0;
   }
 
+  & > ul > li:nth-child(n + 2)::before {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid black;
+  }
+
   &-Content {
     word-break: break-all;
     display: flex;
     position: relative;
-    border-bottom: 1px solid black;
   }
 
   &-Info {

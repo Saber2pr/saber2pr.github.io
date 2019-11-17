@@ -78,8 +78,8 @@ body {
   background-color: black !important;
 }
 
-.Activity-Content {
-  border-bottom: 1px #72537a solid;
+.Activity > ul > li:nth-child(n + 2)::before {
+  border-color: #72537a;
 }
 
 .About-Main-Content {
