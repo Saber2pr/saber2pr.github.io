@@ -155,6 +155,18 @@ body {
   background: black;
 }
 
+.Blog .Ul-Name span {
+  color: #6d6d6d;
+}
+
+.Blog .Ul-Name-Active span {
+  color: white;
+}
+
+.Blog .Ul-Btn * {
+  color: #6d6d6d;
+}
+
 .main-bg {
   display: none;
 }

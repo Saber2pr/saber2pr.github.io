@@ -18,6 +18,7 @@ import {
 import { API, requestContent } from "../../request"
 import { store } from "../../store"
 import { NotFound } from "../not-found"
+import { Icon } from "../../iconfont"
 
 const BLink = (props: Link) => (
   <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
@@ -111,6 +112,7 @@ export const Blog = ({ tree }: Blog) => {
           <section className="Blog-Aside-Content">
             <Tree
               from={tree}
+              selectBtn={Icon.TreeBtn}
               map={({ path: href, title, children }) => {
                 if (href === firstBlog.path) return <></>
                 if (children) return <span>{title}</span>

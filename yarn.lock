@@ -83,10 +83,10 @@
     react "^16.8.6"
     react-dom "^16.8.6"
 
-"@saber2pr/rc-tree@^0.1.4":
-  version "0.1.4"
-  resolved "http://r.cnpmjs.org/@saber2pr/rc-tree/download/@saber2pr/rc-tree-0.1.4.tgz#8f810813523dca034800211ca1de74a0c618dc23"
-  integrity sha1-j4EIE1I9ygNIACEcod50oMYY3CM=
+"@saber2pr/rc-tree@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@saber2pr/rc-tree/-/rc-tree-0.1.6.tgz#4c1da1da3b5eb6b8dc3237c16ca70a175e57bbac"
+  integrity sha512-YhMe8PXdCNiH5ZfA+6Os0D1tZT7VY6GvOmn1a7RZxTdUKvunrTXNlKgWv7m/ZIvJiEXWGkupc8liTZdEKEiBqg==
 
 "@saber2pr/react-router@^0.0.5":
   version "0.0.5"

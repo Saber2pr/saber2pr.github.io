@@ -19,7 +19,7 @@
     "@saber2pr/pv-count": "^0.0.1",
     "@saber2pr/rc-audio": "^0.0.9",
     "@saber2pr/rc-gitment": "^0.0.4",
-    "@saber2pr/rc-tree": "^0.1.4",
+    "@saber2pr/rc-tree": "^0.1.6",
     "@saber2pr/react-router": "^0.0.5",
     "@saber2pr/redux": "^0.1.1",
     "@saber2pr/request": "^0.1.2",

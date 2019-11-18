@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { musicStore } from "../store"
-import { getHash } from "@saber2pr/react-router"
 import { useEvent } from "./useEvent"
+import { getHash } from "../utils"
 
 export const useShowBar = () => {
   const [show, setShow] = useState(musicStore.getState().music)

@@ -144,10 +144,28 @@
         transition: all 0.3s;
         padding: 0.2rem;
         user-select: none;
+
+        color: #6d6d6d;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+
+        &-Active {
+          color: #1a1a1a;
+        }
       }
 
       .Ul-Name:hover {
         outline: -webkit-focus-ring-color auto 1px;
+        color: #1a1a1a;
+      }
+
+      .Ul-Btn {
+        color: #6d6d6d;
+      }
+
+      .Ul-Name:hover .Ul-Btn {
+        color: #1a1a1a;
       }
 
       .Tree-Li {
