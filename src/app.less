@@ -24,10 +24,10 @@ body {
     list-style-type: none;
     display: flex;
 
-    li {
+    & > li {
       display: inline-block;
 
-      a {
+      & > a {
         text-align: center;
         text-decoration: none;
         user-select: none;
@@ -36,11 +36,11 @@ body {
         padding-right: 0.7rem;
       }
 
-      a:hover {
+      & > a:hover {
         color: #61dafb;
       }
 
-      a:focus {
+      & > a:focus {
         color: #ffffff;
         background-color: #373940;
       }
