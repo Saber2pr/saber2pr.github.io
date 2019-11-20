@@ -129,7 +129,7 @@ export const Links = ({ owns, friends }: Links) => (
 )
 
 export const LinksLazy = memo(() => (
-  <LazyCom await={request("links")} fallback={<Loading />}>
+  <LazyCom await={request("links")} fallback={<Loading type="block" />}>
     {res => <Links {...res} />}
   </LazyCom>
 ))

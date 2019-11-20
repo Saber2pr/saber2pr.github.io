@@ -1,4 +1,5 @@
 import React from "react"
+import { timeout, whenInDEV } from "../../utils"
 
 export interface LazyCom<T> {
   await: Promise<T>
@@ -9,6 +10,7 @@ export interface LazyCom<T> {
 export function LazyCom<T>({ children, await: wait, fallback }: LazyCom<T>) {
   const Com = React.lazy(async () => {
     const com = await wait
+    if (whenInDEV()) await timeout()
     return {
       default: () => children(com)
     }

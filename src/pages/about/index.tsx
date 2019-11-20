@@ -65,7 +65,7 @@ export const About = ({ contents, audio, projects }: About) => (
 )
 
 export const AboutLazy = memo(() => (
-  <LazyCom await={request("about")} fallback={<Loading />}>
+  <LazyCom await={request("about")} fallback={<Loading type="block" />}>
     {res => <About {...res} />}
   </LazyCom>
 ))

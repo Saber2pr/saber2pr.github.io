@@ -42,7 +42,7 @@ export const Home = ({ title, infor, pic, items }: Home) => (
 )
 
 export const HomeLazy = memo(() => (
-  <LazyCom await={request("home")} fallback={<Loading />}>
+  <LazyCom await={request("home")} fallback={<Loading type="block" />}>
     {res => <Home {...res} />}
   </LazyCom>
 ))

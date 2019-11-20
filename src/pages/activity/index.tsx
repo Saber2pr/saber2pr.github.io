@@ -173,7 +173,7 @@ export const Activity = ({ acts }: Activity) => {
 }
 
 export const ActivityLazy = memo(() => (
-  <LazyCom await={request("activity")} fallback={<Loading />}>
+  <LazyCom await={request("activity")} fallback={<Loading type="block" />}>
     {acts => <Activity acts={acts} />}
   </LazyCom>
 ))

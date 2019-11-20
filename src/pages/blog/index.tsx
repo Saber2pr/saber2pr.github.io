@@ -4,7 +4,7 @@ import Tree from "@saber2pr/rc-tree"
 
 import "./style.less"
 
-import { TwoSide, Loading, LazyCom, AniBtn, NextBefore } from "../../components"
+import { TwoSide, LazyCom, AniBtn, NextBefore, Loading } from "../../components"
 import { useIsMobile, useAniLayout } from "../../hooks"
 
 import { md_theme, origin, Md2jsx } from "../../config"
@@ -22,12 +22,6 @@ import { Icon } from "../../iconfont"
 
 const BLink = (props: Link) => (
   <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />
-)
-
-const LoadingBlock = () => (
-  <div className="Blog-Main-Content-Loading">
-    <Loading />
-  </div>
 )
 
 export interface Blog {
@@ -69,7 +63,7 @@ export const Blog = ({ tree }: Blog) => {
                 <h1 className="Blog-Main-Title">{title}</h1>
                 <div className="Blog-Main-Content">
                   <LazyCom
-                    fallback={<LoadingBlock />}
+                    fallback={<Loading type="line" />}
                     await={requestContent(href + ".md")}
                   >
                     {content => <Md2jsx theme={md_theme}>{content}</Md2jsx>}
