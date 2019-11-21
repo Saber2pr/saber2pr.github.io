@@ -36,3 +36,11 @@ ReactDOM.render(
   </ErrorBoundary>,
   document.getElementById("root")
 )
+
+if ("serviceWorker" in navigator) {
+  try {
+    navigator.serviceWorker.register("/static/service-worker.js")
+  } catch (error) {
+    console.warn(error)
+  }
+}

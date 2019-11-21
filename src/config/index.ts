@@ -22,7 +22,7 @@ const Routes = {
     name: "动态"
   },
   blog: {
-    name: "博客",
+    name: "笔记",
     href: "/blog"
   },
   learn: {
