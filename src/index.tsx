@@ -39,7 +39,7 @@ ReactDOM.render(
 
 if ("serviceWorker" in navigator) {
   try {
-    navigator.serviceWorker.register("/static/service-worker.js")
+    navigator.serviceWorker.register("/service-worker.js")
   } catch (error) {
     console.warn(error)
   }

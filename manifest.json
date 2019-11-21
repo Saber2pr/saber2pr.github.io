@@ -1,10 +1,7 @@
 {
   "name": "saber2prの窝",
-  "short_name": "saber2prの窝",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
   "display": "standalone",
-  "start_url": "",
+  "start_url": "/",
   "icons": [
     {
       "src": "/static/icon/saber2pr-144x144.png",
