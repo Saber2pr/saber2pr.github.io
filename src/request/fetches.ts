@@ -13,5 +13,6 @@ export const requestOriginContent = (path: string) =>
 
 export const requestContent = async (href: string) => {
   const res = await memoGet<string>(href)
+  if (!res) return "错误：网络异常"
   return res.data
 }
