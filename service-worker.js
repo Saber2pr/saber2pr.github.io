@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-11-21 22:16:44
+ * @Last Modified time: 2019-11-22 11:37:47
  */
 const staticAssets = [
   "/",
@@ -38,8 +38,8 @@ self.addEventListener("fetch", async event => {
     const res = await fetch(req)
     cache.put(req, res.clone())
 
-    return res
+    event.respondWith(res)
   } catch (error) {
-    return await cache.match(req)
+    event.respondWith(await cache.match(req))
   }
 })
