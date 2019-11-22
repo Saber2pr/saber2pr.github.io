@@ -22,7 +22,7 @@
     "@saber2pr/rc-tree": "^0.1.6",
     "@saber2pr/react-router": "^0.0.5",
     "@saber2pr/redux": "^0.1.1",
-    "@saber2pr/request": "^0.1.2",
+    "@saber2pr/request": "^0.1.3",
     "@saber2pr/secret": "^0.0.4",
     "@saber2pr/tree-lang": "^0.0.9",
     "@types/react": "^16.8.19",

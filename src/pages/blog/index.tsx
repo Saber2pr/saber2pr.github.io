@@ -4,7 +4,14 @@ import Tree from "@saber2pr/rc-tree"
 
 import "./style.less"
 
-import { TwoSide, LazyCom, AniBtn, NextBefore, Loading } from "../../components"
+import {
+  TwoSide,
+  LazyCom,
+  AniBtn,
+  NextBefore,
+  Loading,
+  ErrorBack
+} from "../../components"
 import { useIsMobile, useAniLayout } from "../../hooks"
 
 import { md_theme, origin, Md2jsx } from "../../config"
@@ -65,6 +72,7 @@ export const Blog = ({ tree }: Blog) => {
                   <LazyCom
                     fallback={<Loading type="line" />}
                     await={requestContent(href + ".md")}
+                    errorBack={<ErrorBack />}
                   >
                     {content => <Md2jsx theme={md_theme}>{content}</Md2jsx>}
                   </LazyCom>

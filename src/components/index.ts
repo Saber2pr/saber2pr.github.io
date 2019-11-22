@@ -1,4 +1,5 @@
 export * from './ani-btn'
+export * from './error-back'
 export * from './error-boundary'
 export * from './highLight-html'
 export * from './lazy-com'
