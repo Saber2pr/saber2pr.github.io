@@ -6,6 +6,7 @@ import { API, request } from "../../request"
 import { origin } from "../../config"
 import { PreImg, LazyCom, Loading } from "../../components"
 import { Icon } from "../../iconfont"
+import { checkNetwork } from "../../utils"
 
 type Link = {
   name: string
@@ -120,11 +121,13 @@ export const Links = ({ owns, friends }: Links) => (
     <OwnLinks links={owns} />
     <FriendLinks links={friends} />
     <hr />
-    <Comments
-      {...origin as any}
-      repo={origin.commentRepo}
-      username={origin.userId}
-    />
+    {checkNetwork() && (
+      <Comments
+        {...origin as any}
+        repo={origin.commentRepo}
+        username={origin.userId}
+      />
+    )}
   </div>
 )
 
