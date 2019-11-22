@@ -109,12 +109,16 @@ self.addEventListener("fetch", event =>
 写好后，在 index.ts 引入：
 
 ```ts
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/service-worker.js")
-}
+window.addEventListener("load", () => {
+  if ("serviceWorker" in navigator) {
+    PWAInstaller()
+  }
+})
 ```
 
 就可以注册 service worker 了。
+
+> 由于 worker 属于线程资源，耗时较长，所以在 load 事件里比较好。
 
 在 chrome 控制台 > Application > Service Workers 可以查看当前 worker 状态。
 
@@ -124,9 +128,28 @@ Application > Cache > Cache Storage 里可以看到缓存。
 
 ### 资源更新
 
-1. 在 active 事件里操作。
+1. 在 active 事件里更新资源
 
-2. 利用版本号，判断是否需要更新缓存，例如：
+```ts
+self.addEventListener("activate", e => {
+  e.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.map(key => {
+          // 通过cacheKey来判断缓存资源版本
+          if (key !== cacheKey) {
+            return caches.delete(key)
+          }
+        })
+      )
+    )
+  )
+
+  return self.clients.claim() // claim刷新缓存
+})
+```
+
+2. 利用版本号，判断是否需要更新 service worker，例如：
 
 ```ts
 declare const version: string
@@ -145,7 +168,9 @@ export const PWAInstaller = async () => {
   localStorage.setItem("sw_version", version)
 }
 
-if ("serviceWorker" in navigator) {
-  PWAInstaller() // 注册service worker
-}
+window.addEventListener("load", () => {
+  if ("serviceWorker" in navigator) {
+    PWAInstaller()
+  }
+})
 ```

@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-11-22 14:26:03
+ * @Last Modified time: 2019-11-22 16:21:52
  */
 const staticAssets = [
   "/",
@@ -55,3 +55,19 @@ self.addEventListener("fetch", event =>
     })
   )
 )
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.map(key => {
+          if (key !== cacheKey) {
+            return caches.delete(key)
+          }
+        })
+      )
+    )
+  )
+
+  return self.clients.claim()
+})

@@ -37,6 +37,8 @@ ReactDOM.render(
   document.getElementById("root")
 )
 
-if ("serviceWorker" in navigator) {
-  PWAInstaller()
-}
+window.addEventListener("load", () => {
+  if ("serviceWorker" in navigator) {
+    PWAInstaller()
+  }
+})
