@@ -13,7 +13,7 @@ import "./style/components.less"
 
 import Pages from "./app"
 import { Loading, ErrorBoundary } from "./components"
-import { welcome } from "./utils"
+import { welcome, PWAInstaller } from "./utils"
 import { request } from "./request"
 
 const App = React.lazy(async () => {
@@ -38,9 +38,5 @@ ReactDOM.render(
 )
 
 if ("serviceWorker" in navigator) {
-  try {
-    navigator.serviceWorker.register("/service-worker.js")
-  } catch (error) {
-    console.warn(error)
-  }
+  PWAInstaller()
 }

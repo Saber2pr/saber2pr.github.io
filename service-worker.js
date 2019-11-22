@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-11-22 11:59:19
+ * @Last Modified time: 2019-11-22 14:26:03
  */
 const staticAssets = [
   "/",
@@ -25,20 +25,33 @@ const staticAssets = [
 
 const cacheKey = "saber2pr-pwa"
 
-self.addEventListener("install", async () => {
-  const cache = await caches.open(cacheKey)
-  cache.addAll(staticAssets)
-})
+self.addEventListener("install", event =>
+  event.waitUntil(
+    caches.open(cacheKey).then(cache => cache.addAll(staticAssets))
+  )
+)
 
-self.addEventListener("fetch", async event => {
-  const req = event.request
-  const cache = await caches.open(cacheKey)
+self.addEventListener("fetch", event =>
+  event.respondWith(
+    caches.match(event.request).then(resFromCache => {
+      if (resFromCache) return resFromCache
+      const reqToCache = event.request.clone()
 
-  try {
-    const res = await fetch(req)
-    cache.put(req, res.clone())
-    event.respondWith(res)
-  } catch (error) {
-    event.respondWith(await cache.match(req))
-  }
-})
+      return fetch(reqToCache).then(resFromNet => {
+        if (
+          reqToCache.url.includes("jsonpCallback") ||
+          (resFromNet && resFromNet.status !== 200)
+        ) {
+          return resFromNet
+        }
+
+        const resToCache = resFromNet.clone()
+        caches
+          .open(cacheKey)
+          .then(cache => cache.put(event.request, resToCache))
+
+        return resFromNet
+      })
+    })
+  )
+)
