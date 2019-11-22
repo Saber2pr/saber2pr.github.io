@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-11-22 11:44:48
+ * @Last Modified time: 2019-11-22 11:59:19
  */
 const staticAssets = [
   "/",
@@ -30,30 +30,15 @@ self.addEventListener("install", async () => {
   cache.addAll(staticAssets)
 })
 
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", async event => {
   const req = event.request
-  const url = new URL(req.url)
-
-  if (url.origin === location.origin) {
-    event.respondWith(cacheFirst(req))
-  } else if (req.url.indexOf("http") !== -1) {
-    event.respondWith(networkFirst(req))
-  }
-})
-
-async function cacheFirst(req) {
-  const cachedResponse = await caches.match(req)
-  return cachedResponse || fetch(req)
-}
-
-async function networkFirst(req) {
   const cache = await caches.open(cacheKey)
 
   try {
     const res = await fetch(req)
     cache.put(req, res.clone())
-    return res
+    event.respondWith(res)
   } catch (error) {
-    return await cache.match(req)
+    event.respondWith(await cache.match(req))
   }
-}
+})
