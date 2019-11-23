@@ -20,7 +20,9 @@ export const HighLightHTML = ({
   ...props
 }: HighLightHTML) => {
   const index = source.indexOf(target)
-  if (index === -1) return <></>
+  if (index === -1) {
+    return <span className="HighLightHTML">{source.slice(0, offset * 2)}</span>
+  }
   const element = transform(target)
   return (
     <span

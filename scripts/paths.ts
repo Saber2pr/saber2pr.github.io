@@ -8,5 +8,6 @@ export const paths = {
   md: join(process.cwd(), origin.md),
   blog: join(process.cwd(), origin.data.blog),
   status: join(process.cwd(), "/scripts/temp/blog_status.json"),
-  acts: join(process.cwd(), origin.data.activity)
+  acts: join(process.cwd(), origin.data.activity),
+  version: join(process.cwd(), origin.data.version),
 }

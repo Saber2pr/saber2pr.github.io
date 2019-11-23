@@ -7,7 +7,8 @@ export const origin = {
     blog: "/static/data/blog.json",
     learn: "/static/data/learn.json",
     about: "/static/data/about.json",
-    links: "/static/data/links.json"
+    links: "/static/data/links.json",
+    version: "/static/data/version.json"
   },
   md: "/blog",
   commentRepo: "rc-gitment",

@@ -2,7 +2,7 @@ import { WriteFile, ReadFile } from "./node"
 import { collectUpdates } from "./collectUpdates"
 import { paths } from "./paths"
 import { createTree, Node, traverse } from "./createTree"
-import { findNodeByPath } from "../src/utils"
+import { findNodeByPath, versionUp } from "../src/utils"
 import { checkJson } from "./checkJson"
 import { join } from "path"
 import { origin } from "../src/config/origin"
@@ -54,10 +54,18 @@ async function main() {
     node.path = node.path.replace(/.md$/, "")
   })
 
+  // update version
+  const versionData = await ReadFile(paths.version).then(b =>
+    JSON.parse(b.toString())
+  )
+
+  versionData.version = versionUp(versionData.version)
+
   // update file
   await WriteFile(paths.blog, JSON.stringify(tree))
   await WriteFile(paths.status, JSON.stringify(status))
   await WriteFile(paths.acts, JSON.stringify(acts.slice(0, 50)))
+  await WriteFile(paths.version, JSON.stringify(versionData))
 
   // check
   await checkJson(paths.blog)

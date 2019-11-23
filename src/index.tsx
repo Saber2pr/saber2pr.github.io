@@ -39,6 +39,6 @@ ReactDOM.render(
 
 window.addEventListener("load", () => {
   if ("serviceWorker" in navigator) {
-    PWAInstaller()
+    PWAInstaller().catch(console.log)
   }
 })

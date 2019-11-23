@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-11-23 10:59:46
+ * @Last Modified time: 2019-11-23 21:06:57
  */
 const staticAssets = [
   "/",
@@ -27,9 +27,15 @@ const cacheKey = "saber2pr-pwa"
 
 self.addEventListener("install", event =>
   event.waitUntil(
-    caches.open(cacheKey).then(cache => cache.addAll(staticAssets))
+    caches
+      .open(cacheKey)
+      .then(cache => cache.addAll(staticAssets))
+      .then(() => self.skipWaiting())
   )
 )
+
+const filterUrl = url =>
+  url.includes("jsonpCallback") || url.includes("static/data/version.json")
 
 self.addEventListener("fetch", event =>
   event.respondWith(
@@ -39,7 +45,7 @@ self.addEventListener("fetch", event =>
 
       return fetch(reqToCache).then(resFromNet => {
         if (
-          reqToCache.url.includes("jsonpCallback") ||
+          filterUrl(reqToCache.url) ||
           (resFromNet && resFromNet.status !== 200)
         ) {
           return resFromNet
@@ -56,18 +62,4 @@ self.addEventListener("fetch", event =>
   )
 )
 
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.map(key => {
-          if (key !== cacheKey) {
-            return caches.delete(key)
-          }
-        })
-      )
-    )
-  )
-
-  return self.clients.claim()
-})
+self.addEventListener("activate", event => event.waitUntil(clients.claim()))
