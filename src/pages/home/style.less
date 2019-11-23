@@ -35,6 +35,7 @@
       left: 50%;
       top: 50%;
       transform: translate(0%, -50%);
+      transition: transform 1s ease;
     }
   }
 
@@ -74,6 +75,13 @@
 
 @media screen and (max-width: 740px) {
   .Home {
+    &-Img {
+      img {
+        border-radius: 0;
+        transform: translate(-50%, -50%);
+      }
+    }
+
     &-Content {
       margin: 0 1rem;
 
