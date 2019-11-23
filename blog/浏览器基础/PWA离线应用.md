@@ -151,6 +151,8 @@ self.addEventListener("activate", e => {
 
 2. 利用版本号，判断是否需要更新 service worker，例如：
 
+> 这里的 version 最好从服务器端获取，并且不要添加它的缓存。
+
 ```ts
 declare const version: string
 

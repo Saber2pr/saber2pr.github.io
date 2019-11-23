@@ -1,8 +1,8 @@
-import { WriteFile, ReadFile } from "./node"
+import { WriteFile, ReadFile, versionUp } from "./node"
 import { collectUpdates } from "./collectUpdates"
 import { paths } from "./paths"
-import { createTree, Node, traverse } from "./createTree"
-import { findNodeByPath, versionUp } from "../src/utils"
+import { createTree, Node, traverse, findNodeByPath } from "./createTree"
+
 import { checkJson } from "./checkJson"
 import { join } from "path"
 import { origin } from "../src/config/origin"
