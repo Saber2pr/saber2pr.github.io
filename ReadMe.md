@@ -24,6 +24,8 @@ yarn dev
 
 5. 基于 github api 的留言(OAuth)
 
+6. 支持PWA桌面离线应用
+
 # Publish
 
 ```bash
