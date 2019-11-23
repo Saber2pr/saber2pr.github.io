@@ -163,7 +163,9 @@ export const PWAInstaller = async () => {
   // 如果版本一致，则返回
   if (localStorage.getItem("sw_version") === version) return
 
-  // 如果版本不一致，则更新service worker
+  // 如果版本不一致，则清空缓存
+  await caches.delete(cacheKey)
+  // 更新service worker
   await registration.update()
   localStorage.setItem("sw_version", version)
 }

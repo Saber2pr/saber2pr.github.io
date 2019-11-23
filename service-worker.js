@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-11-22 16:21:52
+ * @Last Modified time: 2019-11-23 10:59:46
  */
 const staticAssets = [
   "/",
