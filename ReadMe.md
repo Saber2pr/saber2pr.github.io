@@ -18,11 +18,13 @@ yarn dev
 
 2. markdown 博客 + 树形目录
 
-3. 响应式布局
+3. 响应式布局，PC端移动端自适应
 
 4. 更新日志生成
 
 5. 基于 github api 的留言(OAuth)
+
+6. 支持PWA桌面离线应用
 
 # Publish
 
