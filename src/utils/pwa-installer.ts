@@ -10,7 +10,7 @@ export const freeCache = () => {
   }
 }
 
-let _version = "未知"
+let _version = localStorage.getItem("sw_version") || "未知"
 export const getVersion = () => _version
 
 export const PWAInstaller = async (cacheKey = "saber2pr-pwa") => {
