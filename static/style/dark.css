@@ -113,6 +113,23 @@ body {
   color: brown;
 }
 
+.About-Option {
+  background: black;
+  border: 1px solid #ccb6ff;
+}
+
+.Option-Close {
+  border: 1px solid white;
+  top: 0.2rem;
+  right: 0.2rem;
+  background: black;
+}
+
+.About-Alert-Message {
+  background: black;
+  border: 1px solid #ccb6ff;
+}
+
 .Links-Own-Content-Link {
   background-color: black;
   border: 1px solid black;

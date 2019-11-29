@@ -1,35 +1,85 @@
 import React, { memo } from "react"
 import Audio from "@saber2pr/rc-audio"
 
-import { TwoSide, LazyCom, Loading } from "../../components"
+import { TwoSide, LazyCom, Loading, useModel, Model } from "../../components"
 import "./style.less"
 import { musicStore } from "../../store"
 import { request } from "../../request"
+import { freeCache, getVersion } from "../../utils"
 
-const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => (
-  <>
-    <h1 className="About-Main-Title">魂魄妖梦al</h1>
-    <div className="About-Main-Content">
-      <ul>
-        {contents.map(a => (
-          <li key={a}>
-            <p>{a}</p>
-          </li>
-        ))}
-      </ul>
-      {audio.info}
-      <Audio
-        src={audio.src}
-        autoplay={musicStore.getState().music}
-        start={musicStore.getState().musicCurrent}
-        onChange={(statu, audio) => {
-          musicStore.dispatch("music", statu === "playing")
-          musicStore.dispatch("musicCurrent", audio.currentTime)
-        }}
-      />
-    </div>
-  </>
-)
+const useOption = (): [JSX.Element, (show?: boolean) => void] => {
+  const clearCache = () => {
+    show(false)
+    freeCache().then(() =>
+      Model.alert(({ close }) => {
+        setTimeout(close, 1000)
+        return (
+          <p className="About-Alert-Message" onClick={close}>
+            清除成功
+          </p>
+        )
+      })
+    )
+  }
+
+  const [model, show] = useModel(
+    <>
+      <div className="Option-Close" onClick={() => show(false)}>
+        <div />
+        <div />
+      </div>
+      <dl className="About-Option">
+        <dt>
+          <div className="Option-Title">选项</div>
+        </dt>
+        <dd>
+          <button className="ButtonHigh" onClick={clearCache}>
+            清除缓存
+          </button>
+        </dd>
+        <dd>
+          <div className="Option-Version">版本号：{getVersion()}</div>
+        </dd>
+      </dl>
+    </>
+  )
+  return [model, show]
+}
+
+const Main = ({ contents, audio }: { contents: string[]; audio: audio }) => {
+  const [model, show] = useOption()
+  return (
+    <>
+      <h1 className="About-Main-Title">魂魄妖梦al</h1>
+      <div className="About-Main-Content">
+        <ul>
+          {contents.map(a => (
+            <li key={a}>
+              <p>{a}</p>
+            </li>
+          ))}
+        </ul>
+        {audio.info}
+        <Audio
+          src={audio.src}
+          autoplay={musicStore.getState().music}
+          start={musicStore.getState().musicCurrent}
+          onChange={(statu, audio) => {
+            musicStore.dispatch("music", statu === "playing")
+            musicStore.dispatch("musicCurrent", audio.currentTime)
+          }}
+        />
+        <hr className="About-Hr" />
+        <div>
+          {model}
+          <button className="ButtonHigh" onClick={() => show()}>
+            附加选项
+          </button>
+        </div>
+      </div>
+    </>
+  )
+}
 
 type audio = {
   info: string
