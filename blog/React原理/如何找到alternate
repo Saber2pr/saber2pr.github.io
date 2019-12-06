@@ -1,7 +1,0 @@
-如果世界中存在创造者，那么他一定是永恒存在的。他创造出新的事物来取代旧的事物。那么反射在此情景下将成为可能，建立模型：alternate ↹ constructor ↹ instance。虽然你不知道自己的前世，但是如果你知道你的创造者，通过他就能索引到过去，也可以索引到未来。
-
-所以alternate链接的不仅是新旧fiber。而是使用静态的构造器作为反射者来关联两者。所以说是三者之间的关系，过去、现在和创造者。
-
-就比如，函数组件执行后返回了新的fiber是{type, props}，此时的type必然是函数组件本身（function），通过在type上设置一个alternate属性就可以保存一份旧的fiber。这样新的fiber通过type.alternate就可以访问到旧的fiber。
-
-所以是借助了函数组件本身作为alternate的宿主，这样每次生成新的fiber就可以直接从type中获取旧的fiber。
