@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-12-11 21:32:11
+ * @Last Modified time: 2019-12-11 21:37:09
  */
 const staticAssets = [
   "/",
@@ -35,7 +35,9 @@ self.addEventListener("install", event =>
 )
 
 const filterUrl = url =>
-  url.includes("jsonpCallback") || url.includes("static/data/version.json")
+  url.includes("jsonpCallback") ||
+  url.includes("static/data/version.json") ||
+  url.includes("music.163")
 
 self.addEventListener("fetch", event =>
   event.respondWith(
@@ -43,7 +45,11 @@ self.addEventListener("fetch", event =>
       if (resFromCache) return resFromCache
       const reqToCache = event.request.clone()
 
-      return fetch(reqToCache).then(resFromNet => {
+      return fetch(reqToCache, {
+        headers: {
+          "Upgrade-Insecure-Requests": 1
+        }
+      }).then(resFromNet => {
         if (
           filterUrl(reqToCache.url) ||
           (resFromNet && resFromNet.status !== 200)
