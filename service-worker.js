@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2019-12-11 21:20:01
+ * @Last Modified time: 2019-12-11 21:32:11
  */
 const staticAssets = [
   "/",
@@ -35,9 +35,7 @@ self.addEventListener("install", event =>
 )
 
 const filterUrl = url =>
-  url.includes("jsonpCallback") ||
-  url.includes("static/data/version.json") ||
-  url.includes("music.163")
+  url.includes("jsonpCallback") || url.includes("static/data/version.json")
 
 self.addEventListener("fetch", event =>
   event.respondWith(
