@@ -33,8 +33,8 @@
     },
     {
       "name": "jsx",
-      "href": "https://github.com/Saber2pr/fp",
-      "content": "Functional programing in async | sync | lazy."
+      "href": "https://github.com/Saber2pr/jsx",
+      "content": "write jsx in html."
     },
     {
       "name": "leetcode",
