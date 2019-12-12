@@ -19,10 +19,10 @@ import {
   SearchResult,
   Home
 } from "./pages"
-import { SearchInput, MusicLine, PreImg, Themer, Uv } from "./components"
+import { SearchInput, PreImg, Themer, Uv } from "./components"
 
 import { getHash, queryRootFirstChildMemo } from "./utils"
-import { useShowBar, useEvent, useBlogMenu } from "./hooks"
+import { useEvent, useBlogMenu } from "./hooks"
 import { Icon } from "./iconfont"
 import { Routes as RS } from "./config"
 
@@ -42,8 +42,6 @@ const AppNavLink = ({
 
 export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
-
-  const show = useShowBar()
   const expand = useBlogMenu(blogTree)
 
   const title = useMemo(() => document.title, [])
@@ -107,9 +105,6 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           </ul>
         </nav>
       </header>
-      {show && (
-        <MusicLine src={aboutInfo.audio.src} name={aboutInfo.audio.name} />
-      )}
       <main className="main">
         <picture className="main-bg" />
         <Switch>
