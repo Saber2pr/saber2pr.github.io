@@ -10,8 +10,3 @@ export const store = createState({
 })
 
 export const localStore = localStorage
-
-export const musicStore = createState({
-  music: false,
-  musicCurrent: 0
-})
