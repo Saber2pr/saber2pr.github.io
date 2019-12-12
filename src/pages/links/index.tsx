@@ -1,12 +1,9 @@
 import React, { memo } from "react"
-import { Comments } from "@saber2pr/rc-gitment"
 
 import "./style.less"
 import { API, request } from "../../request"
-import { origin } from "../../config"
 import { PreImg, LazyCom, Loading } from "../../components"
 import { Icon } from "../../iconfont"
-import { checkNetwork } from "../../utils"
 
 type Link = {
   name: string
@@ -120,14 +117,6 @@ export const Links = ({ owns, friends }: Links) => (
   <div className="Links">
     <OwnLinks links={owns} />
     <FriendLinks links={friends} />
-    <hr />
-    {checkNetwork() && (
-      <Comments
-        {...origin as any}
-        repo={origin.commentRepo}
-        username={origin.userId}
-      />
-    )}
   </div>
 )
 
