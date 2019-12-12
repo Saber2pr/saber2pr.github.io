@@ -9,11 +9,6 @@ const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
 const version = () =>
   `var version="Last Modified Time: ${new Date().toLocaleString()}"`
 
-const auth = require("./auth/auth.json")
-
-const client = () =>
-  `var client_id="${auth.client_id}";var client_secret="${auth.client_secret}";`
-
 module.exports = WebpackConfig({
   entry: "./src/index.tsx",
   resolve: {
@@ -65,7 +60,7 @@ module.exports = WebpackConfig({
     }),
     extractLess,
     new webpack.BannerPlugin({
-      banner: `${version()};console.log(version);${client()}`,
+      banner: `${version()};console.log(version);`,
       raw: true,
       test: /\.js/
     })

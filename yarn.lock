@@ -62,27 +62,6 @@
   resolved "https://registry.yarnpkg.com/@saber2pr/pv-count/-/pv-count-0.0.1.tgz#95d4cbb70fe8eb84a16c5cb3fdffceec0ca8fc6f"
   integrity sha512-RDL2ikN2OpE73UCwOsHN3/LYiDfjzDWF09mDtyXPqKPLPSzwxcprP6Xawdc27xTXbsJ5npNOKza5wjuGgV+ugA==
 
-"@saber2pr/rc-audio@^0.0.9":
-  version "0.0.9"
-  resolved "http://r.cnpmjs.org/@saber2pr/rc-audio/download/@saber2pr/rc-audio-0.0.9.tgz#bf97f6dfa60c6dcbb18f31612987c834c7a01d6b"
-  integrity sha1-v5f236YMbcuxjzFhKYfINMegHWs=
-  dependencies:
-    "@types/react" "^16.8.19"
-    "@types/react-dom" "^16.8.4"
-    react "^16.8.6"
-    react-dom "^16.8.6"
-
-"@saber2pr/rc-gitment@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@saber2pr/rc-gitment/-/rc-gitment-0.0.4.tgz#28972fa44f0ff8ca03020c4e22cc02f86c6ee3ed"
-  integrity sha512-8uYd6UvdU3XxvtwvHAkGifhj0wyJdkpgiyOidz3ZXbx5XMzLZ0LTHaLqx5IE7nHRjCL5PLJpKdlzmD1C+2StSw==
-  dependencies:
-    "@types/react" "^16.8.19"
-    "@types/react-dom" "^16.8.4"
-    normalize.css "^8.0.1"
-    react "^16.8.6"
-    react-dom "^16.8.6"
-
 "@saber2pr/rc-tree@^0.1.6":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@saber2pr/rc-tree/-/rc-tree-0.1.6.tgz#4c1da1da3b5eb6b8dc3237c16ca70a175e57bbac"
