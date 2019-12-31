@@ -20,7 +20,7 @@
     },
     {
       "name": "知呼",
-      "href": "https://www.zhihu.com/people/hun-po-yao-meng-15/activities",
+      "href": "https://www.zhihu.com",
       "message": "欢迎分享你刚编的故事(",
       "icon": "https://www.zhihu.com/favicon.ico"
     },
@@ -31,10 +31,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
     },
     {
-      "name": "csdn",
-      "href": "https://blog.csdn.net/u011607490",
-      "message": "专业IT社区?",
-      "icon": "https://blog.csdn.net/favicon.ico"
+      "name": "leetcode",
+      "href": "https://leetcode-cn.com/problemset/all/",
+      "message": "在无聊的时候、没事的时候、想的时候（",
+      "icon": "https://raw.githubusercontent.com/Saber2pr/MyWeb/master/resource/image/leetcode.jpeg"
     }
   ],
   "friends": [{ "name": "Iriasu", "href": "https://tsuinosora.moe" }]
