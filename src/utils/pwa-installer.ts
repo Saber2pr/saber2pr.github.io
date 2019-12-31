@@ -16,7 +16,7 @@ export const getVersion = () => _version
 
 export const PWAInstaller = async (cacheKey = "saber2pr-pwa") => {
   _cacheKey = cacheKey
-  await whenInDEV(() => freeCache())
+  whenInDEV(() => freeCache())
 
   const registration = await navigator.serviceWorker.register(
     "/service-worker.js"
