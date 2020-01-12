@@ -3,8 +3,9 @@ import React, { memo } from "react"
 import { TwoSide, LazyCom, Loading, useModel, Model } from "../../components"
 import "./style.less"
 import { request } from "../../request"
-import { freeCache, getVersion } from "../../utils"
+import { freeCache, getVersion, timeout, whenInDEV } from "../../utils"
 import { origin } from "../../config"
+import { useBtnDisable } from "../../hooks"
 
 const useOption = (): [JSX.Element, (show?: boolean) => void] => {
   const clearCache = () => {
@@ -21,6 +22,8 @@ const useOption = (): [JSX.Element, (show?: boolean) => void] => {
     )
   }
 
+  const [ref, disable] = useBtnDisable()
+
   const [model, show] = useModel(
     <>
       <div className="Option-Close" onClick={() => show(false)}>
@@ -34,10 +37,18 @@ const useOption = (): [JSX.Element, (show?: boolean) => void] => {
         <dd>
           <button
             className="ButtonHigh"
+            ref={ref}
             onClick={() => {
+              disable()
               fetch(origin.data.version)
-                .then(res => res.json())
+                .then(async res => {
+                  if (whenInDEV()) {
+                    await timeout()
+                  }
+                  return res.json()
+                })
                 .then(({ version: ver }) => {
+                  disable(false)
                   if (ver === getVersion()) {
                     Model.alert(({ close }) => {
                       setTimeout(close, 1000)
