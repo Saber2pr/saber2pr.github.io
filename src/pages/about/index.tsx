@@ -4,6 +4,7 @@ import { TwoSide, LazyCom, Loading, useModel, Model } from "../../components"
 import "./style.less"
 import { request } from "../../request"
 import { freeCache, getVersion } from "../../utils"
+import { origin } from "../../config"
 
 const useOption = (): [JSX.Element, (show?: boolean) => void] => {
   const clearCache = () => {
@@ -31,12 +32,54 @@ const useOption = (): [JSX.Element, (show?: boolean) => void] => {
           <div className="Option-Title">选项</div>
         </dt>
         <dd>
+          <button
+            className="ButtonHigh"
+            onClick={() => {
+              fetch(origin.data.version)
+                .then(res => res.json())
+                .then(({ version: ver }) => {
+                  if (ver === getVersion()) {
+                    Model.alert(({ close }) => {
+                      setTimeout(close, 1000)
+                      return (
+                        <p className="About-Alert-Message" onClick={close}>
+                          已经是最新版
+                        </p>
+                      )
+                    })
+                  } else {
+                    Model.alert(({ close }) => (
+                      <div className="About-Alert-Message">
+                        <div className="Option-Title">
+                          有新的版本(v{ver})，是否立即更新？
+                        </div>
+                        <button
+                          className="ButtonHigh"
+                          onClick={() =>
+                            freeCache().then(() => location.reload())
+                          }
+                        >
+                          确定
+                        </button>
+                        <button className="ButtonHigh" onClick={close}>
+                          取消
+                        </button>
+                      </div>
+                    ))
+                  }
+                })
+            }}
+          >
+            检查更新
+          </button>
+        </dd>
+        <dd>
           <button className="ButtonHigh" onClick={clearCache}>
             清除缓存
           </button>
         </dd>
         <dd>
-          <div className="Option-Version">版本号：{getVersion()}</div>
+          <div className="Option-Version">版本号：v{getVersion()}</div>
         </dd>
       </dl>
     </>
@@ -67,12 +110,6 @@ const Main = ({ contents }: { contents: string[] }) => {
       </div>
     </>
   )
-}
-
-type audio = {
-  info: string
-  src: string
-  name: string
 }
 
 export interface About {
