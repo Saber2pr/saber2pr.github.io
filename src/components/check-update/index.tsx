@@ -78,7 +78,10 @@ export const checkUpdate = (
       if (isSameVersion) {
         if (diffOnly) return
         Model.alert(({ close }) => {
-          setTimeout(close, 1000)
+          setTimeout(() => {
+            close()
+            LOCK = false
+          }, 1000)
           return (
             <p className="CheckUpdate-Alert-Message" onClick={close}>
               已经是最新版
