@@ -113,6 +113,11 @@ body {
   border: 1px solid #ccb6ff;
 }
 
+.CheckUpdate {
+  background: black;
+  border: 1px solid #ccb6ff;
+}
+
 .Option-Close {
   border: 1px solid white;
   top: 0.2rem;
@@ -120,7 +125,7 @@ body {
   background: black;
 }
 
-.About-Alert-Message {
+.CheckUpdate-Alert-Message {
   background: black;
   border: 1px solid #ccb6ff;
 }
