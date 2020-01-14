@@ -100,6 +100,7 @@ const Input = React.forwardRef<
       <span
         className="SearchInput-Icon"
         onClick={() => inputRef.current.focus()}
+        title="搜索笔记"
       >
         <Icon.Sousuo />
         <span className="SearchInput-Icon-Name">搜索</span>
