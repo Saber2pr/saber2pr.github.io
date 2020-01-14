@@ -2,9 +2,11 @@ import React from "react"
 import "./iconfont.css"
 export namespace Icon {
   export const Sousuo = () => <i className="iconfont icon-xiazai15" />
-  export const DarkTheme = () => <i className="iconfont icon-yejianmoshi" />
+  export const DarkTheme = () => (
+    <i className="iconfont icon-yejianmoshi" title="夜间模式" />
+  )
   export const LightTheme = () => (
-    <i className="iconfont icon-baitianmoshimingliangmoshi" />
+    <i className="iconfont icon-baitianmoshimingliangmoshi" title="日间模式" />
   )
   export const Head = () => <i className="iconfont icon-icon26" />
   export const Create = () => <i className="iconfont icon-create" />
