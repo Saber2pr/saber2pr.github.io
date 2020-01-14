@@ -1,25 +1,24 @@
 import React, { memo } from "react"
 
-import { TwoSide, LazyCom, Loading, useModel, Model } from "../../components"
+import {
+  TwoSide,
+  LazyCom,
+  Loading,
+  useModel,
+  checkUpdate,
+  cleanUpdates,
+  setUpdateOmit,
+  getUpdateOmit
+} from "../../components"
 import "./style.less"
 import { request } from "../../request"
-import { freeCache, getVersion, timeout, whenInDEV } from "../../utils"
-import { origin } from "../../config"
+import { getVersion } from "../../utils"
 import { useBtnDisable } from "../../hooks"
 
 const useOption = (): [JSX.Element, (show?: boolean) => void] => {
   const clearCache = () => {
     show(false)
-    freeCache().then(() =>
-      Model.alert(({ close }) => {
-        setTimeout(close, 1000)
-        return (
-          <p className="About-Alert-Message" onClick={close}>
-            清除成功
-          </p>
-        )
-      })
-    )
+    cleanUpdates()
   }
 
   const [ref, disable] = useBtnDisable()
@@ -40,45 +39,12 @@ const useOption = (): [JSX.Element, (show?: boolean) => void] => {
             ref={ref}
             onClick={() => {
               disable()
-              fetch(origin.data.version)
-                .then(async res => {
-                  if (whenInDEV()) {
-                    await timeout()
-                  }
-                  return res.json()
-                })
-                .then(({ version: ver }) => {
-                  disable(false)
-                  if (ver === getVersion()) {
-                    Model.alert(({ close }) => {
-                      setTimeout(close, 1000)
-                      return (
-                        <p className="About-Alert-Message" onClick={close}>
-                          已经是最新版
-                        </p>
-                      )
-                    })
-                  } else {
-                    Model.alert(({ close }) => (
-                      <div className="About-Alert-Message">
-                        <div className="Option-Title">
-                          有新的版本(v{ver})，是否立即更新？
-                        </div>
-                        <button
-                          className="ButtonHigh"
-                          onClick={() =>
-                            freeCache().then(() => location.reload())
-                          }
-                        >
-                          确定
-                        </button>
-                        <button className="ButtonHigh" onClick={close}>
-                          取消
-                        </button>
-                      </div>
-                    ))
-                  }
-                })
+              const updateOmit = getUpdateOmit()
+              setUpdateOmit("false")
+              checkUpdate(() => {
+                disable(false)
+                setUpdateOmit(updateOmit)
+              })
             }}
           >
             检查更新
