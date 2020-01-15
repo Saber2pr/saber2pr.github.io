@@ -9,6 +9,7 @@
     "new:com": "genIndex src/components & genComp src/components",
     "new:page": "genIndex src/pages & genComp src/pages",
     "update": "ts-node scripts/generate",
+    "inherit": "ts-node scripts/inherit",
     "push:blog": "sh scripts/push-blog.sh",
     "push:build": "sh scripts/push-build.sh",
     "test": "ts-node scripts/test"
