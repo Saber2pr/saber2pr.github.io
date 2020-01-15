@@ -12,7 +12,7 @@ export type Update = {
   date: string
 }
 
-export const collectUpdates = async (root = "./blog") => {
+export const collectUpdates = async (root: string) => {
   const commits = await diff(root)
   const updates = commits.map<Update>(({ type, master: { path } }) => ({
     type,
