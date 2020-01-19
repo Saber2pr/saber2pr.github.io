@@ -1,33 +1,22 @@
-import { request } from "../request"
-import { whenInDEV } from "./whenInDEV"
+import { origin } from "../config"
+import { localStore } from "../store"
 
-let _cacheKey: string
-export const freeCache = () => {
-  localStorage.removeItem("sw_version")
-  if (_cacheKey) {
-    return caches.delete(_cacheKey)
-  } else {
-    return Promise.reject()
-  }
+const { VERSION_KEY, PWA_KEY } = origin.constants
+const WORKER_PATH = origin.workers.pwa
+
+export const freeCache = async () => {
+  await caches.delete(PWA_KEY)
+  localStore.clear()
 }
 
-let _version = localStorage.getItem("sw_version") || "未知"
-export const getVersion = () => _version
-
-export const PWAInstaller = async (cacheKey = "saber2pr-pwa") => {
-  _cacheKey = cacheKey
-  whenInDEV(() => freeCache())
-
-  const registration = await navigator.serviceWorker.register(
-    "/service-worker.js"
-  )
-
-  const { version } = await request("version")
-  _version = version
-  if (localStorage.getItem("sw_version") === version) return
-
-  await freeCache()
+export const updateVersion = async (version: string) => {
+  const registration = await navigator.serviceWorker.register(WORKER_PATH)
   await registration.update()
+  localStore.setItem(VERSION_KEY, version)
+}
 
-  localStorage.setItem("sw_version", version)
+export const getVersion = () => localStore.getItem(VERSION_KEY)
+
+export const PWAInstaller = async () => {
+  await navigator.serviceWorker.register(WORKER_PATH)
 }
