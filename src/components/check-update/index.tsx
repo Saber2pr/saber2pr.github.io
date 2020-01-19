@@ -1,6 +1,12 @@
 import React from "react"
 import "./style.less"
-import { freeCache, whenInDEV, timeout, getVersion } from "../../utils"
+import {
+  freeCache,
+  whenInDEV,
+  timeout,
+  getVersion,
+  updateVersion
+} from "../../utils"
 import { origin } from "../../config"
 import { Model } from "../model"
 import { localStore } from "../../store"
@@ -13,9 +19,11 @@ export interface CheckUpdate {
   option: boolean
 }
 
+const { UPDATE_OMIT_KEY } = origin.constants
 export const setUpdateOmit = (value: string) =>
-  localStore.setItem("checkUpdate", value)
-export const getUpdateOmit = () => localStore.getItem("checkUpdate") || "false"
+  localStore.setItem(UPDATE_OMIT_KEY, value)
+export const getUpdateOmit = () =>
+  localStore.getItem(UPDATE_OMIT_KEY) || "false"
 const shouldUpdateOmit = () => getUpdateOmit() === "true"
 
 export const CheckUpdate = ({ version, close, option }: CheckUpdate) => {
@@ -26,12 +34,12 @@ export const CheckUpdate = ({ version, close, option }: CheckUpdate) => {
       </div>
       <button
         className="ButtonHigh"
-        onClick={() =>
-          freeCache().then(() => {
-            setUpdateOmit("false")
-            location.reload()
-          })
-        }
+        onClick={async () => {
+          await freeCache()
+          await updateVersion(version)
+          setUpdateOmit("false")
+          location.reload()
+        }}
       >
         确定
       </button>
@@ -61,7 +69,7 @@ export const CheckUpdate = ({ version, close, option }: CheckUpdate) => {
 
 export const checkUpdate = (
   callback?: (version: string, isSameVersion: boolean) => void,
-  diffOnly = false
+  canOmit = false
 ) => {
   if (LOCK) return
   if (shouldUpdateOmit()) return
@@ -76,7 +84,7 @@ export const checkUpdate = (
       const isSameVersion = version === getVersion()
       callback && callback(version, isSameVersion)
       if (isSameVersion) {
-        if (diffOnly) return
+        if (canOmit) return
         Model.alert(({ close }) => {
           setTimeout(() => {
             close()
@@ -90,7 +98,7 @@ export const checkUpdate = (
         })
       } else {
         Model.alert(({ close }) => (
-          <CheckUpdate version={version} close={close} option={diffOnly} />
+          <CheckUpdate version={version} close={close} option={canOmit} />
         ))
       }
       LOCK = true
