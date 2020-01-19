@@ -1,6 +1,8 @@
 export const origin = {
   userId: "saber2pr",
   repo: "saber2pr.github.io",
+  commentRepo: "rc-gitment",
+  md: "/blog",
   data: {
     home: "/static/data/home.json",
     activity: "/static/data/activity.json",
@@ -10,10 +12,16 @@ export const origin = {
     links: "/static/data/links.json",
     version: "/static/data/version.json"
   },
-  md: "/blog",
-  commentRepo: "rc-gitment",
   theme: {
     light: "",
     dark: "/static/style/dark.css"
+  },
+  workers: {
+    pwa: "/service-worker.js"
+  },
+  constants: {
+    VERSION_KEY: "sw-version",
+    PWA_KEY: "saber2pr-pwa",
+    UPDATE_OMIT_KEY: "update-omit"
   }
 }
