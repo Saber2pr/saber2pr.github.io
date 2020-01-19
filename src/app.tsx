@@ -19,9 +19,9 @@ import {
   SearchResult,
   Home
 } from "./pages"
-import { SearchInput, PreImg, Themer, Uv, checkUpdate } from "./components"
+import { SearchInput, PreImg, Themer, Uv } from "./components"
 
-import { getHash, queryRootFirstChildMemo, debounce } from "./utils"
+import { getHash, queryRootFirstChildMemo } from "./utils"
 import { useEvent, useBlogMenu } from "./hooks"
 import { Icon } from "./iconfont"
 import { Routes as RS } from "./config"
@@ -59,7 +59,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
 
   return (
     <Router history={HashHistory}>
-      <header onClick={() => debounce(() => checkUpdate(null, true), 1000)}>
+      <header>
         <nav className="nav">
           <ul className="nav-ul">
             <li>
