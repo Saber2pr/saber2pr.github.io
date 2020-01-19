@@ -12,7 +12,7 @@ import "./style/components.less"
 // /
 
 import Pages from "./app"
-import { Loading, ErrorBoundary } from "./components"
+import { Loading, ErrorBoundary, checkUpdate } from "./components"
 import { welcome, PWAInstaller } from "./utils"
 import { request } from "./request"
 
@@ -37,8 +37,9 @@ ReactDOM.render(
   document.getElementById("root")
 )
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   if ("serviceWorker" in navigator) {
-    PWAInstaller().catch(console.log)
+    await PWAInstaller()
+    checkUpdate(null, true)
   }
 })
