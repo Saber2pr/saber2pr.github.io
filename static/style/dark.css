@@ -54,6 +54,11 @@ body {
   color: rgb(211, 211, 211);
 }
 
+.Blog-Aside-Btn {
+  background: black;
+  color: #6d6d6d;
+}
+
 .Blog-A-Active {
   color: white !important;
   border-left: 0.25rem solid #22773d;
