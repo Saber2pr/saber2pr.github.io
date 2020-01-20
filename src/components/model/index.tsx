@@ -5,11 +5,14 @@ import { useUnMount } from "../../hooks"
 
 export interface Model {
   inner: JSX.Element
+  onClickBg?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-export const Model = ({ inner }: Model) => (
-  <div className="Model">
-    <div className="Model-Box">{inner}</div>
+export const Model = ({ inner, onClickBg }: Model) => (
+  <div className="Model" onClick={onClickBg}>
+    <div className="Model-Box" onClick={e => e.stopPropagation()}>
+      {inner}
+    </div>
   </div>
 )
 
@@ -25,7 +28,12 @@ export const useModel = (
       document.body.append(container)
       ref.current = container
     }
-    setModel(ReactDOM.createPortal(<Model inner={Inner} />, ref.current))
+    setModel(
+      ReactDOM.createPortal(
+        <Model onClickBg={close} inner={Inner} />,
+        ref.current
+      )
+    )
   }
 
   const close = () => setModel(<></>)
@@ -42,14 +50,13 @@ export type ModelAPI = {
 Model.alert = (message: (ModelAPI: ModelAPI) => JSX.Element) => {
   const container = document.createElement("div")
   document.body.append(container)
+
+  const close = () =>
+    ReactDOM.unmountComponentAtNode(container) &&
+    document.body.removeChild(container)
+
   ReactDOM.render(
-    <Model
-      inner={message({
-        close: () =>
-          ReactDOM.unmountComponentAtNode(container) &&
-          document.body.removeChild(container)
-      })}
-    />,
+    <Model onClickBg={close} inner={message({ close })} />,
     container
   )
 }
