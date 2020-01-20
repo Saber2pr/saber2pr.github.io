@@ -1,68 +1,8 @@
 import React, { memo } from "react"
 
-import {
-  TwoSide,
-  LazyCom,
-  Loading,
-  useModel,
-  checkUpdate,
-  cleanUpdates,
-  setUpdateOmit,
-  getUpdateOmit
-} from "../../components"
+import { TwoSide, LazyCom, Loading, useOption } from "../../components"
 import "./style.less"
 import { request } from "../../request"
-import { getVersion } from "../../utils"
-import { useBtnDisable } from "../../hooks"
-
-const useOption = (): [JSX.Element, (show?: boolean) => void] => {
-  const clearCache = () => {
-    show(false)
-    cleanUpdates()
-  }
-
-  const [ref, disable] = useBtnDisable()
-
-  const [model, show] = useModel(
-    <>
-      <div className="Option-Close" onClick={() => show(false)}>
-        <div />
-        <div />
-      </div>
-      <dl className="About-Option">
-        <dt>
-          <div className="Option-Title">选项</div>
-        </dt>
-        <dd>
-          <button
-            className="ButtonHigh"
-            ref={ref}
-            onClick={() => {
-              disable()
-              const updateOmit = getUpdateOmit()
-              setUpdateOmit("false")
-              checkUpdate(() => {
-                disable(false)
-                setUpdateOmit(updateOmit)
-              })
-            }}
-          >
-            检查更新
-          </button>
-        </dd>
-        <dd>
-          <button className="ButtonHigh" onClick={clearCache}>
-            清除缓存
-          </button>
-        </dd>
-        <dd>
-          <div className="Option-Version">版本号：v{getVersion()}</div>
-        </dd>
-      </dl>
-    </>
-  )
-  return [model, show]
-}
 
 const Main = ({ contents }: { contents: string[] }) => {
   const [model, show] = useOption()
