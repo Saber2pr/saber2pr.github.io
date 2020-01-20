@@ -90,6 +90,23 @@
     transition: background-color 1s;
     border-left: 1px solid #ececec;
 
+    &-Btn {
+      position: fixed;
+      top: 50%;
+      display: block;
+      border-left: 1px solid #ececec;
+      border-top: 1px solid #ececec;
+      border-bottom: 1px solid #ececec;
+      background-color: #f7f7f7;
+      color: #6d6d6d;
+      height: 2rem;
+      @width: 0.7rem;
+      width: @width;
+      margin-left: -@width;
+      cursor: pointer;
+      padding-top: 0.5rem;
+    }
+
     a {
       color: #6d6d6d;
       padding-left: 10px;
@@ -210,6 +227,10 @@
 
       width: 100%;
       height: calc(100% - @lineH-Mob);
+
+      &-Btn {
+        display: none;
+      }
 
       &-Content {
         margin-top: 1.5rem;
