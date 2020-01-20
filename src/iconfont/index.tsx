@@ -67,7 +67,12 @@ export namespace Icon {
       </g>
     </svg>
   )
-  export const TreeBtn = (isAct: boolean) => (
+  export const TreeBtn = (
+    isAct: boolean,
+    actRad = "180deg",
+    unactRad = "0deg",
+    mode = "rotateX"
+  ) => (
     <svg
       viewBox="0 0 926.23699 573.74994"
       version="1.1"
@@ -76,7 +81,7 @@ export namespace Icon {
       width="10"
       height="10"
       style={{
-        transform: `rotateX(${isAct ? "180deg" : "0deg"})`,
+        transform: `${mode}(${isAct ? actRad : unactRad})`,
         transition: "transform 0.2s ease"
       }}
     >
