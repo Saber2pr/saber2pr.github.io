@@ -1,3 +1,5 @@
+declare const version: string
+
 import React from "react"
 import "./style.less"
 import {
@@ -28,7 +30,11 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
           <section>
             <div className="Option-Box">
               <div className="Option-Content">
-                test
+                saber2pr.top
+                [<a className="AnchorHigh" target="_blank" href="https://whois.aliyun.com/whois/domain/saber2pr.top">
+                  whois
+                </a>]
+                <div className="Option-Version">最后修改时间：{version}</div>
                 <div className="Option-Version">版本号：v{getVersion()}</div>
               </div>
             </div>
