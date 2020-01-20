@@ -1,4 +1,5 @@
 export * from './useAniLayout'
+export * from './useAsideHidable'
 export * from './useAsync'
 export * from './useBlogMenu'
 export * from './useBtnDisable'
