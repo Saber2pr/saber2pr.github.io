@@ -10,9 +10,10 @@ import {
   AniBtn,
   NextBefore,
   Loading,
-  ErrorBack
+  ErrorBack,
+  ScrollToTop
 } from "../../components"
-import { useIsMobile, useAniLayout } from "../../hooks"
+import { useIsMobile, useAniLayout, useAsideHidable } from "../../hooks"
 
 import { md_theme, origin, Md2jsx } from "../../config"
 import {
@@ -99,10 +100,12 @@ export const Blog = ({ tree }: Blog) => {
     [] as JSX.Element[]
   )
 
+  const [main_ref, btn_ref, show, isShow] = useAsideHidable(ref)
+
   return (
     <div className="Blog">
       <TwoSide>
-        <main className="Blog-Main">
+        <main className="Blog-Main" ref={main_ref}>
           <Switch>
             {[
               ...Routes,
@@ -111,6 +114,9 @@ export const Blog = ({ tree }: Blog) => {
           </Switch>
         </main>
         <aside className="Blog-Aside" ref={ref}>
+          <div ref={btn_ref} className="Blog-Aside-Btn" onClick={() => show()}>
+            {Icon.TreeBtn(isShow, "-90deg", "90deg", "rotate")}
+          </div>
           <section className="Blog-Aside-Content">
             <Tree
               from={tree}
@@ -141,6 +147,7 @@ export const Blog = ({ tree }: Blog) => {
           isOpen.current = isOpen.current ? close() : open()
         }}
       />
+      {show && <ScrollToTop />}
     </div>
   )
 }
