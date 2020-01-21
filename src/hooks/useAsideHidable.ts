@@ -18,6 +18,7 @@ export const useAsideHidable = (
     main_ref.current.style.margin = "0 auto"
     aside_ref.current.style.width = "0"
     btn_ref.current.style.right = "0"
+    btn_ref.current.title = '展开'
   }
 
   const show = () => {
@@ -25,6 +26,7 @@ export const useAsideHidable = (
     main_ref.current.style.margin = "0"
     aside_ref.current.style.width = "30%"
     btn_ref.current.style.right = "auto"
+    btn_ref.current.title = '收起'
   }
 
   const [isShow, setIsShow] = useState(show_ref.current)
