@@ -22,7 +22,7 @@ import {
 import { SearchInput, PreImg, Themer, Uv } from "./components"
 
 import { getHash, queryRootFirstChildMemo } from "./utils"
-import { useEvent, useBlogMenu } from "./hooks"
+import { useEvent, useBlogMenu, useFullWindow } from "./hooks"
 import { Icon } from "./iconfont"
 import { Routes as RS } from "./config"
 
@@ -57,9 +57,20 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   useEvent("hashchange", setTitle)
   useEffect(setTitle, [])
 
+  const [
+    header_ref,
+    main_ref,
+    footer_ref,
+    btn_ref,
+    fullWinBtnAPI
+  ] = useFullWindow({
+    enableClassName: "FullWinBtn iconfont icon-fullwin-enable",
+    disableClassName: "FullWinBtn iconfont icon-fullwin-disable"
+  })
+
   return (
     <Router history={HashHistory}>
-      <header>
+      <header ref={header_ref}>
         <nav className="nav">
           <ul className="nav-ul">
             <li>
@@ -105,7 +116,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           </ul>
         </nav>
       </header>
-      <main className="main">
+      <main ref={main_ref} className="main">
         <picture className="main-bg" />
         <Switch>
           <Route
@@ -115,7 +126,13 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           />
           <Route
             path={RS.blog.href}
-            component={() => <Blog tree={blogTree} />}
+            component={() => (
+              <Blog
+                ref={btn_ref}
+                fullWinBtnAPI={fullWinBtnAPI}
+                tree={blogTree}
+              />
+            )}
           />
           <Route
             path={RS.about.href}
@@ -129,7 +146,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           <Route path={RS.notFound.href} component={() => <NotFound />} />
         </Switch>
       </main>
-      <footer className="footer">
+      <footer ref={footer_ref} className="footer">
         <span className="footer-info">
           Copyright © 2019 saber2pr
           <Uv />
