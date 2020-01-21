@@ -73,6 +73,10 @@ body {
   background-color: black !important;
 }
 
+.ScrollToTop:hover {
+  box-shadow: 0 0 20px rgba(221, 135, 249, 0.3);
+}
+
 .Activity pre {
   border: 1px solid #ccb6ff;
   background-color: black !important;
