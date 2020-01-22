@@ -91,7 +91,7 @@ export const checkUpdate = (
             LOCK = false
           }, 1000)
           return (
-            <p className="CheckUpdate-Alert-Message" onClick={close}>
+            <p className="Alert-Message" onClick={close}>
               已经是最新版
             </p>
           )
@@ -110,7 +110,7 @@ export const cleanUpdates = () =>
     Model.alert(({ close }) => {
       setTimeout(close, 1000)
       return (
-        <p className="CheckUpdate-Alert-Message" onClick={close}>
+        <p className="Alert-Message" onClick={close}>
           清除成功
         </p>
       )
