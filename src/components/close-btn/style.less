@@ -1,0 +1,32 @@
+.CloseBtn {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  background-color: #373940;
+
+  &:hover {
+    color: #61dafb;
+    background-color: #20232a;
+  }
+
+  .slash(@rad) {
+    display: inline-block;
+    width: 2px;
+    height: 17px;
+    background: #d5d5d7;
+    transform: rotate(@rad);
+  }
+
+  & div:nth-child(1) {
+    .slash(45deg);
+  }
+  & div:nth-child(2) {
+    .slash(135deg);
+  }
+}
