@@ -127,14 +127,23 @@ body {
   border: 1px solid #ccb6ff;
 }
 
-.Option-Close {
+.CloseBtn {
   border: 1px solid white;
   top: 0.2rem;
   right: 0.2rem;
   background: black;
 }
 
-.CheckUpdate-Alert-Message {
+.MusicBox {
+  background: black;
+  border: 1px solid #ccb6ff;
+}
+
+.MusicBox-Pic {
+  box-shadow: 0 0 10px 3px #dd87f94d;
+}
+
+.Alert-Message {
   background: black;
   border: 1px solid #ccb6ff;
 }
