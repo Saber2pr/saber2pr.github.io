@@ -62,6 +62,16 @@
   resolved "https://registry.yarnpkg.com/@saber2pr/pv-count/-/pv-count-0.0.1.tgz#95d4cbb70fe8eb84a16c5cb3fdffceec0ca8fc6f"
   integrity sha512-RDL2ikN2OpE73UCwOsHN3/LYiDfjzDWF09mDtyXPqKPLPSzwxcprP6Xawdc27xTXbsJ5npNOKza5wjuGgV+ugA==
 
+"@saber2pr/rc-audio@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@saber2pr/rc-audio/-/rc-audio-0.1.1.tgz#f40194cedb56343578a3d444a3aeeba8104c7fcd"
+  integrity sha512-UbXKM2mw1SyLxC4K396wvTKRnYeV0EUdyACrApWo9yXRfTisObhv2Bj9otaFsNxDZ1m2+bka+GQWvDjguRrt4A==
+  dependencies:
+    "@types/react" "^16.8.19"
+    "@types/react-dom" "^16.8.4"
+    react "^16.8.6"
+    react-dom "^16.8.6"
+
 "@saber2pr/rc-tree@^0.1.6":
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/@saber2pr/rc-tree/-/rc-tree-0.1.6.tgz#4c1da1da3b5eb6b8dc3237c16ca70a175e57bbac"

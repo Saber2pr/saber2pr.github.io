@@ -18,6 +18,7 @@
     "@saber2pr/md2jsx": "^0.1.0",
     "@saber2pr/memo": "^0.0.3",
     "@saber2pr/pv-count": "^0.0.1",
+    "@saber2pr/rc-audio": "^0.1.1",
     "@saber2pr/rc-tree": "^0.1.6",
     "@saber2pr/react-router": "^0.0.5",
     "@saber2pr/redux": "^0.1.1",

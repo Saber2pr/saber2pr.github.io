@@ -29,3 +29,5 @@ export const parseUrlParam = (url: string) => {
     }, {})
 }
 ```
+
+> 或者使用 DOM API 的 new URLSearchParams(new URL(url).search).get

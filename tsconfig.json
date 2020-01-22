@@ -5,7 +5,7 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "jsx": "react",
-    "lib": ["dom", "es2015"]
+    "lib": ["dom", "es2015", "esnext"]
   },
   "exclude": ["node_modules"]
 }
