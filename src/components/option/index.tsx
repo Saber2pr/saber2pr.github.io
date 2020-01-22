@@ -11,30 +11,33 @@ import {
 import { useBtnDisable } from "../../hooks"
 import { useModel } from "../model"
 import { getVersion } from "../../utils"
+import { createMusicBox } from "../music-box"
+import { CloseBtn } from "../close-btn"
 
 export interface Option {
-  onClose: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  close: Function
   checkUpdate: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   clearCache: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 export const Option = React.forwardRef<HTMLButtonElement, Option>(
-  ({ onClose, checkUpdate, clearCache }: Option, ref) => {
+  ({ close, checkUpdate, clearCache }: Option, ref) => {
     return (
       <>
-        <div className="Option-Close" onClick={onClose}>
-          <div />
-          <div />
-        </div>
+        <CloseBtn onClick={() => close()} />
         <div className="Option">
           <section>
             <div className="Option-Box">
               <div className="Option-Content">
-                saber2pr.top
-                [<a className="AnchorHigh" target="_blank" href="https://whois.aliyun.com/whois/domain/saber2pr.top">
+                saber2pr.top [
+                <a
+                  className="AnchorHigh"
+                  target="_blank"
+                  href="https://whois.aliyun.com/whois/domain/saber2pr.top"
+                >
                   whois
-                </a>]
-                <div className="Option-Version">最后修改时间：{version}</div>
+                </a>
+                ]<div className="Option-Version">最后修改时间：{version}</div>
                 <div className="Option-Version">版本号：v{getVersion()}</div>
               </div>
             </div>
@@ -58,6 +61,17 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                   <dd>
                     <button className="ButtonHigh" onClick={clearCache}>
                       清除缓存
+                    </button>
+                  </dd>
+                  <dd>
+                    <button
+                      className="ButtonHigh"
+                      onClick={() => {
+                        createMusicBox()
+                        close()
+                      }}
+                    >
+                      音乐盒子
                     </button>
                   </dd>
                 </dl>
@@ -91,7 +105,7 @@ export const useOption = (): [JSX.Element, (show?: boolean) => void] => {
   const [model, show] = useModel(
     <Option
       ref={ref}
-      onClose={() => show(false)}
+      close={() => show(false)}
       checkUpdate={onCheckUpdate}
       clearCache={clearCache}
     />
