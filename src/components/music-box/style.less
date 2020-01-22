@@ -1,0 +1,59 @@
+.MusicBox {
+  width: 60vw;
+  background: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  .Block {
+    display: inline-block;
+    width: 0.5rem;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: inherit;
+
+    li {
+      background: inherit;
+      overflow: hidden;
+      padding: 0 0.5rem;
+    }
+  }
+
+  &-Head {
+    * {
+      vertical-align: middle;
+    }
+
+    select {
+      height: 34px;
+    }
+  }
+
+  &-Title {
+    text-align: center;
+    line-height: 2rem;
+    margin-top: 1rem;
+  }
+
+  &-Pic {
+    width: 30%;
+    border-radius: 50%;
+    margin: 1.5rem auto 3rem auto;
+    display: block;
+    box-shadow: 0px 0px 10px 3px #9e9e9e;
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .MusicBox {
+    width: 85vw;
+    &-Pic {
+      width: 50%;
+    }
+  }
+}
