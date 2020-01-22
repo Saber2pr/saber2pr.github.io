@@ -8,13 +8,31 @@ export interface Model {
   onClickBg?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
-export const Model = ({ inner, onClickBg }: Model) => (
-  <div className="Model" onClick={onClickBg}>
-    <div className="Model-Box" onClick={e => e.stopPropagation()}>
-      {inner}
+export type ModelAPI = {
+  close: VoidFunction
+  hide?: Function
+  show?: Function
+}
+
+type ModelHelper = (message: (ModelAPI: ModelAPI) => JSX.Element) => void
+
+export const Model = React.forwardRef<HTMLDivElement, Model>(
+  ({ inner, onClickBg }: Model, ref) => (
+    <div className="Model" onClick={onClickBg} ref={ref}>
+      <div className="Model-Box" onClick={e => e.stopPropagation()}>
+        {inner}
+      </div>
     </div>
-  </div>
-)
+  )
+) as React.ForwardRefExoticComponent<
+  Model & React.RefAttributes<HTMLDivElement>
+> & {
+  alert: ModelHelper
+  Hidable: (
+    message: (ModelAPI: ModelAPI) => JSX.Element,
+    onClickBg?: (ModelAPI: ModelAPI) => void
+  ) => void
+}
 
 export const useModel = (
   Inner: JSX.Element
@@ -43,11 +61,7 @@ export const useModel = (
   return [model, (show = true) => (show ? open() : close())]
 }
 
-export type ModelAPI = {
-  close: VoidFunction
-}
-
-Model.alert = (message: (ModelAPI: ModelAPI) => JSX.Element) => {
+Model.alert = message => {
   const container = document.createElement("div")
   document.body.append(container)
 
@@ -57,6 +71,38 @@ Model.alert = (message: (ModelAPI: ModelAPI) => JSX.Element) => {
 
   ReactDOM.render(
     <Model onClickBg={close} inner={message({ close })} />,
+    container
+  )
+}
+
+Model.Hidable = (message, onClickBg) => {
+  const container = document.createElement("div")
+  document.body.append(container)
+  const control_ref = React.createRef<HTMLDivElement>()
+
+  const close = () =>
+    ReactDOM.unmountComponentAtNode(container) &&
+    document.body.removeChild(container)
+
+  const hide = () => {
+    control_ref.current.style.left = "-100%"
+    control_ref.current.style.opacity = "0"
+  }
+
+  const show = () => {
+    control_ref.current.style.left = "0"
+    control_ref.current.style.opacity = "1"
+  }
+
+  ReactDOM.render(
+    <Model
+      onClickBg={() => {
+        hide()
+        onClickBg({ close, hide, show })
+      }}
+      ref={control_ref}
+      inner={message({ close, hide, show })}
+    />,
     container
   )
 }
