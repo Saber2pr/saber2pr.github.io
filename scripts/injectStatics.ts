@@ -19,7 +19,7 @@ const injectStatics = async () => {
   const insertStart = workerSrc.indexOf(CODE_START) + CODE_START.length
   const insertEnd = workerSrc.indexOf(CODE_END)
 
-  const content = getMid(JSON.stringify(statics)).concat(",")
+  const content = getMid(JSON.stringify(statics))
 
   const result =
     workerSrc.slice(0, insertStart) + content + workerSrc.slice(insertEnd)
