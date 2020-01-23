@@ -18,7 +18,8 @@ module.exports = WebpackConfig({
   },
   output: {
     filename: "[name].min.js",
-    path: path.join(__dirname, "build")
+    path: path.join(__dirname, "build"),
+    publicPath: "/build"
   },
   module: {
     rules: [
