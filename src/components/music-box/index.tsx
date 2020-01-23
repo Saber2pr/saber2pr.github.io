@@ -25,7 +25,7 @@ export const status = {
 
 const MusicAPI = "https://api.uomg.com/api/rand.music?format=json"
 const TargetUrl = "https://music.163.com/#/song?id="
-
+//https://api.i-meto.com/meting/api?server=netease&type=url&id=513336178&auth=b286d78ec26632f2b2eb43b50ab987315cf2934da5ae9ae2ab5ff1acbe10d29c
 const getTargetUrl = (songUrl: string) =>
   TargetUrl + new URLSearchParams(new URL(songUrl).search).get("id").replace(/.mp3$/, '')
         
