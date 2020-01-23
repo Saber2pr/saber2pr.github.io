@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-22 14:08:53
+ * @Last Modified time: 2020-01-23 11:51:20
  */
 const staticAssets = [
   "/",
@@ -44,6 +44,8 @@ self.addEventListener("fetch", event =>
     caches.match(event.request).then(resFromCache => {
       if (resFromCache) return resFromCache
       const reqToCache = event.request.clone()
+
+      if (reqToCache.url.startsWith("http://")) return false
 
       return fetch(reqToCache).then(resFromNet => {
         if (
