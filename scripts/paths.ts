@@ -10,4 +10,7 @@ export const paths = {
   status: join(process.cwd(), "/scripts/temp/blog_status.json"),
   acts: join(process.cwd(), origin.data.activity),
   version: join(process.cwd(), origin.data.version),
+  pwa_worker: join(process.cwd(), origin.workers.pwa),
+  publicPath: join(process.cwd(), "build"),
+  publicBase: "/build"
 }
