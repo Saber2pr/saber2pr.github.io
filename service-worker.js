@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-23 12:10:06
+ * @Last Modified time: 2020-01-23 12:25:11
  */
 const staticAssets = [
   "/",
@@ -40,7 +40,9 @@ const filterUrl = url =>
   url.includes("/api")
 
 self.addEventListener("fetch", event => {
-  if (event.request.url.startsWith("http://")) return false
+  const url = event.request.url
+  if (url.endsWith(".mp3")) return
+  if (url.includes("media")) return
 
   event.respondWith(
     caches.match(event.request).then(resFromCache => {
