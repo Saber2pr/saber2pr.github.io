@@ -2,10 +2,19 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-23 15:55:33
+ * @Last Modified time: 2020-01-23 16:30:58
  */
 const staticAssets = [
-  /** CODE START **/"/build/1.css","/build/3.css","/build/5.css","/build/index~970f9218.css","/build/index~970f9218.min.js","/build/index~f71cff67.min.js","/build/vendors~index~0928ebd2.min.js","/build/vendors~index~253ae210.min.js","/build/vendors~index~678f84af.min.js","/build/vendors~index~7d359b94.min.js",/** CODE END **/
+  /** CODE START **/ "/build/1.css",
+  "/build/3.css",
+  "/build/5.css",
+  "/build/index~970f9218.css",
+  "/build/index~970f9218.min.js",
+  "/build/index~f71cff67.min.js",
+  "/build/vendors~index~0928ebd2.min.js",
+  "/build/vendors~index~253ae210.min.js",
+  "/build/vendors~index~678f84af.min.js",
+  "/build/vendors~index~7d359b94.min.js" /** CODE END **/,
 
   "/",
   // data
@@ -40,8 +49,7 @@ const filterUrl = url =>
 
 self.addEventListener("fetch", event => {
   const url = event.request.url
-  if (url.endsWith(".mp3")) return
-  if (url.includes("media")) return
+  if (url.startsWith("http:")) return
 
   event.respondWith(
     caches.match(event.request).then(resFromCache => {
