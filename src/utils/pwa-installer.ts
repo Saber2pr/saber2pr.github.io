@@ -4,6 +4,7 @@ import { whenInDEV } from "./whenInDEV"
 
 const { VERSION_KEY, PWA_KEY } = origin.constants
 const WORKER_PATH = origin.workers.pwa
+let registration = null
 
 export const freeCache = async () => {
   await caches.delete(PWA_KEY)
@@ -11,15 +12,16 @@ export const freeCache = async () => {
 }
 
 export const updateVersion = async (version: string) => {
-  const registration = await navigator.serviceWorker.register(WORKER_PATH)
-  await registration.update()
+  if (registration) {
+    await registration.update()
+  }
   localStore.setItem(VERSION_KEY, version)
 }
 
 export const getVersion = () => localStore.getItem(VERSION_KEY)
 
 export const PWAInstaller = async () => {
-  await navigator.serviceWorker.register(WORKER_PATH)
+  registration = await navigator.serviceWorker.register(WORKER_PATH)
   if (whenInDEV()) {
     await caches.delete(PWA_KEY)
   }
