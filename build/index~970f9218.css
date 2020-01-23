@@ -403,7 +403,7 @@
   position: fixed;
   right: -1rem;
   width: 30%;
-  height: calc(100% - 2.5rem);
+  height: 100%;
   z-index: 3;
   overflow-y: auto;
 }
