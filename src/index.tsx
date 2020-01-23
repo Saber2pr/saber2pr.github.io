@@ -13,7 +13,7 @@ import "./style/components.less"
 
 import Pages from "./app"
 import { Loading, ErrorBoundary, checkUpdate } from "./components"
-import { welcome, PWAInstaller } from "./utils"
+import { welcome, PWAInstaller, whenInDEV } from "./utils"
 import { request } from "./request"
 
 const App = React.lazy(async () => {
@@ -38,6 +38,8 @@ ReactDOM.render(
 )
 
 window.addEventListener("load", async () => {
+  if (whenInDEV()) return
+
   if ("serviceWorker" in navigator) {
     await PWAInstaller()
     checkUpdate(null, true)
