@@ -11,7 +11,8 @@ import {
   NextBefore,
   Loading,
   ErrorBack,
-  ScrollToTop
+  ScrollToTop,
+  createMusicBox
 } from "../../components"
 import {
   useIsMobile,
@@ -162,6 +163,13 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           }}
         />
         {isShow || <ScrollToTop />}
+        {isShow || (
+          <i
+            className="iconfont icon-musicBox"
+            onClick={createMusicBox}
+            title="音乐盒子"
+          />
+        )}
         {isShow || (
           <i {...selectProps()} ref={fullwinBtn_ref} onClick={select} />
         )}
