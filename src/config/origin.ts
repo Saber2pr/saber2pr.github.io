@@ -1,7 +1,6 @@
 export const origin = {
   userId: "saber2pr",
   repo: "saber2pr.github.io",
-  commentRepo: "rc-gitment",
   md: "/blog",
   data: {
     home: "/static/data/home.json",
@@ -10,7 +9,8 @@ export const origin = {
     learn: "/static/data/learn.json",
     about: "/static/data/about.json",
     links: "/static/data/links.json",
-    version: "/static/data/version.json"
+    version: "/static/data/version.json",
+    musicList: "/static/data/musicList.json"
   },
   theme: {
     light: "",

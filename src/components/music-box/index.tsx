@@ -7,6 +7,7 @@ import { LazyCom } from "../lazy-com"
 import { Loading } from "../loading"
 import { CloseBtn } from "../close-btn"
 import { checkNetwork } from "../../utils"
+import { request } from "../../request"
 
 type Music = {
   code: number
@@ -30,26 +31,39 @@ const getTargetUrl = (songUrl: string) =>
   TargetUrl +
   new URLSearchParams(new URL(songUrl).search).get("id").replace(/.mp3$/, "")
 
-type MusicType = "热歌榜" | "新歌榜" | "抖音榜" | "电音榜" | "我的收藏"
+const getMusic = (musicList: object, type = Object.keys(musicList)[0]) => {
+  let params = null
 
-const getMusic = (type: MusicType = "我的收藏") =>
-  axios.get<Music>(MusicAPI, {
-    params: type === "我的收藏" ? { mid: "587356828" } : { sort: type }
-  })
+  const mid = musicList[type]
+  if (mid) {
+    params = { mid }
+  } else {
+    params = { sort: type }
+  }
+
+  return axios.get<Music>(MusicAPI, { params })
+}
 
 export interface MusicBox {
   close: Function
   defaultMusic: Music
   hide: Function
   show: Function
+  musicList: object
 }
 
-export const MusicBox = ({ close, defaultMusic, hide, show }: MusicBox) => {
+export const MusicBox = ({
+  close,
+  defaultMusic,
+  hide,
+  show,
+  musicList
+}: MusicBox) => {
   const [{ data }, setMusic] = useState<Music>(defaultMusic)
   const { url, picurl, name, artistsname } = data
 
   const randMusic = (type: any) =>
-    getMusic(type).then(({ data }) => setMusic(data))
+    getMusic(musicList, type).then(({ data }) => setMusic(data))
 
   const ref = useRef<HTMLSelectElement>()
 
@@ -69,11 +83,11 @@ export const MusicBox = ({ close, defaultMusic, hide, show }: MusicBox) => {
             ref={ref}
             onChange={e => randMusic(e.target.value)}
           >
-            <option value="我的收藏">我的收藏</option>
-            <option value="热歌榜">热歌榜</option>
-            <option value="新歌榜">新歌榜</option>
-            <option value="抖音榜">抖音榜</option>
-            <option value="电音榜">电音榜</option>
+            {Object.keys(musicList).map(name => (
+              <option key={name} value={name}>
+                {name}
+              </option>
+            ))}
           </select>
           <button
             className="ButtonHigh"
@@ -109,7 +123,7 @@ export const MusicBox = ({ close, defaultMusic, hide, show }: MusicBox) => {
   )
 }
 
-export const createMusicBox = () => {
+export const createMusicBox = async () => {
   if (!checkNetwork()) {
     Model.alert(({ close }) => {
       setTimeout(() => {
@@ -128,15 +142,17 @@ export const createMusicBox = () => {
   if (status.isHide && status.show) {
     status.show()
   } else {
+    const musicList = await request("musicList")
     Model.Hidable(
       ({ close, show, hide }) => (
-        <LazyCom await={getMusic()} fallback={<Loading />}>
+        <LazyCom await={getMusic(musicList)} fallback={<Loading />}>
           {({ data }) => (
             <MusicBox
               close={close}
               defaultMusic={data}
               hide={hide}
               show={show}
+              musicList={musicList}
             />
           )}
         </LazyCom>

@@ -2,19 +2,21 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-23 16:30:58
+ * @Last Modified time: 2020-01-23 20:20:29
  */
 const staticAssets = [
   /** CODE START **/"/build/0.css","/build/2.css","/build/4.css","/build/6.css","/build/index~21833f8f.min.js","/build/index~970f9218.css","/build/index~970f9218.min.js","/build/index~f71cff67.min.js","/build/vendors~index~0928ebd2.min.js","/build/vendors~index~253ae210.min.js","/build/vendors~index~678f84af.min.js","/build/vendors~index~7d359b94.min.js",/** CODE END **/,
 
+  ,
   "/",
   // data
-  "/static/data/about.json",
+  "/static/data/home.json",
   "/static/data/activity.json",
   "/static/data/blog.json",
-  "/static/data/home.json",
   "/static/data/learn.json",
+  "/static/data/about.json",
   "/static/data/links.json",
+  "/static/data/musicList.json",
   // image
   "/static/image/bg-mb.webp",
   "/static/image/bg-pc.webp",
