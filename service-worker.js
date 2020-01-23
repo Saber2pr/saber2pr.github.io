@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-23 11:51:20
+ * @Last Modified time: 2020-01-23 12:10:06
  */
 const staticAssets = [
   "/",
@@ -39,13 +39,13 @@ const filterUrl = url =>
   url.includes("static/data/version.json") ||
   url.includes("/api")
 
-self.addEventListener("fetch", event =>
+self.addEventListener("fetch", event => {
+  if (event.request.url.startsWith("http://")) return false
+
   event.respondWith(
     caches.match(event.request).then(resFromCache => {
       if (resFromCache) return resFromCache
       const reqToCache = event.request.clone()
-
-      if (reqToCache.url.startsWith("http://")) return false
 
       return fetch(reqToCache).then(resFromNet => {
         if (
@@ -64,6 +64,6 @@ self.addEventListener("fetch", event =>
       })
     })
   )
-)
+})
 
 self.addEventListener("activate", event => event.waitUntil(clients.claim()))
