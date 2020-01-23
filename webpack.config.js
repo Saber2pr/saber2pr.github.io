@@ -1,21 +1,23 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
-const CleanCSSPlugin = require("less-plugin-clean-css")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const path = require("path")
 const webpack = require("webpack")
 
-const extractLess = new ExtractTextPlugin("style.min.css")
 const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
-const version = () =>
-  `var version="${new Date().toLocaleString()}"`
+const version = () => `var version="${new Date().toLocaleString()}"`
+
+const publicPath = (resourcePath, context) =>
+  path.relative(path.dirname(resourcePath), context) + "/"
 
 module.exports = WebpackConfig({
-  entry: "./src/index.tsx",
+  entry: {
+    index: "./src/index.tsx"
+  },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"]
   },
   output: {
-    filename: "bundle.min.js",
+    filename: "[name].min.js",
     path: path.join(__dirname, "build")
   },
   module: {
@@ -25,29 +27,29 @@ module.exports = WebpackConfig({
         use: ["ts-loader"]
       },
       {
-        test: /\.(css|less)$/,
-        use: extractLess.extract({
-          use: [
-            {
-              loader: "css-loader"
-            },
-            {
-              loader: "less-loader",
-              options: {
-                plugins: [
-                  new CleanCSSPlugin({
-                    advanced: true
-                  })
-                ]
-              }
-            }
-          ],
-          fallback: "style-loader"
-        })
-      },
-      {
         test: /\.(woff|svg|eot|ttf|png)$/,
         use: ["url-loader"]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath }
+          },
+          "css-loader"
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: { publicPath }
+          },
+          "css-loader",
+          "less-loader"
+        ]
       }
     ]
   },
@@ -58,15 +60,41 @@ module.exports = WebpackConfig({
         injectBody: '<div id="root"></div>'
       })
     }),
-    extractLess,
     new webpack.BannerPlugin({
-      banner: `${version()};console.log("Last Modified Time: " + version);`,
+      banner: `${version()};`,
       raw: true,
       test: /\.js/
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     })
   ],
   watchOptions: {
     aggregateTimeout: 1000,
     ignored: /node_modules|lib/
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+      minSize: 30000,
+      maxSize: 100000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: "~",
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
   }
 })
