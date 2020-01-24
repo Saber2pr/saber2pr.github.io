@@ -69,13 +69,28 @@ export const CheckUpdate = ({ version, close, option, mode }: CheckUpdate) => {
   )
 }
 
-const getUpdateMode = (version: any): CacheType => {
-  if (version.STATIC_VERSION !== getVersion("STATIC")) {
+type UpdateMode = CacheType | "INIT_STATIC" | "INIT_DYNAMIC" | "NONE"
+
+const getUpdateMode = (version: any): UpdateMode => {
+  const STATIC_VERSION = getVersion("STATIC")
+  const DYNAMIC_VERSION = getVersion("DYNAMIC")
+
+  if (STATIC_VERSION === null) {
+    return "INIT_STATIC"
+  }
+
+  if (DYNAMIC_VERSION === null) {
+    return "INIT_DYNAMIC"
+  }
+
+  if (version.STATIC_VERSION !== STATIC_VERSION) {
     return "STATIC"
   }
-  if (version.DYNAMIC_VERSION !== getVersion("DYNAMIC")) {
+  if (version.DYNAMIC_VERSION !== DYNAMIC_VERSION) {
     return "DYNAMIC"
   }
+
+  return "NONE"
 }
 
 type Version = { DYNAMIC_VERSION: string; STATIC_VERSION: string }
@@ -96,12 +111,8 @@ export const checkUpdate = (
     .then(version => {
       callback && callback(version)
       const updateMode = getUpdateMode(version)
-      const update_version =
-        updateMode === "STATIC"
-          ? version.STATIC_VERSION
-          : version.DYNAMIC_VERSION
 
-      if (!updateMode) {
+      if (updateMode === "NONE") {
         if (canOmit) return
         Model.alert(({ close }) => {
           setTimeout(() => {
@@ -114,10 +125,18 @@ export const checkUpdate = (
             </p>
           )
         })
+      } else if (updateMode === "INIT_STATIC") {
+        updateVersion(version.STATIC_VERSION, "STATIC")
+      } else if (updateMode === "INIT_DYNAMIC") {
+        updateVersion(version.DYNAMIC_VERSION, "DYNAMIC")
       } else {
         Model.alert(({ close }) => (
           <CheckUpdate
-            version={update_version}
+            version={
+              updateMode === "STATIC"
+                ? version.STATIC_VERSION
+                : version.DYNAMIC_VERSION
+            }
             mode={updateMode}
             close={close}
             option={canOmit}
