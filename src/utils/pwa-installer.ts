@@ -22,10 +22,15 @@ const matchType = <T extends (...args: any) => any>(
 export const freeCache = async (type: CacheType) => {
   await matchType(
     type,
-    () => caches.delete(DYNAMIC_VERSION_KEY),
-    () => caches.delete(STATIC_VERSION_KEY)
+    () => {
+      localStore.removeItem(DYNAMIC_VERSION_KEY)
+      return caches.delete(DYNAMIC_VERSION_KEY)
+    },
+    () => {
+      localStore.removeItem(STATIC_VERSION_KEY)
+      return caches.delete(STATIC_VERSION_KEY)
+    }
   )
-  localStore.clear()
 }
 
 export const updateVersion = (version: string, type: CacheType) =>
