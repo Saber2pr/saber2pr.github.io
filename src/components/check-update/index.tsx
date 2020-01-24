@@ -78,6 +78,8 @@ const getUpdateMode = (version: any): CacheType => {
   }
 }
 
+type Version = { DYNAMIC_VERSION: string; STATIC_VERSION: string }
+
 export const checkUpdate = (
   callback?: (version: object) => void,
   canOmit = false
@@ -89,11 +91,15 @@ export const checkUpdate = (
       if (whenInDEV()) {
         await timeout()
       }
-      return res.json()
+      return res.json() as Promise<Version>
     })
     .then(version => {
       callback && callback(version)
       const updateMode = getUpdateMode(version)
+      const update_version =
+        updateMode === "STATIC"
+          ? version.STATIC_VERSION
+          : version.DYNAMIC_VERSION
 
       if (!updateMode) {
         if (canOmit) return
@@ -111,7 +117,7 @@ export const checkUpdate = (
       } else {
         Model.alert(({ close }) => (
           <CheckUpdate
-            version={version}
+            version={update_version}
             mode={updateMode}
             close={close}
             option={canOmit}

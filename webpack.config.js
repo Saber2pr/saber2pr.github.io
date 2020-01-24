@@ -79,7 +79,7 @@ module.exports = WebpackConfig({
     splitChunks: {
       chunks: "all",
       minSize: 30000,
-      maxSize: 100000,
+      maxSize: 200000,
       minChunks: 1,
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
