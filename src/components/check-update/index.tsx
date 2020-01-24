@@ -38,7 +38,7 @@ export const CheckUpdate = ({ version, close, option, mode }: CheckUpdate) => {
         className="ButtonHigh"
         onClick={async () => {
           await freeCache(mode)
-          updateVersion(version, mode)
+          await updateVersion(version, mode)
           setUpdateOmit("false")
           location.reload()
         }}
@@ -108,7 +108,7 @@ export const checkUpdate = (
       }
       return res.json() as Promise<Version>
     })
-    .then(version => {
+    .then(async version => {
       callback && callback(version)
       const updateMode = getUpdateMode(version)
 
@@ -126,9 +126,9 @@ export const checkUpdate = (
           )
         })
       } else if (updateMode === "INIT_STATIC") {
-        updateVersion(version.STATIC_VERSION, "STATIC")
+        await updateVersion(version.STATIC_VERSION, "STATIC")
       } else if (updateMode === "INIT_DYNAMIC") {
-        updateVersion(version.DYNAMIC_VERSION, "DYNAMIC")
+        await updateVersion(version.DYNAMIC_VERSION, "DYNAMIC")
       } else {
         Model.alert(({ close }) => (
           <CheckUpdate
