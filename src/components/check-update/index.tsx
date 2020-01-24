@@ -96,14 +96,12 @@ const getUpdateMode = (version: any): UpdateMode => {
 
 type Version = { DYNAMIC_VERSION: string; STATIC_VERSION: string }
 
-export const checkUpdate = (
-  callback?: (version: object) => void,
-  canOmit = false
-) => {
+export const checkUpdate = (callback?: () => void, canOmit = false) => {
   if (!checkNetwork()) {
     Model.alert(({ close }) => {
       setTimeout(() => {
         close()
+        callback && callback()
       }, 1000)
       return (
         <p className="Alert-Message" onClick={close}>
@@ -125,7 +123,7 @@ export const checkUpdate = (
       return res.json() as Promise<Version>
     })
     .then(async version => {
-      callback && callback(version)
+      callback && callback()
       const updateMode = getUpdateMode(version)
 
       if (updateMode === "NONE") {
