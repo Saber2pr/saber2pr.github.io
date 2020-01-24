@@ -91,7 +91,7 @@ export const checkUpdate = (
       }
       return res.json()
     })
-    .then(({ version }) => {
+    .then(version => {
       callback && callback(version)
       const updateMode = getUpdateMode(version)
 
