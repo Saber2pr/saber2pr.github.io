@@ -20,8 +20,8 @@ export const origin = {
     pwa: "/service-worker.js"
   },
   constants: {
-    VERSION_KEY: "sw-version",
-    PWA_KEY: "saber2pr-pwa",
-    UPDATE_OMIT_KEY: "update-omit"
+    UPDATE_OMIT_KEY: "update-omit",
+    STATIC_VERSION_KEY: "saber2pr-pwa-static",
+    DYNAMIC_VERSION_KEY: "saber2pr-pwa-dynamic"
   }
 }
