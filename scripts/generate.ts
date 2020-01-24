@@ -1,4 +1,4 @@
-import { WriteFile, ReadFile, versionUp } from "./node"
+import { WriteFile, ReadFile } from "./node"
 import { collectUpdates } from "./collectUpdates"
 import { paths } from "./paths"
 import { createTree, Node, traverse, findNodeByPath } from "./createTree"
@@ -6,6 +6,7 @@ import { createTree, Node, traverse, findNodeByPath } from "./createTree"
 import { checkJson } from "./checkJson"
 import { join } from "path"
 import { origin } from "../src/config/origin"
+import { updateVersion } from "./updateVersion"
 
 async function main() {
   // get status
@@ -39,10 +40,12 @@ async function main() {
     }
   }
 
+  // clean deleted
   cleans.forEach(clean =>
     status.splice(status.findIndex(n => n.path === clean), 1)
   )
 
+  // append activities
   const acts: any[] = await ReadFile(paths.acts).then(b =>
     JSON.parse(b.toString())
   )
@@ -50,27 +53,26 @@ async function main() {
     ...updates.map(({ path, type, date }) => ({ type, text: path, date }))
   )
 
+  // resolve node path
   traverse(tree, node => {
     node.path = node.path.replace(/.md$/, "")
   })
 
   // update version
-  const versionData = await ReadFile(paths.version).then(b =>
-    JSON.parse(b.toString())
-  )
-
-  versionData.version = versionUp(versionData.version)
+  if (updates.length) {
+    await updateVersion("DYNAMIC")
+  }
 
   // update file
   await WriteFile(paths.blog, JSON.stringify(tree))
   await WriteFile(paths.status, JSON.stringify(status))
   await WriteFile(paths.acts, JSON.stringify(acts.slice(0, 50)))
-  await WriteFile(paths.version, JSON.stringify(versionData))
 
   // check
   await checkJson(paths.blog)
   await checkJson(paths.status)
   await checkJson(paths.acts)
+  await checkJson(paths.version)
 }
 
 main().catch(console.log)
