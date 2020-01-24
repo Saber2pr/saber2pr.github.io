@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-24 14:23:33
+ * @Last Modified time: 2020-01-24 14:26:33
  */
 const staticAssets = [
   /** CODE START **/ "/build/1.css",
@@ -46,6 +46,8 @@ const filterUrl = url =>
 self.addEventListener("fetch", event => {
   const url = event.request.url
   if (url.startsWith("http:")) return
+  if (url.includes("/build/")) return
+  if (url.includes("/static/")) return
 
   event.respondWith(
     caches.match(event.request).then(resFromCache => {
