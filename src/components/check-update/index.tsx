@@ -6,7 +6,8 @@ import {
   timeout,
   getVersion,
   updateVersion,
-  CacheType
+  CacheType,
+  checkNetwork
 } from "../../utils"
 import { origin } from "../../config"
 import { Model } from "../model"
@@ -99,6 +100,21 @@ export const checkUpdate = (
   callback?: (version: object) => void,
   canOmit = false
 ) => {
+  if (!checkNetwork()) {
+    Model.alert(({ close }) => {
+      setTimeout(() => {
+        close()
+      }, 1000)
+      return (
+        <p className="Alert-Message" onClick={close}>
+          无网络连接！
+        </p>
+      )
+    })
+
+    return
+  }
+
   if (LOCK) return
   if (shouldUpdateOmit()) return
   fetch(origin.data.version)
