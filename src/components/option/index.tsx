@@ -38,7 +38,12 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                   whois
                 </a>
                 ]<div className="Option-Version">最后修改时间：{version}</div>
-                <div className="Option-Version">版本号：v{getVersion()}</div>
+                <div className="Option-Version">
+                  版本号(DYNAMIC)：v{getVersion("DYNAMIC")}
+                </div>
+                <div className="Option-Version">
+                  版本号(STATIC)：v{getVersion("STATIC")}
+                </div>
               </div>
             </div>
           </section>
