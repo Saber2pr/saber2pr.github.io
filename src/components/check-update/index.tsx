@@ -70,10 +70,10 @@ export const CheckUpdate = ({ version, close, option, mode }: CheckUpdate) => {
 }
 
 const getUpdateMode = (version: any): CacheType => {
-  if (version.STATIC_VERSION === getVersion("STATIC")) {
+  if (version.STATIC_VERSION !== getVersion("STATIC")) {
     return "STATIC"
   }
-  if (version.DYNAMIC_VERSION === getVersion("DYNAMIC")) {
+  if (version.DYNAMIC_VERSION !== getVersion("DYNAMIC")) {
     return "DYNAMIC"
   }
 }
