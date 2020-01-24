@@ -5,14 +5,7 @@
  * @Last Modified time: 2020-01-24 15:01:33
  */
 const staticAssets = [
-  /** CODE START **/ "/build/1.css",
-  "/build/3.css",
-  "/build/index~f71cff67.css",
-  "/build/index~f71cff67.min.js",
-  "/build/vendors~index~253ae210.min.js",
-  "/build/vendors~index~678f84af.min.js",
-  "/build/vendors~index~7d359b94.min.js",
-  "/build/vendors~index~f734b0c6.min.js" /** CODE END **/,
+  /** CODE START **/"/build/1.css","/build/3.css","/build/index~f71cff67.css","/build/index~f71cff67.min.js","/build/vendors~index~253ae210.min.js","/build/vendors~index~678f84af.min.js","/build/vendors~index~7d359b94.min.js","/build/vendors~index~f734b0c6.min.js"/** CODE END **/,
   "/",
   // data
   "/static/data/home.json",

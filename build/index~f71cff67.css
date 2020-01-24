@@ -659,6 +659,7 @@ body {
 .Option-Version {
   padding-top: 2rem;
   font-size: 0.5rem;
+  line-height: 1.5rem;
 }
 .Option-Box {
   display: block;
