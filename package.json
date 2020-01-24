@@ -7,10 +7,11 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack && yarn inject:statics && cp ./build/index.html ./index.html",
     "inject:statics": "ts-node scripts/injectStatics",
+    "inherit": "ts-node scripts/inherit",
     "new:com": "genIndex src/components & genComp src/components",
     "new:page": "genIndex src/pages & genComp src/pages",
     "update": "ts-node scripts/generate",
-    "inherit": "ts-node scripts/inherit",
+    "update:static": "ts-node scripts/updateVersion-static",
     "push:blog": "sh scripts/push-blog.sh",
     "push:build": "sh scripts/push-build.sh",
     "test": "ts-node scripts/test"
