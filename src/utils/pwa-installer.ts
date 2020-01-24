@@ -26,8 +26,12 @@ export const freeCache = async (type: CacheType) => {
       localStore.removeItem(DYNAMIC_VERSION_KEY)
       return caches.delete(DYNAMIC_VERSION_KEY)
     },
-    () => {
+    async () => {
       localStore.removeItem(STATIC_VERSION_KEY)
+
+      const registration = await navigator.serviceWorker.getRegistration()
+      await registration.unregister()
+
       return caches.delete(STATIC_VERSION_KEY)
     }
   )
