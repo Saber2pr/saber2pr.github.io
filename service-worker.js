@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-24 15:55:04
+ * @Last Modified time: 2020-01-24 16:01:33
  */
 const staticAssets = [
   /** CODE START **/ "/build/1.css",
@@ -22,6 +22,8 @@ const staticAssets = [
   "/static/data/about.json",
   "/static/data/links.json",
   "/static/data/musicList.json",
+  // icon
+  "/static/icon/saber2pr-144x144.png",
   // image
   "/static/image/bg-mb.webp",
   "/static/image/bg-pc.webp",
