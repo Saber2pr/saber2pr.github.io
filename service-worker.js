@@ -2,10 +2,17 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-24 12:35:41
+ * @Last Modified time: 2020-01-24 14:23:33
  */
 const staticAssets = [
-  /** CODE START **/"/build/1.css","/build/3.css","/build/index~f71cff67.css","/build/index~f71cff67.min.js","/build/vendors~index~253ae210.min.js","/build/vendors~index~678f84af.min.js","/build/vendors~index~7d359b94.min.js","/build/vendors~index~f734b0c6.min.js"/** CODE END **/,
+  /** CODE START **/ "/build/1.css",
+  "/build/3.css",
+  "/build/index~f71cff67.css",
+  "/build/index~f71cff67.min.js",
+  "/build/vendors~index~253ae210.min.js",
+  "/build/vendors~index~678f84af.min.js",
+  "/build/vendors~index~7d359b94.min.js",
+  "/build/vendors~index~f734b0c6.min.js" /** CODE END **/,
   "/",
   // data
   "/static/data/home.json",
@@ -27,10 +34,7 @@ const DynamicCacheKey = "saber2pr-pwa-dynamic"
 
 self.addEventListener("install", event =>
   event.waitUntil(
-    caches
-      .open(StaticCacheKey)
-      .then(cache => cache.addAll(staticAssets))
-      .then(() => self.skipWaiting())
+    caches.open(StaticCacheKey).then(cache => cache.addAll(staticAssets))
   )
 )
 
