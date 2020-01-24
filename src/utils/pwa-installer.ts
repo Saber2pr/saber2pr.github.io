@@ -2,23 +2,50 @@ import { origin } from "../config"
 import { localStore } from "../store"
 import { whenInDEV } from "./whenInDEV"
 
-const { VERSION_KEY, PWA_KEY } = origin.constants
+const { STATIC_VERSION_KEY, DYNAMIC_VERSION_KEY } = origin.constants
 const WORKER_PATH = origin.workers.pwa
 
-export const freeCache = async () => {
+export type CacheType = "STATIC" | "DYNAMIC"
+const matchType = <T extends (...args: any) => any>(
+  type: CacheType,
+  DYNAMIC: T,
+  STATIC: T
+): ReturnType<T> => {
+  if (type === "DYNAMIC") {
+    return DYNAMIC()
+  }
+  if (type === "STATIC") {
+    return STATIC()
+  }
+}
+
+export const freeCache = async (type: CacheType) => {
+  await matchType(
+    type,
+    () => caches.delete(DYNAMIC_VERSION_KEY),
+    () => caches.delete(STATIC_VERSION_KEY)
+  )
   localStore.clear()
-  await caches.delete(PWA_KEY)
 }
 
-export const updateVersion = async (version: string) => {
-  localStore.setItem(VERSION_KEY, version)
-}
+export const updateVersion = (version: string, type: CacheType) =>
+  matchType(
+    type,
+    () => localStore.setItem(DYNAMIC_VERSION_KEY, version),
+    () => localStore.setItem(STATIC_VERSION_KEY, version)
+  )
 
-export const getVersion = () => localStore.getItem(VERSION_KEY)
+export const getVersion = (type: CacheType) =>
+  matchType(
+    type,
+    () => localStore.getItem(DYNAMIC_VERSION_KEY),
+    () => localStore.getItem(STATIC_VERSION_KEY)
+  )
 
 export const PWAInstaller = async () => {
   await navigator.serviceWorker.register(WORKER_PATH)
   if (whenInDEV()) {
-    await caches.delete(PWA_KEY)
+    await freeCache("DYNAMIC")
+    await freeCache("STATIC")
   }
 }
