@@ -5,7 +5,8 @@ import {
   whenInDEV,
   timeout,
   getVersion,
-  updateVersion
+  updateVersion,
+  CacheType
 } from "../../utils"
 import { origin } from "../../config"
 import { Model } from "../model"
@@ -17,6 +18,7 @@ export interface CheckUpdate {
   version: string
   close: Function
   option: boolean
+  mode: CacheType
 }
 
 const { UPDATE_OMIT_KEY } = origin.constants
@@ -26,17 +28,17 @@ export const getUpdateOmit = () =>
   localStore.getItem(UPDATE_OMIT_KEY) || "false"
 const shouldUpdateOmit = () => getUpdateOmit() === "true"
 
-export const CheckUpdate = ({ version, close, option }: CheckUpdate) => {
+export const CheckUpdate = ({ version, close, option, mode }: CheckUpdate) => {
   return (
     <div className="CheckUpdate">
       <div className="CheckUpdate-Title">
-        有新的版本(v{version})，是否立即更新？
+        有新的版本v{version}({mode})，是否立即更新？
       </div>
       <button
         className="ButtonHigh"
         onClick={async () => {
-          await freeCache()
-          await updateVersion(version)
+          await freeCache(mode)
+          updateVersion(version, mode)
           setUpdateOmit("false")
           location.reload()
         }}
@@ -67,8 +69,17 @@ export const CheckUpdate = ({ version, close, option }: CheckUpdate) => {
   )
 }
 
+const getUpdateMode = (version: any): CacheType => {
+  if (version.STATIC_VERSION === getVersion("STATIC")) {
+    return "STATIC"
+  }
+  if (version.DYNAMIC_VERSION === getVersion("DYNAMIC")) {
+    return "DYNAMIC"
+  }
+}
+
 export const checkUpdate = (
-  callback?: (version: string, isSameVersion: boolean) => void,
+  callback?: (version: object) => void,
   canOmit = false
 ) => {
   if (LOCK) return
@@ -81,9 +92,10 @@ export const checkUpdate = (
       return res.json()
     })
     .then(({ version }) => {
-      const isSameVersion = version === getVersion()
-      callback && callback(version, isSameVersion)
-      if (isSameVersion) {
+      callback && callback(version)
+      const updateMode = getUpdateMode(version)
+
+      if (!updateMode) {
         if (canOmit) return
         Model.alert(({ close }) => {
           setTimeout(() => {
@@ -98,21 +110,27 @@ export const checkUpdate = (
         })
       } else {
         Model.alert(({ close }) => (
-          <CheckUpdate version={version} close={close} option={canOmit} />
+          <CheckUpdate
+            version={version}
+            mode={updateMode}
+            close={close}
+            option={canOmit}
+          />
         ))
       }
       LOCK = true
     })
 }
 
-export const cleanUpdates = () =>
-  freeCache().then(() =>
-    Model.alert(({ close }) => {
-      setTimeout(close, 1000)
-      return (
-        <p className="Alert-Message" onClick={close}>
-          清除成功
-        </p>
-      )
-    })
-  )
+export const cleanUpdates = async () => {
+  await freeCache("DYNAMIC")
+  await freeCache("STATIC")
+  Model.alert(({ close }) => {
+    setTimeout(close, 1000)
+    return (
+      <p className="Alert-Message" onClick={close}>
+        清除成功
+      </p>
+    )
+  })
+}
