@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-23 21:02:49
+ * @Last Modified time: 2020-01-24 12:35:41
  */
 const staticAssets = [
   /** CODE START **/"/build/0.css","/build/2.css","/build/4.css","/build/6.css","/build/index~21833f8f.min.js","/build/index~970f9218.css","/build/index~970f9218.min.js","/build/index~f71cff67.min.js","/build/vendors~index~0928ebd2.min.js","/build/vendors~index~253ae210.min.js","/build/vendors~index~678f84af.min.js","/build/vendors~index~7d359b94.min.js"/** CODE END **/,
@@ -22,12 +22,13 @@ const staticAssets = [
   "/static/style/dark.css"
 ]
 
-const cacheKey = "saber2pr-pwa"
+const StaticCacheKey = "saber2pr-pwa-static"
+const DynamicCacheKey = "saber2pr-pwa-dynamic"
 
 self.addEventListener("install", event =>
   event.waitUntil(
     caches
-      .open(cacheKey)
+      .open(StaticCacheKey)
       .then(cache => cache.addAll(staticAssets))
       .then(() => self.skipWaiting())
   )
@@ -57,7 +58,7 @@ self.addEventListener("fetch", event => {
 
         const resToCache = resFromNet.clone()
         caches
-          .open(cacheKey)
+          .open(DynamicCacheKey)
           .then(cache => cache.put(event.request, resToCache))
 
         return resFromNet
