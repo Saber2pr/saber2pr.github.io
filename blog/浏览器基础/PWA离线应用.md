@@ -178,3 +178,7 @@ window.addEventListener("load", () => {
   }
 })
 ```
+
+### 在 Service Worker 中的坑
+
+在 JS 主线程中可以允许 https 和 http 之间的跨域，但在 service worker 里不允许，需要过滤协议为 http 的 event.request.url。
