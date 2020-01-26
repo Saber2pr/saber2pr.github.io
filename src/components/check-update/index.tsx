@@ -141,8 +141,10 @@ export const checkUpdate = (callback?: () => void, canOmit = false) => {
         })
       } else if (updateMode === "INIT_STATIC") {
         await updateVersion(version.STATIC_VERSION, "STATIC")
+        location.reload()
       } else if (updateMode === "INIT_DYNAMIC") {
         await updateVersion(version.DYNAMIC_VERSION, "DYNAMIC")
+        location.reload()
       } else {
         Model.alert(({ close }) => (
           <CheckUpdate
