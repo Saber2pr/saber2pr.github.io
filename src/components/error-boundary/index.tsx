@@ -31,6 +31,14 @@ export class ErrorBoundary extends React.Component<
           <dd>
             <pre>{this.state.info.componentStack}</pre>
           </dd>
+          <dd>
+            <a
+              className="AnchorHigh"
+              href="https://github.com/Saber2pr/saber2pr.github.io/issues/new"
+            >
+              create an issue for saber2pr.github.io.
+            </a>
+          </dd>
         </dl>
       )
     }
