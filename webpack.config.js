@@ -68,7 +68,7 @@ module.exports = WebpackConfig({
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
-      chunkFilename: "[id].css"
+      chunkFilename: "style.[id].css"
     })
   ],
   watchOptions: {
@@ -86,7 +86,7 @@ module.exports = WebpackConfig({
       automaticNameDelimiter: "~",
       name: true,
       cacheGroups: {
-        vendors: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
           priority: -10
         },
