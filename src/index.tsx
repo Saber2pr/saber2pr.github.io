@@ -1,3 +1,5 @@
+declare const LOADING: { destroy: Function }
+
 import React from "react"
 import ReactDOM from "react-dom"
 
@@ -44,4 +46,6 @@ window.addEventListener("load", async () => {
     await PWAInstaller()
     checkUpdate(null, true)
   }
+
+  LOADING.destroy()
 })

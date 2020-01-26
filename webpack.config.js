@@ -57,8 +57,8 @@ module.exports = WebpackConfig({
   plugins: [
     new HtmlWebpackPlugin({
       templateContent: templateContent("saber2prの窝", {
-        injectHead: '<link rel="manifest" href="./manifest.json" />',
-        injectBody: '<div id="root"></div>'
+        injectHead: `<link rel="manifest" href="./manifest.json" /><script src="https://saber2pr.top/loading/index.min.js"></script>`,
+        injectBody: `<div id="root"></div><script>LOADING.init();</script>`
       })
     }),
     new webpack.BannerPlugin({
