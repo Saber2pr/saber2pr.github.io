@@ -2,19 +2,18 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-24 16:01:33
+ * @Last Modified time: 2020-01-26 14:12:35
  */
 const staticAssets = [
-  /** CODE START **/"/build/1.css","/build/3.css","/build/index~f71cff67.css","/build/index~f71cff67.min.js","/build/vendors~index~253ae210.min.js","/build/vendors~index~678f84af.min.js","/build/vendors~index~7d359b94.min.js","/build/vendors~index~f734b0c6.min.js"/** CODE END **/,
+  /** CODE START **/ "/build/1.css",
+  "/build/3.css",
+  "/build/index~f71cff67.css",
+  "/build/index~f71cff67.min.js",
+  "/build/vendors~index~253ae210.min.js",
+  "/build/vendors~index~678f84af.min.js",
+  "/build/vendors~index~7d359b94.min.js",
+  "/build/vendors~index~f734b0c6.min.js" /** CODE END **/,
   "/",
-  // data
-  "/static/data/home.json",
-  "/static/data/activity.json",
-  "/static/data/blog.json",
-  "/static/data/learn.json",
-  "/static/data/about.json",
-  "/static/data/links.json",
-  "/static/data/musicList.json",
   // icon
   "/static/icon/saber2pr-144x144.png",
   // image
@@ -42,11 +41,9 @@ self.addEventListener("fetch", event => {
   const url = event.request.url
   if (url.startsWith("http:")) return
 
-  if (url.includes("/build/") || url.includes("/static/")) {
-    if (!url.includes("version.json")) {
-      event.respondWith(caches.match(event.request))
-      return
-    }
+  if (staticAssets.find(path => url.includes(path))) {
+    event.respondWith(caches.match(event.request))
+    return
   }
 
   event.respondWith(
