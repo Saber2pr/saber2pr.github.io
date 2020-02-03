@@ -76,7 +76,7 @@ type Commit = {
 }
 ```
 
-JSON 序列化后需要 base64 转码发送
+其中 content 字段需要 base64 转码。commit 需要 JSON 序列化后作为 body 发送。
 
 > commit 中的 sha 可省略。若更新已有文件，则 sha 字段为必需。
 
