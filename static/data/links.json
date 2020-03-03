@@ -1,4 +1,4 @@
-{
+﻿{
   "owns": [
     {
       "name": "github",
@@ -13,10 +13,10 @@
       "icon": "https://www.bilibili.com/favicon.ico"
     },
     {
-      "name": "掘金",
-      "href": "https://juejin.im/user/5d5f7e0c5188256ec01d80f4",
-      "message": "大概每周一篇Hello World(咕咕咕)",
-      "icon": "https://juejin.im/favicon.ico"
+      "name": "JSRUN编辑器",
+      "href": "https://jsrun.pro/",
+      "message": "简单程序就不用下IDE了",
+      "icon": "https://jsrun.pro/res/favicon.ico"
     },
     {
       "name": "知呼",
