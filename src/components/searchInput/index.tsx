@@ -52,9 +52,8 @@ const useSearch = (blog: Blog["tree"]): [Item[], Search, string] => {
 
   useEffect(() => {
     if (query) {
-      const acc: Item[] = [SearchGit(query), SearchMDN(query)]
-      set(acc)
       listMon().then(res => {
+        const acc: Item[] = [SearchGit(query), SearchMDN(query)]
         for (const item of res) {
           if (item.details.concat(item.title).includes(query)) {
             item.searchMeta = query
