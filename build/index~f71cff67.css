@@ -1640,7 +1640,7 @@ body {
 }
 
 .SearchResult {
-  margin: 5rem 5rem 11rem;
+  margin: 3rem 5rem 11rem;
 }
 .SearchResult ul {
   margin: 0;
@@ -1685,7 +1685,7 @@ body {
 }
 @media screen and (max-width: 740px) {
   .SearchResult {
-    margin: 4rem 0.5rem 11rem;
+    margin: 2rem 0.5rem 11rem;
   }
 }
 
