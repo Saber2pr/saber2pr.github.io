@@ -67,6 +67,7 @@
   border-radius: 3px;
   line-height: 32px;
   padding: 0 16px;
+  word-break: keep-all;
 }
 .ButtonHigh:hover {
   background-color: #20232a;
@@ -1050,6 +1051,7 @@ body {
   border-radius: 3px;
   line-height: 32px;
   padding: 0 16px;
+  word-break: keep-all;
 }
 .ButtonHigh:hover {
   background-color: #20232a;
@@ -1467,6 +1469,7 @@ body {
   border-radius: 3px;
   line-height: 32px;
   padding: 0 16px;
+  word-break: keep-all;
 }
 .ButtonHigh:hover {
   background-color: #20232a;
@@ -1627,6 +1630,7 @@ body {
   border-radius: 3px;
   line-height: 32px;
   padding: 0 16px;
+  word-break: keep-all;
 }
 .Comments-Form-Button:hover {
   background-color: #20232a;
