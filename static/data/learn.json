@@ -151,6 +151,11 @@
       "name": "PhotoShop",
       "href": "https://ps.gaoding.com/",
       "icon": "https://www.gaoding.com/favicon.ico"
+    },
+    {
+      "name": "JSRUN编辑器",
+      "href": "https://jsrun.net/",
+      "icon": "https://jsrun.net/res/favicon.ico"
     }
   ]
 }
