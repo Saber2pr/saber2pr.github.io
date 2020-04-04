@@ -1,22 +1,21 @@
 ﻿{
   "owns": [
     {
-      "name": "github",
+      "name": "Github",
       "href": "https://github.com/Saber2pr",
       "message": "全球最大程(jiao)序(you)员社区",
-      "icon": "https://raw.githubusercontent.com/Saber2pr/MyWeb/master/resource/image/github.webp"
+      "icon": "https://saber2pr.top/MyWeb/resource/image/github.webp"
+    },{
+      "name": "Gitee",
+      "href": "https://gitee.com/saber2pr",
+      "message": "github的备胎qaq",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/gitee.webp"
     },
     {
       "name": "bilibili",
       "href": "https://space.bilibili.com/71959910/#/",
       "message": "动漫废宅网qwq",
       "icon": "https://www.bilibili.com/favicon.ico"
-    },
-    {
-      "name": "JSRUN编辑器",
-      "href": "https://jsrun.net/",
-      "message": "简单程序就不用下IDE了",
-      "icon": "https://jsrun.net/res/favicon.ico"
     },
     {
       "name": "知呼",
