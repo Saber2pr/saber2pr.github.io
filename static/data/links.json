@@ -1,12 +1,12 @@
 ﻿{
   "owns": [
     {
-      "name": "Github",
+      "name": "github",
       "href": "https://github.com/Saber2pr",
       "message": "全球最大程(jiao)序(you)员社区",
       "icon": "https://saber2pr.top/MyWeb/resource/image/github.webp"
     },{
-      "name": "Gitee",
+      "name": "gitee",
       "href": "https://gitee.com/saber2pr",
       "message": "github的备胎qaq",
       "icon": "https://saber2pr.top/MyWeb/resource/image/gitee.webp"
