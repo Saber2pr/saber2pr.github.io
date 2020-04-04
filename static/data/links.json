@@ -18,10 +18,10 @@
       "icon": "https://www.bilibili.com/favicon.ico"
     },
     {
-      "name": "知呼",
-      "href": "https://www.zhihu.com",
-      "message": "欢迎分享你刚编的故事(",
-      "icon": "https://www.zhihu.com/favicon.ico"
+      "name": "leetcode",
+      "href": "https://leetcode-cn.com/problemset/all/",
+      "message": "在无聊的时候、没事的时候、想的时候（",
+      "icon": "https://raw.githubusercontent.com/Saber2pr/MyWeb/master/resource/image/leetcode.jpeg"
     },
     {
       "name": "网易云",
@@ -30,10 +30,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
     },
     {
-      "name": "leetcode",
-      "href": "https://leetcode-cn.com/problemset/all/",
-      "message": "在无聊的时候、没事的时候、想的时候（",
-      "icon": "https://raw.githubusercontent.com/Saber2pr/MyWeb/master/resource/image/leetcode.jpeg"
+      "name": "知呼",
+      "href": "https://www.zhihu.com",
+      "message": "欢迎分享你刚编的故事(",
+      "icon": "https://www.zhihu.com/favicon.ico"
     }
   ],
   "friends": [{ "name": "Iriasu", "href": "https://tsuinosora.moe" }]
