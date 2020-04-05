@@ -135,27 +135,5 @@
       "href": "https://nextjs.frontendx.cn/docs/#%E5%AE%89%E8%A3%85",
       "icon": "https://nextjs.frontendx.cn/static/favicon/favicon.ico"
     }
-  ],
-  "在线制图": [
-    {
-      "name": "思维导图",
-      "href": "https://mindmap.airmore.cn/",
-      "icon": "https://26dcg.aoscdn.com/static/favicon.png"
-    },
-    {
-      "name": "流程图",
-      "href": "https://www.liuchengtu.com/home",
-      "icon": "https://www.liuchengtu.com/favicon.ico"
-    },
-    {
-      "name": "PhotoShop",
-      "href": "https://ps.gaoding.com/",
-      "icon": "https://www.gaoding.com/favicon.ico"
-    },
-    {
-      "name": "JSRUN",
-      "href": "https://jsrun.net/",
-      "icon": "https://jsrun.net/res/favicon.ico"
-    }
   ]
 }
