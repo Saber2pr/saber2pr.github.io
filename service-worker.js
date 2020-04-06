@@ -2,10 +2,13 @@
  * @Author: saber2pr
  * @Date: 2019-11-21 22:13:28
  * @Last Modified by: saber2pr
- * @Last Modified time: 2020-01-26 14:44:08
+ * @Last Modified time: 2020-04-06 18:32:37
  */
 const staticAssets = [
-  /** CODE START **/"/build/index~f71cff67.css","/build/index~f71cff67.min.js","/build/style.1.css","/build/vendor~index~253ae210.min.js"/** CODE END **/,
+  /** CODE START **/ "/build/index~f71cff67.css",
+  "/build/index~f71cff67.min.js",
+  "/build/style.1.css",
+  "/build/vendor~index~253ae210.min.js" /** CODE END **/,
   "/",
   // icon
   "/static/icon/saber2pr-144x144.png",
@@ -28,7 +31,8 @@ self.addEventListener("install", event =>
 const filterUrl = url =>
   url.includes("jsonpCallback") ||
   url.includes("static/data/version.json") ||
-  url.includes("/api")
+  url.includes("/api") ||
+  url.includes("WIKI")
 
 self.addEventListener("fetch", event => {
   const url = event.request.url
