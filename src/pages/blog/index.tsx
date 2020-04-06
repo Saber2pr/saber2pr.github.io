@@ -176,7 +176,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           }}
         />
         {isShow || <ScrollToTop />}
-        {(isShow && showOp.musicBox) || (
+        {!showOp.musicBox || isShow || (
           <i
             className="iconfont icon-musicBox"
             onClick={createMusicBox}
