@@ -147,7 +147,7 @@ const createWiki = (repo: string) => {
 
 declare var _WIKI_REPO_: string
 if (_WIKI_REPO_ === undefined) {
-  var _WIKI_REPO_ = origin.repo
+  var _WIKI_REPO_ = "./"
 }
 
 createWiki(_WIKI_REPO_)

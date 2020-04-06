@@ -4,7 +4,7 @@ import { memoGet } from "./axios"
 
 export const request = async (type: keyof typeof origin.data): Promise<any> => {
   const url = origin.data[type]
-  const res = await memoGet<string>(url)
+  const res = await memoGet<string>("/" + origin.repo + url)
   return res.data
 }
 
