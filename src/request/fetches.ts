@@ -12,7 +12,7 @@ export const requestOriginContent = (path: string) =>
   memoGet<string>(API.createContentUrl(origin.userId, origin.repo, path))
 
 export const requestContent = async (href: string) => {
-  const res = await memoGet<string>(href)
+  const res = await memoGet<string>("/" + origin.repo + href)
   if (!res) throw new Error("错误：请求的资源未找到！")
   return res.data
 }
