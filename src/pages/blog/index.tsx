@@ -41,7 +41,10 @@ const BLink = (props: Link) => (
 export interface Blog {
   tree: TextTree
   fullWinBtnAPI: fullWinBtnAPI
-  showLatest?: boolean
+  showOp?: {
+    latest?: boolean
+    musicBox?: boolean
+  }
 }
 
 const createOriginHref = (href: string) =>
@@ -49,7 +52,11 @@ const createOriginHref = (href: string) =>
 
 export const Blog = React.forwardRef<HTMLElement, Blog>(
   (
-    { tree, fullWinBtnAPI: { select, selectProps }, showLatest = true }: Blog,
+    {
+      tree,
+      fullWinBtnAPI: { select, selectProps },
+      showOp = { latest: true, musicBox: true }
+    }: Blog,
     fullwinBtn_ref
   ) => {
     const firstBlog = queryRootFirstChildMemo(tree)
@@ -97,7 +104,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                         编辑本页面
                       </a>
                     </div>
-                    {showLatest && (
+                    {showOp.latest && (
                       <p className="Blog-Main-Content-Date">
                         最近更新 {timeDeltaFromNow(getLastModified(href))}
                       </p>
@@ -169,7 +176,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           }}
         />
         {isShow || <ScrollToTop />}
-        {isShow || (
+        {(isShow && showOp.musicBox) || (
           <i
             className="iconfont icon-musicBox"
             onClick={createMusicBox}

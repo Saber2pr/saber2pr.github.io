@@ -110,7 +110,10 @@ export const App = ({ blogTree }: App) => {
                 ref={btn_ref}
                 fullWinBtnAPI={fullWinBtnAPI}
                 tree={blogTree}
-                showLatest={false}
+                showOp={{
+                  latest: false,
+                  musicBox: false
+                }}
               />
             )}
           />
