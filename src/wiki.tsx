@@ -23,7 +23,13 @@ import "./app.less"
 import { Blog, NotFound, SearchResult } from "./pages"
 import { SearchInput, Themer, Uv, ErrorBoundary, Loading } from "./components"
 
-import { getHash, queryRootFirstChildMemo, welcome, parseTree } from "./utils"
+import {
+  getHash,
+  queryRootFirstChildMemo,
+  welcome,
+  parseTree,
+  whenInDEV
+} from "./utils"
 import { useEvent, useBlogMenu, useFullWindow } from "./hooks"
 import { Routes as RS, origin } from "./config"
 import { request } from "./request"
@@ -145,9 +151,8 @@ const createWiki = (repo: string) => {
   )
 }
 
-declare var _WIKI_REPO_: string
-if (_WIKI_REPO_ === undefined) {
-  var _WIKI_REPO_ = "./"
+if (whenInDEV()) {
+  createWiki("./")
+} else {
+  createWiki(location.pathname.replace(/\//g, ""))
 }
-
-createWiki(_WIKI_REPO_)
