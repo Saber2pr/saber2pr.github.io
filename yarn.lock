@@ -102,6 +102,11 @@
   resolved "https://registry.yarnpkg.com/@saber2pr/secret/-/secret-0.0.4.tgz#24971fa066dab423034d7164473e5b1037e2c339"
   integrity sha512-257ZMLATTdFPJ8nPilB8Q8cZjFDDIsuZGYkRsRFfSBIBeEKFVuNPh0q3ylMa+deL5UrQyjv1763Z+RpWF2PEqg==
 
+"@saber2pr/tree-lang@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.npm.taobao.org/@saber2pr/tree-lang/download/@saber2pr/tree-lang-0.0.9.tgz#33b0b41de33900025e8bee40c462dff4df2537cc"
+  integrity sha1-M7C0HeM5AAJei+5AxGLf9N8lN8w=
+
 "@saber2pr/webpack-configer@0.0.9":
   version "0.0.9"
   resolved "http://r.cnpmjs.org/@saber2pr/webpack-configer/download/@saber2pr/webpack-configer-0.0.9.tgz#e3e194177bb144da8fbf3528e853e11a5c1f5e9a"

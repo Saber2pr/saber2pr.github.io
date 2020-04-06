@@ -8,3 +8,4 @@ data/blogs.json
 __blog__
 auth/
 yarn-error.log
+/release

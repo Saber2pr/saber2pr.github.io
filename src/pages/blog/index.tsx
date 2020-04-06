@@ -41,13 +41,17 @@ const BLink = (props: Link) => (
 export interface Blog {
   tree: TextTree
   fullWinBtnAPI: fullWinBtnAPI
+  showLatest?: boolean
 }
 
 const createOriginHref = (href: string) =>
   API.createBlobHref(origin.userId, origin.repo, href + ".md")
 
 export const Blog = React.forwardRef<HTMLElement, Blog>(
-  ({ tree, fullWinBtnAPI: { select, selectProps } }: Blog, fullwinBtn_ref) => {
+  (
+    { tree, fullWinBtnAPI: { select, selectProps }, showLatest = true }: Blog,
+    fullwinBtn_ref
+  ) => {
     const firstBlog = queryRootFirstChildMemo(tree)
     const links = collect(tree)
 
@@ -93,9 +97,11 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                         编辑本页面
                       </a>
                     </div>
-                    <p className="Blog-Main-Content-Date">
-                      最近更新 {timeDeltaFromNow(getLastModified(href))}
-                    </p>
+                    {showLatest && (
+                      <p className="Blog-Main-Content-Date">
+                        最近更新 {timeDeltaFromNow(getLastModified(href))}
+                      </p>
+                    )}
                     <NextBefore before={links[i - 1]} next={links[i + 1]} />
                   </div>
                 </>

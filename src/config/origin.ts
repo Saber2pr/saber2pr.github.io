@@ -10,7 +10,8 @@ export const origin = {
     about: "/static/data/about.json",
     links: "/static/data/links.json",
     version: "/static/data/version.json",
-    musicList: "/static/data/musicList.json"
+    musicList: "/static/data/musicList.json",
+    wiki: "/wiki"
   },
   theme: {
     light: "",
