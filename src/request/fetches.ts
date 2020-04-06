@@ -1,18 +1,22 @@
 import { origin } from "../config"
-import { API } from "./api"
 import { memoGet } from "./axios"
 
 export const request = async (type: keyof typeof origin.data): Promise<any> => {
-  const url = origin.data[type]
-  const res = await memoGet<string>("/" + origin.repo + url)
+  let url = origin.data[type]
+  if (/localhost/.test(location.origin)) {
+  } else {
+    url = "/" + origin.repo + url
+  }
+  const res = await memoGet<string>(url)
   return res.data
 }
 
-export const requestOriginContent = (path: string) =>
-  memoGet<string>(API.createContentUrl(origin.userId, origin.repo, path))
-
 export const requestContent = async (href: string) => {
-  const res = await memoGet<string>("/" + origin.repo + href)
+  if (/localhost/.test(location.origin)) {
+  } else {
+    href = "/" + origin.repo + href
+  }
+  const res = await memoGet<string>(href)
   if (!res) throw new Error("错误：请求的资源未找到！")
   return res.data
 }
