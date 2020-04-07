@@ -19,7 +19,7 @@
     "test": "webpack -h"
   },
   "dependencies": {
-    "@saber2pr/md2jsx": "^0.1.0",
+    "@saber2pr/md2jsx": "^0.1.1",
     "@saber2pr/memo": "^0.0.3",
     "@saber2pr/pv-count": "^0.0.1",
     "@saber2pr/rc-audio": "^0.1.1",
