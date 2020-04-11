@@ -12,10 +12,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/gitee.webp"
     },
     {
-      "name": "bilibili",
-      "href": "https://space.bilibili.com/71959910/#/",
-      "message": "动漫废宅网qwq",
-      "icon": "https://www.bilibili.com/favicon.ico"
+      "name": "代码编辑器",
+      "href": "https://saber2pr.gitee.io/editor-online/",
+      "message": "在线版vscode",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/vscode.webp"
     },
     {
       "name": "leetcode",
@@ -24,10 +24,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/leetcode.jpeg"
     },
     {
-      "name": "代码编辑器",
-      "href": "https://saber2pr.gitee.io/editor-online/",
-      "message": "在线版vscode",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/vscode.webp"
+      "name": "bilibili",
+      "href": "https://space.bilibili.com/71959910/#/",
+      "message": "动漫废宅网qwq",
+      "icon": "https://www.bilibili.com/favicon.ico"
     },
     {
       "name": "知呼",
