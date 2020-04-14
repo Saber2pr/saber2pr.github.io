@@ -1,9 +1,13 @@
 import { origin } from "../config"
 import { memoGet } from "./axios"
 
+let should_omit_base = !!origin.omit_base.find(url =>
+  location.origin.includes(url)
+)
+
 export const request = async (type: keyof typeof origin.data): Promise<any> => {
   let url = origin.data[type]
-  if (/localhost/.test(location.origin)) {
+  if (should_omit_base) {
   } else {
     url = "/" + origin.repo + url
   }
@@ -12,7 +16,7 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
 }
 
 export const requestContent = async (href: string) => {
-  if (/localhost/.test(location.origin)) {
+  if (should_omit_base) {
   } else {
     href = "/" + origin.repo + href
   }

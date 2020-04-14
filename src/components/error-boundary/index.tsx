@@ -1,5 +1,6 @@
 import React from "react"
 import "./style.less"
+import { freeCache } from "../../utils"
 
 export type ErrorInfo = { componentStack: string }
 export type Error = { message?: string; stack?: string }
@@ -15,6 +16,7 @@ export class ErrorBoundary extends React.Component<
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     this.setState({ hasError: true, error, info })
+    freeCache("STATIC").then(() => freeCache("DYNAMIC"))
   }
 
   render() {
