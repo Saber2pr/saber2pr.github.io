@@ -15,3 +15,23 @@ git push upstream master
 > 注意`当前分支`可以是任意的，不一定是 master。
 
 3. 然后再次 push 到自己的 origin，重复第 2 步，直到一致。
+
+---
+
+还有一种方法，直接将 upstream 的 master 分支设置为当前分支的上游
+
+```bash
+git branch --set-upstream-to=upstream/master master
+```
+
+这样当 upstream/master 有更新时，可以直接 pull 下来到当前分支。
+
+但推送的时候，需要显式指定远程 ref，即
+
+```bash
+git push origin master
+```
+
+将当前分支推送到 origin/master 分支。
+
+这时如果省略`origin master`单独执行`git push`就会向 upstream 推送，但这是不可能的。
