@@ -7,7 +7,7 @@ upstream 命名的是 fork 的目标远程仓库，
 如果不一致，需要本地执行：
 
 ```bash
-git push upstream master
+git pull upstream master
 ```
 
 即将 upstream 仓库的 master 分支拉取并覆盖到`当前分支`，如果出现冲突可以手动解决。
