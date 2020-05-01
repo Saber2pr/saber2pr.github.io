@@ -2,9 +2,9 @@ upstream 命名的是 fork 的目标远程仓库，
 
 1. fork 一份（fork 一份作为自己的远程仓库:origin）后，clone 到本地，提交 commits，然后 push 到自己的 origin。
 
-2. github 上`当前分支`会显示出 origin 与 upstream 之间的进度是否一致，如果一致就可以发起 pull request。
+2. github 上`当前分支`会显示出 origin 与 upstream 之间的进度是否一致，如果一致或超前就可以发起 pull request。
 
-如果不一致，需要本地执行：
+否则，需要本地执行：
 
 ```bash
 git pull upstream master
