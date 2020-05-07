@@ -7,10 +7,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/github.webp"
     },
     {
-      "name": "知呼",
-      "href": "https://www.zhihu.com",
-      "message": "欢迎分享你刚编的故事(",
-      "icon": "https://www.zhihu.com/favicon.ico"
+      "name": "bilibili",
+      "href": "https://space.bilibili.com/71959910/#/",
+      "message": "动漫废宅网qwq",
+      "icon": "https://www.bilibili.com/favicon.ico"
     },
     {
       "name": "代码编辑器",
@@ -25,10 +25,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/leetcode.jpeg"
     },
     {
-      "name": "bilibili",
-      "href": "https://space.bilibili.com/71959910/#/",
-      "message": "动漫废宅网qwq",
-      "icon": "https://www.bilibili.com/favicon.ico"
+      "name": "知呼",
+      "href": "https://www.zhihu.com",
+      "message": "欢迎分享你刚编的故事(",
+      "icon": "https://www.zhihu.com/favicon.ico"
     },
     {
       "name": "思维导图",
