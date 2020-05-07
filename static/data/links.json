@@ -7,10 +7,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/github.webp"
     },
     {
-      "name": "gitee",
-      "href": "https://gitee.com/saber2pr",
-      "message": "github的备胎qaq",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/gitee.webp"
+      "name": "知呼",
+      "href": "https://www.zhihu.com",
+      "message": "欢迎分享你刚编的故事(",
+      "icon": "https://www.zhihu.com/favicon.ico"
     },
     {
       "name": "代码编辑器",
@@ -19,10 +19,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/vscode.webp"
     },
     {
-      "name": "知呼",
-      "href": "https://www.zhihu.com",
-      "message": "欢迎分享你刚编的故事(",
-      "icon": "https://www.zhihu.com/favicon.ico"
+      "name": "leetcode",
+      "href": "https://leetcode-cn.com/problemset/all/",
+      "message": "写作业",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/leetcode.jpeg"
     },
     {
       "name": "bilibili",
