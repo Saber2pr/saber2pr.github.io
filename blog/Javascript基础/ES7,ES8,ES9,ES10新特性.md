@@ -87,7 +87,7 @@ for await (const v of arrAsy) {
 }
 ```
 
-> 是Promise.map的有序版本
+> 是Promise.all的有序版本
 
 3. Promise.prototype.finally()
 
