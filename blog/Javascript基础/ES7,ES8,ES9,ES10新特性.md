@@ -80,11 +80,13 @@ setState({ ...state, name: "spread" })
 2. Asynchronous iteration
 
 ```ts
-const arrAsy = [1, 2].map(v => new Promise(res => setTimeout(res(v), 1000)))
+const arrAsy = [1, 2].map(v => new Promise(res => setTimeout(res, 1000, v)))
 
-for await (const v of arrAsy) {
-  console.log(v)
-}
+;(async function () {
+  for await (const v of arrAsy) {
+    console.log(v)
+  }
+})()
 ```
 
 > 是Promise.all的有序版本
