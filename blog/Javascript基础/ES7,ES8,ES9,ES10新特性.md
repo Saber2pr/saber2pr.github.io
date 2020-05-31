@@ -87,6 +87,8 @@ for await (const v of arrAsy) {
 }
 ```
 
+> 是Promise.map的有序版本
+
 3. Promise.prototype.finally()
 
 在 promise 结束时，无论结果是 fulfilled 或者是 rejected，都会执行指定的回调函数。
