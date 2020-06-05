@@ -11,6 +11,12 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
   } else {
     url = "/" + origin.repo + url
   }
+
+  // version no-cache
+  if (type === "version") {
+    url += `?t=${Date.now()}`
+  }
+
   const res = await memoGet<string>(url)
   return res.data
 }
