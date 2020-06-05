@@ -121,7 +121,7 @@ export const checkUpdate = (callback?: () => void, canOmit = false) => {
       if (whenInDEV()) {
         await timeout()
       }
-      return res.json() as Promise<Version>
+      return res as Promise<Version>
     })
     .then(async version => {
       callback && callback()
