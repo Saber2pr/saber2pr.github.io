@@ -12,6 +12,7 @@ import {
 import { origin } from "../../config"
 import { Model } from "../model"
 import { localStore } from "../../store"
+import { request } from "../../request"
 
 let LOCK = false
 
@@ -115,7 +116,7 @@ export const checkUpdate = (callback?: () => void, canOmit = false) => {
 
   if (LOCK) return
   if (shouldUpdateOmit()) return
-  fetch(origin.data.version)
+  request("version")
     .then(async res => {
       if (whenInDEV()) {
         await timeout()
