@@ -1,5 +1,6 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import "./style.less"
+import { origin } from "../../config"
 
 export interface Loading {
   type?: "block" | "unset" | "line"
@@ -19,6 +20,20 @@ export const Loading = ({ type = "unset" }: Loading) => {
     )
   }
 
+  const [message, setMessage] = useState(<></>)
+
+  useEffect(() => {
+    const handle = setTimeout(() => {
+      setMessage(
+        <div className="Message">
+          等待时间太长？访问[<a href={"//" + origin.mirror}>加速版</a>].
+        </div>
+      )
+    }, 4000)
+
+    return () => clearTimeout(handle)
+  }, [])
+
   return (
     <div className="Loading">
       <div className="Loading-Block" />
@@ -26,6 +41,7 @@ export const Loading = ({ type = "unset" }: Loading) => {
       <div className="Loading-Block" />
       <div className="Loading-Block" />
       <div className="Loading-Block" />
+      {message}
     </div>
   )
 }
