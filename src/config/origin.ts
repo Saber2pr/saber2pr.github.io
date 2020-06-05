@@ -1,6 +1,7 @@
 export const origin = {
   userId: "saber2pr",
   repo: "saber2pr.github.io",
+  mirror: "saber2pr.gitee.io",
   omit_base: ["saber2pr.gitee.io", "localhost"],
   md: "/blog",
   data: {
