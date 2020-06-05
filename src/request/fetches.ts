@@ -1,5 +1,6 @@
 import { origin } from "../config"
-import { memoGet } from "./axios"
+import { memoGet, axios } from "./axios"
+import { ResponseConfig } from "@saber2pr/request"
 
 let should_omit_base = !!origin.omit_base.find(url =>
   location.origin.includes(url)
@@ -12,12 +13,18 @@ export const request = async (type: keyof typeof origin.data): Promise<any> => {
     url = "/" + origin.repo + url
   }
 
+  let res: ResponseConfig<any>
+
   // version no-cache
   if (type === "version") {
+    // no memo
     url += `?t=${Date.now()}`
+    res = await axios.get(url)
+  } else {
+    // memo get
+    res = await memoGet<string>(url)
   }
 
-  const res = await memoGet<string>(url)
   return res.data
 }
 
