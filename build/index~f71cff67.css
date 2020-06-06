@@ -1247,6 +1247,9 @@ body {
     overflow: hidden;
     margin: 0;
   }
+  .Blog .MD2JSX-Code .Paste {
+    right: 0;
+  }
   .Blog pre {
     font-size: 0.9rem;
     margin-left: -1rem !important;
