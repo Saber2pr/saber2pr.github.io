@@ -1,0 +1,104 @@
+1. 编写 Dockerfile ，示例：
+
+```dockerfile
+FROM node:10-alpine
+
+WORKDIR /app
+COPY . /app
+
+RUN npm config set registry 'https://registry.npm.taobao.org' \
+	&& npm i \
+	&& npm run build
+
+CMD [ "npm", "start" ]
+```
+
+2. 执行镜像构建命令：
+
+```bash
+docker image build -t myimage .
+```
+
+> 注意最后有一个点不能省略
+
+3. 运行镜像
+
+```bash
+docker run -p 3000:3000 -it myimage
+```
+
+> 容器内 3000 端口映射到容器外 3000 端口
+
+4. 运行容器
+
+> 运行指定 CONTAINER ID 的容器
+
+```bash
+docker container start 684f23ec4ea9
+```
+
+5. 列出已存在的镜像
+
+```bash
+docker images
+```
+
+6. 删除镜像：
+
+> 删除指定 IMAGE ID 的镜像
+
+```bash
+docker rmi 597d72732244
+```
+
+7. 查看已存在的容器
+
+```bash
+docker ps -a
+```
+
+8. 删除容器
+
+> 删除指定 CONTAINER ID 的容器
+
+```bash
+docker rm dcf9dfaf355d
+```
+
+---
+
+# docker 国内加速镜像配置
+
+1. 创建 docker 配置文件夹
+
+```bash
+sudo mkdir -p /etc/docker
+```
+
+2. 创建 docker 配置文件
+
+```bash
+sudo vi /etc/docker/daemon.json
+```
+
+写入以下内容
+
+```bash
+{
+"registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+```
+
+> 网易 docker 加速镜像
+
+3. 重启 daemon
+
+```bash
+sudo systemctl daemon-reload
+```
+
+4. 重启 docker
+
+```bash
+sudo systemctl restart docker
+```
