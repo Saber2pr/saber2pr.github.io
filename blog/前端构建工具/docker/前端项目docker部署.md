@@ -64,6 +64,40 @@ docker ps -a
 ```bash
 docker rm dcf9dfaf355d
 ```
+---
+
+# docker容器更新
+
+1. 进入容器bash
+
+```bash
+docker exec -it 4637c19a2d3a /bin/bash
+```
+或者
+```bash
+docker exec -it 4637c19a2d3a /bin/sh
+```
+或者
+```bash
+docker exec -it 4637c19a2d3a bash
+```
+或者
+```bash
+docker exec -it 4637c19a2d3a sh
+```
+
+2. 在容器内修改
+
+例如git更新：
+```bash
+git pull
+```
+
+3. 容器修改后即更新。也可以导出(fork)此次修改的版本：
+
+```bash
+docker commit 89cebb83e653 test:1351
+```
 
 ---
 
