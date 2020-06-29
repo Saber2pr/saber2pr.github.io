@@ -86,6 +86,8 @@ docker exec -it 4637c19a2d3a bash
 docker exec -it 4637c19a2d3a sh
 ```
 
+> 输入exit退出容器
+
 2. 在容器内修改
 
 例如git更新：
