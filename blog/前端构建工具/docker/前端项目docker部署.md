@@ -24,10 +24,10 @@ docker image build -t myimage .
 3. 运行镜像
 
 ```bash
-docker run -p 3000:3000 -it myimage
+docker run -d -p 3000:3000 -it myimage
 ```
 
-> 容器内 3000 端口映射到容器外 3000 端口
+> -d表示后台运行. 容器内 3000 端口映射到容器外 3000 端口.
 
 4. 运行容器
 
