@@ -1,22 +1,28 @@
 1. 编写 Dockerfile ，示例：
 
 ```dockerfile
+# node
 FROM node:10-alpine
+
+# mirror
+RUN echo 'http://mirrors.aliyun.com/alpine/v3.5/main' > /etc/apk/repositories
 
 WORKDIR /app
 COPY . /app
 
-RUN npm config set registry 'https://registry.npm.taobao.org' \
-	&& npm i \
-	&& npm run build
+# npm
+RUN npm config set registry 'https://registry.npm.taobao.org'
+RUN npm i
+RUN npm run build
 
+# script
 CMD [ "npm", "start" ]
 ```
 
 2. 执行镜像构建命令：
 
 ```bash
-docker image build -t myimage .
+docker image build -t myimage:v1 .
 ```
 
 > 注意最后有一个点不能省略
@@ -24,7 +30,7 @@ docker image build -t myimage .
 3. 运行镜像
 
 ```bash
-docker run -d -p 3000:3000 -it myimage
+docker run -d -p 3000:3000 -it myimage:v1
 ```
 
 > -d表示后台运行. 容器内 3000 端口映射到容器外 3000 端口.
@@ -34,7 +40,7 @@ docker run -d -p 3000:3000 -it myimage
 > 运行指定 CONTAINER ID 的容器
 
 ```bash
-docker container start 684f23ec4ea9
+docker start 684f23ec4ea9
 ```
 
 5. 列出已存在的镜像
@@ -57,6 +63,8 @@ docker rmi 597d72732244
 docker ps -a
 ```
 
+> 不加-a只列出运行中的容器
+
 8. 删除容器
 
 > 删除指定 CONTAINER ID 的容器
@@ -64,6 +72,7 @@ docker ps -a
 ```bash
 docker rm dcf9dfaf355d
 ```
+
 ---
 
 # docker容器更新
@@ -71,7 +80,7 @@ docker rm dcf9dfaf355d
 1. 进入容器bash
 
 ```bash
-docker exec -it 4637c19a2d3a /bin/bash
+docker exec -it 4637c19a2d3a sh
 ```
 或者
 ```bash
@@ -83,7 +92,7 @@ docker exec -it 4637c19a2d3a bash
 ```
 或者
 ```bash
-docker exec -it 4637c19a2d3a sh
+docker exec -it 4637c19a2d3a /bin/bash
 ```
 
 > 输入exit退出容器
@@ -95,11 +104,7 @@ docker exec -it 4637c19a2d3a sh
 git pull
 ```
 
-3. 容器修改后即更新。也可以导出(fork)此次修改的版本：
-
-```bash
-docker commit 89cebb83e653 test:1351
-```
+> 容器修改后即更新
 
 ---
 
