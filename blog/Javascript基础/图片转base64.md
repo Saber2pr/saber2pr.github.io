@@ -1,14 +1,14 @@
 ### 场景
 
-safari不支持webp格式图片，所以需要转为base64显示。
+safari 不支持 webp 格式图片，所以需要转为 base64 显示。
 
 ### 原理
 
-利用XMLHttpRequest请求到blob资源，然后利用FileReader将blob转为DataURL
+利用 XMLHttpRequest 请求到 blob 资源，然后利用 FileReader 将 blob 转为 DataURL
 
 ```ts
 export const parseBase64 = (imgUrl: string) =>
-  new Promise<string>(resolve => {
+  new Promise<string>((resolve) => {
     window.URL = window.URL || window.webkitURL
 
     const xhr = new XMLHttpRequest()
@@ -19,7 +19,7 @@ export const parseBase64 = (imgUrl: string) =>
       if (xhr.readyState === 4 && xhr.status === 200) {
         const blob = xhr.response
         const reader = new FileReader()
-        reader.onloadend = e => {
+        reader.onloadend = (e) => {
           resolve(e.target.result as string)
         }
         reader.readAsDataURL(blob)
@@ -30,12 +30,12 @@ export const parseBase64 = (imgUrl: string) =>
   })
 ```
 
-### React组件
+### React 组件
 
-根据src字符串判断是否为webp资源，然后转为base64图。
+根据 src 字符串判断是否为 webp 资源，然后转为 base64 图。
 
- ```tsx
- export interface Img
+```tsx
+export interface Img
   extends React.DetailedHTMLProps<
     React.ImgHTMLAttributes<HTMLImageElement>,
     HTMLImageElement
@@ -54,4 +54,4 @@ export const Img = ({ src, ...props }: Img) => {
 
   return <img {...props} src={srcStr} />
 }
- ```
+```
