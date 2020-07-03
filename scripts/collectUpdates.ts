@@ -4,10 +4,10 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2019-10-09 21:46:58
  */
-import { diff, commit, Commit } from "@saber2pr/git"
+import { diff, commit, Commit } from '@saber2pr/git'
 
 export type Update = {
-  type: Commit["type"]
+  type: Commit['type']
   path: string
   date: string
 }
@@ -16,8 +16,8 @@ export const collectUpdates = async (root: string) => {
   const commits = await diff(root)
   const updates = commits.map<Update>(({ type, master: { path } }) => ({
     type,
-    path: path.replace(root, ""),
-    date: new Date().toLocaleString()
+    path: path.replace(root, ''),
+    date: new Date().toUTCString(),
   }))
   await commit(commits)
   return updates
