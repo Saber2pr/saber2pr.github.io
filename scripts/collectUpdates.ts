@@ -17,7 +17,7 @@ export const collectUpdates = async (root: string) => {
   const updates = commits.map<Update>(({ type, master: { path } }) => ({
     type,
     path: path.replace(root, ''),
-    date: new Date().toUTCString(),
+    date: new Date().toLocaleString(),
   }))
   await commit(commits)
   return updates
