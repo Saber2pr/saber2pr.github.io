@@ -33,7 +33,7 @@ docker image build -t myimage:v1 .
 docker run -d -p 3000:3000 -it myimage:v1
 ```
 
-> -d表示后台运行. 容器内 3000 端口映射到容器外 3000 端口.
+> -d 表示后台运行. 容器内 3000 端口映射到容器外 3000 端口.
 
 4. 运行容器
 
@@ -63,7 +63,7 @@ docker rmi 597d72732244
 docker ps -a
 ```
 
-> 不加-a只列出运行中的容器
+> 不加-a 只列出运行中的容器
 
 8. 删除容器
 
@@ -75,31 +75,38 @@ docker rm dcf9dfaf355d
 
 ---
 
-# docker容器更新
+# docker 容器更新
 
-1. 进入容器bash
+1. 进入容器 bash
 
 ```bash
 docker exec -it 4637c19a2d3a sh
 ```
+
 或者
+
 ```bash
 docker exec -it 4637c19a2d3a /bin/sh
 ```
+
 或者
+
 ```bash
 docker exec -it 4637c19a2d3a bash
 ```
+
 或者
+
 ```bash
 docker exec -it 4637c19a2d3a /bin/bash
 ```
 
-> 输入exit退出容器
+> 输入 exit 退出容器
 
 2. 在容器内修改
 
-例如git更新：
+例如 git 更新：
+
 ```bash
 git pull
 ```
