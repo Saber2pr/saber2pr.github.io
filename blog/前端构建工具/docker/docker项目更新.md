@@ -1,15 +1,35 @@
 项目代码更新后需要重新构建镜像运行，为了方便以及安全一般使用脚本，例如：
 
 ```shell
+# CONFIG
+WORKSPACE="作者名";
 NAME="项目名称";
 PORT=端口;
+
+# VERSION
 DATE=$(date +%Y%m%d%H%M%S);
 VERSION=${1:-$DATE};
 
-cd /home/项目路径 \
-&& git pull \
-&& docker image build -t ${NAME}:$VERSION . \
+cd /home/${WORKSPACE}/${NAME};
+git pull;
+docker image build -t ${NAME}:$VERSION . \
 && docker stop ${NAME} \
 && docker rm ${NAME} \
-&& docker run --name=${NAME} -d -p ${PORT}:${PORT} ${NAME}:$VERSION
+&& docker run --name=${NAME} -d -p ${PORT}:${PORT} ${NAME}:$VERSION;
 ```
+
+---
+
+### 切换运行版本
+
+```shell
+# CONFIG
+NAME="项目名称";
+PORT=端口;
+
+docker stop ${NAME} \
+&& docker rm ${NAME} \
+&& docker run --name=${NAME} -d -p ${PORT}:${PORT} ${NAME}:$1;
+```
+
+> 接受一个参数作为切换目标版本号
