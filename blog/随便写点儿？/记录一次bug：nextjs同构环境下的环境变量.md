@@ -15,9 +15,23 @@ const config = {
 
 然后代码里可以通过 process.env.API 拿到值。
 
-但是实际上只有服务端可以通过 process.env 拿到 API，浏览器端访问你会发现它是 undefined。。，这样 ajax 的时候 api 就会为 undefined 而报错。process 变量本身是 nodejs 端的一个全局变量，它有些属性依赖 nodejs 环境，所以自然不能直接传给浏览器。
+但是实际上只有服务端可以通过 process.env 拿到 API，浏览器端访问你会发现它是 undefined。。，这样 ajax 的时候 api 就会为 undefined 而报错。
 
-在 nextjs 文档中关于 env 环境变量的说法是，它不会 export 到浏览器端，除非它的前缀是`NEXT_PUBLIC_`。
+process 变量本身是 nodejs 端的一个全局变量，它有些属性依赖 nodejs 环境，所以自然不能直接传给浏览器。但是前端脚手架们为了兼容一些库的 tree-shaking 打包，通常都会在代码中生成一个 process 变量，并设置 env.NODE_ENV 的值。
+
+```js
+'use strict'
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./cjs/react.production.min.js')
+} else {
+  module.exports = require('./cjs/react.development.js')
+}
+```
+
+> react 中的 tree-shaking 代码拆分。
+
+在 nextjs 文档中关于 env 环境变量的说法是，它不会 export 到浏览器端，除非它是 `NODE_ENV` 或者它的前缀是`NEXT_PUBLIC_`。
 
 所以需要命名为 NEXT_PUBLIC_API：
 
