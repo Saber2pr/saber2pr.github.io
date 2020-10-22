@@ -7,3 +7,9 @@
 4. Modal 组件 visible 为 false 时默认是不销毁子元素的(可以理解为默认是 keep-alive 的)，如果 Model 内组件中用了定时器(比如 react-use 的 useInterval)，你会发现当 Model 消失时，定时器还在跑，useEffect 没有执行 clean subscription。Modal 提供了一个属性用来控制隐藏时是否销毁组件(建议设置为 true)：destroyOnClose，默认 false。
 
 5. antd 中想要拿到非受控的 Input 组件的 value 只有一个办法，就是使用 Form Field，在外面包一层 Form>Form.Item 组件，然后使用 form.getFieldValue 获取相应字段的值。Input 组件没有 forwardRef。
+
+6. Table 组件的 columns 最后一项的 width 最好不要指定，所有的 column.width 加起来不要正好等于容器宽度，否则在某些浏览器上会出现谜之抖动。
+
+7. Menu 中使用 SubMenu，SubMenu 的 Item 默认有一个内联的 padding-left: 48px;，这个是根据 level 和 inlineIndent 计算而来的，inlineIndent 默认为 24px，SubMenu 下的 Item 的 level（层级）为 2，所以 24\*2=48。这两个属性只有设置在 Menu 组件上才生效！SubMenu 和 Menu.Item 上设置是不起作用的！
+
+8. 如果你的项目大量的去覆盖 antd 的默认样式，一定会遇到严重的 CSS Layout Shift 问题！很大一部分原因是因为 antd 组件有些样式本应该通过 props 设置，而你非要使用 css 去设置，写了很复杂的选择器甚至 important 去提高权重，加上 antd 组件几乎都自带 transition，css 文件请求与 dom 渲染之间存在时差，导致页面渲染过程惨不忍睹！所以能通过 props 去设置的样式一定不要去覆盖 css，如果需要可以将 antd 组件自带的 transition 设为 none！特别是你需要自定义其大小、样式、位置时！
