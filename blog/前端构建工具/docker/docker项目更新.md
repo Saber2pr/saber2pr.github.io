@@ -8,10 +8,15 @@ PORT=端口;
 
 # VERSION
 DATE=$(date +%Y%m%d%H%M%S);
-VERSION=${1:-$DATE};
+VERSION=$DATE;
+
+# BRANCH
+default_test_branch="testing";
+test_branch=${1:-$default_test_branch};
 
 cd /home/${WORKSPACE}/${NAME};
-git pull;
+git checkout $test_branch;
+git pull origin $test_branch;
 docker image build -t ${NAME}:$VERSION . \
 && docker stop ${NAME} \
 && docker rm ${NAME} \
@@ -45,9 +50,14 @@ NAME="项目名称";
 
 # VERSION
 DATE=$(date +%Y%m%d%H%M%S);
-VERSION=${1:-$DATE};
+VERSION=$DATE;
+
+# BRANCH
+default_test_branch="testing";
+test_branch=${1:-$default_test_branch};
 
 cd /home/${WORKSPACE}/${NAME};
-git pull;
+git checkout $test_branch;
+git pull origin $test_branch;
 docker image build -t ${NAME}:$VERSION .
 ```
