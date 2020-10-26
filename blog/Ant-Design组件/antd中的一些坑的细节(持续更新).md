@@ -13,3 +13,7 @@
 7. Menu 中使用 SubMenu，SubMenu 的 Item 默认有一个内联的 padding-left: 48px;，这个是根据 level 和 inlineIndent 计算而来的，inlineIndent 默认为 24px，SubMenu 下的 Item 的 level（层级）为 2，所以 24\*2=48。这两个属性只有设置在 Menu 组件上才生效！SubMenu 和 Menu.Item 上设置是不起作用的！
 
 8. 如果你的项目大量的去覆盖 antd 的默认样式，一定会遇到严重的 CSS Layout Shift 问题！很大一部分原因是因为 antd 组件有些样式本应该通过 props 设置，而你非要使用 css 去设置，写了很复杂的选择器甚至 important 去提高权重，加上 antd 组件几乎都自带 transition，css 文件请求与 dom 渲染之间存在时差，导致页面渲染过程惨不忍睹！所以能通过 props 去设置的样式一定不要去覆盖 css，如果需要可以将 antd 组件自带的 transition 设为 none！特别是你需要自定义其大小、样式、位置时！
+
+9. 覆盖 antd 样式会导致 cls 问题，如果需要定制 antd 风格样式时，建议使用 less modifyVars，在预处理阶段就设置好样式，相关变量参考:
+
+[github.com/ant-design](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
