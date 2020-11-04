@@ -4,8 +4,10 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2019-10-09 21:39:51
  */
-import { join, parse, dirname } from "path"
-import { Stat, ReadDir } from "./node"
+import { dirname, join, parse } from 'path'
+
+import { ReadDir, Stat } from './node'
+import { isSamePath } from './utils'
 
 export interface Node {
   path: string
@@ -15,7 +17,7 @@ export interface Node {
 }
 
 const verPath = (path: string, basePath: string) =>
-  path.replace(dirname(basePath), "").replace(/\\/g, "/")
+  path.replace(dirname(basePath), '').replace(/\\/g, '/')
 
 const sortChildren = (children: Node[]) => {
   const dir = []
@@ -53,7 +55,7 @@ export const findNodeByPath = (path: string, entry: Node) => {
   const stack = [entry]
   while (stack.length) {
     const node = stack.pop()
-    if (node.path === path) return node
+    if (isSamePath(node.path, path)) return node
     node.children && stack.push(...node.children)
   }
 }
