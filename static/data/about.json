@@ -12,6 +12,11 @@
       "content": "saber2pr's website."
     },
     {
+      "name": "next-tpl",
+      "href": "https://github.com/Saber2pr/next-tpl",
+      "content": "next.js + antd + axios + docker."
+    },
+    {
       "name": "editor",
       "href": "https://github.com/Saber2pr/editor",
       "content": "a web editor powered by monaco-editor."
@@ -35,11 +40,6 @@
       "name": "jsx",
       "href": "https://github.com/Saber2pr/jsx",
       "content": "write jsx in html."
-    },
-    {
-      "name": "leetcode",
-      "href": "https://github.com/Saber2pr/leetcode",
-      "content": "My leetcode progress."
     }
   ]
 }

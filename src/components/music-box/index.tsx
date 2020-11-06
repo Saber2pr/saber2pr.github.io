@@ -1,13 +1,13 @@
-import React, { useState, useRef } from "react"
-import "./style.less"
-import { axios } from "../../request/axios"
-import Audio from "@saber2pr/rc-audio"
-import { Model } from "../model"
-import { LazyCom } from "../lazy-com"
-import { Loading } from "../loading"
-import { CloseBtn } from "../close-btn"
-import { checkNetwork } from "../../utils"
-import { request } from "../../request"
+import React, { useState, useRef } from 'react'
+import './style.less'
+import { axios } from '../../request/axios'
+import Audio from '@saber2pr/rc-audio'
+import { Model } from '../model'
+import { LazyCom } from '../lazy-com'
+import { Loading } from '../loading'
+import { CloseBtn } from '../close-btn'
+import { checkNetwork } from '../../utils'
+import { request } from '../../request'
 
 type Music = {
   code: number
@@ -21,15 +21,15 @@ type Music = {
 
 export const status = {
   isHide: false,
-  show: null
+  show: null,
 }
 
-const MusicAPI = "https://api.uomg.com/api/rand.music?format=json"
-const TargetUrl = "https://music.163.com/#/song?id="
+const MusicAPI = 'https://api.uomg.com/api/rand.music?format=json'
+const TargetUrl = 'https://music.163.com/#/song?id='
 
 const getTargetUrl = (songUrl: string) =>
   TargetUrl +
-  new URLSearchParams(new URL(songUrl).search).get("id").replace(/.mp3$/, "")
+  new URLSearchParams(new URL(songUrl).search).get('id').replace(/.mp3$/, '')
 
 const getMusic = (musicList: object, type = Object.keys(musicList)[0]) => {
   let params = null
@@ -57,7 +57,7 @@ export const MusicBox = ({
   defaultMusic,
   hide,
   show,
-  musicList
+  musicList,
 }: MusicBox) => {
   const [{ data }, setMusic] = useState<Music>(defaultMusic)
   const { url, picurl, name, artistsname } = data
@@ -105,7 +105,7 @@ export const MusicBox = ({
           <img className="MusicBox-Pic ani-rotation" src={picurl} alt={name} />
         </li>
         <li>
-          <Audio autoplay src={url} />
+          <Audio autoplay src={url.replace(/^http:/, 'https:')} />
           <span className="Block" />
           <button
             className="ButtonHigh"
@@ -142,7 +142,7 @@ export const createMusicBox = async () => {
   if (status.isHide && status.show) {
     status.show()
   } else {
-    const musicList = await request("musicList")
+    const musicList = await request('musicList')
     Model.Hidable(
       ({ close, show, hide }) => (
         <LazyCom await={getMusic(musicList)} fallback={<Loading />}>
