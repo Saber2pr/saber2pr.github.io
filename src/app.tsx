@@ -151,7 +151,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
       </main>
       <footer ref={footer_ref} className="footer">
         <span className="footer-info">
-          Copyright © 2019 saber2pr
+          Copyright © 2019-{new Date().getFullYear()} saber2pr
           <Uv />
         </span>
       </footer>
