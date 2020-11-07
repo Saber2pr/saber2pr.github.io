@@ -40,6 +40,15 @@ const AppNavLink = ({
   <NavLink className={className} activeClassName={activeClassName} {...props} />
 )
 
+const TimeMessage = (
+  <span
+    className="time-message"
+    ref={el => el && setTimeout(() => el && (el.style.display = 'none'), 3500)}
+  >
+    {getTimeMessage()}
+  </span>
+)
+
 export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
   const expand = useBlogMenu(blogTree)
@@ -99,14 +108,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
             <li>
               <AppNavLink to={RS.links.href}>{RS.links.name}</AppNavLink>
             </li>
-            <li className="nav-block">
-              <span
-                className="time-message"
-                ref={el => setTimeout(() => (el.style.opacity = '0'), 3500)}
-              >
-                {getTimeMessage()}
-              </span>
-            </li>
+            <li className="nav-block">{TimeMessage}</li>
             <li>
               <SearchInput blog={blogTree} />
             </li>
