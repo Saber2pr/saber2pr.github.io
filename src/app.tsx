@@ -1,13 +1,13 @@
-import React, { useMemo, useEffect } from "react"
+import React, { useMemo, useEffect } from 'react'
 import {
   Router,
   Route,
   HashHistory,
   Switch,
-  NavLink
-} from "@saber2pr/react-router"
+  NavLink,
+} from '@saber2pr/react-router'
 
-import "./app.less"
+import './app.less'
 import {
   Blog,
   About,
@@ -17,24 +17,24 @@ import {
   LearnLazy,
   NotFound,
   SearchResult,
-  Home
-} from "./pages"
-import { SearchInput, PreImg, Themer, Uv } from "./components"
+  Home,
+} from './pages'
+import { SearchInput, PreImg, Themer, Uv } from './components'
 
-import { getHash, queryRootFirstChildMemo } from "./utils"
-import { useEvent, useBlogMenu, useFullWindow } from "./hooks"
-import { Icon } from "./iconfont"
-import { Routes as RS } from "./config"
+import { getHash, getTimeMessage, queryRootFirstChildMemo } from './utils'
+import { useEvent, useBlogMenu, useFullWindow } from './hooks'
+import { Icon } from './iconfont'
+import { Routes as RS } from './config'
 
 export interface App {
   homeInfo: Home
-  blogTree: Blog["tree"]
+  blogTree: Blog['tree']
   aboutInfo: About
 }
 
 const AppNavLink = ({
-  className = "nav-a",
-  activeClassName = "nav-a-active",
+  className = 'nav-a',
+  activeClassName = 'nav-a-active',
   ...props
 }: NavLink) => (
   <NavLink className={className} activeClassName={activeClassName} {...props} />
@@ -48,13 +48,9 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const setTitle = () => {
     const hash = getHash()
     hash.startsWith(blogTree.path) && expand(hash)
-    document.title =
-      hash
-        .split("/")
-        .pop()
-        .split("?")[0] || title
+    document.title = hash.split('/').pop().split('?')[0] || title
   }
-  useEvent("hashchange", setTitle)
+  useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
 
   const [
@@ -62,10 +58,10 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
     main_ref,
     footer_ref,
     btn_ref,
-    fullWinBtnAPI
+    fullWinBtnAPI,
   ] = useFullWindow({
-    enableClassName: "FullWinBtn iconfont icon-fullwin-enable",
-    disableClassName: "FullWinBtn iconfont icon-fullwin-disable"
+    enableClassName: 'FullWinBtn iconfont icon-fullwin-enable',
+    disableClassName: 'FullWinBtn iconfont icon-fullwin-disable',
   })
 
   return (
@@ -103,7 +99,14 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
             <li>
               <AppNavLink to={RS.links.href}>{RS.links.name}</AppNavLink>
             </li>
-            <li className="nav-block" />
+            <li className="nav-block">
+              <span
+                className="time-message"
+                ref={el => setTimeout(() => (el.style.opacity = '0'), 3500)}
+              >
+                {getTimeMessage()}
+              </span>
+            </li>
             <li>
               <SearchInput blog={blogTree} />
             </li>

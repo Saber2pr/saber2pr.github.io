@@ -6,36 +6,35 @@
  */
 const staticAssets = [
   /** CODE START **/"\\build\\index~f71cff67.css","\\build\\index~f71cff67.min.js","\\build\\style.1.css","\\build\\vendor~index~253ae210.min.js"/** CODE END **/,
-  "/",
+  '/',
   // icon
-  "/static/icon/saber2pr-144x144.png",
+  '/static/icon/saber2pr-144x144.png',
   // image
-  "/static/image/bg-mb.webp",
-  "/static/image/bg-pc.webp",
+  '/static/image/bg-mb.webp',
+  '/static/image/bg-pc.webp',
   // style
-  "/static/style/dark.css"
+  '/static/style/dark.css',
 ]
 
-const StaticCacheKey = "saber2pr-pwa-static"
-const DynamicCacheKey = "saber2pr-pwa-dynamic"
+const StaticCacheKey = 'saber2pr-pwa-static'
+const DynamicCacheKey = 'saber2pr-pwa-dynamic'
 
-self.addEventListener("install", event =>
+self.addEventListener('install', event =>
   event.waitUntil(
     caches.open(StaticCacheKey).then(cache => cache.addAll(staticAssets))
   )
 )
 
 const filterUrl = url =>
-  url.includes("jsonpCallback") ||
-  url.includes("static/data/version.json") ||
-  url.includes("/api") ||
-  url.includes("WIKI")
+  url.includes('jsonpCallback') ||
+  url.includes('static/data/version.json') ||
+  url.includes('/api')
 
-self.addEventListener("fetch", event => {
+self.addEventListener('fetch', event => {
   const url = event.request.url
-  if (url.startsWith("http:")) return
+  if (url.startsWith('http:')) return
 
-  if (staticAssets.find(path => path !== "/" && url.includes(path))) {
+  if (staticAssets.find(path => path !== '/' && url.includes(path))) {
     event.respondWith(caches.match(event.request))
     return
   }
@@ -64,4 +63,4 @@ self.addEventListener("fetch", event => {
   )
 })
 
-self.addEventListener("activate", event => event.waitUntil(clients.claim()))
+self.addEventListener('activate', event => event.waitUntil(clients.claim()))

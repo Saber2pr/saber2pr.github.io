@@ -1,9 +1,9 @@
-import React, { memo } from "react"
+import React, { memo } from 'react'
 
-import "./style.less"
-import { API, request } from "../../request"
-import { PreImg, LazyCom, Loading } from "../../components"
-import { Icon } from "../../iconfont"
+import './style.less'
+import { API, request } from '../../request'
+import { PreImg, LazyCom, Loading } from '../../components'
+import { Icon } from '../../iconfont'
 
 type Link = {
   name: string
@@ -23,12 +23,12 @@ export interface Links {
 const PreImage = (
   <div
     style={{
-      width: "3rem",
-      height: "3rem",
-      backgroundColor: "lightgrey",
-      margin: "0 auto",
-      marginRight: "0.5rem",
-      borderRadius: "0.5rem"
+      width: '3rem',
+      height: '3rem',
+      backgroundColor: 'lightgrey',
+      margin: '0 auto',
+      marginRight: '0.5rem',
+      borderRadius: '0.5rem',
     }}
   />
 )
@@ -37,9 +37,7 @@ const OwnLinks = ({ links }: { links: MessLink[] }) => (
   <dl className="Links-Own">
     <dt className="Links-Own-Title">
       <strong>我的</strong>
-      <div className="Links-Own-Title-Tip">
-        <span>你找我嘛！(／≧ω＼)</span>
-      </div>
+      <div className="Links-Own-Title-Tip">从哪里开始呢？</div>
     </dt>
     <dd className="Links-Own-Content">
       {links.map(({ name, href, message, icon }) => (
@@ -78,7 +76,7 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
   <dl className="Links-Friend">
     <dt className="Links-Friend-Title">
       <strong>友链</strong>
-      <div className="Links-Friend-Title-Tip">来和妖梦玩吧qwq！</div>
+      <div className="Links-Friend-Title-Tip">来和妖梦玩吧</div>
     </dt>
     <dd className="Links-Friend-Content">
       {links.map(({ name, href }) => (
@@ -121,7 +119,7 @@ export const Links = ({ owns, friends }: Links) => (
 )
 
 export const LinksLazy = memo(() => (
-  <LazyCom await={request("links")} fallback={<Loading type="block" />}>
+  <LazyCom await={request('links')} fallback={<Loading type="block" />}>
     {res => <Links {...res} />}
   </LazyCom>
 ))

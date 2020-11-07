@@ -1,14 +1,14 @@
-import React, { memo } from "react"
+import React, { memo } from 'react'
 
-import { TwoSide, LazyCom, Loading, useOption } from "../../components"
-import "./style.less"
-import { request } from "../../request"
+import { TwoSide, LazyCom, Loading, useOption } from '../../components'
+import './style.less'
+import { request } from '../../request'
 
 const Main = ({ contents }: { contents: string[] }) => {
   const [model, show] = useOption()
   return (
     <>
-      <h1 className="About-Main-Title">魂魄妖梦al</h1>
+      <h1 className="About-Main-Title">About Me</h1>
       <div className="About-Main-Content">
         <ul>
           {contents.map(a => (
@@ -56,7 +56,7 @@ export const About = ({ contents, projects }: About) => (
 )
 
 export const AboutLazy = memo(() => (
-  <LazyCom await={request("about")} fallback={<Loading type="block" />}>
+  <LazyCom await={request('about')} fallback={<Loading type="block" />}>
     {res => <About {...res} />}
   </LazyCom>
 ))
