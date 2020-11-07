@@ -17,3 +17,5 @@
 9. 覆盖 antd 样式会导致 cls 问题，如果需要定制 antd 风格样式时，建议使用 less modifyVars，在预处理阶段就设置好样式，相关变量参考:
 
 [github.com/ant-design](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less)
+
+10. Form.Item 下的默认值(defaultValue)是无法通过 setState 改变的！可以用 useEffect 来检测依赖变化同时 form.resetFields。如果是在 Modal 中使用，Modal 需设置 forceRender。
