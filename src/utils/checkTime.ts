@@ -10,19 +10,19 @@ export const checkDarknessTime = () => {
 
 export const getTimeMessage = () => {
   const hour = new Date().getHours()
-  if (hour <= 6) {
+  if (hour < 6) {
     return '不要熬夜哦~身体健康最重要~'
   }
 
-  if (hour <= 12) {
+  if (hour < 12) {
     return '早上好~新的一天也要努力~'
   }
 
-  if (hour <= 13) {
+  if (hour < 13) {
     return '中午好~吃过饭了吗~'
   }
 
-  if (hour <= 18) {
+  if (hour < 18) {
     return '下午好~'
   }
 
