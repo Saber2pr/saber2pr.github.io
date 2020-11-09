@@ -43,7 +43,7 @@ const AppNavLink = ({
 const TimeMessage = (
   <span
     className="time-message"
-    ref={el => el && setTimeout(() => el && (el.style.display = 'none'), 3500)}
+    ref={el => el && setTimeout(() => el && (el.style.display = 'none'), 6000)}
   >
     {getTimeMessage()}
   </span>
