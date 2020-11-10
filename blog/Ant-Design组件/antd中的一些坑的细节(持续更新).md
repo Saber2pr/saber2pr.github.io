@@ -21,3 +21,5 @@
 10. Form.Item 下的默认值(defaultValue)是无法通过 setState 改变的！可以用 useEffect 来检测依赖变化同时 form.resetFields。如果是在 Modal 中使用，Modal 需设置 forceRender。
 
 11. Form.Item 可以包装组件，并自动提交表单值。可以被 Form.Item 包装的组件必须在 props 提供 value 和 onChange 即使组件受控，组件 onChange 传入的值会被提交到表单。
+
+12. Upload 组件提交文件上传时，建议让后端开 cors 直接发，不要自己写代理特别是 nodejs 代理，nodejs 在文件中转这里非常非常坑！！
