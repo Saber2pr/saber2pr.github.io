@@ -918,6 +918,9 @@ body {
   padding-right: 1rem;
   width: 94%;
 }
+.About-Aside-Content::-webkit-scrollbar {
+  width: 0 !important;
+}
 .About-Aside-Content-Proj {
   background-color: #f0f0f0;
   margin-top: 1rem;
