@@ -55,6 +55,11 @@
       "href": "http://www.axios-js.com/zh-cn/docs/"
     },
     {
+      "name": "Moment",
+      "icon": "http://momentjs.cn/static/img/moment-favicon.png",
+      "href": "http://momentjs.cn/docs/"
+    },
+    {
       "name": "Lodash",
       "icon": "https://saber2pr.top/MyWeb/resource/image/lodash.webp",
       "href": "https://lodash.com/docs/"
