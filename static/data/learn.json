@@ -23,6 +23,11 @@
   ],
   "前端UI库": [
     {
+      "name": "Ant Design",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/antd.svg",
+      "href": "https://ant.design/components/overview-cn/"
+    },
+    {
       "name": "React",
       "icon": "https://www.reactjscn.com/favicon.ico",
       "href": "https://www.reactjscn.com/docs/hello-world.html"
