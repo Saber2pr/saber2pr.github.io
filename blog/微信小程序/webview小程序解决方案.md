@@ -2,7 +2,7 @@
 
 > 注意 webview 小程序只有企业认证的号才可以使用。个人独立开发者不行。
 
-设计思路：
+### 设计思路
 
 1. 小程序加载时，判断 storage 里是否有 cookie，如果有表示用户已注册，则直接带 cookie 参数跳转到 webview，webview(h5)里判断 url 上是否有 cookie 参数，如果有则请求用户信息、初始化数据等操作，同时将 cookie 存到 document.cookie 中。
 
