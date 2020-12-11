@@ -7,8 +7,6 @@ wx.navigateTo({ url: '/pages/pay/pay?redirectPath=user' })
 在 pay 页面中获取参数的方法：
 
 ```js
-const { ApiConfig } = require('../../api/apiConfig')
-
 Page({
   onLoad(options) {
     const redirectPath = options.redirectPath
