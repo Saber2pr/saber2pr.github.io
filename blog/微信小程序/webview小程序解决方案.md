@@ -8,7 +8,7 @@
 
 2. 如果 storage 里没有 cookie，表示用户未注册，则跳到注册/登录页面获取 cookie，获取成功后将 cookie 存入小程序 storage 中，同时带 cookie 参数跳到 webview。
 
-3. token 过期处理：在第 1 步中，跳转 webview 前，先带 cookie 去访问一次后台接口，如果没有 401 等异常，表示 token 没有过期，可以跳转 webview，如果过期则跳到登陆页面重新获取新的 cookie 再跳转 webview。
+3. token 过期处理：在第 1 步中，跳转 webview 前，先带 cookie 去访问一次后台接口，如果没有 401 等异常，表示 token 没有过期，可以跳转 webview，如果过期则跳到登陆页面重新获取新的 cookie 再跳转 webview。或者 webview 中拦截到 401 利用 jsdk 跳小程序登录页重新获取 token。
 
 4. webview 中需要利用小程序能力：例如 webview 付费想使用微信支付，需要在小程序中新建一个 pay 页面，webview 中利用 jsdk 的 wx.navigateTo 跳到这个 pay 页面，同时将需要的参数通过 url 参数传给小程序，小程序获取 webview 传来的支付参数进行微信支付。
 
