@@ -5,7 +5,6 @@ lib/
 build/index.html
 template
 data/blogs.json
-__blog__
 auth/
 yarn-error.log
 /release
