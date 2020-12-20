@@ -67,4 +67,4 @@ useEffect(() => {
 }, [obj])
 ```
 
-特别是从props上传来的obj，更无法知道它是不是已经经过useMemo优化，所以建议deps最好是基本类型数组！例如可以用obj.key代替obj做deps。
+特别是从props上传来的obj，更无法知道它是不是已经经过useMemo优化，所以建议deps最好是基本类型数组！例如可以用obj.id代替obj做deps。
