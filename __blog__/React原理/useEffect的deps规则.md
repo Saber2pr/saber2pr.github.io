@@ -48,7 +48,7 @@ deps是浅比较，所以deps数组中的元素最好是基本类型，也就是
 ```ts
 const [state, setState] = useState(0)
 // 由于setState使组件rerender，obj将重新初始化，引用发生变化
-const obj = {}
+const obj = { id: 0 }
 
 useEffect(() => {
   setState(state + 1)
@@ -58,13 +58,17 @@ useEffect(() => {
 如果一定要用对象做deps，必须使用useMemo或者useState包裹obj对象：
 
 ```ts
-const obj = useMemo(() => ({}), [])
-// const [obj] = useState({})
+const obj = useMemo(() => ({ id: 0 }), [])
+// const [obj] = useState({ id: 0 })
 const [state, setState] = useState(0)
 
 useEffect(() => {
   setState(state + 1)
 }, [obj])
+
+// useEffect(() => {
+//   setState(state + 1)
+// }, [obj.id])
 ```
 
 特别是从props上传来的obj，更无法知道它是不是已经经过useMemo优化，所以建议deps最好是基本类型数组！例如可以用obj.id代替obj做deps。
