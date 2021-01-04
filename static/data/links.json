@@ -31,10 +31,10 @@
       "icon": "https://www.zhihu.com/favicon.ico"
     },
     {
-      "name": "思维导图",
-      "href": "https://saber2pr.gitee.io/mind-editor/",
-      "message": "整理思路...",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/minder.webp"
+      "name": "网易云GET",
+      "href": "https://fronted-tsx-developer.github.io/demos/music.html",
+      "message": "网易云音乐搜索",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
     }
   ],
   "friends": [{ "name": "Fluorouracil", "href": "https://fluorouracil.org/" }]
