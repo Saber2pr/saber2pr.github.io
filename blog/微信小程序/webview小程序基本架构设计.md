@@ -17,3 +17,8 @@ webview小程序主要内容是h5，但是h5又需要小程序的一些能力，
 4. 支付pay，微信支付能力
 
 在pay页面中，接收到h5传来的支付参数，调用wx.requestPayment进行支付。
+
+5. 内容webview
+
+在webview页面中，接收从index页面传来的token，然后通过参数传给h5。
+webview页面负责小程序->h5的通信（就是url传参通信）。
