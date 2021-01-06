@@ -12,6 +12,7 @@ import ReactDOM from 'react-dom'
 // /
 import Pages from './app'
 import { checkUpdate, ErrorBoundary, Loading } from './components'
+import { origin } from './config/origin'
 import { request, requestContent } from './request'
 import {
   collect,
@@ -21,18 +22,23 @@ import {
   whenInDEV,
 } from './utils'
 
+const { DATA_LOADED } = origin.constants
+
 const App = React.lazy(async () => {
   welcome()
   const homeInfo = await request('home')
   const aboutInfo = await request('about')
   const blogTree = await request('blog')
 
-  // for cache backend
-  requestLongListTask(
-    collect(blogTree),
-    item => requestContent(item.path + '.md'),
-    item => !item.children
-  )
+  if (!localStorage.getItem(DATA_LOADED)) {
+    // for cache backend
+    requestLongListTask(
+      collect(blogTree),
+      item => requestContent(item.path + '.md'),
+      item => !item.children
+    )
+    localStorage.setItem(DATA_LOADED, 'true')
+  }
 
   return {
     default: () => (

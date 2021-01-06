@@ -1,20 +1,24 @@
-import { origin } from "../config"
-import { localStore } from "../store"
-import { whenInDEV } from "./whenInDEV"
+import { origin } from '../config'
+import { localStore } from '../store'
+import { whenInDEV } from './whenInDEV'
 
-const { STATIC_VERSION_KEY, DYNAMIC_VERSION_KEY } = origin.constants
+const {
+  STATIC_VERSION_KEY,
+  DYNAMIC_VERSION_KEY,
+  DATA_LOADED,
+} = origin.constants
 const WORKER_PATH = origin.workers.pwa
 
-export type CacheType = "STATIC" | "DYNAMIC"
+export type CacheType = 'STATIC' | 'DYNAMIC'
 const matchType = <T extends (...args: any) => any>(
   type: CacheType,
   DYNAMIC: T,
   STATIC: T
 ): ReturnType<T> => {
-  if (type === "DYNAMIC") {
+  if (type === 'DYNAMIC') {
     return DYNAMIC()
   }
-  if (type === "STATIC") {
+  if (type === 'STATIC') {
     return STATIC()
   }
 }
@@ -24,10 +28,12 @@ export const freeCache = async (type: CacheType) => {
     type,
     () => {
       localStore.removeItem(DYNAMIC_VERSION_KEY)
+      localStore.removeItem(DATA_LOADED)
       return caches.delete(DYNAMIC_VERSION_KEY)
     },
     async () => {
       localStore.removeItem(STATIC_VERSION_KEY)
+      localStore.removeItem(DATA_LOADED)
 
       const registration = await navigator.serviceWorker.getRegistration()
       if (registration) {
@@ -62,7 +68,7 @@ export const getVersion = (type: CacheType) =>
 export const PWAInstaller = async () => {
   await navigator.serviceWorker.register(WORKER_PATH)
   if (whenInDEV()) {
-    await freeCache("DYNAMIC")
-    await freeCache("STATIC")
+    await freeCache('DYNAMIC')
+    await freeCache('STATIC')
   }
 }
