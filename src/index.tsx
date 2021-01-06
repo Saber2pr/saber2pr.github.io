@@ -35,7 +35,8 @@ const App = React.lazy(async () => {
     requestLongListTask(
       collect(blogTree),
       item => requestContent(item.path + '.md'),
-      item => !item.children
+      item => !item.children,
+      5
     ).then(() => localStorage.setItem(DATA_LOADED, 'true'))
   }
 
