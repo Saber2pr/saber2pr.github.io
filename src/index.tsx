@@ -36,8 +36,7 @@ const App = React.lazy(async () => {
       collect(blogTree),
       item => requestContent(item.path + '.md'),
       item => !item.children
-    )
-    localStorage.setItem(DATA_LOADED, 'true')
+    ).then(() => localStorage.setItem(DATA_LOADED, 'true'))
   }
 
   return {
