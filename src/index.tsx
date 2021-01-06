@@ -1,28 +1,35 @@
 declare const LOADING: { destroy: Function }
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-
 import 'normalize.css'
-
 import 'animate.css/source/flippers/flipInX.css'
-
 import './style/animation.less'
 import './style/shadow.less'
 import './style/components.less'
 
-// /
+import React from 'react'
+import ReactDOM from 'react-dom'
 
+// /
 import Pages from './app'
-import { Loading, ErrorBoundary, checkUpdate } from './components'
-import { welcome, PWAInstaller, whenInDEV } from './utils'
-import { request } from './request'
+import { checkUpdate, ErrorBoundary, Loading } from './components'
+import { request, requestContent } from './request'
+import {
+  collect,
+  PWAInstaller,
+  requestLongListTask,
+  welcome,
+  whenInDEV,
+} from './utils'
 
 const App = React.lazy(async () => {
   welcome()
   const homeInfo = await request('home')
   const aboutInfo = await request('about')
   const blogTree = await request('blog')
+
+  // for cache backend
+  requestLongListTask(collect(blogTree), href => requestContent(href + '.md'))
+
   return {
     default: () => (
       <Pages homeInfo={homeInfo} aboutInfo={aboutInfo} blogTree={blogTree} />
