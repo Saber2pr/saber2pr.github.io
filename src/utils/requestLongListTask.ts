@@ -1,14 +1,29 @@
-import { splitArray } from './array'
-
-export const requestLongListTask = <T>(
+export const requestLongListTask = <T, R>(
   list: T[],
-  req: (item: T) => Promise<any>,
+  req: (item: T) => Promise<R>,
   filter?: (item: T) => boolean,
   max = 6
 ) =>
-  setTimeout(() =>
-    splitArray(list, max, filter).reduce(
-      (queue, list) => queue.then(() => Promise.all(list.map(req))),
-      Promise.resolve()
-    )
-  )
+  setTimeout(() => {
+    let task: Promise<R>[] = []
+    let queue = Promise.all(task)
+    const pustTask = (temp: Promise<R>[]) => {
+      queue = queue.then(() => Promise.all(temp))
+    }
+
+    for (const item of list) {
+      if (filter && !filter(item)) {
+        continue
+      }
+      task.push(req(item))
+      if (task.length === max) {
+        pustTask(task)
+        task = []
+      }
+    }
+    if (task.length) {
+      pustTask(task)
+    }
+
+    return queue
+  })

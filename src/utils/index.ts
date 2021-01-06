@@ -1,4 +1,3 @@
-export * from './array'
 export * from './checkIsMob'
 export * from './checkNetwork'
 export * from './checkTime'
