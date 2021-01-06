@@ -28,9 +28,13 @@ const App = React.lazy(async () => {
   const blogTree = await request('blog')
 
   // for cache backend
-  requestLongListTask(collect(blogTree), item =>
-    requestContent(item.path + '.md')
-  )
+  requestLongListTask(collect(blogTree), item => {
+    if (item.children) {
+      return Promise.resolve()
+    } else {
+      return requestContent(item.path + '.md')
+    }
+  })
 
   return {
     default: () => (
