@@ -233,9 +233,12 @@ body {
   background-color: #262d40;
 }
 
+.Learn-List-Item {
+  border-bottom: 1px #72537a solid;
+  margin-right: 24px;
+}
 .Learn .libs {
   border-radius: 0;
-  border-bottom: 1px #72537a solid;
   background: black;
   box-shadow: none;
 }
