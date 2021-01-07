@@ -63,13 +63,18 @@ export const enhanceAxiosCache = (axios: AxiosInstance) => {
   axios.get = async (url, config) => {
     const queryStr = config?.params ? toQueryStr(config.params) : ''
     const cacheKey = { url: `${url}?${queryStr}`, method: 'GET' }
-    const cache = getCache(cacheKey)
-    if (cache) {
-      return cache
+    const result = getCache(cacheKey)
+    if (result) {
+      return result
     }
-    const apiRes = await originGet(url, config)
-    setCache(cacheKey, apiRes)
-    return apiRes as any
+    try {
+      const apiRes = await originGet(url, config)
+      setCache(cacheKey, apiRes)
+      return apiRes as any
+    } catch (err) {
+      delCache(cacheKey)
+      throw err
+    }
   }
   return axios
 }
