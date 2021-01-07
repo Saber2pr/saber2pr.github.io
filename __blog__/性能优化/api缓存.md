@@ -52,6 +52,18 @@ export const setCache = (req: Req, data: any) => {
   }
 }
 
+export const delCache = (req: Req) => {
+  const url = req.url
+  const method = req.method
+  if (url && method === 'GET') {
+    const api = url.split('?')[0]
+    if (api && matchCache(api)) {
+      console.log(`[Del-Cache]: ${url}`)
+      cache.del(url)
+    }
+  }
+}
+
 export const clearCache = () => {
   cache.reset()
 }
