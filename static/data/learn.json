@@ -48,9 +48,9 @@
       "href": "https://reacttraining.com/react-router/web/guides/quick-start"
     },
     {
-      "name": "Taro",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/taro.webp",
-      "href": "https://taro-docs.jd.com/taro/docs/GETTING-STARTED.html"
+      "name": "微信小程序",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/wxmini.webp",
+      "href": "https://developers.weixin.qq.com/miniprogram/dev/component/"
     }
   ],
   "工具库": [
@@ -63,6 +63,11 @@
       "name": "Moment",
       "icon": "https://saber2pr.top/MyWeb/resource/image/moment-favicon.png",
       "href": "http://momentjs.cn/docs/"
+    },
+    {
+      "name": "ECharts",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/echarts.webp",
+      "href": "https://echarts.apache.org/zh/option.html"
     },
     {
       "name": "Lodash",
@@ -110,6 +115,11 @@
       "name": "Parcel",
       "href": "https://zh.parceljs.org/getting_started.html",
       "icon": "https://zh.parceljs.org/assets/parcel.png"
+    },
+    {
+      "name": "Taro",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/taro.webp",
+      "href": "https://taro-docs.jd.com/taro/docs/GETTING-STARTED.html"
     }
   ],
   "辅助工具": [
