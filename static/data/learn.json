@@ -117,6 +117,21 @@
       "name": "稿定设计",
       "href": "https://ps.gaoding.com/",
       "icon": "https://saber2pr.top/MyWeb/resource/image/gaodingsheji.svg"
+    },
+    {
+      "name": "代码编辑器",
+      "href": "https://saber2pr.gitee.io/editor-online/",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/vscode.webp"
+    },
+    {
+      "name": "Json类型",
+      "href": "https://saber2pr.top/MyWeb/build/jsonType/build/",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/json-icon.webp"
+    },
+    {
+      "name": "网易云GET",
+      "href": "https://fronted-tsx-developer.github.io/demos/music.html",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
     }
   ],
   "服务端": [

@@ -13,28 +13,28 @@
       "icon": "https://www.bilibili.com/favicon.ico"
     },
     {
-      "name": "代码编辑器",
-      "href": "https://saber2pr.gitee.io/editor-online/",
-      "message": "在线版vscode",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/vscode.webp"
+      "name": "网易云音乐",
+      "href": "https://music.163.com/#/user/home?id=412481832",
+      "message": "来了，听歌~",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
     },
     {
       "name": "leetcode",
       "href": "https://leetcode-cn.com/problemset/all/",
-      "message": "写作业",
+      "message": "脑筋急转弯练习",
       "icon": "https://saber2pr.top/MyWeb/resource/image/leetcode.jpeg"
     },
     {
-      "name": "知呼",
-      "href": "https://www.zhihu.com",
-      "message": "欢迎分享你刚编的故事(",
-      "icon": "https://www.zhihu.com/favicon.ico"
+      "name": "代码编辑器",
+      "href": "https://saber2pr.gitee.io/editor-online/",
+      "message": "在线写react",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/vscode.webp"
     },
     {
-      "name": "网易云GET",
-      "href": "https://fronted-tsx-developer.github.io/demos/music.html",
-      "message": "网易云音乐搜索",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
+      "name": "知呼",
+      "href": "https://www.zhihu.com/people/di-3tiao-ming",
+      "message": "欢迎分享你刚编的故事(",
+      "icon": "https://www.zhihu.com/favicon.ico"
     }
   ],
   "friends": [{ "name": "Fluorouracil", "href": "https://fluorouracil.org/" }]
