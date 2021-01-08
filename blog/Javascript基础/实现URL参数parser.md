@@ -6,14 +6,14 @@
 
 ```ts
 export const parseUrlParam = (url: string) => {
-  if (!url || !url.includes("?")) return {}
-  url = url.split("#")[0]
+  if (!url || !url.includes('?')) return {}
+  url = url.split('#')[0]
   const isNumber = /^\d+$/
   return decodeURIComponent(url)
-    .split("?")[1]
-    .split("&")
+    .split('?')[1]
+    .split('&')
     .reduce((out, s) => {
-      const union = s.split("=")
+      const union = s.split('=')
       const key = union[0]
       const value = isNumber.test(union[1])
         ? Number(union[1])
@@ -24,10 +24,21 @@ export const parseUrlParam = (url: string) => {
       }
       return {
         ...out,
-        [key]: value
+        [key]: value,
       }
     }, {})
 }
 ```
 
 > 或者使用 DOM API 的 new URLSearchParams(new URL(url).search).get
+
+```ts
+export const toQueryStr = (obj: any) => {
+  for (const key in obj) {
+    if (obj[key] === null || obj[key] === undefined) {
+      delete obj[key]
+    }
+  }
+  return new URLSearchParams(obj).toString()
+}
+```
