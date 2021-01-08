@@ -20,3 +20,75 @@ ssr 需要在服务端进行接口请求，然后使用请求到的数据渲染�
 5. 每个组件模块提供当数据为空时的占位显示，并同时提供 loading 动画。（这一点 antd 做得很好）
 
 > 这里最关键的是第 4 点，这一点没有做好会浪费很多服务器资源会让网站变得特别慢！
+
+### 示例代码(伪代码)
+
+1. 未优化的代码
+
+```tsx
+export const getServerSideProps = async ctx => {
+  const cookie = ctx.headers.cookie
+  const seoDataFullPublic = await fetch('/api/xxx')
+  const seoDataPublic = await fetch('/api/yyy', {
+    headers: { cookie },
+  })
+  const data = await fetch('/api/zzz', {
+    headers: { cookie },
+  })
+  return {
+    props: {
+      seoDataFullPublic,
+      seoDataPublic,
+      data,
+    },
+  }
+}
+
+export default ({ seoDataFullPublic, seoDataPublic, data }) => {
+  return (
+    <>
+      {seoDataFullPublic}
+      {seoDataPublic}
+      {data}
+    </>
+  )
+}
+```
+
+2. 优化后的代码
+
+```tsx
+export const getServerSideProps = async ctx => {
+  const seoDataFullPublic = await fetch('/api/xxx')
+  const seoDataPublic = await fetch('/api/yyy')
+  return {
+    props: {
+      seoDataFullPublic,
+      seoDataPublic,
+    },
+  }
+}
+
+export default ({ seoDataFullPublic, seoDataPublic }) => {
+  const [seoData, setSeoData] = useState(seoDataPublic)
+  const [data, setData] = useState()
+
+  useEffect(() => {
+    const token = localStorage.getitem('token')
+    fetch('/api/yyy', {
+      headers: { Authorization: token },
+    }).then(setSeoData)
+    fetch('/api/zzz', {
+      headers: { Authorization: token },
+    }).then(setData)
+  }, [])
+
+  return (
+    <>
+      {seoDataFullPublic}
+      {seoData}
+      {data}
+    </>
+  )
+}
+```
