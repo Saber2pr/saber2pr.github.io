@@ -74,7 +74,7 @@ export default ({ seoDataFullPublic, seoDataPublic }) => {
   const [data, setData] = useState()
 
   useEffect(() => {
-    const token = localStorage.getitem('token')
+    const token = localStorage.getItem('token')
     fetch('/api/yyy', {
       headers: { Authorization: token },
     }).then(setSeoData)
