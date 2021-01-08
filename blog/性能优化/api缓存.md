@@ -100,4 +100,4 @@ const request = enhanceAxiosCache(axios.create({}))
 request.get('/api/list')
 ```
 
-> 服务端缓存会引入状态，不是特别需要不建议使用服务端缓存！
+> 服务端缓存会引入状态，不是特别需要不建议使用代理服务端缓存！
