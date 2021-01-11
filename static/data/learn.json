@@ -51,6 +51,11 @@
       "name": "微信小程序",
       "icon": "https://saber2pr.top/MyWeb/resource/image/wxmini.webp",
       "href": "https://developers.weixin.qq.com/miniprogram/dev/component/"
+    },
+    {
+      "name": "Taro",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/taro.webp",
+      "href": "https://taro-docs.jd.com/taro/docs/GETTING-STARTED.html"
     }
   ],
   "工具库": [
@@ -117,9 +122,9 @@
       "icon": "https://zh.parceljs.org/assets/parcel.png"
     },
     {
-      "name": "Taro",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/taro.webp",
-      "href": "https://taro-docs.jd.com/taro/docs/GETTING-STARTED.html"
+      "name": "Git",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/0111git.webp",
+      "href": "https://git-scm.com/book/zh/v2"
     }
   ],
   "辅助工具": [
