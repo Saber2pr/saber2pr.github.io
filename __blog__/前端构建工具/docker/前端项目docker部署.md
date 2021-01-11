@@ -133,7 +133,7 @@ sudo vi /etc/docker/daemon.json
 
 ```bash
 {
-"registry-mirrors": ["http://hub-mirror.c.163.com"]
+"registry-mirrors": ["https://6kx4zyno.mirror.aliyuncs.com"]
 }
 ```
 
@@ -149,4 +149,11 @@ sudo systemctl daemon-reload
 
 ```bash
 sudo systemctl restart docker
+```
+
+windows:
+
+```bash
+Net stop com.docker.service
+Net start com.docker.service
 ```
