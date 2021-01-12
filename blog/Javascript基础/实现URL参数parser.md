@@ -34,11 +34,15 @@ export const parseUrlParam = (url: string) => {
 
 ```ts
 export const toQueryStr = (obj: any) => {
-  for (const key in obj) {
-    if (obj[key] === null || obj[key] === undefined) {
-      delete obj[key]
+  if (obj) {
+    for (const key in obj) {
+      if (obj[key] === null || obj[key] === undefined) {
+        delete obj[key]
+      }
     }
+    return new URLSearchParams(obj).toString()
+  } else {
+    return ''
   }
-  return new URLSearchParams(obj).toString()
 }
 ```
