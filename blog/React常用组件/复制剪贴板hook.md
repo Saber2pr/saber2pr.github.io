@@ -25,6 +25,7 @@ export const useCopy = <
     }
     const cp = new ClipboardJS(ref.current)
     init && init(cp)
+    return () => cp.destroy()
   }, deps)
   return {
     button: ref,
