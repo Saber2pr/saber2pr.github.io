@@ -57,7 +57,14 @@ module.exports = WebpackConfig({
   plugins: [
     new HtmlWebpackPlugin({
       templateContent: templateContent("saber2prの窝", {
-        injectHead: `<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><link rel="manifest" href="./manifest.json" /><script src="//saber2pr.top/loading/index.min.js"></script><script async src="//saber2pr.top/click-mask/click-mask.min.js"></script><script async src="//saber2pr.top/test/tools/debug.min.js"></script>`,
+        injectHead: `
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
+        <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
+        <link rel="manifest" href="./manifest.json" />
+        <script src="//saber2pr.top/loading/index.min.js"></script>
+        <script async src="//saber2pr.top/click-mask/click-mask.min.js"></script>
+        <script async src="//saber2pr.top/test/tools/debug.min.js"></script>`,
         injectBody:
           `<div id="root"></div><script>LOADING.init(` +
           `"等待时间太长？访问[<a href='//saber2pr.gitee.io/'>加速版</a>]."` +
