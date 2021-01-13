@@ -499,6 +499,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: opacity 1s ease;
 }
 .Loading-Block {
   width: 24px;
@@ -587,6 +588,14 @@ body {
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

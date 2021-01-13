@@ -3,6 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: opacity 1s ease;
 
   &-Block {
     width: 24px;
@@ -95,5 +96,13 @@
   }
   100% {
     transform: scale(1);
+  }
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
