@@ -136,6 +136,10 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
                 ref={btn_ref}
                 fullWinBtnAPI={fullWinBtnAPI}
                 tree={blogTree}
+                showOp={{
+                  latest: true,
+                  musicBox: false,
+                }}
               />
             )}
           />

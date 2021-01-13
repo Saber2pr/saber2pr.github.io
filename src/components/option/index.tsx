@@ -1,18 +1,18 @@
 declare const version: string
 
-import React from "react"
-import "./style.less"
+import React from 'react'
+import './style.less'
 import {
   cleanUpdates,
   getUpdateOmit,
   setUpdateOmit,
-  checkUpdate
-} from "../check-update"
-import { useBtnDisable } from "../../hooks"
-import { useModel } from "../model"
-import { getVersion } from "../../utils"
-import { createMusicBox } from "../music-box"
-import { CloseBtn } from "../close-btn"
+  checkUpdate,
+} from '../check-update'
+import { useBtnDisable } from '../../hooks'
+import { useModel } from '../model'
+import { getVersion } from '../../utils'
+import { createMusicBox } from '../music-box'
+import { CloseBtn } from '../close-btn'
 
 export interface Option {
   close: Function
@@ -39,8 +39,8 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                 </a>
                 ]<div className="Option-Version">最后修改时间：{version}</div>
                 <div className="Option-Version">
-                  <div>版本号(DYNAMIC)：v{getVersion("DYNAMIC")}</div>
-                  <div>版本号(STATIC)：v{getVersion("STATIC")}</div>
+                  <div>版本号(DYNAMIC)：v{getVersion('DYNAMIC')}</div>
+                  <div>版本号(STATIC)：v{getVersion('STATIC')}</div>
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                       清除缓存
                     </button>
                   </dd>
-                  <dd>
+                  {/* <dd>
                     <button
                       className="ButtonHigh"
                       onClick={() => {
@@ -75,6 +75,16 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                       }}
                     >
                       音乐盒子
+                    </button>
+                  </dd> */}
+                  <dd>
+                    <button
+                      className="ButtonHigh"
+                      onClick={() => {
+                        window.open('https://gitee.com/saber2pr/saber2pr')
+                      }}
+                    >
+                      镜像仓库
                     </button>
                   </dd>
                 </dl>
@@ -96,7 +106,7 @@ export const useOption = (): [JSX.Element, (show?: boolean) => void] => {
   const onCheckUpdate = () => {
     disable()
     const updateOmit = getUpdateOmit()
-    setUpdateOmit("false")
+    setUpdateOmit('false')
     checkUpdate(() => {
       disable(false)
       setUpdateOmit(updateOmit)
