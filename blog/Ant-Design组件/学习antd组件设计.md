@@ -11,3 +11,35 @@
 1. 组件容器的 className 设置公共前缀即 prefixCls。（less 通过变量设置公共前缀）
 
 2. 输入型组件提供 value 和 onChange，便于对接 form。
+
+示例:
+
+```tsx
+import { Spin } from 'antd'
+import classnames from 'classnames'
+import { CSSProperties } from 'react'
+
+const CommonPrefixCls = 'my'
+
+const getPrefixCls = (suffixCls?: string) =>
+  suffixCls ? `${CommonPrefixCls}-${suffixCls}` : CommonPrefixCls
+
+export interface ViewProps {
+  loading?: boolean
+  data: any
+  className?: string
+  style?: CSSProperties
+}
+
+export const View = ({ loading, data, className, style }: ViewProps) => {
+  let content = <>暂无数据</>
+  if (data) {
+    content = <>{data}</>
+  }
+  return (
+    <div className={classnames(getPrefixCls('view'), className)} style={style}>
+      <Spin spinning={loading}>{content}</Spin>
+    </div>
+  )
+}
+```

@@ -92,3 +92,57 @@ export default ({ seoDataFullPublic, seoDataPublic }) => {
   )
 }
 ```
+
+3. 结合组件 loading 设计优化后的代码：
+
+```tsx
+export const getServerSideProps = async () => {
+  const seoDataFullPublic = await fetch('/api/xxx')
+  const seoDataPublic = await fetch('/api/yyy')
+  return {
+    props: {
+      seoDataFullPublic,
+      seoDataPublic,
+    },
+  }
+}
+
+export default ({ seoDataFullPublic, seoDataPublic }) => {
+  // 1. seoPublic: init不完全，所以autoLoad一次
+  const [result1, loading1, refresh1] = useFetch(
+    () => fetch('/api/yyy'),
+    seoDataPublic
+  )
+  // 2. seoFullPublic: init完全，所以不需要autoLoad
+  const [result2, loading2, refresh2] = useFetch(
+    () => fetch('/api/xxx'),
+    seoDataFullPublic,
+    false
+  )
+  // 3. no seo: 不需要init，需要autoLoad一次
+  const [result3, loading3, refresh3] = useFetch(() => fetch('/api/zzz'))
+
+  // 控制组件与展示组件示例：
+  return (
+    <>
+      <Input onChange={refresh} />
+      <View loading={loading} data={result} />
+    </>
+  )
+}
+
+// 展示组件示例：
+export const View = ({ loading, data }) => {
+  let content = <>暂无数据</>
+  if (data) {
+    content = <>{data}</>
+  }
+  return (
+    <div className="my-view">
+      <Spin spinning={loading}>{content}</Spin>
+    </div>
+  )
+}
+```
+
+[useFetch](#/blog/Nextjs服务端渲染/封装接口请求函数)
