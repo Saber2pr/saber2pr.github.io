@@ -14,30 +14,42 @@
 
 示例:
 
+getPrefixCls:
+
+```ts
+import classnames from 'classnames'
+import { ClassValue } from 'classnames/types'
+
+const CommonPrefixCls = 'nextpl'
+
+export const getPrefixCls = (suffixCls?: string, ...classes: ClassValue[]) => {
+  const currentCls = suffixCls
+    ? `${CommonPrefixCls}-${suffixCls}`
+    : CommonPrefixCls
+  return classnames(currentCls, ...classes)
+}
+```
+
+组件：
+
 ```tsx
 import { Spin } from 'antd'
-import classnames from 'classnames'
-import { CSSProperties } from 'react'
+import React, { CSSProperties } from 'react'
 
-const CommonPrefixCls = 'my'
-
-const getPrefixCls = (suffixCls?: string) =>
-  suffixCls ? `${CommonPrefixCls}-${suffixCls}` : CommonPrefixCls
-
-export interface ViewProps {
+export interface ListView {
   loading?: boolean
   data: any
   className?: string
   style?: CSSProperties
 }
 
-export const View = ({ loading, data, className, style }: ViewProps) => {
+export const ListView = ({ loading, data, className, style }: ListView) => {
   let content = <>暂无数据</>
   if (data) {
     content = <>{data}</>
   }
   return (
-    <div className={classnames(getPrefixCls('view'), className)} style={style}>
+    <div className={getPrefixCls('listView', className)} style={style}>
       <Spin spinning={loading}>{content}</Spin>
     </div>
   )
