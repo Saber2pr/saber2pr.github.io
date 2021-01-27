@@ -36,14 +36,19 @@ export const getPrefixCls = (suffixCls?: string, ...classes: ClassValue[]) => {
 import { Spin } from 'antd'
 import React, { CSSProperties } from 'react'
 
-export interface ListView {
+export interface ListViewProps {
   loading?: boolean
   data: any
   className?: string
   style?: CSSProperties
 }
 
-export const ListView = ({ loading, data, className, style }: ListView) => {
+export const ListView = ({
+  loading,
+  data,
+  className,
+  style,
+}: ListViewProps) => {
   let content = <>暂无数据</>
   if (data) {
     content = <>{data}</>
