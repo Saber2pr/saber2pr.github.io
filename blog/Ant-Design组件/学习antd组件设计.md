@@ -60,3 +60,47 @@ export const ListView = ({
   )
 }
 ```
+
+vscode 代码片段：
+
+```json
+{
+  "Print to console": {
+    "prefix": "jsx-comp",
+    "body": [
+      "import './style.less'",
+      "",
+      "import { Spin } from 'antd'",
+      "import React, { CSSProperties } from 'react'",
+      "",
+      "import { getPrefixCls } from '../../../utils/getPrefixCls'",
+      "",
+      "export interface ${1:Component}Props {",
+      "  loading?: boolean",
+      "  data: any",
+      "  className?: string",
+      "  style?: CSSProperties",
+      "}",
+      "",
+      "export const ${1:Component} = ({",
+      "  loading,",
+      "  data,",
+      "  className,",
+      "  style,",
+      "}: ${1:Component}Props) => {",
+      "  let content = <>暂无数据</>",
+      "  if (data) {",
+      "    content = <>内容</>",
+      "  }",
+      "  return (",
+      "    <div className={getPrefixCls('${1:Component}', className)} style={style}>",
+      "      <Spin spinning={loading}>{content}</Spin>",
+      "    </div>",
+      "  )",
+      "}",
+      ""
+    ],
+    "description": "jsx comp tpl."
+  }
+}
+```
