@@ -63,6 +63,8 @@ export const ListView = ({
 
 vscode 代码片段：
 
+> 输入 jsx-comp 回车触发
+
 ```json
 {
   "Print to console": {
@@ -71,9 +73,8 @@ vscode 代码片段：
       "import './style.less'",
       "",
       "import { Spin } from 'antd'",
+      "import classnames from 'classnames'",
       "import React, { CSSProperties } from 'react'",
-      "",
-      "import { getPrefixCls } from '../../../utils/getPrefixCls'",
       "",
       "export interface ${1:Component}Props {",
       "  loading?: boolean",
@@ -93,12 +94,11 @@ vscode 代码片段：
       "    content = <>内容</>",
       "  }",
       "  return (",
-      "    <div className={getPrefixCls('${1:Component}', className)} style={style}>",
+      "    <div className={classnames('${1:Component}', className)} style={style}>",
       "      <Spin spinning={loading}>{content}</Spin>",
       "    </div>",
       "  )",
-      "}",
-      ""
+      "}"
     ],
     "description": "jsx comp tpl."
   }
