@@ -107,3 +107,5 @@ module.exports = {
   },
 }
 ```
+
+然后 html 元素设置 font-size: (10000 / 设计稿尺寸)vw
