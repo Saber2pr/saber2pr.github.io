@@ -2,6 +2,8 @@
 
 为了优化首屏渲染。
 
+> 注意不是都写内联，是少部分需要优化首屏的样式内联，大部分还是靠外部加载的样式。
+
 ```tsx
 const App = () => {
   return (
@@ -58,6 +60,9 @@ export const styled = {
 然后代码里调用:
 
 ```tsx
+// 不内联的其他样式
+import './style.less'
+
 const App = () => {
   return (
     <div class="App">
@@ -93,6 +98,9 @@ export const styled = {
 使用:
 
 ```tsx
+// 不内联的其他样式
+import './style.less'
+
 const App = () => {
   return (
     <div class="App">
