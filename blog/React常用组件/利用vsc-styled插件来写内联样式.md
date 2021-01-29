@@ -116,3 +116,7 @@ const App = () => {
   )
 }
 ```
+
+为什么不直接用 styled-components？
+
+因为它不支持 css 子代选择器！
