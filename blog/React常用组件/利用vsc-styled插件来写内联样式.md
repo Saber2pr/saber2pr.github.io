@@ -84,14 +84,20 @@ const App = () => {
 ```tsx
 import less from 'less'
 
+type InlineCSSRenderer = (...args: any) => JSX.IntrinsicElements['style']
+
 export const styled = {
-  _: (([css, ..._]) => {
+  css: (([css, ..._]) => {
+    let __html = css
+    return <style dangerouslySetInnerHTML={{ __html }} />
+  }) as InlineCSSRenderer,
+  less: (([css, ..._]) => {
     let __html = null
-    less.render(css, (e, output) => {
+    less.render(css, (_, output) => {
       __html = output.css
     })
-    return <style dangerouslySetInnerHTML={{ __html }}></style>
-  }) as any,
+    return <style dangerouslySetInnerHTML={{ __html }} />
+  }) as InlineCSSRenderer,
 }
 ```
 
@@ -104,7 +110,7 @@ import './style.less'
 const App = () => {
   return (
     <div class="App">
-      {styled._`
+      {styled.less`
         .App {
           .block {
             transition: none;
