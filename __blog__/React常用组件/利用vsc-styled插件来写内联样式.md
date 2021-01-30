@@ -84,16 +84,32 @@ const App = () => {
 ```tsx
 import less from 'less'
 
+type InlineCSSText = (...args: any) => string
 type InlineCSSRenderer = (...args: any) => JSX.IntrinsicElements['style']
 
+const getInputCSS = (strs: string[], values: string[]) => {
+  values = values.concat('')
+  let i = 0
+  let result = ''
+  for (; i < strs.length; i++) {
+    result += strs[i] + values[i]
+  }
+  return result
+}
+
 export const styled = {
-  css: (([css, ..._]) => {
-    let __html = css
+  _: ((strs: string[], ...values: string[]) => {
+    return getInputCSS(strs, values)
+  }) as InlineCSSText,
+  css: ((strs: string[], ...values: string[]) => {
+    const inputcss = getInputCSS(strs, values)
+    let __html = inputcss
     return <style dangerouslySetInnerHTML={{ __html }} />
   }) as InlineCSSRenderer,
-  less: (([css, ..._]) => {
-    let __html = null
-    less.render(css, (_, output) => {
+  less: ((strs: string[], ...values: string[]) => {
+    const inputcss = getInputCSS(strs, values)
+    let __html = inputcss
+    less.render(inputcss, (_, output) => {
       __html = output.css
     })
     return <style dangerouslySetInnerHTML={{ __html }} />
