@@ -1,4 +1,4 @@
-echarts 示例的 setOption 方法用来加载/更新图表数据，setOption 方法内部首先使用了 zrender 的 clone 函数对 options 进行了拷贝。但是 zrender 的 clone 方法是不严谨的，下面是一处不严谨的源码位置：
+echarts 实例的 setOption 方法用来加载/更新图表数据，setOption 方法内部首先使用了 zrender 的 clone 函数对 options 进行了拷贝。但是 zrender 的 clone 方法是不严谨的，下面是一处不严谨的源码位置：
 
 [utils.ts](https://github.com/ecomfe/zrender/blob/master/src/core/util.ts)
 
