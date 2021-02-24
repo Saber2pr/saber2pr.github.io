@@ -114,7 +114,7 @@ const FriendLinks = ({ links }: { links: Link[] }) => (
 export const Links = ({ owns, friends }: Links) => (
   <div className="Links">
     <OwnLinks links={owns} />
-    <FriendLinks links={friends} />
+    {friends?.length > 0 && <FriendLinks links={friends} />}
   </div>
 )
 

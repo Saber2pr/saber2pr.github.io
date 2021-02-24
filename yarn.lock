@@ -9,20 +9,6 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@saber2pr/gen-comp@^0.0.1":
-  version "0.0.1"
-  resolved "https://r.cnpmjs.org/@saber2pr/gen-comp/download/@saber2pr/gen-comp-0.0.1.tgz#7b24f254a6e119b7dd0f303c987015e1a9d398e7"
-  integrity sha1-eyTyVKbhGbfdDzA8mHAV4anTmOc=
-  dependencies:
-    "@saber2pr/node" "^0.2.4"
-
-"@saber2pr/gen-index@^0.0.2":
-  version "0.0.2"
-  resolved "https://r.cnpmjs.org/@saber2pr/gen-index/download/@saber2pr/gen-index-0.0.2.tgz#5e5629d54ffe802c69661f28f31ff2c3dd2909ad"
-  integrity sha1-XlYp1U/+gCxpZh8o8x/yw90pCa0=
-  dependencies:
-    "@saber2pr/node" "^0.2.1"
-
 "@saber2pr/git@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@saber2pr/git/-/git-0.0.2.tgz#338d3943c4ce3ca9feaf81a5b4d576beae02a6e5"
@@ -43,13 +29,6 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@saber2pr/memo/-/memo-0.0.3.tgz#9ed12ad9030df4c530fb2bbd0af04f8f19be9b05"
   integrity sha512-OvD4fV5HCwkbKCvOsC2capN0YCLL7UgqNrGlXMT6KzqTw91TmDPWEAvY8fKiGWbjzwnON3RNMw3IhDIOuy29oA==
-
-"@saber2pr/node@^0.2.1", "@saber2pr/node@^0.2.4":
-  version "0.2.6"
-  resolved "https://r.cnpmjs.org/@saber2pr/node/download/@saber2pr/node-0.2.6.tgz#499ef8d3135b7fcb7dfe5d45b6baf3e4c3dfbeea"
-  integrity sha1-SZ740xNbf8t9/l1Ftrrz5MPfvuo=
-  dependencies:
-    "@types/node" "^10.12.18"
 
 "@saber2pr/node@^0.3.0":
   version "0.3.0"
@@ -4794,10 +4773,10 @@ typedarray@^0.0.6:
   resolved "https://r.cnpmjs.org/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.9.5:
-  version "3.9.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.5.tgz#586f0dba300cde8be52dd1ac4f7e1009c1b13f36"
-  integrity sha512-hSAifV3k+i6lEoCJ2k6R2Z/rp/H3+8sdmcn5NrS3/3kE7+RyZXm9aqvxWqjEXHAd8b0pShatpcdMTvEdvAJltQ==
+typescript@^4.2.2:
+  version "4.2.2"
+  resolved "https://registry.npm.taobao.org/typescript/download/typescript-4.2.2.tgz?cache=0&sync_timestamp=1614116661537&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftypescript%2Fdownload%2Ftypescript-4.2.2.tgz#1450f020618f872db0ea17317d16d8da8ddb8c4c"
+  integrity sha1-FFDwIGGPhy2w6hcxfRbY2o3bjEw=
 
 uglify-js@3.4.x:
   version "3.4.10"
