@@ -199,6 +199,7 @@ body {
   margin-top: 2.5rem;
   overflow: hidden;
   transition: all 0.2s;
+  min-height: calc(100vh - 19.5rem);
 }
 .main-bg {
   background: url(/static/image/bg-pc.webp);
@@ -251,6 +252,7 @@ body {
   }
   .main {
     margin-top: 2rem;
+    min-height: unset;
   }
   .main-bg {
     background: url(/static/image/bg-mb.webp);

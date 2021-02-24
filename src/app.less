@@ -132,6 +132,7 @@ body {
   margin-top: @lineH-PC;
   overflow: hidden;
   transition: all 0.2s;
+  min-height: calc(100vh - 19.5rem);
   &-bg {
     background: url(/static/image/bg-pc.webp);
     width: 100%;
@@ -200,6 +201,7 @@ body {
 
   .main {
     margin-top: @lineH-Mob;
+    min-height: unset;
 
     &-bg {
       background: url(/static/image/bg-mb.webp);
