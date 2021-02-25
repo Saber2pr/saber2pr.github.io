@@ -1443,7 +1443,7 @@ body {
   flex-wrap: wrap;
 }
 .Learn-List-Item {
-  width: 46%;
+  width: 50%;
 }
 .Learn-List-Item dd {
   margin-left: 0;
@@ -1474,7 +1474,7 @@ body {
   color: black;
 }
 .Learn .libs::after {
-  content: "";
+  content: '';
   display: block;
   clear: both;
 }
