@@ -20,6 +20,14 @@
 
 11. 首屏可以适当内联 css 优化渲染。不要滥用 transition。
 
+12. 抽离公共 css，封装工具 css。
+
+13. 对象引用发生变化时（通常是有解引用特性的纯函数执行例如 slice 等），使用 useMemo 进行优化。
+
+14. antd 使用 babel-plugin-import 进行按需加载，主题定制使用 less modifyVars。如果对 antd 组件进行样式覆盖，适当进行首屏 css 内联。
+
+15. 使用浏览器 network 检查是否存在接口重复请求，使用 performance 检查 cls 进行内联优化。
+
 ---
 
 待更新
