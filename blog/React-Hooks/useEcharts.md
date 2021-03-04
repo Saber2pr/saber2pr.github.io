@@ -33,6 +33,9 @@ export function useEcharts(
   const echarts = useEchartsLib()
 
   useEffect(() => {
+    if (options === null) {
+      return
+    }
     setLoading(true)
     let chart: ECharts = null
     if (echarts) {
