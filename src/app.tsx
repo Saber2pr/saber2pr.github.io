@@ -58,7 +58,11 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
     const hash = getHash()
     hash.startsWith(blogTree.path) && expand(hash)
     const currentTitle = hash.split('/').pop().split('?')[0] || title
-    document.title = `${currentTitle} - ${origin.title}`
+    if (currentTitle === origin.title) {
+      document.title = `${currentTitle}`
+    } else {
+      document.title = `${currentTitle} - ${origin.title}`
+    }
   }
   useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
