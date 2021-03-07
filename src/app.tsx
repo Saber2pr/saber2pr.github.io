@@ -24,7 +24,7 @@ import { SearchInput, PreImg, Themer, Uv } from './components'
 import { getHash, getTimeMessage, queryRootFirstChildMemo } from './utils'
 import { useEvent, useBlogMenu, useFullWindow } from './hooks'
 import { Icon } from './iconfont'
-import { Routes as RS } from './config'
+import { origin, Routes as RS } from './config'
 
 export interface App {
   homeInfo: Home
@@ -57,7 +57,8 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const setTitle = () => {
     const hash = getHash()
     hash.startsWith(blogTree.path) && expand(hash)
-    document.title = hash.split('/').pop().split('?')[0] || title
+    const currentTitle = hash.split('/').pop().split('?')[0] || title
+    document.title = `${currentTitle} - ${origin.title}`
   }
   useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
