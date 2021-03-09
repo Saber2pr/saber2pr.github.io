@@ -24,7 +24,10 @@ export const useIntersection = (
   const ref = useRef<HTMLElement>()
   useEffect(() => {
     if (!enable) return
-    if (IO === null) return
+    if (IO === null) {
+      // 如果IO==NULL，说明不支持IntersectionObserver，则直接callback
+      return callback(ref.current)
+    }
     map.set(ref.current, callback)
     IO.observe(ref.current)
     return () => {
