@@ -40,13 +40,9 @@ export const useIntersection = (
 示例：
 
 ```tsx
-import './style.less'
-
 import AntdAvatar, { AvatarProps } from 'antd/lib/avatar'
 import React, { useState } from 'react'
 import { useUpdateEffect } from 'react-use'
-
-import { useIntersection } from '../../hooks/useIntersection'
 
 export interface Avatar extends AvatarProps {
   src?: string
