@@ -1,4 +1,5 @@
 export const origin = {
+  title: 'saber2prの窝',
   userId: 'saber2pr',
   repo: 'saber2pr.github.io',
   mirror: 'saber2pr.gitee.io',
