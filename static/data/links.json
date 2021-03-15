@@ -19,10 +19,10 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
     },
     {
-      "name": "leetcode",
-      "href": "https://leetcode-cn.com/problemset/all/",
-      "message": "脑筋急转弯练习",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/leetcode.jpeg"
+      "name": "掘金",
+      "href": "https://juejin.cn/",
+      "message": "挖掘技术文章",
+      "icon": "https://b-gold-cdn.xitu.io/favicons/v2/favicon-32x32.png"
     },
     {
       "name": "代码编辑器",
