@@ -19,7 +19,7 @@ module.exports = WebpackConfig({
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'build'),
-    publicPath: '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/build' : '/',
   },
   module: {
     rules: [
