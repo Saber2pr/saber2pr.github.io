@@ -1,62 +1,62 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const path = require("path")
-const webpack = require("webpack")
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
+const webpack = require('webpack')
 
-const { WebpackConfig, templateContent } = require("@saber2pr/webpack-configer")
+const { WebpackConfig, templateContent } = require('@saber2pr/webpack-configer')
 const version = () => `var version="${new Date().toLocaleString()}"`
 
 const publicPath = (resourcePath, context) =>
-  path.relative(path.dirname(resourcePath), context) + "/"
+  path.relative(path.dirname(resourcePath), context) + '/'
 
 module.exports = WebpackConfig({
   entry: {
-    index: "./src/index.tsx"
+    index: './src/index.tsx',
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"]
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
-    filename: "[name].min.js",
-    path: path.join(__dirname, "build"),
-    publicPath: "/build"
+    filename: '[name].min.js',
+    path: path.join(__dirname, 'build'),
+    publicPath: '/',
   },
   module: {
     rules: [
       {
         test: /\.(ts|tsx)$/,
-        use: ["ts-loader"]
+        use: ['ts-loader'],
       },
       {
         test: /\.(woff|svg|eot|ttf|png)$/,
-        use: ["url-loader"]
+        use: ['url-loader'],
       },
       {
         test: /\.css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath }
+            options: { publicPath },
           },
-          "css-loader"
-        ]
+          'css-loader',
+        ],
       },
       {
         test: /\.less$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: { publicPath }
+            options: { publicPath },
           },
-          "css-loader",
-          "less-loader"
-        ]
-      }
-    ]
+          'css-loader',
+          'less-loader',
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      templateContent: templateContent("saber2prの窝", {
+      templateContent: templateContent('saber2prの窝', {
         injectHead: `
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
@@ -68,44 +68,44 @@ module.exports = WebpackConfig({
         injectBody:
           `<div id="root"></div><script>LOADING.init(` +
           `"等待时间太长？访问[<a href='//saber2pr.gitee.io/'>加速版</a>]."` +
-          ");</script>"
-      })
+          ');</script>',
+      }),
     }),
     new webpack.BannerPlugin({
       banner: `${version()};`,
       raw: true,
-      test: /\.js/
+      test: /\.js/,
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "style.[id].css"
-    })
+      filename: '[name].css',
+      chunkFilename: 'style.[id].css',
+    }),
   ],
   watchOptions: {
     aggregateTimeout: 1000,
-    ignored: /node_modules|lib/
+    ignored: /node_modules|lib/,
   },
   optimization: {
     splitChunks: {
-      chunks: "all",
+      chunks: 'all',
       minSize: 200000,
       maxSize: 250000,
       minChunks: 1,
       maxAsyncRequests: 5,
       maxInitialRequests: 3,
-      automaticNameDelimiter: "~",
+      automaticNameDelimiter: '~',
       name: true,
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          priority: -10,
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
-    }
-  }
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
 })
