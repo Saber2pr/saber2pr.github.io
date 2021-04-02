@@ -29,8 +29,8 @@
     },
     {
       "name": "React",
-      "icon": "https://www.reactjscn.com/favicon.ico",
-      "href": "https://www.reactjscn.com/docs/hello-world.html"
+      "icon": "https://react.docschina.org/favicon.ico",
+      "href": "https://react.docschina.org/docs/getting-started.html"
     },
     {
       "name": "Redux",
