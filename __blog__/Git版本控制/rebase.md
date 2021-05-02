@@ -25,3 +25,7 @@ git rebase -i HEAD~2 # 处理近两次提交
 vscode 插件推荐：Git Graph
 
 在插件界面，在当前 feature 分支下，可以直接选择 master 分支所在的 commit，右键 rebase 并勾选第一个选项（别点到 reset 哦），然后进入 vi，后续操作同上。
+
+日常推荐直接 git rebase -i master.
+
+> 如果想撤销 rebase，先执行 git reflog 找到 rebase 前的 commitid，然后 git reset --hard commitid
