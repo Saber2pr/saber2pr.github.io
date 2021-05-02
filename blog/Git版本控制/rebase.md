@@ -7,6 +7,7 @@ git rebase 就是用来合并多次 commit 为一个 commit 的！
 ```bash
 git rebase -i HEAD~2 # 处理近两次提交
 # 或 git rebase -i start-commit end-commit （start-commit可以直接复制master的commitid， end-commit就是当前分支最新commitid）
+# 通常都是rebase到master上，所以可以直接 git rebase -i master
 
 # 然后进入vi，保留第一个pick，后面的都改成s。后面s的commit会被合并到第一个上面，wq保存退出
 # 例如
