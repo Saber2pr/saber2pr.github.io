@@ -30,7 +30,6 @@ export const ChartCurve = ({ data, title }: ChartCurve) => {
     for (const item of ds) {
       if (item.LastModified) {
         const month = getItemMonth(item)
-        console.log(item, month)
         if (month in sortMap) {
           sortMap[month]++
         } else {
