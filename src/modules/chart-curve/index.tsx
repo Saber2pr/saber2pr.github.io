@@ -86,6 +86,11 @@ export const ChartCurve = ({ data, title }: ChartCurve) => {
         axisTick: {
           show: false,
         },
+        splitLine: {
+          lineStyle: {
+            color: 'rgba(158, 158, 158, 0.2)',
+          },
+        },
         axisLabel: {
           formatter(value: number) {
             return `${value}`
@@ -97,6 +102,7 @@ export const ChartCurve = ({ data, title }: ChartCurve) => {
           data: ys,
           type: 'line',
           smooth: true,
+          showSymbol: false,
         },
       ],
     },

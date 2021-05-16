@@ -47,9 +47,12 @@ export const ChartPie = ({ data, title }: ChartPie) => {
           type: 'pie',
           roseType: 'radius',
           radius: ['40%', '70%'],
+          label: {
+            textBorderColor: 'transparent',
+            color: '#747474',
+          },
           itemStyle: {
             borderRadius: 4,
-            borderColor: '#fff',
             borderWidth: 2,
           },
           data: pieData,
