@@ -28,8 +28,8 @@ const Routes = {
     name: '链接',
   },
   datav: {
-    href: '/分析',
-    name: '分析',
+    href: '/数据',
+    name: '数据',
   },
   search: {
     href: '/搜索结果',
