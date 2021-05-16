@@ -41,5 +41,3 @@ yarn update
 MIT
 
 > Author: saber2pr
-
----
