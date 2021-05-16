@@ -58,7 +58,6 @@ module.exports = WebpackConfig({
     new HtmlWebpackPlugin({
       templateContent: templateContent('saber2prの窝', {
         injectHead: `
-        <meta httpEquiv="x-ua-compatible" content="ie=edge, chrome=1" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
         <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
