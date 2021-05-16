@@ -1,3 +1,9 @@
+# 编写一个 vscode 插件扩展你的右键菜单！
+
+[vscode 插件编写教程](https://saber2pr.top/#/blog/VSCode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E6%95%99%E7%A8%8B)
+
+[编写一个 vscode 插件扩展你的右键菜单！](https://zhuanlan.zhihu.com/p/369595594)
+
 ### 0. 需求
 
 src/components 文件夹通常需要一个 index.ts 做聚合导出，类似这样：
@@ -123,4 +129,28 @@ package.json 只需要关心 contributes 一项就好了，其他项请看官方
 
 ### 6. 发布你的 vscode 扩展
 
-> 待更新...
+打包插件，生成 vsix 文件：
+
+```bash
+# 安装vscode插件打包工具
+npm i -g vsce
+
+# 代码检查，这里最好用eslint格式化一下，避免发布时验证不通过
+# 首选项 Eslint > Format: Enable 打勾。代码里右键格式化方式选用Eslint
+yarn lint
+
+# 打包生成vsix文件
+vsce package
+```
+
+然后目录下会得到 xxx-0.0.1.vsix 的文件，.vsix 文件就是 vscode 插件标准格式。在 vscode 左侧边栏扩展中，点击更多操作，有一个“从 VSIX 安装”，可以直接安装本地的插件。
+
+发布插件到 vscode 插件市场：
+
+先注册一个账号，访问：
+
+[https://marketplace.visualstudio.com/manage](https://marketplace.visualstudio.com/manage)
+
+根据提示注册账号。
+
+注册好后进入个人中心，点击 New Extension > Visual Studio Code，然后上传刚才打包好的 vsix 文件。上传成功后还不能马上搜索到，需要等待验证，此时 version 状态为 verify，过几分钟变成对勾就表示成功发布到市场了。然后在扩展中搜索你在 package.json 中设置的 displayName，就可以找到自己的插件了。
