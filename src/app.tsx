@@ -106,17 +106,17 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
             <li>
               <AppNavLink to={RS.learn.href}>{RS.learn.name}</AppNavLink>
             </li>
+            {isMob || (
+              <li>
+                <AppNavLink to={RS.datav.href}>{RS.datav.name}</AppNavLink>
+              </li>
+            )}
             <li>
               <AppNavLink to={RS.about.href}>{RS.about.name}</AppNavLink>
             </li>
             <li>
               <AppNavLink to={RS.links.href}>{RS.links.name}</AppNavLink>
             </li>
-            {isMob || (
-              <li>
-                <AppNavLink to={RS.datav.href}>{RS.datav.name}</AppNavLink>
-              </li>
-            )}
             <li className="nav-block">{TimeMessage}</li>
             <li>
               <SearchInput blog={blogTree} />
