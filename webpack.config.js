@@ -58,6 +58,11 @@ module.exports = WebpackConfig({
     new HtmlWebpackPlugin({
       templateContent: templateContent('saber2prの窝', {
         injectHead: `
+        <link rel="preconnect" href="//saber2pr.top" />
+        <link rel="dns-prefetch" href="//saber2pr.top" />
+        <link rel="preconnect" href="//saber2pr.github.io" />
+        <link rel="dns-prefetch" href="//saber2pr.github.io" />
+        <meta httpEquiv="x-ua-compatible" content="ie=edge, chrome=1" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
         <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
@@ -65,7 +70,7 @@ module.exports = WebpackConfig({
         <script src="//saber2pr.top/loading/index.min.js"></script>
         <script async src="//saber2pr.top/click-mask/click-mask.min.js"></script>
         <script async src="//saber2pr.top/test/tools/debug.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
         `,
         injectBody:
           `<div id="root"></div><script>LOADING.init(` +
