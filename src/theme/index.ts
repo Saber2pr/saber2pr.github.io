@@ -1,5 +1,5 @@
-import { ThemeStyleType, themeStyle } from "./styles"
-import { getStyleConfiger } from "./getStyleConfiger"
+import { getStyleConfiger } from './getStyleConfiger'
+import { themeStyle, ThemeStyleType } from './styles'
 
 let currentType: ThemeStyleType = "light"
 

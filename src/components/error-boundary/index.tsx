@@ -1,6 +1,8 @@
-import React from "react"
-import "./style.less"
-import { freeCache } from "../../utils"
+import './style.less'
+
+import React from 'react'
+
+import { freeCache } from '../../utils'
 
 export type ErrorInfo = { componentStack: string }
 export type Error = { message?: string; stack?: string }

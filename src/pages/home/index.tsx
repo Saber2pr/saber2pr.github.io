@@ -1,7 +1,9 @@
-import React, { memo } from "react"
-import "./style.less"
-import { LazyCom, Loading } from "../../components"
-import { request } from "../../request"
+import './style.less'
+
+import React, { memo } from 'react'
+
+import { LazyCom, Loading } from '../../components'
+import { request } from '../../request'
 
 export interface Home {
   title: string

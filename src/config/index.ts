@@ -1,41 +1,45 @@
-export * from "./browser"
-export * from "./origin"
-import { origin } from "./origin"
+export * from './browser'
+export * from './origin'
+import { origin } from './origin'
 
 const Routes = {
   home: {
-    href: "/",
-    name: origin.userId
+    href: '/',
+    name: origin.userId,
   },
   about: {
-    href: "/关于",
-    name: "关于"
+    href: '/关于',
+    name: '关于',
   },
   acts: {
-    href: "/动态",
-    name: "动态"
+    href: '/动态',
+    name: '动态',
   },
   blog: {
-    name: "笔记",
-    href: "/blog"
+    name: '笔记',
+    href: '/blog',
   },
   learn: {
-    href: "/文档",
-    name: "文档"
+    href: '/文档',
+    name: '文档',
   },
   links: {
-    href: "/链接",
-    name: "链接"
+    href: '/链接',
+    name: '链接',
+  },
+  datav: {
+    href: '/分析',
+    name: '分析',
   },
   search: {
-    href: "/搜索结果"
+    href: '/搜索结果',
   },
   secret: {
-    href: "/secret"
+    href: '/secret',
   },
   notFound: {
-    href: "*"
-  }
+    href: '*',
+  },
 }
 
 export { origin, Routes }

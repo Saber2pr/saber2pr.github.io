@@ -1,5 +1,6 @@
-import React, { Props } from "react";
-import "./style.less";
+import './style.less'
+
+import React, { Props } from 'react'
 
 export interface TwoSide extends Props<HTMLDivElement> {}
 

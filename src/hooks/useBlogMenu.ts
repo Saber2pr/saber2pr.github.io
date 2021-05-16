@@ -1,6 +1,6 @@
-import { Blog } from "../pages"
-import { collect } from "../utils"
-import { useForceUpdate } from "./useForceUpdate"
+import { Blog } from '../pages'
+import { collect } from '../utils'
+import { useForceUpdate } from './useForceUpdate'
 
 export const useBlogMenu = (blogRoot: Blog["tree"]) => {
   const forceUpdate = useForceUpdate()

@@ -1,7 +1,9 @@
-import React, { useState, useRef } from "react"
-import ReactDOM from "react-dom"
-import "./style.less"
-import { useUnMount } from "../../hooks"
+import './style.less'
+
+import React, { useRef, useState } from 'react'
+import ReactDOM from 'react-dom'
+
+import { useUnMount } from '../../hooks'
 
 export interface Model {
   inner: JSX.Element

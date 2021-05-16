@@ -1,9 +1,10 @@
+import './style.less'
+
 import React, { memo } from 'react'
 
-import './style.less'
-import { API, request } from '../../request'
-import { PreImg, LazyCom, Loading } from '../../components'
+import { LazyCom, Loading, PreImg } from '../../components'
 import { Icon } from '../../iconfont'
+import { API, request } from '../../request'
 
 type Link = {
   name: string

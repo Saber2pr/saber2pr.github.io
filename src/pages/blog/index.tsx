@@ -1,38 +1,38 @@
-import React, { useRef, useLayoutEffect, useEffect } from "react"
-import { Route, Link, Switch, NavLink } from "@saber2pr/react-router"
-import Tree from "@saber2pr/rc-tree"
+import './style.less'
 
-import "./style.less"
+import React, { useLayoutEffect, useRef } from 'react'
+
+import Tree from '@saber2pr/rc-tree'
+import { Link, NavLink, Route, Switch } from '@saber2pr/react-router'
 
 import {
-  TwoSide,
-  LazyCom,
   AniBtn,
-  NextBefore,
-  Loading,
+  createMusicBox,
   ErrorBack,
+  LazyCom,
+  Loading,
+  NextBefore,
   ScrollToTop,
-  createMusicBox
-} from "../../components"
+  TwoSide,
+} from '../../components'
+import { Md2jsx, md_theme, origin } from '../../config'
 import {
-  useIsMobile,
+  fullWinBtnAPI,
   useAniLayout,
   useAsideHidable,
-  fullWinBtnAPI
-} from "../../hooks"
-
-import { md_theme, origin, Md2jsx } from "../../config"
+  useIsMobile,
+} from '../../hooks'
+import { Icon } from '../../iconfont'
+import { API, requestContent } from '../../request'
+import { store } from '../../store'
 import {
-  timeDeltaFromNow,
+  collect,
   findNodeByPath,
   queryRootFirstChildMemo,
-  collect,
-  TextTree
-} from "../../utils"
-import { API, requestContent } from "../../request"
-import { store } from "../../store"
-import { NotFound } from "../not-found"
-import { Icon } from "../../iconfont"
+  TextTree,
+  timeDeltaFromNow,
+} from '../../utils'
+import { NotFound } from '../not-found'
 
 const BLink = (props: Link) => (
   <NavLink activeClassName="Blog-A-Active" className="Blog-A" {...props} />

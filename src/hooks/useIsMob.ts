@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
-import { useIsMobile } from "./useIsMobile";
+import { useEffect, useState } from 'react'
+
+import { useIsMobile } from './useIsMobile'
 
 export const useIsMob = () => {
   const [isMob, set] = useState(true);

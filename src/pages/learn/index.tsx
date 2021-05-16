@@ -1,7 +1,9 @@
-import React, { memo } from "react"
-import "./style.less"
-import { PreImg, LazyCom, Loading } from "../../components"
-import { request } from "../../request"
+import './style.less'
+
+import React, { memo } from 'react'
+
+import { LazyCom, Loading, PreImg } from '../../components'
+import { request } from '../../request'
 
 type Sites = {
   [k: string]: { name: string; href: string; icon: string }[]

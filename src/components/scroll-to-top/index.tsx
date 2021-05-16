@@ -1,8 +1,10 @@
-import React, { useState } from "react"
-import "./style.less"
-import { useEvent } from "../../hooks"
-import { throttle } from "../../utils"
-import { Icon } from "../../iconfont"
+import './style.less'
+
+import React, { useState } from 'react'
+
+import { useEvent } from '../../hooks'
+import { Icon } from '../../iconfont'
+import { throttle } from '../../utils'
 
 export interface ScrollToTop {}
 

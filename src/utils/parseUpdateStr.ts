@@ -4,7 +4,7 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2019-09-28 11:21:35
  */
-import { lift } from "./util"
+import { lift } from './util'
 
 export const parseUpdateStr = (updateStr: string) =>
   updateStr

@@ -1,7 +1,8 @@
+import './style.less'
+
 import React, { memo } from 'react'
 
-import { TwoSide, LazyCom, Loading, useOption } from '../../components'
-import './style.less'
+import { LazyCom, Loading, TwoSide, useOption } from '../../components'
 import { request } from '../../request'
 
 const Main = ({ contents }: { contents: string[] }) => {

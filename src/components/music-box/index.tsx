@@ -1,13 +1,16 @@
-import React, { useState, useRef } from 'react'
 import './style.less'
-import { axios } from '../../request/axios'
+
+import React, { useRef, useState } from 'react'
+
 import Audio from '@saber2pr/rc-audio'
-import { Model } from '../model'
+
+import { request } from '../../request'
+import { axios } from '../../request/axios'
+import { checkNetwork } from '../../utils'
+import { CloseBtn } from '../close-btn'
 import { LazyCom } from '../lazy-com'
 import { Loading } from '../loading'
-import { CloseBtn } from '../close-btn'
-import { checkNetwork } from '../../utils'
-import { request } from '../../request'
+import { Model } from '../model'
 
 type Music = {
   code: number

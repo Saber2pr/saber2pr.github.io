@@ -1,6 +1,7 @@
-import { origin } from "../config"
-import { memoGet, axios } from "./axios"
-import { ResponseConfig } from "@saber2pr/request"
+import { ResponseConfig } from '@saber2pr/request'
+
+import { origin } from '../config'
+import { axios, memoGet } from './axios'
 
 let should_omit_base = !!origin.omit_base.find(url =>
   location.origin.includes(url)

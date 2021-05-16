@@ -4,8 +4,9 @@
  * @Last Modified by: saber2pr
  * @Last Modified time: 2019-10-16 22:13:09
  */
-import React, { useState, useRef, CSSProperties } from "react"
-import { usePreComp } from "../../hooks"
+import React, { CSSProperties, useRef, useState } from 'react'
+
+import { usePreComp } from '../../hooks'
 
 export interface PreImg
   extends React.DetailedHTMLProps<

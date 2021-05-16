@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react"
-import "./style.less"
-import { origin } from "../../config"
+import './style.less'
+
+import React, { useEffect, useState } from 'react'
+
+import { origin } from '../../config'
 
 export interface Loading {
   type?: "block" | "unset" | "line"

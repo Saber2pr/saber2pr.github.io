@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react"
-import "./style.less"
-import { store } from "../../store"
-import { Link, usePush } from "@saber2pr/react-router"
-import { HighLightHTML, ScrollToTop } from "../../components"
-import { useOnScrollBottom } from "../../hooks"
-import { Routes } from "../../config"
+import './style.less'
+
+import React, { useEffect, useState } from 'react'
+
+import { Link, usePush } from '@saber2pr/react-router'
+
+import { HighLightHTML, ScrollToTop } from '../../components'
+import { Routes } from '../../config'
+import { useOnScrollBottom } from '../../hooks'
+import { store } from '../../store'
 
 export interface SearchResult {}
 

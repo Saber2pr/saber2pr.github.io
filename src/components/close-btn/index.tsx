@@ -1,5 +1,6 @@
-import React from "react"
-import "./style.less"
+import './style.less'
+
+import React from 'react'
 
 export interface CloseBtn {
   onClick: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void

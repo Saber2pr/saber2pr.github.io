@@ -1,5 +1,7 @@
-import React from "react"
-import "./iconfont.css"
+import './iconfont.css'
+
+import React from 'react'
+
 export namespace Icon {
   export const Sousuo = () => <i className="iconfont icon-xiazai15" />
   export const DarkTheme = () => (

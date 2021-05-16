@@ -1,4 +1,4 @@
-import { origin } from "../config"
+import { origin } from '../config'
 
 export const themeStyle = origin.theme
 

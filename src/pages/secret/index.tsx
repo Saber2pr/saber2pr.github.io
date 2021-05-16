@@ -1,10 +1,12 @@
-import React from "react"
-import "./style.less"
+import './style.less'
 
-import Sec from "@saber2pr/secret"
-import { usePush } from "@saber2pr/react-router"
-import { store } from "../../store"
-import { Routes } from "../../config"
+import React from 'react'
+
+import { usePush } from '@saber2pr/react-router'
+import Sec from '@saber2pr/secret'
+
+import { Routes } from '../../config'
+import { store } from '../../store'
 
 export const Secret = () => {
   const context = store.getState().context

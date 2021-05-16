@@ -1,18 +1,20 @@
-import React from "react"
-import "./style.less"
+import './style.less'
+
+import React from 'react'
+
+import { origin } from '../../config'
+import { request } from '../../request'
+import { localStore } from '../../store'
 import {
-  freeCache,
-  whenInDEV,
-  timeout,
-  getVersion,
-  updateVersion,
   CacheType,
-  checkNetwork
-} from "../../utils"
-import { origin } from "../../config"
-import { Model } from "../model"
-import { localStore } from "../../store"
-import { request } from "../../request"
+  checkNetwork,
+  freeCache,
+  getVersion,
+  timeout,
+  updateVersion,
+  whenInDEV,
+} from '../../utils'
+import { Model } from '../model'
 
 let LOCK = false
 

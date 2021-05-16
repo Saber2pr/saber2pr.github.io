@@ -1,7 +1,10 @@
-import React from "react"
-import "./style.less"
-import { TextTree } from "../../utils"
-import { Link } from "@saber2pr/react-router"
+import './style.less'
+
+import React from 'react'
+
+import { Link } from '@saber2pr/react-router'
+
+import { TextTree } from '../../utils'
 
 const NextLink = ({
   to: item,

@@ -1,14 +1,16 @@
-import React, { useState, useEffect, memo } from "react"
-import "./style.less"
+import './style.less'
 
-import { origin } from "../../config"
-import { timeDeltaFromNow, checkDarknessTime } from "../../utils"
-import { Icon } from "../../iconfont"
-import { useOnScrollBottom } from "../../hooks/useOnScrollBottom"
-import { LazyCom, Loading, ScrollToTop } from "../../components"
-import { request, requestContent } from "../../request"
-import { store } from "../../store"
-import { Link } from "@saber2pr/react-router"
+import React, { memo, useEffect, useState } from 'react'
+
+import { Link } from '@saber2pr/react-router'
+
+import { LazyCom, Loading, ScrollToTop } from '../../components'
+import { origin } from '../../config'
+import { useOnScrollBottom } from '../../hooks/useOnScrollBottom'
+import { Icon } from '../../iconfont'
+import { request, requestContent } from '../../request'
+import { store } from '../../store'
+import { checkDarknessTime, timeDeltaFromNow } from '../../utils'
 
 type Act = {
   type: "update" | "create" | "delete"

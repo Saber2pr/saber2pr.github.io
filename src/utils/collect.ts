@@ -1,9 +1,11 @@
 import { TreeNode } from '@saber2pr/rc-tree'
+
 import { whenInDEV } from './whenInDEV'
 
 export interface TextTree extends TreeNode {
   path: string
   title: string
+  [k: string]: any
 }
 
 export function collect(tree: TextTree, stack = [tree]) {
@@ -15,7 +17,7 @@ export function collect(tree: TextTree, stack = [tree]) {
   }
 
   whenInDEV(() => {
-    const chars = ['&', '(', ')', '.', '/', '\\']
+    const chars = ['&', '.', '\\']
     result.forEach(({ path }) => {
       chars.forEach(ch => {
         if (path.includes(ch))

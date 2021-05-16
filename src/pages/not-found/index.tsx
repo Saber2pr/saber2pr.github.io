@@ -1,7 +1,10 @@
-import React from "react"
-import "./style.less"
-import { usePush } from "@saber2pr/react-router"
-import { Routes } from "../../config"
+import './style.less'
+
+import React from 'react'
+
+import { usePush } from '@saber2pr/react-router'
+
+import { Routes } from '../../config'
 
 export interface NotFound {}
 

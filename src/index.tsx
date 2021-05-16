@@ -57,7 +57,10 @@ ReactDOM.render(
 )
 
 window.addEventListener('load', async () => {
-  if (whenInDEV()) return
+  if (whenInDEV()) {
+    LOADING.destroy()
+    return
+  }
 
   if ('serviceWorker' in navigator) {
     await PWAInstaller()

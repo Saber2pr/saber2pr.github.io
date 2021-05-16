@@ -1,9 +1,11 @@
-import React, { useCallback, useState, useEffect } from "react"
-import "./style.less"
-import { getCurrentThemeType, selectTheme, testStyle } from "../../theme"
-import { Icon } from "../../iconfont"
-import { localStore } from "../../store"
-import { ThemeStyleType } from "../../theme/styles"
+import './style.less'
+
+import React, { useCallback, useEffect, useState } from 'react'
+
+import { Icon } from '../../iconfont'
+import { localStore } from '../../store'
+import { getCurrentThemeType, selectTheme, testStyle } from '../../theme'
+import { ThemeStyleType } from '../../theme/styles'
 
 export interface Themer {}
 

@@ -1,7 +1,10 @@
-import React from "react"
-import "./style.less"
-import visit, { BusuanziResponse } from "@saber2pr/pv-count"
-import { useAsync } from "../../hooks"
+import './style.less'
+
+import React from 'react'
+
+import visit, { BusuanziResponse } from '@saber2pr/pv-count'
+
+import { useAsync } from '../../hooks'
 
 export interface Uv {}
 

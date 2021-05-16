@@ -1,5 +1,6 @@
-import React from "react"
-import { createASCII } from "./createASCII"
+import React from 'react'
+
+import { createASCII } from './createASCII'
 
 export function LogProps<T>(
   Component: (props: T) => JSX.Element,

@@ -1,30 +1,32 @@
-import React, { useMemo, useEffect } from 'react'
+import './app.less'
+
+import React, { useEffect, useMemo } from 'react'
+
 import {
-  Router,
-  Route,
   HashHistory,
-  Switch,
   NavLink,
+  Route,
+  Router,
+  Switch,
 } from '@saber2pr/react-router'
 
-import './app.less'
+import { PreImg, SearchInput, Themer, Uv } from './components'
+import { origin, Routes as RS } from './config'
+import { useBlogMenu, useEvent, useFullWindow, useIsMob } from './hooks'
+import { Icon } from './iconfont'
 import {
-  Blog,
   About,
-  Secret,
-  LinksLazy,
   ActivityLazy,
+  Blog,
+  Home,
   LearnLazy,
+  LinksLazy,
   NotFound,
   SearchResult,
-  Home,
+  Secret,
 } from './pages'
-import { SearchInput, PreImg, Themer, Uv } from './components'
-
+import { Datav } from './pages/datav'
 import { getHash, getTimeMessage, queryRootFirstChildMemo } from './utils'
-import { useEvent, useBlogMenu, useFullWindow } from './hooks'
-import { Icon } from './iconfont'
-import { origin, Routes as RS } from './config'
 
 export interface App {
   homeInfo: Home
@@ -53,6 +55,8 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
   const expand = useBlogMenu(blogTree)
 
+  const isMob = useIsMob()
+
   const title = useMemo(() => document.title, [])
   const setTitle = () => {
     const hash = getHash()
@@ -67,16 +71,11 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
 
-  const [
-    header_ref,
-    main_ref,
-    footer_ref,
-    btn_ref,
-    fullWinBtnAPI,
-  ] = useFullWindow({
-    enableClassName: 'FullWinBtn iconfont icon-fullwin-enable',
-    disableClassName: 'FullWinBtn iconfont icon-fullwin-disable',
-  })
+  const [header_ref, main_ref, footer_ref, btn_ref, fullWinBtnAPI] =
+    useFullWindow({
+      enableClassName: 'FullWinBtn iconfont icon-fullwin-enable',
+      disableClassName: 'FullWinBtn iconfont icon-fullwin-disable',
+    })
 
   return (
     <Router history={HashHistory}>
@@ -113,6 +112,11 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
             <li>
               <AppNavLink to={RS.links.href}>{RS.links.name}</AppNavLink>
             </li>
+            {isMob || (
+              <li>
+                <AppNavLink to={RS.datav.href}>{RS.datav.name}</AppNavLink>
+              </li>
+            )}
             <li className="nav-block">{TimeMessage}</li>
             <li>
               <SearchInput blog={blogTree} />
@@ -157,6 +161,10 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           <Route path={RS.acts.href} component={() => <ActivityLazy />} />
           <Route path={RS.learn.href} component={() => <LearnLazy />} />
           <Route path={RS.search.href} component={() => <SearchResult />} />
+          <Route
+            path={RS.datav.href}
+            component={() => <Datav data={blogTree} />}
+          />
           <Route path={RS.notFound.href} component={() => <NotFound />} />
         </Switch>
       </main>

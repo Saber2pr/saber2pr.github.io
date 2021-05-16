@@ -1,6 +1,7 @@
-import React from "react"
-import ReactDOM from "react-dom/server"
-import "./style.less"
+import './style.less'
+
+import React from 'react'
+import ReactDOM from 'react-dom/server'
 
 export interface HighLightHTML {
   source: string

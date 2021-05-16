@@ -1,4 +1,4 @@
-import { CSSProperties } from "react"
+import { CSSProperties } from 'react'
 
 export function toLowerCase(value: string) {
   return value.replace(/\B([A-Z])/g, "-$1").toLowerCase()

@@ -1,5 +1,6 @@
-import React from "react"
-import { timeout, whenInDEV } from "../../utils"
+import React from 'react'
+
+import { timeout, whenInDEV } from '../../utils'
 
 export interface LazyCom<T> {
   await: Promise<T>

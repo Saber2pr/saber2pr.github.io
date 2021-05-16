@@ -1,5 +1,6 @@
-import { useRef, useState, useEffect } from "react"
-import { useIsMobile } from "./useIsMobile"
+import { useEffect, useRef, useState } from 'react'
+
+import { useIsMobile } from './useIsMobile'
 
 const show_ref = { current: true }
 

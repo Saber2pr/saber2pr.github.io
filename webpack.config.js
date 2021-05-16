@@ -64,7 +64,9 @@ module.exports = WebpackConfig({
         <link rel="manifest" href="./manifest.json" />
         <script src="//saber2pr.top/loading/index.min.js"></script>
         <script async src="//saber2pr.top/click-mask/click-mask.min.js"></script>
-        <script async src="//saber2pr.top/test/tools/debug.min.js"></script>`,
+        <script async src="//saber2pr.top/test/tools/debug.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+        `,
         injectBody:
           `<div id="root"></div><script>LOADING.init(` +
           `"等待时间太长？访问[<a href='//saber2pr.gitee.io/'>加速版</a>]."` +

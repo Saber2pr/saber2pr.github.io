@@ -1,6 +1,8 @@
-import React, { useRef, useImperativeHandle } from "react"
-import "./style.less"
-import { Icon } from "../../iconfont"
+import './style.less'
+
+import React, { useImperativeHandle, useRef } from 'react'
+
+import { Icon } from '../../iconfont'
 
 export interface AniBtn {
   onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void

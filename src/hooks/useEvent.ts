@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect } from 'react'
 
 export const useEvent = <K extends keyof WindowEventMap>(
   type: K,

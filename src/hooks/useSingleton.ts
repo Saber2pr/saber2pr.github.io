@@ -1,4 +1,4 @@
-import { useRef } from "react"
+import { useRef } from 'react'
 
 export const useSingleton = <T>(lazyValue: () => Promise<T>) => {
   const ref = useRef<T>()

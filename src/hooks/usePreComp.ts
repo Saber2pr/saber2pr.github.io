@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 
 export const usePreComp = (comp: JSX.Element): [JSX.Element, VoidFunction] => {
   const [body, alter] = useState(comp)

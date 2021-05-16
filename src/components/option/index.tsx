@@ -1,18 +1,22 @@
 declare const version: string
 
-import React from 'react'
 import './style.less'
+
+import React from 'react'
+
+import { useHistory } from '@saber2pr/react-router'
+
+import { Routes } from '../../config'
+import { useBtnDisable, useIsMob } from '../../hooks'
+import { getVersion } from '../../utils'
 import {
+  checkUpdate,
   cleanUpdates,
   getUpdateOmit,
   setUpdateOmit,
-  checkUpdate,
 } from '../check-update'
-import { useBtnDisable } from '../../hooks'
-import { useModel } from '../model'
-import { getVersion } from '../../utils'
-import { createMusicBox } from '../music-box'
 import { CloseBtn } from '../close-btn'
+import { useModel } from '../model'
 
 export interface Option {
   close: Function
@@ -22,6 +26,8 @@ export interface Option {
 
 export const Option = React.forwardRef<HTMLButtonElement, Option>(
   ({ close, checkUpdate, clearCache }: Option, ref) => {
+    const history = useHistory()
+    const isMob = useIsMob()
     return (
       <>
         <CloseBtn onClick={() => close()} />
@@ -87,6 +93,19 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                       镜像仓库
                     </button>
                   </dd>
+                  {isMob && (
+                    <dd>
+                      <button
+                        className="ButtonHigh"
+                        onClick={() => {
+                          history.push(Routes.datav.href)
+                          document.documentElement.scrollTop = 0
+                        }}
+                      >
+                        数据分析
+                      </button>
+                    </dd>
+                  )}
                 </dl>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 export const useForceUpdate = () => {
   const [tick, setNextTick] = useState(0);
