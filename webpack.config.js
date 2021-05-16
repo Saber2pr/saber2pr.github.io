@@ -58,10 +58,6 @@ module.exports = WebpackConfig({
     new HtmlWebpackPlugin({
       templateContent: templateContent('saber2prの窝', {
         injectHead: `
-        <link rel="preconnect" href="//saber2pr.top" />
-        <link rel="dns-prefetch" href="//saber2pr.top" />
-        <link rel="preconnect" href="//saber2pr.github.io" />
-        <link rel="dns-prefetch" href="//saber2pr.github.io" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge, chrome=1" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
