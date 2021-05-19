@@ -77,11 +77,61 @@ iceworks-app配置文件（package.json）：
 
 ##### 管理器内容渲染
 
-注意到contributes.viewsWelcome中的contents字段是markdown
+注意到contributes.viewsWelcome中的contents字段是markdown，在package.nls.json中定义，可以渲染简单的button和超链接。（貌似不支持复杂的界面，可以用webview方案代替）。
+
+1. button定义格式为：[按钮文本](插件命令)，示例：
+
+```json
+{
+  "iceworksApp.viewsWelcome.welcome.contents": "[打开文件夹](command:vscode.openFolder)",
+}
+```
+
+管理器中将会渲染一个button，点击后发出命令vscode.openFolder（vscode内置命令，打开文件夹）。
+
+2. 超链接定义格式为：[链接文本](链接地址)，示例：
+
+```json
+{
+  "iceworksApp.viewsWelcome.welcome.contents": "查看[文档](https://marketplace.visualstudio.com/items?itemName=iceworks-team.iceworks)",
+}
+```
+
+管理器中将会渲染一个超链接，点击跳转对应地址。
+
+##### 本地存储能力(首选项)
+
+vscode插件可以将一些配置放到首选项设置中保存，例如iceworks将npm镜像源地址放在首选项设置中，可以保存设置到工作区或全局。
+
+相关项：contributes.configuration
+
+示例：
+
+```json
+{
+  "contributes": {
+    "title": "Iceworks Application Viewer",
+    "properties": {
+      "iceworks.packageManager": {
+        "type": "string",
+        "default": "npm",
+        "enum": [
+          "npm",
+          "cnpm",
+          "tnpm",
+          "yarn"
+        ],
+        "description": "%iceworksApp.configuration.properties.iceworks.packageManager.description%"
+      },
+    }
+  }
+}
+```
 
 ---
 
 待更新
+
 ### 四、总结与验证
 
 （这里写总结和相应demo）
