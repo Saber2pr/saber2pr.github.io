@@ -79,7 +79,7 @@ iceworks-app配置文件（package.json）：
 
 注意到contributes.viewsWelcome中的contents字段是markdown，在package.nls.json中定义，可以渲染简单的button和超链接。（貌似不支持复杂的界面，可以用webview方案代替）。
 
-1. button定义格式为：[按钮文本](插件命令)，示例：
+1. button定义格式为：`[按钮文本](插件命令)`，示例：
 
 ```json
 {
@@ -89,7 +89,7 @@ iceworks-app配置文件（package.json）：
 
 管理器中将会渲染一个button，点击后发出命令vscode.openFolder（vscode内置命令，打开文件夹）。
 
-2. 超链接定义格式为：[链接文本](链接地址)，示例：
+2. 超链接定义格式为：`[链接文本](链接地址)`，示例：
 
 ```json
 {
