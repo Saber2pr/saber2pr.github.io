@@ -8,3 +8,4 @@ data/blogs.json
 auth/
 yarn-error.log
 /release
+.DS_Store
