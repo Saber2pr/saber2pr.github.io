@@ -16,7 +16,7 @@ vscode插件基于事件机制，事件和插件的绑定在package.json中，�
 
 iceworks-app属于iceworks套件中的功能入口，负责向vscode添加新菜单，并连接菜单和iceworks套件中其他插件。
 
-##### 1. 左侧边栏添加Iceworks菜单按钮
+#### 1. 左侧边栏添加Iceworks菜单按钮
 
 基于vscode插件contributes配置表，相关项：contributes.viewsContainers, contributes.views, contributes.viewsWelcome
 
@@ -71,11 +71,11 @@ iceworks-app配置文件（package.json）：
 
 在package.json中声明以上字段，vscode就会渲染出左侧菜单按钮、点击后打开的管理器及其子容器和内容。
 
-##### 多语言
+#### 2. 多语言
 
 注意到了contributes.viewsWelcome中的content，是%xxx%的格式，这个是vscode插件多语言配置，在package.json同级目录会有package.nls.json和package.nls.zh-CN.json，其中的字段可以使用%xxx$格式引用。
 
-##### 管理器内容渲染
+#### 3. 管理器内容渲染
 
 注意到contributes.viewsWelcome中的contents字段是markdown，在package.nls.json中定义，可以渲染简单的button和超链接。（貌似不支持复杂的界面，可以用webview方案代替）。
 
@@ -83,11 +83,11 @@ iceworks-app配置文件（package.json）：
 
 ```json
 {
-  "iceworksApp.viewsWelcome.welcome.contents": "[打开文件夹](command:vscode.openFolder)",
+  "iceworksApp.viewsWelcome.welcome.contents": "[打开文件夹](command:vscode.openFolder)\n[创建应用](command:iceworks-project-creator.create-project.start)",
 }
 ```
 
-管理器中将会渲染一个button，点击后发出命令vscode.openFolder（vscode内置命令，打开文件夹）。
+管理器中将会渲染2个button，第一个点击后发出命令vscode.openFolder（vscode内置命令，打开文件夹），第二个点击发出iceworks项目创建命令
 
 2. 超链接定义格式为：`[链接文本](链接地址)`，示例：
 
@@ -99,7 +99,7 @@ iceworks-app配置文件（package.json）：
 
 管理器中将会渲染一个超链接，点击跳转对应地址。
 
-##### 本地存储能力(首选项)
+#### 4. 本地存储能力(首选项)
 
 vscode插件可以将一些配置放到首选项设置中保存，例如iceworks将npm镜像源地址放在首选项设置中，可以保存设置到工作区或全局。
 
@@ -112,15 +112,19 @@ vscode插件可以将一些配置放到首选项设置中保存，例如iceworks
   "contributes": {
     "title": "Iceworks Application Viewer",
     "properties": {
+      // 在首选项中的名称
       "iceworks.packageManager": {
         "type": "string",
+        // 默认值
         "default": "npm",
+        // 枚举类型，会渲染一个下拉框
         "enum": [
           "npm",
           "cnpm",
           "tnpm",
           "yarn"
         ],
+        // 配置的描述
         "description": "%iceworksApp.configuration.properties.iceworks.packageManager.description%"
       },
     }
@@ -128,9 +132,16 @@ vscode插件可以将一些配置放到首选项设置中保存，例如iceworks
 }
 ```
 
----
+properties中的字段会渲染到首选项设置中，或者是setting.json中。
 
-待更新
+#### 5. 插件之间互相调用
+
+注意到上有个命令是command:iceworks-project-creator.create-project.start，但是检查发现这个命令并没有register在iceworks-app中，而是注册在了iceworks-project-creator插件。由于vscode插件基于事件机制所以也很好理解，安装一个插件会在列表中注册自己的命令，其他插件可以发出注册在列表中的命令来调用其他插件。
+
+也就是插件的package.json是用来向vscode命令表中注册可用命令，而插件代码中register是用来监听对应命令提供对应操作行为。
+每个插件的命令应声明在package.json中activationEvents字段里。
+
+![loading](https://saber2pr.top/MyWeb/resource/image/vscode-plugin.webp)
 
 ### 四、总结与验证
 
