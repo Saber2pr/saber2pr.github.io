@@ -150,4 +150,4 @@ vscode.workspace.getConfiguration('iceworks').get('packageManager')
 
 ---
 
-待更新
+待更新...
