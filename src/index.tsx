@@ -64,7 +64,7 @@ window.addEventListener('load', async () => {
 
   if ('serviceWorker' in navigator) {
     await PWAInstaller()
-    checkUpdate(null, true)
+    checkUpdate(null, true, true)
   }
 
   LOADING.destroy()

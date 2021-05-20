@@ -32,6 +32,13 @@ export const getUpdateOmit = () =>
   localStore.getItem(UPDATE_OMIT_KEY) || "false"
 const shouldUpdateOmit = () => getUpdateOmit() === "true"
 
+const updateCache = async (mode: CacheType, version: string) => {
+  await freeCache(mode)
+  await updateVersion(version, mode)
+  setUpdateOmit("false")
+  location.reload()
+}
+
 export const CheckUpdate = ({ version, close, option, mode }: CheckUpdate) => {
   return (
     <div className="CheckUpdate">
@@ -40,12 +47,7 @@ export const CheckUpdate = ({ version, close, option, mode }: CheckUpdate) => {
       </div>
       <button
         className="ButtonHigh"
-        onClick={async () => {
-          await freeCache(mode)
-          await updateVersion(version, mode)
-          setUpdateOmit("false")
-          location.reload()
-        }}
+        onClick={async () => updateCache(mode, version)}
       >
         确定
       </button>
@@ -99,7 +101,7 @@ const getUpdateMode = (version: any): UpdateMode => {
 
 type Version = { DYNAMIC_VERSION: string; STATIC_VERSION: string }
 
-export const checkUpdate = (callback?: () => void, canOmit = false) => {
+export const checkUpdate = (callback?: () => void, canOmit = false, skipAsk = false) => {
   if (!checkNetwork()) {
     Model.alert(({ close }) => {
       setTimeout(() => {
@@ -149,18 +151,24 @@ export const checkUpdate = (callback?: () => void, canOmit = false) => {
         await updateVersion(version.DYNAMIC_VERSION, "DYNAMIC")
         location.reload()
       } else {
-        Model.alert(({ close }) => (
-          <CheckUpdate
-            version={
-              updateMode === "STATIC"
-                ? version.STATIC_VERSION
-                : version.DYNAMIC_VERSION
-            }
-            mode={updateMode}
-            close={close}
-            option={canOmit}
-          />
-        ))
+        if (skipAsk) {
+          updateCache(updateMode, updateMode === "STATIC"
+            ? version.STATIC_VERSION
+            : version.DYNAMIC_VERSION)
+        } else {
+          Model.alert(({ close }) => (
+            <CheckUpdate
+              version={
+                updateMode === "STATIC"
+                  ? version.STATIC_VERSION
+                  : version.DYNAMIC_VERSION
+              }
+              mode={updateMode}
+              close={close}
+              option={canOmit}
+            />
+          ))
+        }
       }
       LOCK = true
     })
