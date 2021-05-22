@@ -13,6 +13,7 @@ import {
   Loading,
   NextBefore,
   ScrollToTop,
+  status,
   TwoSide,
 } from '../../components'
 import { Md2jsx, md_theme, origin } from '../../config'
@@ -173,21 +174,27 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
           }}
         />
         {isShow || <ScrollToTop />}
-        {!showOp.musicBox || isShow || (
+        {!showOp.musicBox || !status.show || (
           <i
             className="iconfont icon-musicBox"
             onClick={createMusicBox}
             title="音乐盒子"
           />
         )}
-        {<i {...selectProps()} ref={fullwinBtn_ref} onClick={() => {
-          select()
-          if (isFullWin.current) {
-            switchIsHide(true)
-          } else {
-            switchIsHide(false)
-          }
-        }} />}
+        {
+          <i
+            {...selectProps()}
+            ref={fullwinBtn_ref}
+            onClick={() => {
+              select()
+              if (isFullWin.current) {
+                switchIsHide(true)
+              } else {
+                switchIsHide(false)
+              }
+            }}
+          />
+        }
       </div>
     )
   }
