@@ -48,14 +48,14 @@ export interface Blog {
 }
 
 const createOriginHref = (href: string) =>
-  API.createBlobHref(origin.userId, origin.repo, href + ".md")
+  API.createBlobHref(origin.userId, origin.repo, href + '.md')
 
 export const Blog = React.forwardRef<HTMLElement, Blog>(
   (
     {
       tree,
-      fullWinBtnAPI: { select, selectProps },
-      showOp = { latest: true, musicBox: true }
+      fullWinBtnAPI: { select, selectProps, re: isFullWin },
+      showOp = { latest: true, musicBox: true },
     }: Blog,
     fullwinBtn_ref
   ) => {
@@ -68,7 +68,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
     const isMobile = useIsMobile(close, open)
 
     const getLastModified = (href: string): string =>
-      findNodeByPath(href, tree)["LastModified"]
+      findNodeByPath(href, tree)['LastModified']
 
     useLayoutEffect(() => {
       window.scroll(0, 0)
@@ -78,50 +78,47 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
       }
     }, [])
 
-    const Routes = links.reduce(
-      (acc, { title, path: href, children }, i) => {
-        if (!children) {
-          acc.push(
-            <Route
-              key={href}
-              path={href}
-              component={() => (
-                <>
-                  <h1 className="Blog-Main-Title">{title}</h1>
-                  <div className="Blog-Main-Content">
-                    <LazyCom
-                      fallback={<Loading type="line" />}
-                      await={requestContent(href + ".md")}
-                      errorBack={<ErrorBack />}
+    const Routes = links.reduce((acc, { title, path: href, children }, i) => {
+      if (!children) {
+        acc.push(
+          <Route
+            key={href}
+            path={href}
+            component={() => (
+              <>
+                <h1 className="Blog-Main-Title">{title}</h1>
+                <div className="Blog-Main-Content">
+                  <LazyCom
+                    fallback={<Loading type="line" />}
+                    await={requestContent(href + '.md')}
+                    errorBack={<ErrorBack />}
+                  >
+                    {content => <Md2jsx theme={md_theme}>{content}</Md2jsx>}
+                  </LazyCom>
+                  <div className="Blog-Main-Content-Edit">
+                    <a
+                      className="Blog-Main-Content-Edit-A"
+                      href={createOriginHref(href)}
                     >
-                      {content => <Md2jsx theme={md_theme}>{content}</Md2jsx>}
-                    </LazyCom>
-                    <div className="Blog-Main-Content-Edit">
-                      <a
-                        className="Blog-Main-Content-Edit-A"
-                        href={createOriginHref(href)}
-                      >
-                        编辑本页面
-                      </a>
-                    </div>
-                    {showOp.latest && (
-                      <p className="Blog-Main-Content-Date">
-                        最近更新 {timeDeltaFromNow(getLastModified(href))}
-                      </p>
-                    )}
-                    <NextBefore before={links[i - 1]} next={links[i + 1]} />
+                      编辑本页面
+                    </a>
                   </div>
-                </>
-              )}
-            />
-          )
-        }
-        return acc
-      },
-      [] as JSX.Element[]
-    )
+                  {showOp.latest && (
+                    <p className="Blog-Main-Content-Date">
+                      最近更新 {timeDeltaFromNow(getLastModified(href))}
+                    </p>
+                  )}
+                  <NextBefore before={links[i - 1]} next={links[i + 1]} />
+                </div>
+              </>
+            )}
+          />
+        )
+      }
+      return acc
+    }, [] as JSX.Element[])
 
-    const [main_ref, btn_ref, show, isShow] = useAsideHidable(ref)
+    const [main_ref, btn_ref, switchIsHide, isShow] = useAsideHidable(ref)
     return (
       <div className="Blog">
         <TwoSide>
@@ -133,7 +130,7 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                   key="not-found"
                   path="*"
                   component={() => <NotFound />}
-                />
+                />,
               ]}
             </Switch>
           </main>
@@ -141,9 +138,9 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             <div
               ref={btn_ref}
               className="Blog-Aside-Btn"
-              onClick={() => show()}
+              onClick={() => switchIsHide()}
             >
-              {Icon.TreeBtn(isShow, "-90deg", "90deg", "rotate")}
+              {Icon.TreeBtn(isShow, '-90deg', '90deg', 'rotate')}
             </div>
             <section className="Blog-Aside-Content">
               <Tree
@@ -183,9 +180,14 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
             title="音乐盒子"
           />
         )}
-        {isShow || (
-          <i {...selectProps()} ref={fullwinBtn_ref} onClick={select} />
-        )}
+        {<i {...selectProps()} ref={fullwinBtn_ref} onClick={() => {
+          select()
+          if (isFullWin.current) {
+            switchIsHide(true)
+          } else {
+            switchIsHide(false)
+          }
+        }} />}
       </div>
     )
   }

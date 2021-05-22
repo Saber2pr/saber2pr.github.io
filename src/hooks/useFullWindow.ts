@@ -4,6 +4,9 @@ const isFullWinBtnEnabled_ref = { current: false }
 
 export type fullWinBtnAPI = {
   select: VoidFunction
+  re: {
+    current: boolean
+  }
   selectProps: () => {
     className: string
     title: string
@@ -12,7 +15,7 @@ export type fullWinBtnAPI = {
 
 export const useFullWindow = ({
   enableClassName,
-  disableClassName
+  disableClassName,
 }: {
   enableClassName: string
   disableClassName: string
@@ -29,19 +32,19 @@ export const useFullWindow = ({
   const btn_ref = useRef<HTMLElement>()
 
   const enable = () => {
-    header_ref.current.style.display = "none"
-    footer_ref.current.style.display = "none"
-    main_ref.current.style.marginTop = "0"
+    header_ref.current.style.display = 'none'
+    footer_ref.current.style.display = 'none'
+    main_ref.current.style.marginTop = '0'
     btn_ref.current.className = disableClassName
-    btn_ref.current.title = "退出全屏"
+    btn_ref.current.title = '退出全屏'
   }
 
   const disable = () => {
-    header_ref.current.style.display = "block"
-    footer_ref.current.style.display = "block"
-    main_ref.current.style.marginTop = "2.5rem"
+    header_ref.current.style.display = 'block'
+    footer_ref.current.style.display = 'block'
+    main_ref.current.style.marginTop = '2.5rem'
     btn_ref.current.className = enableClassName
-    btn_ref.current.title = "进入全屏"
+    btn_ref.current.title = '进入全屏'
   }
 
   const select = () => {
@@ -58,11 +61,11 @@ export const useFullWindow = ({
     isFullWinBtnEnabled_ref.current
       ? {
           className: disableClassName,
-          title: "退出全屏"
+          title: '退出全屏',
         }
       : {
           className: enableClassName,
-          title: "进入全屏"
+          title: '进入全屏',
         }
 
   return [
@@ -72,7 +75,8 @@ export const useFullWindow = ({
     btn_ref,
     {
       select,
-      selectProps
-    }
+      selectProps,
+      re: isFullWinBtnEnabled_ref,
+    },
   ]
 }

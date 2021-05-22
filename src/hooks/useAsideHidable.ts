@@ -9,7 +9,7 @@ export const useAsideHidable = (
 ): [
   React.MutableRefObject<HTMLDivElement>,
   React.MutableRefObject<HTMLDivElement>,
-  Function,
+  (value?: boolean) => void,
   boolean
 ] => {
   const main_ref = useRef<HTMLDivElement>()
@@ -32,8 +32,8 @@ export const useAsideHidable = (
 
   const [isShow, setIsShow] = useState(show_ref.current)
 
-  const select = () => {
-    if (isShow) {
+  const select = (value = isShow) => {
+    if (value) {
       hidden()
       setIsShow(false)
       show_ref.current = false
