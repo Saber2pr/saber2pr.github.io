@@ -108,7 +108,7 @@ export const MusicBox = ({
           <img className="MusicBox-Pic ani-rotation" src={picurl} alt={name} />
         </li>
         <li>
-          <Audio autoplay src={url.replace(/^http:/, 'https:')} />
+          <Audio autoplay src={url} />
           <span className="Block" />
           <button
             className="ButtonHigh"
