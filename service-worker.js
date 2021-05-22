@@ -28,7 +28,9 @@ self.addEventListener('install', event =>
 const filterUrl = url =>
   url.includes('jsonpCallback') ||
   url.includes('static/data/version.json') ||
-  url.includes('/api')
+  url.includes('/api') ||
+  url.includes('music.163.com') ||
+  url.includes('music.126.net')
 
 self.addEventListener('fetch', event => {
   const url = event.request.url
