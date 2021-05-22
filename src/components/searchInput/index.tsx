@@ -58,7 +58,7 @@ const useSearch = (blog: Blog["tree"]): [Item[], Search, string] => {
       listMon().then(res => {
         const acc: Item[] = [SearchGit(query), SearchMDN(query)]
         for (const item of res) {
-          if (item.details.concat(item.title).includes(query)) {
+          if (item.details.concat(item.title).toLowerCase().includes(query.toLowerCase())) {
             item.searchMeta = query
             acc.push(item)
           }

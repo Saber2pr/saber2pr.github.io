@@ -20,11 +20,18 @@ export const HighLightHTML = ({
   transform = _ => _,
   ...props
 }: HighLightHTML) => {
-  const index = source.indexOf(target)
+  let index = source.indexOf(target)
+  let element: string
+  if (index === -1) {
+    const low = target.toLowerCase()
+    index = source.indexOf(low)
+    element = transform(low)
+  } else {
+    element = transform(target)
+  }
   if (index === -1) {
     return <span className="HighLightHTML">{source.slice(0, offset * 2)}</span>
   }
-  const element = transform(target)
   return (
     <span
       className="HighLightHTML"
