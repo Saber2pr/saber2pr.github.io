@@ -6,7 +6,8 @@ export const store = createState({
   actLen: 4,
   actsScrollTop: 0,
   searchLen: 10,
-  searchScrollTop: 0
+  searchScrollTop: 0,
+  showMusic: false,
 })
 
 export const localStore = localStorage

@@ -1,11 +1,12 @@
 import './style.less'
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import Audio from '@saber2pr/rc-audio'
 
 import { request } from '../../request'
 import { axios } from '../../request/axios'
+import { store } from '../../store'
 import { checkNetwork } from '../../utils'
 import { CloseBtn } from '../close-btn'
 import { LazyCom } from '../lazy-com'
@@ -70,6 +71,11 @@ export const MusicBox = ({
 
   const ref = useRef<HTMLSelectElement>()
 
+  useEffect(() => {
+    const { showMusic } = store.getState()
+    showMusic || store.dispatch('showMusic', true)
+  }, [])
+
   return (
     <div className="MusicBox">
       <CloseBtn
@@ -77,6 +83,7 @@ export const MusicBox = ({
           close()
           status.isHide = false
           status.show = null
+          store.dispatch('showMusic', false)
         }}
       />
       <ul>

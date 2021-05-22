@@ -13,8 +13,20 @@
     overflow: hidden;
     text-align: center;
   }
+  position: relative;
 
   transition: background-color 1s;
+
+  .LiveComment {
+    color: #d5d5d780;
+  }
+
+  &-Comment {
+    position: absolute;
+    width: 25%;
+    top: 100px;
+    left: 10%;
+  }
 
   &-Title {
     color: #61dafb;
@@ -80,6 +92,10 @@
         border-radius: 0;
         transform: translate(-50%, -50%);
       }
+    }
+
+    &-Comment {
+      display: none;
     }
 
     &-Content {

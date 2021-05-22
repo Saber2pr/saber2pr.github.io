@@ -10,9 +10,11 @@ import {
   Switch,
 } from '@saber2pr/react-router'
 
-import { PreImg, SearchInput, Themer, Uv } from './components'
+import { createMusicBox, PreImg, SearchInput, Themer, Uv } from './components'
+import { HeaderMessage } from './components/header-message'
 import { origin, Routes as RS } from './config'
 import { useBlogMenu, useEvent, useFullWindow, useIsMob } from './hooks'
+import { useShowMusic } from './hooks/useShowMusic'
 import { Icon } from './iconfont'
 import {
   About,
@@ -26,7 +28,7 @@ import {
   Secret,
 } from './pages'
 import { Datav } from './pages/datav'
-import { getHash, getTimeMessage, queryRootFirstChildMemo } from './utils'
+import { getHash, queryRootFirstChildMemo } from './utils'
 
 export interface App {
   homeInfo: Home
@@ -40,15 +42,6 @@ const AppNavLink = ({
   ...props
 }: NavLink) => (
   <NavLink className={className} activeClassName={activeClassName} {...props} />
-)
-
-const TimeMessage = (
-  <span
-    className="time-message"
-    ref={el => el && setTimeout(() => el && (el.style.display = 'none'), 6000)}
-  >
-    {getTimeMessage()}
-  </span>
 )
 
 export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
@@ -76,6 +69,8 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
       enableClassName: 'FullWinBtn iconfont icon-fullwin-enable',
       disableClassName: 'FullWinBtn iconfont icon-fullwin-disable',
     })
+
+  const showMusic = useShowMusic()
 
   return (
     <Router history={HashHistory}>
@@ -117,7 +112,9 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
             <li>
               <AppNavLink to={RS.links.href}>{RS.links.name}</AppNavLink>
             </li>
-            <li className="nav-block">{TimeMessage}</li>
+            <li className="nav-block">
+              <HeaderMessage />
+            </li>
             <li>
               <SearchInput blog={blogTree} />
             </li>
@@ -132,6 +129,13 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
       </header>
       <main ref={main_ref} className="main">
         <picture className="main-bg" />
+        {showMusic && (
+          <i
+            className="iconfont icon-musicBox"
+            onClick={createMusicBox}
+            title="音乐盒子"
+          />
+        )}
         <Switch>
           <Route
             exact
@@ -147,7 +151,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
                 tree={blogTree}
                 showOp={{
                   latest: true,
-                  musicBox: true,
+                  musicBox: false,
                 }}
               />
             )}

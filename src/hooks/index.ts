@@ -11,5 +11,6 @@ export * from './useIsMob';
 export * from './useIsMobile';
 export * from './useOnScrollBottom';
 export * from './usePreComp';
+export * from './useShowMusic';
 export * from './useSingleton';
 export * from './useUnMount';

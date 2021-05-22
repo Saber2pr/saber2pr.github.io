@@ -182,11 +182,6 @@ body {
   flex-grow: 1;
   text-align: center;
 }
-.nav-block .time-message {
-  color: #d5d5d7;
-  animation: fadeOut linear 3s;
-  animation-delay: 3s;
-}
 .nav-last a {
   color: #d5d5d7;
   width: 70px;
@@ -880,6 +875,22 @@ body {
   visibility: visible;
 }
 
+.time-message {
+  color: #d5d5d7;
+  animation: fadeOut linear 3s;
+  animation-delay: 3s;
+}
+.HeaderMessage {
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 auto;
+}
+@media screen and (max-width: 790px) {
+  .HeaderMessage {
+    display: none;
+  }
+}
+
 .About {
   margin: 0 4.5rem;
 }
@@ -1333,6 +1344,7 @@ body {
 }
 
 .Home {
+  position: relative;
   transition: background-color 1s;
 }
 .Home ul {
@@ -1347,6 +1359,15 @@ body {
   height: 300px;
   overflow: hidden;
   text-align: center;
+}
+.Home .LiveComment {
+  color: #d5d5d780;
+}
+.Home-Comment {
+  position: absolute;
+  width: 25%;
+  top: 100px;
+  left: 10%;
 }
 .Home-Title {
   color: #61dafb;
@@ -1397,6 +1418,9 @@ body {
   .Home-Img img {
     border-radius: 0;
     transform: translate(-50%, -50%);
+  }
+  .Home-Comment {
+    display: none;
   }
   .Home-Content {
     margin: 0 1rem;
@@ -1753,7 +1777,7 @@ body {
   margin: 0 4.5rem;
   padding-top: 1.5rem;
   overflow: hidden;
-  padding-bottom: 6rem;
+  padding-bottom: 7rem;
 }
 .Datav .dot {
   width: 4px;
