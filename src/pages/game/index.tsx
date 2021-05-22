@@ -40,7 +40,7 @@ export const Game = ({ list }: Game) => {
       {enter && (
         <div className="contain">
           <div className="game_layout">
-            <iframe src={src}></iframe>
+            <iframe frameBorder="0" src={src}></iframe>
           </div>
         </div>
       )}
