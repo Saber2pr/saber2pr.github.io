@@ -17,7 +17,7 @@ export interface Home {
   }[]
 }
 
-const Line = ({ str }: { str: string }) => {
+const Line = ({ str, next }: { str: string; next: Function }) => {
   const [text, setText] = useState('')
 
   useInterval(
@@ -28,6 +28,12 @@ const Line = ({ str }: { str: string }) => {
     },
     text.length < str.length ? 100 : null
   )
+
+  useEffect(() => {
+    if (text.length === str.length) {
+      next()
+    }
+  }, [text])
 
   return <>{text}</>
 }
@@ -40,7 +46,26 @@ const LiveComment = () => {
     })
   }, [])
 
-  return <span className="LiveComment">{msg && <Line str={msg} />}</span>
+  return (
+    <span className="LiveComment">
+      {msg && (
+        <Line
+          str={msg}
+          key={msg}
+          next={() =>
+            setTimeout(
+              () =>
+                get163Msg().then(text => {
+                  setMsg(text)
+                }),
+              3000
+            )
+          }
+        />
+      )}
+      <span className="cursor" />
+    </span>
+  )
 }
 
 export const Home = ({ title, infor, pic, items }: Home) => {
