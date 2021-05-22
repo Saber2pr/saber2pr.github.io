@@ -31,6 +31,10 @@ const Routes = {
     href: '/数据',
     name: '数据',
   },
+  game: {
+    href: '/game',
+    name: '游戏',
+  },
   search: {
     href: '/搜索结果',
   },

@@ -339,3 +339,11 @@ body {
     background: black;
   }
 }
+
+.Game .list-item:hover {
+  box-shadow: 1px 1px 10px #c0f8ff;
+}
+
+.Game .list-item:hover .list-item-name {
+  color: #6ec0e0 !important;
+}

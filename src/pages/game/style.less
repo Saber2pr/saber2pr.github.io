@@ -1,0 +1,51 @@
+.Game {
+  margin: 0 4.5rem;
+  padding-top: 1.5rem;
+  overflow: hidden;
+  padding-bottom: 7rem;
+
+  &.enter {
+    margin: 0;
+    padding: 0;
+  }
+  .list_wrap {
+    .list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      &-item {
+        text-align: center;
+        cursor: pointer;
+        &:hover {
+          .list-item-name {
+            color: black;
+          }
+        }
+        margin: 12px;
+
+        &-logo {
+          display: block;
+          width: 70px;
+          height: 70px;
+          border-radius: 4px;
+        }
+        &-name {
+          margin-top: 4px;
+          color: #6d6d6d;
+        }
+      }
+    }
+  }
+  .contain {
+    .game_layout {
+      iframe {
+        width: 100%;
+        height: calc(100vh - 2.5rem);
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+}

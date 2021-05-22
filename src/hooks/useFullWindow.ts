@@ -42,7 +42,7 @@ export const useFullWindow = ({
   const disable = () => {
     header_ref.current.style.display = 'block'
     footer_ref.current.style.display = 'block'
-    main_ref.current.style.marginTop = '2.5rem'
+    main_ref.current.style.marginTop = '2rem'
     btn_ref.current.className = enableClassName
     btn_ref.current.title = '进入全屏'
   }

@@ -14,7 +14,7 @@ export const origin = {
     links: '/static/data/links.json',
     version: '/static/data/version.json',
     musicList: '/static/data/musicList.json',
-    wiki: '/wiki',
+    gamelist: '/static/data/gamelist.json',
   },
   theme: {
     light: '',
