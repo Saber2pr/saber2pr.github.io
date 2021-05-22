@@ -4,6 +4,7 @@ import React, { memo, useEffect, useState } from 'react'
 
 import { get163Msg } from '../../api'
 import { LazyCom, Loading } from '../../components'
+import { useInterval } from '../../hooks/useInterval'
 import { request } from '../../request'
 
 export interface Home {
@@ -16,6 +17,20 @@ export interface Home {
   }[]
 }
 
+const Line = ({ str }: { str: string }) => {
+  const [text, setText] = useState('')
+
+  useInterval(
+    () => {
+      if (text.length < str.length) {
+        setText(text + str[text.length])
+      }
+    },
+    text.length < str.length ? 100 : null
+  )
+
+  return <>{text}</>
+}
 
 const LiveComment = () => {
   const [msg, setMsg] = useState<string>()
@@ -25,7 +40,7 @@ const LiveComment = () => {
     })
   }, [])
 
-  return <span className="LiveComment">{msg}</span>
+  return <span className="LiveComment">{msg && <Line str={msg} />}</span>
 }
 
 export const Home = ({ title, infor, pic, items }: Home) => {
@@ -62,7 +77,7 @@ export const Home = ({ title, infor, pic, items }: Home) => {
 }
 
 export const HomeLazy = memo(() => (
-  <LazyCom await={request("home")} fallback={<Loading type="block" />}>
+  <LazyCom await={request('home')} fallback={<Loading type="block" />}>
     {res => <Home {...res} />}
   </LazyCom>
 ))
