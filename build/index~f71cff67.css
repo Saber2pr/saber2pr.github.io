@@ -35,6 +35,20 @@
 .ani-rotation {
   animation: rotation 30s infinite linear;
 }
+@keyframes Cursor {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  50% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
 
 .shd-white {
   font-weight: bold;
@@ -1370,6 +1384,15 @@ body {
   width: 25%;
   top: 100px;
   left: 10%;
+}
+.Home-Comment .cursor {
+  animation: Cursor 1.5s infinite steps(1, start);
+  display: inline-block;
+  letter-spacing: 0.88px;
+  vertical-align: sub;
+  width: 1px;
+  height: 1rem;
+  background: #d5d5d780;
 }
 .Home-Title {
   color: #61dafb;
