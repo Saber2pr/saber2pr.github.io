@@ -147,7 +147,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
                 tree={blogTree}
                 showOp={{
                   latest: true,
-                  musicBox: false,
+                  musicBox: true,
                 }}
               />
             )}
