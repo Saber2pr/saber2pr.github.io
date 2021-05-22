@@ -34,6 +34,7 @@ self.addEventListener('fetch', event => {
   const url = event.request.url
   // only https
   if (!url.startsWith('https:')) return
+  if (filterUrl(url)) return
 
   if (staticAssets.find(path => path !== '/' && url.includes(path))) {
     event.respondWith(caches.match(event.request))
