@@ -5,6 +5,7 @@ import { unstable_batchedUpdates } from 'react-dom'
 
 import { LazyCom, Loading, M3u8 } from '../../components'
 import { request } from '../../request'
+import { useIsMob } from '../../hooks'
 
 type Item = { name: string; src: string; logo: string }
 type List = Array<Item>
@@ -19,20 +20,20 @@ const List = ({
   onSelect,
 }: {
   list: List
-  onSelect: (src: string) => void
+  onSelect: (item: Item) => void
 }) => {
   return (
     <ul className="list">
-      {list.map(({ name, src, logo }, i) => (
+      {list.map((item, i) => (
         <li
           className="list-item"
           key={i}
           onClick={() => {
-            onSelect(src)
+            onSelect(item)
           }}
         >
-          <img className="list-item-logo" src={logo} alt={name} />
-          <div className="list-item-name">{name}</div>
+          <img className="list-item-logo" src={item.logo} alt={item.name} />
+          <div className="list-item-name">{item.name}</div>
         </li>
       ))}
     </ul>
@@ -41,28 +42,33 @@ const List = ({
 
 export const Acg = ({ h5list, videolist }: Acg) => {
   const [enter, setEnter] = useState(false)
-  const [src, setSrc] = useState<string>()
+  const [current, setCurrent] = useState<Item>()
+  const isMob = useIsMob()
 
   const type = useMemo(() => {
-    if (!src) return
-    if (src.includes('.html')) return 'h5'
-    if (src.includes('.m3u8')) return 'video'
-  }, [src])
+    if (!current) return
+    if (current?.src.includes('.html')) return 'h5'
+    if (current?.src.includes('.m3u8')) return 'video'
+  }, [current])
 
   let content = <></>
   switch (type) {
     case 'h5':
       content = (
         <iframe
-          width="100%"
           className="contain-layout-content"
           frameBorder="0"
-          src={src}
+          src={current?.src}
         ></iframe>
       )
       break
     case 'video':
-      content = <M3u8 src={src} />
+      content = (
+        <>
+          {isMob && <h3 className="video_title">{current.name}</h3>}
+          <M3u8 src={current?.src} />
+        </>
+      )
       break
     default:
       break
@@ -75,14 +81,15 @@ export const Acg = ({ h5list, videolist }: Acg) => {
           <ul className="category">
             {[
               {
-                name: '收藏的游戏qaq',
+                name: `收藏的游戏qaq`,
                 list: h5list,
+                tip: isMob ? 'PC上才可以玩哦' : null,
               },
               {
                 name: '收藏的动漫qwq',
                 list: videolist,
               },
-            ].map(({ name, list }, i) => (
+            ].map(({ name, list, tip }, i) => (
               <li className="category-item" key={i}>
                 <h3 className="category-item-name">{name}</h3>
                 <div className="category-item-list">
@@ -90,12 +97,13 @@ export const Acg = ({ h5list, videolist }: Acg) => {
                     list={list}
                     onSelect={src => {
                       unstable_batchedUpdates(() => {
-                        setSrc(src)
+                        setCurrent(src)
                         setEnter(true)
                       })
                     }}
                   />
                 </div>
+                {tip && <div className="category-item-tip">提示：{tip}</div>}
               </li>
             ))}
           </ul>

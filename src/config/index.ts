@@ -32,7 +32,7 @@ const Routes = {
     name: '数据',
   },
   acg: {
-    href: '/acg',
+    href: '/ACG空间',
     name: 'ACG',
   },
   search: {

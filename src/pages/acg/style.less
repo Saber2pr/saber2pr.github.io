@@ -20,6 +20,11 @@
           margin-top: 24px;
           border-top: 1px #72537a solid;
         }
+        &-tip {
+          font-size: 0.5rem;
+          color: gray;
+          margin-top: 0.5rem;
+        }
       }
     }
 
@@ -55,9 +60,37 @@
   .contain {
     .contain-layout {
       .contain-layout-content {
-        height: calc(100vh - 2.5rem);
         display: block;
         margin: 0 auto;
+      }
+      iframe {
+        width: 100%;
+        height: calc(100vh - 2.5rem);
+      }
+      video {
+        height: calc(100vh - 2.5rem);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .Acg {
+    margin: 0;
+    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+
+    .video_title {
+      padding-left: 1rem;
+    }
+    .contain {
+      .contain-layout {
+        video {
+          width: 100%;
+          height: auto;
+          margin: 1rem 0 6rem !important;
+        }
       }
     }
   }
