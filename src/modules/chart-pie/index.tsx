@@ -13,33 +13,48 @@ export interface ChartPie {
 
 export const ChartPie = ({ data, title }: ChartPie) => {
   const ds = useMemo(() => collect(data), [data])
-  const [pieData, map] = useMemo(
-    () => {
-      const map: { [title: string]: TextTree } = {}
-      const result = ds.reduce((acc, item) => {
-        map[item.title] = item
-        if (item.children) {
-          return acc.concat({
-            name: item.title,
-            value: item.children.length,
-          })
-        }
-        return acc
-      }, [])
-      return [result, map]
-    },
-    [ds]
-  )
+  const [pieData, map, sum] = useMemo(() => {
+    const map: { [title: string]: TextTree } = {}
+    let sum = 0
+    const result = ds.reduce((acc, item) => {
+      map[item.title] = item
+      if (item.children) {
+        return acc.concat({
+          name: item.title,
+          value: item.children.length,
+        })
+      } else {
+        sum++
+      }
+      return acc
+    }, [])
+    return [result, map, sum]
+  }, [ds])
 
   const [ref, loading] = useEcharts(
     chart => {
-      chart.on('click', 'series.pie.label', (args: { data: { name: string } }) => {
-        if (map[args?.data?.name]) {
-          const firstChild = queryRootFirstChild(map[args?.data?.name])
-          location.hash = firstChild.path
+      chart.on(
+        'click',
+        'series.pie.label',
+        (args: { data: { name: string } }) => {
+          if (map[args?.data?.name]) {
+            const firstChild = queryRootFirstChild(map[args?.data?.name])
+            location.hash = firstChild.path
+          }
         }
-      })
+      )
       chart.setOption({
+        title: {
+          text: `${sum}篇`,
+          textStyle: {
+            fontSize: 20,
+            color: '#747474',
+          },
+          textAlign: 'center',
+          textVerticalAlign: 'center',
+          left: '50%',
+          top: '50%',
+        },
         tooltip: {
           trigger: 'item',
           formatter(params: any) {
