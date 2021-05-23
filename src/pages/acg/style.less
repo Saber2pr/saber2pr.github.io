@@ -1,6 +1,6 @@
-.Game {
+.Acg {
   margin: 0 4.5rem;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   overflow: hidden;
   padding-bottom: 7rem;
 
@@ -9,6 +9,20 @@
     padding: 0;
   }
   .list_wrap {
+    padding: 0 24px;
+    .category {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      &-item {
+        overflow: hidden;
+        &:nth-child(n + 2) {
+          margin-top: 24px;
+          border-top: 1px #72537a solid;
+        }
+      }
+    }
+
     .list {
       margin: 0;
       padding: 0;
@@ -29,7 +43,7 @@
           display: block;
           width: 70px;
           height: 70px;
-          border-radius: 4px;
+          border-radius: 12px;
         }
         &-name {
           margin-top: 4px;
@@ -39,9 +53,8 @@
     }
   }
   .contain {
-    .game_layout {
-      iframe {
-        width: 100%;
+    .contain-layout {
+      .contain-layout-content {
         height: calc(100vh - 2.5rem);
         display: block;
         margin: 0 auto;

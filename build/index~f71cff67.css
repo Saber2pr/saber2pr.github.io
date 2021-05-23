@@ -35,20 +35,6 @@
 .ani-rotation {
   animation: rotation 30s infinite linear;
 }
-@keyframes Cursor {
-  0% {
-    opacity: 1;
-    display: block;
-  }
-  50% {
-    opacity: 0;
-    display: none;
-  }
-  100% {
-    opacity: 1;
-    display: block;
-  }
-}
 
 .shd-white {
   font-weight: bold;
@@ -504,6 +490,22 @@ body {
   color: red;
 }
 
+.time-message {
+  color: #d5d5d7;
+  animation: fadeOut linear 3s;
+  animation-delay: 3s;
+}
+.HeaderMessage {
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 auto;
+}
+@media screen and (max-width: 790px) {
+  .HeaderMessage {
+    display: none;
+  }
+}
+
 .HighLightHTML {
   word-break: break-all;
 }
@@ -710,6 +712,12 @@ body {
 .Option-Title {
   padding-bottom: 1rem;
 }
+.Option-Tip {
+  color: gray;
+  font-size: 0.5rem;
+  margin-top: 2rem;
+  white-space: nowrap;
+}
 .Option-Version {
   padding-top: 2rem;
   font-size: 0.5rem;
@@ -735,6 +743,38 @@ body {
     border-bottom: 1px solid;
     width: auto;
   }
+  .Option-Version {
+    padding-top: 1rem;
+  }
+}
+
+.WordsInputing {
+  color: #d5d5d780;
+  font-size: 14px;
+  line-height: 20px;
+}
+@keyframes Cursor {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  50% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+.WordsInputing .cursor {
+  animation: Cursor 1.5s infinite steps(1, start);
+  display: inline-block;
+  letter-spacing: 0.88px;
+  vertical-align: sub;
+  width: 1px;
+  height: 1rem;
+  background: #d5d5d780;
 }
 
 .ScrollToTop {
@@ -890,22 +930,6 @@ body {
 }
 .footer-info:hover .footer-uv {
   visibility: visible;
-}
-
-.time-message {
-  color: #d5d5d7;
-  animation: fadeOut linear 3s;
-  animation-delay: 3s;
-}
-.HeaderMessage {
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 0 auto;
-}
-@media screen and (max-width: 790px) {
-  .HeaderMessage {
-    display: none;
-  }
 }
 
 .About {
@@ -1407,43 +1431,57 @@ body {
 
 
 
-.Game {
+.Acg {
   margin: 0 4.5rem;
-  padding-top: 1.5rem;
+  padding-top: 1rem;
   overflow: hidden;
   padding-bottom: 7rem;
 }
-.Game.enter {
+.Acg.enter {
   margin: 0;
   padding: 0;
 }
-.Game .list_wrap .list {
+.Acg .list_wrap {
+  padding: 0 24px;
+}
+.Acg .list_wrap .category {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.Acg .list_wrap .category-item {
+  overflow: hidden;
+}
+.Acg .list_wrap .category-item:nth-child(n + 2) {
+  margin-top: 24px;
+  border-top: 1px #72537a solid;
+}
+.Acg .list_wrap .list {
   margin: 0;
   padding: 0;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
 }
-.Game .list_wrap .list-item {
+.Acg .list_wrap .list-item {
   text-align: center;
   cursor: pointer;
   margin: 12px;
 }
-.Game .list_wrap .list-item:hover .list-item-name {
+.Acg .list_wrap .list-item:hover .list-item-name {
   color: black;
 }
-.Game .list_wrap .list-item-logo {
+.Acg .list_wrap .list-item-logo {
   display: block;
   width: 70px;
   height: 70px;
-  border-radius: 4px;
+  border-radius: 12px;
 }
-.Game .list_wrap .list-item-name {
+.Acg .list_wrap .list-item-name {
   margin-top: 4px;
   color: #6d6d6d;
 }
-.Game .contain .game_layout iframe {
-  width: 100%;
+.Acg .contain .contain-layout .contain-layout-content {
   height: calc(100vh - 2.5rem);
   display: block;
   margin: 0 auto;
@@ -1466,25 +1504,11 @@ body {
   overflow: hidden;
   text-align: center;
 }
-.Home .LiveComment {
-  color: #d5d5d780;
-  font-size: 14px;
-  line-height: 20px;
-}
 .Home-Comment {
   position: absolute;
   width: 25%;
   top: 100px;
   left: 10%;
-}
-.Home-Comment .cursor {
-  animation: Cursor 1.5s infinite steps(1, start);
-  display: inline-block;
-  letter-spacing: 0.88px;
-  vertical-align: sub;
-  width: 1px;
-  height: 1rem;
-  background: #d5d5d780;
 }
 .Home-Title {
   color: #61dafb;

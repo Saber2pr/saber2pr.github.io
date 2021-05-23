@@ -18,6 +18,7 @@ import {
 import { CloseBtn } from '../close-btn'
 import { useModel } from '../model'
 import { createMusicBox } from '../music-box'
+import { WordsInputing } from '../words-inputing'
 
 export interface Option {
   close: Function
@@ -46,8 +47,14 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                 </a>
                 ]<div className="Option-Version">最后修改时间：{version}</div>
                 <div className="Option-Version">
-                  <div>版本号(DYNAMIC)：v{getVersion('DYNAMIC')}</div>
-                  <div>版本号(STATIC)：v{getVersion('STATIC')}</div>
+                  版本号(DYNAMIC)：v{getVersion('DYNAMIC')}
+                  <br />
+                  版本号(STATIC)：v{getVersion('STATIC')}
+                </div>
+                <div className="Option-Tip">
+                  <WordsInputing
+                    inputs={`秘密...${' '.repeat(8)}秘密基地被你发现了qaq！`}
+                  />
                 </div>
               </div>
             </div>
@@ -82,6 +89,17 @@ export const Option = React.forwardRef<HTMLButtonElement, Option>(
                       }}
                     >
                       音乐盒子
+                    </button>
+                  </dd>
+                  <dd>
+                    <button
+                      className="ButtonHigh"
+                      onClick={() => {
+                        history.push(Routes.acg.href)
+                        document.documentElement.scrollTop = 0
+                      }}
+                    >
+                      ACG空间
                     </button>
                   </dd>
                   <dd>

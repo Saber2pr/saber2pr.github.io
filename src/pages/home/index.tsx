@@ -3,8 +3,7 @@ import './style.less'
 import React, { memo, useEffect, useState } from 'react'
 
 import { get163Msg } from '../../api'
-import { LazyCom, Loading } from '../../components'
-import { useInterval } from '../../hooks/useInterval'
+import { LazyCom, Loading, WordsInputing } from '../../components'
 import { request } from '../../request'
 
 export interface Home {
@@ -17,27 +16,6 @@ export interface Home {
   }[]
 }
 
-const Line = ({ str, next }: { str: string; next: Function }) => {
-  const [text, setText] = useState('')
-
-  useInterval(
-    () => {
-      if (text.length < str.length) {
-        setText(text + str[text.length])
-      }
-    },
-    text.length < str.length ? 100 : null
-  )
-
-  useEffect(() => {
-    if (text.length === str.length) {
-      next()
-    }
-  }, [text])
-
-  return <>{text}</>
-}
-
 const LiveComment = () => {
   const [msg, setMsg] = useState<string>()
   useEffect(() => {
@@ -47,10 +25,10 @@ const LiveComment = () => {
   }, [])
 
   return (
-    <span className="LiveComment">
+    <>
       {msg && (
-        <Line
-          str={msg}
+        <WordsInputing
+          inputs={msg}
           key={msg}
           next={() =>
             setTimeout(
@@ -63,8 +41,7 @@ const LiveComment = () => {
           }
         />
       )}
-      <span className="cursor" />
-    </span>
+    </>
   )
 }
 

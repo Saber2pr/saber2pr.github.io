@@ -25,6 +25,7 @@
     "@saber2pr/secret": "^0.0.4",
     "@saber2pr/tree-lang": "^0.0.9",
     "@types/echarts": "^4.9.7",
+    "@types/hls.js": "^1.0.0",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",
     "animate.css": "^3.7.2",

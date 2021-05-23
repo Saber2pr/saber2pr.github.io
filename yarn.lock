@@ -120,6 +120,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/hls.js@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/@types/hls.js/download/@types/hls.js-1.0.0.tgz#47a03f97217461d279e4dc89481ddff86def5a36"
+  integrity sha1-R6A/lyF0YdJ55NyJSB3f+G3vWjY=
+  dependencies:
+    hls.js "*"
+
 "@types/minimatch@*":
   version "3.0.3"
   resolved "https://r.cnpmjs.org/@types/minimatch/download/@types/minimatch-3.0.3.tgz#3dca0e3f33b200fc7d1139c0cd96c1268cadfd9d"
@@ -2182,6 +2189,11 @@ highlight.js@~9.13.0:
   version "9.13.1"
   resolved "https://r.cnpmjs.org/highlight.js/download/highlight.js-9.13.1.tgz#054586d53a6863311168488a0f58d6c505ce641e"
   integrity sha1-BUWG1TpoYzERaEiKD1jWxQXOZB4=
+
+hls.js@*:
+  version "1.0.4"
+  resolved "https://registry.nlark.com/hls.js/download/hls.js-1.0.4.tgz#1b191f0f49c992e5c22d4a648ac73630d13d3c2e"
+  integrity sha1-GxkfD0nJkuXCLUpkisc2MNE9PC4=
 
 hmac-drbg@^1.0.0:
   version "1.0.1"

@@ -2,7 +2,7 @@ export * from './about';
 export * from './activity';
 export * from './blog';
 export * from './datav';
-export * from './game';
+export * from './acg';
 export * from './home';
 export * from './learn';
 export * from './links';

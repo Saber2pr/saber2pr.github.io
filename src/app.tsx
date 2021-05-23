@@ -27,7 +27,7 @@ import {
   SearchResult,
   Secret,
   Datav,
-  GameLazy,
+  AcgLazy,
 } from './pages'
 import { getHash, queryRootFirstChildMemo } from './utils'
 
@@ -166,7 +166,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           <Route path={RS.acts.href} component={() => <ActivityLazy />} />
           <Route path={RS.learn.href} component={() => <LearnLazy />} />
           <Route path={RS.search.href} component={() => <SearchResult />} />
-          <Route path={RS.game.href} component={() => <GameLazy />} />
+          <Route path={RS.acg.href} component={() => <AcgLazy />} />
           <Route
             path={RS.datav.href}
             component={() => <Datav data={blogTree} />}
