@@ -18,16 +18,16 @@ import { useShowMusic } from './hooks/useShowMusic'
 import { Icon } from './iconfont'
 import {
   About,
+  AcgLazy,
   ActivityLazy,
   Blog,
+  Datav,
   Home,
   LearnLazy,
   LinksLazy,
   NotFound,
   SearchResult,
   Secret,
-  Datav,
-  AcgLazy,
 } from './pages'
 import { getHash, queryRootFirstChildMemo } from './utils'
 

@@ -4,8 +4,8 @@ import React, { memo, useMemo, useState } from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
 
 import { LazyCom, Loading, M3u8 } from '../../components'
-import { request } from '../../request'
 import { useIsMob } from '../../hooks'
+import { request } from '../../request'
 
 type Item = { name: string; src: string; logo: string }
 type List = Array<Item>

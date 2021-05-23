@@ -615,6 +615,11 @@ body {
   }
 }
 
+.M3u8 {
+  position: relative;
+  min-height: 30vh;
+}
+
 .MusicBox {
   width: 60vw;
   background: white;

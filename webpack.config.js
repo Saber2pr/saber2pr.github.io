@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const webpack = require('webpack')
+const inlinejs = require('./inlinejs.json')
 
 const { WebpackConfig, templateContent } = require('@saber2pr/webpack-configer')
 const version = () => `var version="${new Date().toLocaleString()}"`
@@ -62,10 +63,9 @@ module.exports = WebpackConfig({
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
         <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
         <link rel="manifest" href="./manifest.json" />
-        <script src="//saber2pr.top/loading/index.min.js"></script>
         <script async src="//saber2pr.top/click-mask/click-mask.min.js"></script>
         <script async src="//saber2pr.top/test/tools/debug.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+        ${Object.keys(inlinejs).map(key => `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`)}
         `,
         injectBody:
           `<div id="root"></div><script>LOADING.init(` +

@@ -18,7 +18,7 @@ export class ErrorBoundary extends React.Component<
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     this.setState({ hasError: true, error, info })
-    freeCache("STATIC").then(() => freeCache("DYNAMIC"))
+    freeCache('STATIC').then(() => freeCache('DYNAMIC'))
   }
 
   render() {
@@ -26,7 +26,7 @@ export class ErrorBoundary extends React.Component<
       return (
         <dl className="ErrorBoundary">
           <dt>
-            <h1>Something went wrong.</h1>
+            <h1>出现问题了QaQ！！不急，按照提示检查一下！</h1>
           </dt>
           <dd>{this.state.error.message}</dd>
           <dd>
@@ -36,12 +36,27 @@ export class ErrorBoundary extends React.Component<
             <pre>{this.state.info.componentStack}</pre>
           </dd>
           <dd>
-            <a
-              className="AnchorHigh"
-              href="https://github.com/Saber2pr/saber2pr.github.io/issues/new"
-            >
-              create an issue for saber2pr.github.io.
-            </a>
+            <p>
+              <a
+                className="AnchorHigh"
+                href="https://github.com/Saber2pr/saber2pr.github.io/issues/new"
+              >
+                0. 在github上反馈问题
+              </a>
+            </p>
+            <p>1. 检查设备是否已连接网络</p>
+            <p>
+              <a
+                className="AnchorHigh"
+                onClick={() => {
+                  freeCache('STATIC').then(() => freeCache('DYNAMIC'))
+                  location.reload()
+                }}
+              >
+                2. 清除浏览器缓存
+              </a>
+            </p>
+            <p>3. 刷新浏览器看看</p>
           </dd>
         </dl>
       )

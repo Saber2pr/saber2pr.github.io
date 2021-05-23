@@ -1,3 +1,6 @@
+按需加载 js：
+
+```ts
 import { useEffect, useRef, useState } from 'react'
 
 type Cache = {
@@ -52,3 +55,13 @@ export const useLoadScript = <T>(
   }, deps)
   return [ref.current, loading]
 }
+```
+
+使用：
+
+```ts
+const [Hls, loading] = useLoadScript<Hls>(
+  'Hls',
+  'https://cdn.jsdelivr.net/npm/hls.js@alpha'
+)
+```

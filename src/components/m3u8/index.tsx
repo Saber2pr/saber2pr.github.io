@@ -1,21 +1,22 @@
-import React, { useEffect, useRef } from 'react'
-import { useLoadScript } from '../../hooks'
+import './style.less'
 
-import type { default as IHls, HlsConfig } from 'hls.js'
+import React, { useEffect, useRef } from 'react'
+
+import { useLoadScript } from '../../hooks'
 import { Loading } from '../loading'
 
+import type { default as IHls, HlsConfig } from 'hls.js'
 type Hls = new (config?: Partial<HlsConfig>) => IHls
 
 export const M3u8 = ({ src }: { src: string }) => {
   const ref = useRef<HTMLVideoElement>()
 
-  const [HlsRef, loading] = useLoadScript<Hls>(
+  const [Hls, loading] = useLoadScript<Hls>(
     'Hls',
     'https://cdn.jsdelivr.net/npm/hls.js@alpha'
   )
 
   useEffect(() => {
-    const Hls = HlsRef.current
     if (ref.current && Hls) {
       const hls = new Hls()
       hls.loadSource(src)
@@ -24,7 +25,7 @@ export const M3u8 = ({ src }: { src: string }) => {
   }, [src, loading])
 
   return (
-    <>
+    <div className="M3u8">
       {loading ? (
         <Loading />
       ) : (
@@ -35,6 +36,6 @@ export const M3u8 = ({ src }: { src: string }) => {
           ref={ref}
         ></video>
       )}
-    </>
+    </div>
   )
 }
