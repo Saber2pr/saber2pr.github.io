@@ -1,5 +1,5 @@
 {
-  "list": [
+  "h5list": [
     {
       "name": "双箭头",
       "logo": "http://imga2.5054399.com/upload_pic/2019/1/11/4399_15144782622.jpg",
@@ -14,7 +14,9 @@
       "name": "胖胖猫",
       "logo": "http://imga4.5054399.com/upload_pic/2021/1/29/4399_16490792680.jpg",
       "src": "http://sda.4399.com/4399swf/upload_swf/ftp35/liuxinyu/20210128/x1/index.html"
-    },
+    }
+  ],
+  "videolist": [
     {
       "name": "秒速5厘米",
       "logo": "https://p2.pstatp.com/origin/fe230001162cb49165e8.jpg",

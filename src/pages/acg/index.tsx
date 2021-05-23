@@ -10,7 +10,8 @@ type Item = { name: string; src: string; logo: string }
 type List = Array<Item>
 
 export interface Acg {
-  list: List
+  h5list: List
+  videolist: List
 }
 
 const List = ({
@@ -38,33 +39,9 @@ const List = ({
   )
 }
 
-export const Acg = ({ list }: Acg) => {
+export const Acg = ({ h5list, videolist }: Acg) => {
   const [enter, setEnter] = useState(false)
   const [src, setSrc] = useState<string>()
-
-  const catelist = useMemo(() => {
-    const h5list: Item[] = []
-    const videolist: Item[] = []
-    list.forEach(item => {
-      const src = item.src
-      if (src.includes('.html')) {
-        h5list.push(item)
-      }
-      if (src.includes('.m3u8')) {
-        videolist.push(item)
-      }
-    })
-    return [
-      {
-        name: '收藏的游戏qaq',
-        list: h5list,
-      },
-      {
-        name: '收藏的动漫qwq',
-        list: videolist,
-      },
-    ]
-  }, [list])
 
   const type = useMemo(() => {
     if (!src) return
@@ -96,7 +73,16 @@ export const Acg = ({ list }: Acg) => {
       <div className="list_wrap">
         {enter || (
           <ul className="category">
-            {catelist.map(({ name, list }, i) => (
+            {[
+              {
+                name: '收藏的游戏qaq',
+                list: h5list,
+              },
+              {
+                name: '收藏的动漫qwq',
+                list: videolist,
+              },
+            ].map(({ name, list }, i) => (
               <li className="category-item" key={i}>
                 <h3 className="category-item-name">{name}</h3>
                 <div className="category-item-list">
