@@ -10,6 +10,10 @@
 
 ```bash
 npm install [package]
+
+npm i [package]
+
+npm i [package] --registry=https://registry.npmjs.org
 ```
 
 2. 把包安装到 node_modules 目录
