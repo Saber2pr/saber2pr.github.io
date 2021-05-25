@@ -152,6 +152,11 @@
       "name": "时薪计算",
       "href": "https://fronted-tsx-developer.github.io/demos/xinzi.html",
       "icon": "https://saber2pr.top/MyWeb/resource/image/icon-qianbao.webp"
+    },
+    {
+      "name": "二维码GET",
+      "href": "https://fronted-tsx-developer.github.io/demos/qrcode.html",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/qrcode.png"
     }
   ],
   "服务端": [
