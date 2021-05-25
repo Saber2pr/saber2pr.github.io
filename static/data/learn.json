@@ -154,7 +154,7 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/icon-qianbao.webp"
     },
     {
-      "name": "二维码GET",
+      "name": "二维码",
       "href": "https://fronted-tsx-developer.github.io/demos/qrcode.html",
       "icon": "https://saber2pr.top/MyWeb/resource/image/qrcode.png"
     }
