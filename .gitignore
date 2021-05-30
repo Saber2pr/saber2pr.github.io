@@ -9,3 +9,5 @@ auth/
 yarn-error.log
 /release
 .DS_Store
+draw/*.svg
+draw/*.png

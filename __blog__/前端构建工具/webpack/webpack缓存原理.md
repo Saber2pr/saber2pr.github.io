@@ -91,7 +91,13 @@ const createCompiler = rawOptions => {
 }
 ```
 
-createCompiler 方法里比较重要且核心的就是 WebpackOptionsApply 这个方法，WebpackOptionsApply 方法中给 compiler 注册了很多内置插件。下面是节选了关于 cache 的部分：
+createCompiler 方法里比较重要且核心的就是 WebpackOptionsApply 这个方法，WebpackOptionsApply 方法中给 compiler 注册了很多内置插件。
+
+webpack 插件逻辑图：
+
+![loading](https://saber2pr.top/MyWeb/resource/image/webpack.svg)
+
+下面是节选了关于 cache 的部分：
 
 ```ts
 // lib/WebpackOptionsApply.js 简化代码
@@ -106,8 +112,8 @@ class WebpackOptionsApply extends OptionsApply {
     // 1. MemoryCachePlugin 内存缓存
     // 2. MemoryWithGcCachePlugin 带GC的内存缓存
     // 3. AddBuildDependenciesPlugin 监听配置项，变化时重新启动
-    // 4. IdleFileCachePlugin 空闲时文件缓存
-    // 5. PackFileCacheStrategy
+    // 4. IdleFileCachePlugin 判断编译线程空闲
+    // 5. PackFileCacheStrategy 文件缓存
     if (options.cache && typeof options.cache === 'object') {
       const cacheOptions = options.cache
       // cachedev环境会设置为memory
