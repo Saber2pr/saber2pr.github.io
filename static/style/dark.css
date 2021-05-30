@@ -206,33 +206,6 @@ body {
   display: none;
 }
 
-.Comments-Form-Input {
-  background-color: black;
-  border: 1px solid #72537a;
-}
-
-.Comments-Form-Input:hover {
-  box-shadow: 1px 1px 10px #ccb6ff;
-}
-
-.Comments-Form-Input:focus {
-  box-shadow: 1px 1px 10px #ccb6ff;
-}
-
-.Comments-Form-Button {
-  box-shadow: none;
-  background-color: black;
-  border: 1px solid #c0f8ff;
-}
-
-.Comments-Form-Button:hover {
-  box-shadow: 1px 1px 10px #c0f8ff;
-}
-
-.Comments-Text {
-  background-color: #262d40;
-}
-
 .Learn-List-Item {
   border-bottom: 1px #72537a solid;
 }
@@ -240,10 +213,6 @@ body {
   border-radius: 0;
   background: black;
   box-shadow: none;
-}
-
-.Learn .libs li:hover {
-  box-shadow: 1px 1px 10px #c0f8ff;
 }
 
 .Learn .libs li:hover .libs-A {
@@ -338,10 +307,6 @@ body {
     box-shadow: 0 0 20px rgba(158, 124, 154, 0.3);
     background: black;
   }
-}
-
-.Acg .list-item:hover {
-  box-shadow: 1px 1px 10px #c0f8ff;
 }
 
 .Acg .list-item:hover .list-item-name {

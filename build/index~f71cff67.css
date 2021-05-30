@@ -1491,10 +1491,14 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 12px;
+  object-fit: cover;
 }
 .Acg .list_wrap .list-item-name {
   margin-top: 4px;
   color: #6d6d6d;
+}
+.Acg .list_wrap .list.circle .list-item-logo {
+  border-radius: 50%;
 }
 .Acg .contain .contain-layout .contain-layout-content {
   display: block;
@@ -1506,6 +1510,20 @@ body {
 }
 .Acg .contain .contain-layout video {
   height: calc(100vh - 2.5rem);
+}
+.Acg .acgblank {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+}
+.Acg .acgblank img {
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+.Acg .acgblank img:hover {
+  transform: scale(1.02);
 }
 @media screen and (max-width: 740px) {
   .Acg {
@@ -1664,6 +1682,9 @@ body {
 }
 .Learn .libs-A {
   color: #6d6d6d;
+}
+.Learn .libs a {
+  text-decoration: none;
 }
 .Learn .libs > li {
   float: left;
@@ -1872,27 +1893,6 @@ body {
     width: 100%;
     height: auto;
   }
-}
-.Comments-Form-Button {
-  cursor: pointer;
-  border-color: #20232a;
-  background-color: #373940;
-  color: #d5d5d7;
-  border: 1px solid;
-  border-radius: 3px;
-  line-height: 32px;
-  padding: 0 16px;
-  word-break: keep-all;
-}
-.Comments-Form-Button:hover {
-  background-color: #20232a;
-  color: #61dafb;
-}
-.Comments-Form-Input {
-  border: 1px solid;
-  border-radius: 3px;
-  line-height: 30px;
-  padding: 0 8px;
 }
 
 .SearchResult {

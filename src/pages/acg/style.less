@@ -49,10 +49,16 @@
           width: 70px;
           height: 70px;
           border-radius: 12px;
+          object-fit: cover;
         }
         &-name {
           margin-top: 4px;
           color: #6d6d6d;
+        }
+      }
+      &.circle {
+        .list-item-logo {
+          border-radius: 50%;
         }
       }
     }
@@ -69,6 +75,21 @@
       }
       video {
         height: calc(100vh - 2.5rem);
+      }
+    }
+  }
+
+  .acgblank {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    img {
+      max-width: 100%;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.02);
       }
     }
   }
