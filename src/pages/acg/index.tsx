@@ -3,7 +3,7 @@ import './style.less'
 import React, { memo, useEffect, useMemo, useState } from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
 
-import { LazyCom, Loading, M3u8 } from '../../components'
+import { LazyCom, Loading, M3u8, PreImg } from '../../components'
 import { useIsMob } from '../../hooks'
 import { request } from '../../request'
 import { classnames } from '../../utils/classnames'
@@ -31,6 +31,21 @@ type ListProps = {
 }
 
 const List = ({ list, onSelect, shape }: ListProps) => {
+  const PreImage = useMemo(
+    () => (
+      <div
+        style={{
+          width: '70px',
+          height: '70px',
+          borderRadius: shape === 'circle' ? '50%' : '12px',
+          backgroundColor: 'lightgrey',
+          margin: '0 auto',
+          marginBottom: '0.2rem',
+        }}
+      />
+    ),
+    [shape]
+  )
   return (
     <ul className={classnames('list', shape)}>
       {getArray(list).map((item, i) => (
@@ -41,10 +56,11 @@ const List = ({ list, onSelect, shape }: ListProps) => {
             onSelect(item)
           }}
         >
-          <img
+          <PreImg
             className="list-item-logo"
             src={toArray(item.avatar)[0]}
             alt={item.name}
+            fallback={PreImage}
           />
           <div className="list-item-name">{item.name}</div>
         </li>
