@@ -1,18 +1,20 @@
 import './style.less'
 
-import React, { memo, useMemo, useState } from 'react'
+import React, { memo, useEffect, useMemo, useState } from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
 
 import { LazyCom, Loading, M3u8 } from '../../components'
 import { useIsMob } from '../../hooks'
 import { request } from '../../request'
 import { classnames } from '../../utils/classnames'
+import { getArray, toArray } from '../../utils/array'
 
 type Item = {
   name: string
   link: string
   avatar: string
   desc?: string | string[]
+  star?: number
 }
 type List = Array<Item>
 
@@ -31,7 +33,7 @@ type ListProps = {
 const List = ({ list, onSelect, shape }: ListProps) => {
   return (
     <ul className={classnames('list', shape)}>
-      {list.map((item, i) => (
+      {getArray(list).map((item, i) => (
         <li
           className="list-item"
           key={i}
@@ -39,7 +41,11 @@ const List = ({ list, onSelect, shape }: ListProps) => {
             onSelect(item)
           }}
         >
-          <img className="list-item-logo" src={item.avatar} alt={item.name} />
+          <img
+            className="list-item-logo"
+            src={toArray(item.avatar)[0]}
+            alt={item.name}
+          />
           <div className="list-item-name">{item.name}</div>
         </li>
       ))}
@@ -51,6 +57,12 @@ export const Acg = ({ h5list, videolist, qwq }: Acg) => {
   const [enter, setEnter] = useState(false)
   const [current, setCurrent] = useState<Item>()
   const isMob = useIsMob()
+
+  useEffect(() => {
+    if (enter) {
+      document.documentElement.scrollTop = 0
+    }
+  }, [enter])
 
   const type = useMemo(() => {
     if (!current) return
@@ -93,14 +105,23 @@ export const Acg = ({ h5list, videolist, qwq }: Acg) => {
     case 'blank':
       content = (
         <div className="acgblank">
-          <a href={current.link} target="_blank">
-            <img src={current.avatar} />
-          </a>
-          <h1>{current.name}</h1>
-          <div>
-            {[].concat(current.desc).map((d, i) => (
-              <p key={i}>{d}</p>
+          <div className="acgblank-content">
+            {toArray(current.avatar).map((img, i) => (
+              <a href={current.link} target="_blank" key={i}>
+                <img src={img} />
+              </a>
             ))}
+            <h1>{current.name}</h1>
+            <div>
+              {toArray(current.desc).map((d, i) => (
+                <p key={i}>{d}</p>
+              ))}
+            </div>
+          </div>
+          <div className="acgblank-bottom">
+            <button className="ButtonHigh" onClick={() => setEnter(false)}>
+              返回
+            </button>
           </div>
         </div>
       )
@@ -109,6 +130,8 @@ export const Acg = ({ h5list, videolist, qwq }: Acg) => {
       break
   }
 
+  const qwqlist = useMemo(() => qwq.sort((a, b) => b.star - a.star), [qwq])
+
   const renderList: {
     name: string
     list: List
@@ -116,18 +139,18 @@ export const Acg = ({ h5list, videolist, qwq }: Acg) => {
     shape?: ListProps['shape']
   }[] = [
     {
-      name: `收藏的游戏qaq`,
-      list: h5list,
-      tip: isMob ? 'PC上才可以玩哦' : null,
+      name: '喜欢的人qwq',
+      list: qwqlist,
+      shape: 'circle',
     },
     {
       name: '收藏的动漫qwq',
       list: videolist,
     },
     {
-      name: '喜欢的人qwq',
-      list: qwq,
-      shape: 'circle',
+      name: `收藏的游戏qaq`,
+      list: h5list,
+      tip: isMob ? 'PC上才可以玩哦' : null,
     },
   ]
 

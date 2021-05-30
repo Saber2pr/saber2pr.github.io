@@ -33,22 +33,125 @@
       "name": "薙",
       "avatar": "http://bos.pgzs.com/rbpiczy/Wallpaper/2008/12/31/87a656003ecdde2efad35522fd72e0e7.jpg",
       "link": "https://www.bilibili.com/bangumi/media/md1185/",
-      "desc": "qwq"
+      "desc": "可爱，有趣的一个女孩子。活泼可爱，大概是理想的恋人！",
+      "star": "1"
     },
     {
       "name": "七咲逢",
       "avatar": "http://5b0988e595225.cdn.sohucs.com/images/20190510/dc5312b15b954c94ae6c132b3ef5a33c.jpeg",
       "link": "https://www.bilibili.com/bangumi/media/md815",
       "desc": [
-        "qwq",
-        "qaq"
-      ]
+        "简直就是梦中情人！",
+        "温柔体贴，可爱。现实中能遇到她的话一定不能放过qwq!"
+      ],
+      "star": "5"
     },
     {
       "name": "雪之下雪乃",
       "avatar": "http://pic4.zhimg.com/50/v2-147f3370f1186e47fc1d0f3d8ba447b9_hd.jpg",
-      "link": "https://www.bilibili.com/bangumi/media/md815",
-      "desc": "qwq"
+      "link": "https://www.bilibili.com/bangumi/media/md28228386",
+      "desc": "冷静理性，温柔体贴。偶尔有些可爱。是一个可以长期相处的女孩子！",
+      "star": "3"
+    },
+    {
+      "name": "阿尔托莉雅",
+      "avatar": "http://img.mp.itc.cn/upload/20161220/93754c3b1c6a471c940c1f02d7ee8dc2_th.jpeg",
+      "link": "https://www.bilibili.com/bangumi/media/md1650",
+      "desc": [
+        "冷酷而又可爱，温柔且体贴。",
+        "坚强的意志，刻苦修行，对master的忠诚！",
+        "自己也想成为这样的人！"
+      ],
+      "star": "5"
+    },
+    {
+      "name": "五更瑠璃",
+      "avatar": [
+        "https://ss3.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/e61190ef76c6a7efe8e3c38cf5faaf51f2de6656.jpg",
+        "http://img48.51tietu.net/pic/2017-032319/20170323194220et1wlkv4slr60351.jpg"
+      ],
+      "link": "https://www.bilibili.com/bangumi/media/md1650",
+      "desc": [
+        "可爱，傲娇。温柔而又敏感，让人初次见面就印象深刻！"
+      ],
+      "star": "4"
+    },
+    {
+      "name": "小日向速水",
+      "avatar": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1342083971,3965639639&fm=26&gp=0.jpg",
+      "link": "https://www.bilibili.com/bangumi/media/md1204",
+      "desc": [
+        "初次见面就感觉她身上散发着特别的感觉，忍不住想要多了解她！qaq",
+        "温柔善良，孤独且理性，和她在一起感觉想要拥抱她！qaq",
+        "受过很多伤害，非常可怜的一个女孩子！"
+      ],
+      "star": "5"
+    },
+    {
+      "name": "神本円佳",
+      "avatar": "http://pic2.zhimg.com/50/v2-aad57f499b1a1eebe5286ebf081fe2d4_hd.jpg",
+      "link": "https://www.bilibili.com/bangumi/media/md919",
+      "desc": [
+        "一见钟情的感觉！",
+        "温柔可爱，体贴！神社巫女，气质很独特qwq。是理想的恋人！"
+      ],
+      "star": "4"
+    },
+    {
+      "name": "四方茉莉",
+      "avatar": "https://ss2.baidu.com/-vo3dSag_xI4khGko9WTAnF6hhy/baike/pic/item/d043ad4bd11373f0dfbfd5c7a60f4bfbfaed04e1.jpg",
+      "link": "https://www.bilibili.com/bangumi/media/md1302",
+      "desc": [
+        "温柔体贴，qwq"
+      ],
+      "star": "2"
+    },
+    {
+      "name": "艾拉",
+      "avatar": "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1609241487,3121662554&fm=26&gp=0.jpg",
+      "link": "https://www.bilibili.com/bangumi/media/md1552",
+      "desc": [
+        "可爱，坚强的女孩子！",
+        "可惜最后没能保护好她qaq"
+      ],
+      "star": "3"
+    },
+    {
+      "name": "穹",
+      "avatar": "http://hbimg.b0.upaiyun.com/36941ae4a285e1ff1f3e83b62088d42b3ce28fff6e030-3Qhx4w_fw658",
+      "desc": [
+        "初恋的感觉！",
+        "可爱，孤僻。散发着特别的气质，十分吸引人想要了解她！"
+      ],
+      "star": "4"
+    },
+    {
+      "name": "冲田总司",
+      "avatar": "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=542917794,470334203&fm=26&gp=0.jpg",
+      "desc": [
+        "活泼可爱，体弱多病qaq",
+        "实力超强，刻苦修行！是个值得相处的女孩子！"
+      ],
+      "star": "3"
+    },
+    {
+      "name": "魂魄妖梦",
+      "avatar": "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2444625624,4005595636&fm=26&gp=0.jpg",
+      "desc": [
+        "气质独特，实力扎实但猜不透。",
+        "可爱坚强，对幽幽子很忠诚qwq。"
+      ],
+      "star": "6"
+    },
+    {
+      "name": "小芦睦海",
+      "avatar": "https://patchwiki.biligame.com/images/aga/a/ae/io3jxgm1sx3wevl65ubqywb1t3t19w3.png",
+      "link": "https://wiki.biligame.com/aga/%E5%B0%8F%E8%8A%A6_%E7%9D%A6%E6%B5%B7",
+      "desc": [
+        "可爱温柔，实力很强，刻苦修行",
+        "有着自己喜欢的领域，学到的知识能融会贯通！"
+      ],
+      "star": "4"
     }
   ]
 }

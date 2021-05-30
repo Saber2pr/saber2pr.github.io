@@ -1520,10 +1520,16 @@ body {
 }
 .Acg .acgblank img {
   max-width: 100%;
+  max-height: calc(100vh - 5rem);
   transition: transform 0.3s ease;
 }
 .Acg .acgblank img:hover {
   transform: scale(1.02);
+}
+.Acg .acgblank-bottom {
+  border-top: 1px #72537a solid;
+  margin-top: 1rem;
+  padding-top: 1rem;
 }
 @media screen and (max-width: 740px) {
   .Acg {
