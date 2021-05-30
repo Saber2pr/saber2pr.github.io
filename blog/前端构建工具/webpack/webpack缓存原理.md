@@ -12,6 +12,8 @@
 
 #### 认识 webpack dev 缓存
 
+[配置项 cache](https://webpack.js.org/configuration/other-options/#cache)
+
 > 在 prod 模式 cache 会被禁用，以下讨论都是针对 dev 环境。
 > 目的在于探索提升 dev 开发体验的方法。
 
@@ -76,16 +78,151 @@ const createCompiler = rawOptions => {
     }
   }
 
-  // 设置webpack config默认值
+  // 配置config中字段的默认值
   applyWebpackOptionsDefaults(options)
   // 调用environment插件（内置插件）
   compiler.hooks.environment.call()
   // 调用afterEnvironment插件（内置插件）
   compiler.hooks.afterEnvironment.call()
+  // 根据config中启用的配置项，注册对应的内置插件
   new WebpackOptionsApply().process(options, compiler)
   compiler.hooks.initialize.call()
   return compiler
 }
 ```
 
-待更新
+createCompiler 方法里比较重要且核心的就是 WebpackOptionsApply 这个方法，WebpackOptionsApply 方法中给 compiler 注册了很多内置插件。下面是节选了关于 cache 的部分：
+
+```ts
+// lib/WebpackOptionsApply.js 简化代码
+
+class WebpackOptionsApply extends OptionsApply {
+  constructor() {
+    super()
+  }
+  process(options, compiler) {
+    // cache配置项的处理
+    // cache相关内置插件
+    // 1. MemoryCachePlugin 内存缓存
+    // 2. MemoryWithGcCachePlugin 带GC的内存缓存
+    // 3. AddBuildDependenciesPlugin 监听配置项，变化时重新启动
+    // 4. IdleFileCachePlugin 空闲时文件缓存
+    // 5. PackFileCacheStrategy
+    if (options.cache && typeof options.cache === 'object') {
+      const cacheOptions = options.cache
+      // cachedev环境会设置为memory
+      switch (cacheOptions.type) {
+        // 内存缓存
+        case 'memory': {
+          // cache.maxGenerations: 1: 在一次编译中未使用的缓存被删除
+          // 引用计数，使用一次减1
+          // 值为finite时表示永远被引用，不清除
+          if (isFinite(cacheOptions.maxGenerations)) {
+            // 带GC处理的内存缓存
+            new MemoryWithGcCachePlugin({
+              maxGenerations: cacheOptions.maxGenerations,
+            }).apply(compiler)
+          } else {
+            new MemoryCachePlugin().apply(compiler)
+          }
+          break
+        }
+        // 文件缓存
+        case 'filesystem': {
+          // cache依赖，当依赖或者webpack.config.js变化时，cache将重置
+          // 设置 config: [__filename]表示当webpack.config.js变化时，cache重新生成
+          // 例如安装了新的loader
+          for (const key in cacheOptions.buildDependencies) {
+            const list = cacheOptions.buildDependencies[key]
+            new AddBuildDependenciesPlugin(list).apply(compiler)
+          }
+          // 文件缓存结合内存缓存
+          // maxMemoryGenerations和maxGenerations一样，表示几次编译没有引用将会删除
+          // 当内存缓存被删除时，再次引用将从磁盘序列化读取
+          if (!isFinite(cacheOptions.maxMemoryGenerations)) {
+            // 不是finite，即有限生命的缓存
+            new MemoryCachePlugin().apply(compiler)
+          } else if (cacheOptions.maxMemoryGenerations !== 0) {
+            // 是finite，即无限生命的缓存，需要配合gc算法管理内存使用
+            new MemoryWithGcCachePlugin({
+              maxGenerations: cacheOptions.maxMemoryGenerations,
+            }).apply(compiler)
+          }
+
+          // 文件缓存
+          // 决定什么时候将数据写入文件缓存
+          switch (cacheOptions.store) {
+            // 编译器线程空闲时
+            case 'pack': {
+              new IdleFileCachePlugin(
+                new PackFileCacheStrategy({
+                  compiler,
+                  fs: compiler.intermediateFileSystem,
+                  context: options.context,
+                  // 文件缓存的位置，默认在 node_modules/.cache/webpack
+                  cacheLocation: cacheOptions.cacheLocation,
+                  // 缓存的版本
+                  version: cacheOptions.version,
+                  logger: compiler.getInfrastructureLogger(
+                    'webpack.cache.PackFileCacheStrategy'
+                  ),
+                  // 每次编译的快照怎么缓存
+                  snapshot: options.snapshot,
+                  // 编译缓存过期时间
+                  maxAge: cacheOptions.maxAge,
+                  // 调试模式
+                  profile: cacheOptions.profile,
+                  // cache反序列的时候会预先开辟几个buffer区，这里可以把反序列化后未使用的buffer进行concat合并
+                  allowCollectingMemory: cacheOptions.allowCollectingMemory,
+                }),
+                // timeout时间内等待线程空闲再执行文件缓存序列化，如果等待时间超过timeout将强制执行
+                // 类似requestIdleCallback timeout
+                cacheOptions.idleTimeout,
+                // 初始化.cache文件的等待超时时间
+                cacheOptions.idleTimeoutForInitialStore
+              ).apply(compiler)
+              break
+            }
+            default:
+              throw new Error('Unhandled value for cache.store')
+          }
+          break
+        }
+        default:
+          throw new Error(`Unknown cache type ${cacheOptions.type}`)
+      }
+    }
+    // 用来做一些cache操作过程中的快照统计、各种参数追踪
+    new ResolverCachePlugin().apply(compiler)
+  }
+}
+```
+
+#### 缓存方案总结
+
+通过 cache 配置底层处理的过程可以了解到，webpack 编译缓存有三种方案：
+
+一、编译生成的依赖树 ast、每个文件处理后的结果等信息缓存到内存中
+
+1. 优点：响应快，每次编译任务启动都直接从内存读取上次生成的 ast 等信息
+2. 缺点：关掉 webpack 主线程后，ast 等信息将被释放销毁，下次冷启动要从头开始编译。
+
+二、缓存到 cache 文件中
+
+1. 优点：ast 等信息保存到文件中，冷启动直接从 cache 文件反序列生成 ast，减少初次编译时间。
+2. 缺点：热更新响应慢，每次编译任务都要从 cache 文件读取和写入信息，IO 操作频繁。
+
+三、部分文件编译的结果缓存到 cache，部分缓存到内存中
+
+可以合理调配 maxMemoryGenerations 参数，结合内存缓存和文件缓存优点，以及自己机器的硬件性能，将 webpack 编译速度调整到最优。
+
+### webpack 启动/编译 速度调优方案
+
+检查项目规模大小，检查自己机器内存大小
+
+1. 如果是小型项目，追求代码变更立刻编译出结果即响应快，可以选择内存缓存，也就是默认配置。
+
+2. 如果是大型项目，需要长期打开关闭的，冷启动 webpack 特别慢的，可以选择文件缓存。
+   如果机器硬件配置不太好内存小的，开发时 webpack 编译导致电脑很卡的，更应该选择文件缓存。
+
+3. 如果项目比较大，又对 webpack 编译速度特别在意，但是内存大小比较一般的，可以在文件缓存模式下，合理配置 maxMemoryGenerations 参数来改善编译速度。
