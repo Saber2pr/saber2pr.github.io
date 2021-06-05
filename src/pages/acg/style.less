@@ -4,6 +4,16 @@
   overflow: hidden;
   padding-bottom: 7rem;
 
+  .audio-lyc {
+    position: fixed;
+    left: 50%;
+    top: 70vh;
+    transform: translateX(-50%);
+  }
+  .WordsInputing {
+    font-size: 32px;
+  }
+
   &.enter {
     margin: 0;
     padding: 0;
@@ -93,6 +103,16 @@
         transform: scale(1.02);
       }
     }
+    &-content {
+      &-title {
+        position: relative;
+        .Audio {
+          margin-left: 0.5rem;
+          position: relative;
+          top: -5px;
+        }
+      }
+    }
     &-bottom {
       border-top: 1px #72537a solid;
       margin-top: 1rem;
@@ -107,6 +127,10 @@
     padding: 0;
     padding-top: 1rem;
     padding-bottom: 4rem;
+
+    .WordsInputing {
+      font-size: 18px;
+    }
 
     .video_title {
       padding-left: 1rem;

@@ -9,6 +9,7 @@ export interface WordsInputing {
   next?: Function
   speed?: number
   interval?: number
+  cursor?: boolean
 }
 
 export const WordsInputing = ({
@@ -16,6 +17,7 @@ export const WordsInputing = ({
   next,
   speed = 100,
   interval = 3000,
+  cursor = true,
 }: WordsInputing) => {
   const [text, setText] = useState('')
 
@@ -38,10 +40,14 @@ export const WordsInputing = ({
     }
   }, [text])
 
+  useEffect(() => {
+    setText('')
+  }, [inputs])
+
   return (
     <span className="WordsInputing">
       {text}
-      <span className="cursor" />
+      {cursor && <span className="cursor" />}
     </span>
   )
 }

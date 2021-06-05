@@ -5,6 +5,7 @@ export * from './error-back';
 export * from './error-boundary';
 export * from './header-message';
 export * from './highLight-html';
+export * from './key-audio';
 export * from './lazy-com';
 export * from './loading';
 export * from './m3u8';

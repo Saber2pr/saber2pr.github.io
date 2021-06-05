@@ -6,6 +6,10 @@ body {
   color: white;
 }
 
+.Audio {
+  background-color: black;
+}
+
 .AnchorHigh {
   color: #a9a9a9;
   background: black;

@@ -3,11 +3,11 @@ import './style.less'
 import React, { memo, useEffect, useMemo, useState } from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
 
-import { LazyCom, Loading, M3u8, PreImg } from '../../components'
+import { LazyCom, Loading, M3u8, PreImg, KeyAudio } from '../../components'
 import { useIsMob } from '../../hooks'
 import { request } from '../../request'
-import { classnames } from '../../utils/classnames'
 import { getArray, toArray } from '../../utils/array'
+import { classnames } from '../../utils/classnames'
 
 type Item = {
   name: string
@@ -15,6 +15,7 @@ type Item = {
   avatar: string
   desc?: string | string[]
   star?: number
+  audio?: string
 }
 type List = Array<Item>
 
@@ -127,7 +128,10 @@ export const Acg = ({ h5list, videolist, qwq }: Acg) => {
                 <img src={img} />
               </a>
             ))}
-            <h1>{current.name}</h1>
+            <h1 className="acgblank-content-title">
+              {current.name}
+              {current?.audio && <KeyAudio kw={current?.audio} />}
+            </h1>
             <div>
               {toArray(current.desc).map((d, i) => (
                 <p key={i}>{d}</p>

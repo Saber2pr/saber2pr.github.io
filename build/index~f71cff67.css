@@ -95,6 +95,10 @@ html {
 body {
   transition: background-color 1s;
 }
+.Audio {
+  background-color: white;
+  transition: background-color 1s;
+}
 .FullWinBtn {
   position: fixed;
   left: 20px;
@@ -511,6 +515,35 @@ body {
   word-break: break-all;
 }
 
+.WordsInputing {
+  color: #d5d5d780;
+  font-size: 14px;
+  line-height: 20px;
+}
+@keyframes Cursor {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  50% {
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+.WordsInputing .cursor {
+  animation: Cursor 1.5s infinite steps(1, start);
+  display: inline-block;
+  letter-spacing: 0.88px;
+  vertical-align: sub;
+  width: 1px;
+  height: 1rem;
+  background: #d5d5d780;
+}
+
 .Loading {
   position: absolute;
   top: 50%;
@@ -757,35 +790,6 @@ body {
   .Option-Tip {
     margin-top: 0.5rem;
   }
-}
-
-.WordsInputing {
-  color: #d5d5d780;
-  font-size: 14px;
-  line-height: 20px;
-}
-@keyframes Cursor {
-  0% {
-    opacity: 1;
-    display: block;
-  }
-  50% {
-    opacity: 0;
-    display: none;
-  }
-  100% {
-    opacity: 1;
-    display: block;
-  }
-}
-.WordsInputing .cursor {
-  animation: Cursor 1.5s infinite steps(1, start);
-  display: inline-block;
-  letter-spacing: 0.88px;
-  vertical-align: sub;
-  width: 1px;
-  height: 1rem;
-  background: #d5d5d780;
 }
 
 .ScrollToTop {
@@ -1448,6 +1452,15 @@ body {
   overflow: hidden;
   padding-bottom: 7rem;
 }
+.Acg .audio-lyc {
+  position: fixed;
+  left: 50%;
+  top: 70vh;
+  transform: translateX(-50%);
+}
+.Acg .WordsInputing {
+  font-size: 32px;
+}
 .Acg.enter {
   margin: 0;
   padding: 0;
@@ -1527,6 +1540,14 @@ body {
 .Acg .acgblank img:hover {
   transform: scale(1.02);
 }
+.Acg .acgblank-content-title {
+  position: relative;
+}
+.Acg .acgblank-content-title .Audio {
+  margin-left: 0.5rem;
+  position: relative;
+  top: -5px;
+}
 .Acg .acgblank-bottom {
   border-top: 1px #72537a solid;
   margin-top: 1rem;
@@ -1538,6 +1559,9 @@ body {
     padding: 0;
     padding-top: 1rem;
     padding-bottom: 4rem;
+  }
+  .Acg .WordsInputing {
+    font-size: 18px;
   }
   .Acg .video_title {
     padding-left: 1rem;
