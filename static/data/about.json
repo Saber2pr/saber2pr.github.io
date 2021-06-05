@@ -5,15 +5,18 @@
     "为什么有这个页面：",
     "因为之前不管是感悟也好，一些教训也好，都是在脑子里的。后来发现经常会忘记（比如突然忘记上一秒想干什么），所以感觉有什么的想法的话，还是记录到磁盘里比较好，而且即便突然失去联络这些东西也还是存在这里，比我的时间还长，毕竟是免费的。可以在电脑上或者手机上来查看这些固化的记忆，这样很多有用的东西也不容易忘记。除此之外，从 0 开始构建资讯统合思念体的原型，以计算机作为终端，这个过程也是十分有成就感，仿佛创建了一个生命体。所以作为虚拟人设也是可以的，如果未来发明了可用的终端机，只需要注入这些设定，就会重现。",
     "2020年本科毕业，现在做前端开发。工作地：杭州。",
-    "联系我：1029985799@qq.com",
-    "------------------",
-    "这个博客程序写的不太好，比如一些本应该缓存diff的地方我没有去优化，而且代码也写得有点拉了。等我有了云服务器可能要用nextjs重写下了。先将就着能看。"
+    "联系我：1029985799@qq.com"
   ],
   "projects": [
     {
       "name": "saber2pr.github.io",
       "href": "https://github.com/Saber2pr/saber2pr.github.io",
       "content": "saber2pr's website."
+    },
+    {
+      "name": "editor",
+      "href": "https://github.com/Saber2pr/editor",
+      "content": "a web editor powered by monaco-editor."
     },
     {
       "name": "next-tpl",
@@ -24,11 +27,6 @@
       "name": "@saber2pr/ptbk",
       "href": "https://github.com/Saber2pr/ptbk",
       "content": "encode & decode"
-    },
-    {
-      "name": "editor",
-      "href": "https://github.com/Saber2pr/editor",
-      "content": "a web editor powered by monaco-editor."
     },
     {
       "name": "@saber2pr/react",

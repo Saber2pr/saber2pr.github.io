@@ -70,7 +70,7 @@ module.exports = WebpackConfig({
         injectBody:
           `<div id="root"></div><script>LOADING.init(` +
           `"等待时间太长？访问[<a href='//saber2pr.gitee.io/'>加速版</a>]."` +
-          ');</script>',
+          ', 3000);</script>',
       }),
     }),
     new webpack.BannerPlugin({
