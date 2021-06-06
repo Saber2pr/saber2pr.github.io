@@ -28,13 +28,14 @@ export const KeyAudio = ({ kw }: { kw: string }) => {
   }
 
   const playLyc = () => {
-    const lycer = lyc.current
-    if (!lycer) return
-    lycer.play()
     if (state?.res) {
       const { name, artist } = state.res
       setWords(`${name}-${artist}`)
     }
+
+    const lycer = lyc.current
+    if (!lycer) return
+    lycer.play()
   }
   const pauseLyc = () => {
     const lycer = lyc.current
@@ -56,7 +57,7 @@ export const KeyAudio = ({ kw }: { kw: string }) => {
           clearLyc()
           if (res.lyric) {
             lyc.current = new Lyric(res.lyric, ({ txt }) => {
-              setWords(txt)
+              txt && setWords(txt)
             })
           }
         }
