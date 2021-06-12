@@ -20,7 +20,7 @@ module.exports = WebpackConfig({
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
-    filename: '[name].min.js',
+    filename: '[name][hash].min.js',
     path: path.join(__dirname, 'build'),
     publicPath: process.env.NODE_ENV === 'production' ? `${cdnhost}/saber2pr.github.io@master/build/` : '/',
   },
@@ -83,8 +83,8 @@ module.exports = WebpackConfig({
       test: /\.js/,
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: 'style.[id].css',
+      filename: '[name][hash].css',
+      chunkFilename: 'style.[id][hash].css',
     }),
   ],
   watchOptions: {
