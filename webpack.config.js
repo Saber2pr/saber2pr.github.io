@@ -22,7 +22,7 @@ module.exports = WebpackConfig({
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'build'),
-    publicPath: process.env.NODE_ENV === 'production' ? `${cdnhost}/saber2pr.github.io/build/` : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? `${cdnhost}/saber2pr.github.io@master/build/` : '/',
   },
   module: {
     rules: [
@@ -65,8 +65,8 @@ module.exports = WebpackConfig({
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
         <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
         <link rel="manifest" href="./manifest.json" />
-        <script async src="${cdnhost}/click-mask/click-mask.min.js"></script>
-        <script async src="${cdnhost}/test/tools/debug.min.js"></script>
+        <script async src="${cdnhost}/click-mask@master/click-mask.min.js"></script>
+        <script async src="${cdnhost}/test@master/tools/debug.min.js"></script>
         ${Object.keys(inlinejs).map(key => `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`)}
         `,
         injectBody:
