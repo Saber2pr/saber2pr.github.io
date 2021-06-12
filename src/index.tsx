@@ -1,5 +1,3 @@
-declare const LOADING: { destroy: Function }
-
 import 'normalize.css'
 import 'animate.css/source/flippers/flipInX.css'
 import './style/animation.less'

@@ -146,17 +146,20 @@
     {
       "name": "网易云GET",
       "href": "https://fronted-tsx-developer.github.io/demos/music.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp"
+      "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp",
+      "frame": true
     },
     {
       "name": "时薪计算",
       "href": "https://fronted-tsx-developer.github.io/demos/xinzi.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/icon-qianbao.webp"
+      "icon": "https://saber2pr.top/MyWeb/resource/image/icon-qianbao.webp",
+      "frame": true
     },
     {
       "name": "二维码",
       "href": "https://fronted-tsx-developer.github.io/demos/qrcode.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/qrcode.png"
+      "icon": "https://saber2pr.top/MyWeb/resource/image/qrcode.png",
+      "frame": true
     }
   ],
   "服务端": [
