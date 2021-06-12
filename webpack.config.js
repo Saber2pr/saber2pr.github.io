@@ -10,6 +10,8 @@ const version = () => `var version="${new Date().toLocaleString()}"`
 const publicPath = (resourcePath, context) =>
   path.relative(path.dirname(resourcePath), context) + '/'
 
+const cdn = '//cdn.jsdelivr.net/gh/saber2pr/saber2pr.github.io/build/'
+
 module.exports = WebpackConfig({
   entry: {
     index: './src/index.tsx',
@@ -20,7 +22,7 @@ module.exports = WebpackConfig({
   output: {
     filename: '[name].min.js',
     path: path.join(__dirname, 'build'),
-    publicPath: process.env.NODE_ENV === 'production' ? '/build' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/build' : cdn,
   },
   module: {
     rules: [
