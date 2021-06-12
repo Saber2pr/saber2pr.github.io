@@ -69,6 +69,8 @@ module.exports = WebpackConfig({
         <script async src="${cdnhost}/test/tools/debug.min.js"></script>
         ${Object.keys(inlinejs).map(key => `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`)}
         `,
+        injectBody:
+          `<div id="root"></div>`,
         // injectBody:
         //   `<div id="root"></div><script>LOADING.init(` +
         //   `"等待时间太长？访问[<a href='//saber2pr.gitee.io/'>加速版</a>]."` +
