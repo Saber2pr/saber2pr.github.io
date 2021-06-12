@@ -47,7 +47,11 @@ export const Learn = ({ sites }: Learn) => {
                     )
                     if (frame) {
                       content = (
-                        <a title={name} onClick={() => requestFrameModal(href)}>
+                        <a
+                          className="cursor-pointer"
+                          title={name}
+                          onClick={() => requestFrameModal(href)}
+                        >
                           {content}
                         </a>
                       )
