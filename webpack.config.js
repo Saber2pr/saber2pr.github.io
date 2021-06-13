@@ -70,11 +70,9 @@ module.exports = WebpackConfig({
         ${Object.keys(inlinejs).map(key => `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`)}
         `,
         injectBody:
-          `<div id="root"></div>`,
-        // injectBody:
-        //   `<div id="root"></div><script>LOADING.init(` +
-        //   `"等待时间太长？访问[<a href='//saber2pr.gitee.io/'>加速版</a>]."` +
-        //   ', 3000);</script>',
+          `<div id="root"></div><script>LOADING.init(` +
+          `"努力加载中qwq，请稍等..."` +
+          ', 1000);</script>',
       }),
     }),
     new webpack.BannerPlugin({
