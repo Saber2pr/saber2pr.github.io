@@ -204,6 +204,112 @@ class WebpackOptionsApply extends OptionsApply {
 }
 ```
 
+MemoryWithGcCachePlugin 插件源码分析：
+
+```ts
+class MemoryWithGcCachePlugin {
+  constructor({ maxGenerations }) {
+    this._maxGenerations = maxGenerations
+  }
+  apply(compiler) {
+    const maxGenerations = this._maxGenerations
+    // 双缓存读写分离
+    const cache = new Map() // 写入操作
+    const oldCache = new Map() // 从cache同步数据，负责读取、计算等操作
+    // generation就是编译次数
+    let generation = 0
+    let cachePosition = 0
+    // 计算until
+    compiler.hooks.afterDone.tap('MemoryWithGcCachePlugin', () => {
+      generation++
+      // 第一次oldCache为空
+      for (const [identifier, entry] of oldCache) {
+        if (entry.until > generation) break
+        // util小于generation的cache会被删除
+        oldCache.delete(identifier)
+        if (cache.get(identifier) === undefined) {
+          cache.delete(identifier)
+        }
+      }
+
+      let i = (cache.size / maxGenerations) | 0 // 取整，将cache等分
+      let j = cachePosition >= cache.size ? 0 : cachePosition
+      cachePosition = j + i
+      // 把cache中的复制到oldCache，同时计算until
+      for (const [identifier, entry] of cache) {
+        if (j !== 0) {
+          j--
+          continue
+        }
+        if (entry !== undefined) {
+          cache.set(identifier, undefined)
+          oldCache.delete(identifier)
+          oldCache.set(identifier, {
+            entry,
+            // until计算 maxGenerations是额外的generation次数，给cache续命
+            until: generation + maxGenerations,
+          })
+          if (i-- === 0) break
+        }
+      }
+    })
+    // 写入cache
+    compiler.cache.hooks.store.tap(
+      { name: 'MemoryWithGcCachePlugin', stage: Cache.STAGE_MEMORY },
+      (identifier, etag, data) => {
+        cache.set(identifier, { etag, data })
+      }
+    )
+    // 根据etag获取cache
+    compiler.cache.hooks.get.tap(
+      { name: 'MemoryWithGcCachePlugin', stage: Cache.STAGE_MEMORY },
+      (identifier, etag, gotHandlers) => {
+        // 优先读取cache
+        const cacheEntry = cache.get(identifier)
+        if (cacheEntry === null) {
+          return null
+        } else if (cacheEntry !== undefined) {
+          return cacheEntry.etag === etag ? cacheEntry.data : null
+        }
+        // 读取oldCache
+        // 原因是可能外部在gotHandlers中传入了result null，导致cache中对应缓存为null
+        const oldCacheEntry = oldCache.get(identifier)
+        if (oldCacheEntry !== undefined) {
+          const cacheEntry = oldCacheEntry.entry
+          if (cacheEntry === null) {
+            oldCache.delete(identifier)
+            cache.set(identifier, cacheEntry)
+            return null
+          } else {
+            if (cacheEntry.etag !== etag) return null
+            oldCache.delete(identifier)
+            cache.set(identifier, cacheEntry)
+            return cacheEntry.data
+          }
+        }
+        gotHandlers.push((result, callback) => {
+          if (result === undefined) {
+            // cache清除对应缓存，会从oldCache中找
+            cache.set(identifier, null)
+          } else {
+            cache.set(identifier, { etag, data: result })
+          }
+          return callback()
+        })
+      }
+    )
+    // 编译任务停止，释放内存
+    compiler.cache.hooks.shutdown.tap(
+      { name: 'MemoryWithGcCachePlugin', stage: Cache.STAGE_MEMORY },
+      () => {
+        cache.clear()
+        oldCache.clear()
+      }
+    )
+  }
+}
+```
+
 #### 缓存方案总结
 
 通过 cache 配置底层处理的过程可以了解到，webpack 编译缓存有三种方案：
