@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack -w",
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "rm -r ./build && cross-env NODE_ENV=production webpack && yarn inject:statics && cp ./build/index.html ./index.html",
+    "build": "rm -rf ./build && cross-env NODE_ENV=production webpack && yarn inject:statics && cp ./build/index.html ./index.html",
     "inject:statics": "ts-node scripts/injectStatics",
     "inherit": "ts-node scripts/inherit",
     "update": "ts-node scripts/generate",

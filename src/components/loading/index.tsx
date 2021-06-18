@@ -28,10 +28,10 @@ export const Loading = ({ type = "unset" }: Loading) => {
     const handle = setTimeout(() => {
       setMessage(
         <div className="Message">
-          等待时间太长？访问[<a href={"//" + origin.mirror}>加速版</a>].
+          努力加载中qwq，请稍等...
         </div>
       )
-    }, 4000)
+    }, 1000)
 
     return () => clearTimeout(handle)
   }, [])
