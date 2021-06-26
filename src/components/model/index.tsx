@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import { useUnMount } from '../../hooks'
-import { getCurrentThemeType } from '../../theme'
 import { checkIsMob } from '../../utils'
 
 export interface Model {
@@ -122,15 +121,13 @@ Model.Hidable = (
 
 const createFrame = (html: string, close: Function) => {
   const { clientWidth, clientHeight } = document.documentElement
-  const isDark = getCurrentThemeType() === 'dark'
   const parser = new DOMParser()
   const doc = parser.parseFromString(html, 'text/html')
   const style = document.createElement('style')
   const isMob = checkIsMob()
-  const pad = isMob ? `body{padding-bottom:40px}` : ''
-  style.innerHTML = isDark
-    ? `*{background:black;color:white;}${pad}`
-    : `*{background:white;color:black;}${pad}`
+  style.innerHTML = `body{padding-bottom:${
+    isMob ? '40px' : '0px'
+  };background-color:white}`
   doc.head.append(style)
   const ratio = isMob ? [0.9, 0.8] : [0.8, 0.8]
   return (
@@ -153,7 +150,6 @@ const createFrame = (html: string, close: Function) => {
       <iframe
         frameBorder="0"
         style={{
-          border: isDark ? '1px solid #72537a' : 'none',
           borderRadius: 4,
         }}
         width={clientWidth * ratio[0]}
