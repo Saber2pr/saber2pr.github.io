@@ -14,4 +14,14 @@ module.exports = {
 }
 ```
 
+```json
+{
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack -w",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack"
+  }
+}
+```
+
 [Saber2pr/react-ts](https://github.com/Saber2pr/react-ts)
