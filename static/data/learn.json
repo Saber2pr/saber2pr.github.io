@@ -160,6 +160,12 @@
       "href": "https://fronted-tsx-developer.github.io/demos/qrcode.html",
       "icon": "https://saber2pr.top/MyWeb/resource/image/qrcode.png",
       "frame": true
+    },
+    {
+      "name": "Todo管理",
+      "href": "https://fronted-tsx-developer.github.io/demos/todotree/index.html",
+      "icon": "https://saber2pr.gallerycdn.vsassets.io/extensions/saber2pr/todolist/0.1.1/1624691220769/Microsoft.VisualStudio.Services.Icons.Default",
+      "frame": true
     }
   ],
   "服务端": [
