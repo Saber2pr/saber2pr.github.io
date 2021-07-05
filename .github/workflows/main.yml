@@ -1,0 +1,21 @@
+name: Push Blog
+on:
+  push:
+    branches:
+      - master
+jobs:
+  Deploy-Pages:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+        
+      - name: Push
+        run: yarn push:blog
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_branch: patch-update-data
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
