@@ -15,6 +15,10 @@ jobs:
         
       - name: Push
         run: yarn update
-
-      - name: Create Pull Request
-        uses: repo-sync/pull-request@master
+        
+      - name: Create Draft
+        uses: peterjgrainger/action-create-branch@v2.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          branch: 'patch-update-data'
