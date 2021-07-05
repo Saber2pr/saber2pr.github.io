@@ -14,7 +14,7 @@ jobs:
         run: rm package.json && yarn add ts-node
         
       - name: Push
-        run: ts-node scripts/generate
+        run: yarn ts-node scripts/generate
 
       - name: Create Pull Request
         uses: repo-sync/pull-request@master
