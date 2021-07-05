@@ -1,10 +1,10 @@
-name: Update
+name: Pre-Update
 on:
   push:
     branches:
       - master
 jobs:
-  Update-PR:
+  Create-Draft:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
