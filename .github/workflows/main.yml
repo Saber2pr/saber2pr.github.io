@@ -1,4 +1,4 @@
-name: Pre-Update
+name: Update-Draft
 on:
   push:
     branches:
@@ -13,12 +13,13 @@ jobs:
       - name: Install Deps
         run: yarn install
         
-      - name: Push
+      - name: Update
         run: yarn update
         
-      - name: Create Draft
-        uses: peterjgrainger/action-create-branch@v2.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Draft Branch
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: 'patch-update-data'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          publish_branch: patch-update-data
+          
