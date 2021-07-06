@@ -10,9 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
 
-      - name: Install Deps
-        run: yarn install
-      
       - name: Login
         run: git config --global user.email "saber2pr@gmail.com" && git config --global user.name "saber2pr"
 
