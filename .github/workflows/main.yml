@@ -14,7 +14,7 @@ jobs:
         run: mv package.json __package.json
 
       - name: Install Deps
-        run: yarn add typescript ts-node
+        run: yarn add typescript ts-node @types/node
 
       - name: PostInstall
         run: mv __package.json package.json
