@@ -1,3 +1,5 @@
+支持partical state
+
 ```ts
 import { useState } from 'react';
 
