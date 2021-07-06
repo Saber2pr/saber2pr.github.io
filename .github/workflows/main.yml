@@ -12,6 +12,9 @@ jobs:
 
       - name: Install Deps
         run: yarn install
+      
+      - name: Login
+        run: git config --global user.email "saber2pr@gmail.com" && git config --global user.name "saber2pr"
 
       - name: Push Data
         run: yarn push:blog
