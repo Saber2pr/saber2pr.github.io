@@ -17,7 +17,7 @@ jobs:
         run: yarn add typescript ts-node @types/node @saber2pr/node @saber2pr/git
 
       - name: PostInstall
-        run: mv __package.json package.json
+        run: rm package.json && mv __package.json package.json
 
       - name: Login
         run: git config --global user.email "saber2pr@gmail.com" && git config --global user.name "saber2pr"
