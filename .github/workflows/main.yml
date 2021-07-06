@@ -10,8 +10,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
 
+      - name: PreInstall
+        run: mv package.json __package.json
+
       - name: Install Deps
-        run: npm i -g typescript ts-node
+        run: yarn add typescript ts-node
+
+      - name: PostInstall
+        run: mv __package.json package.json
 
       - name: Login
         run: git config --global user.email "saber2pr@gmail.com" && git config --global user.name "saber2pr"
