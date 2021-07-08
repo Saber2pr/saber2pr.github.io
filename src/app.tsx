@@ -47,6 +47,7 @@ const AppNavLink = ({
 
 export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
   const firstBlog = queryRootFirstChildMemo(blogTree)
+  console.log('blogTree',blogTree,firstBlog)
   const expand = useBlogMenu(blogTree)
 
   const isMob = useIsMob()
