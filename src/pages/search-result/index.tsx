@@ -66,6 +66,7 @@ export const SearchResult = ({  }: SearchResult) => {
 
   useEffect(
     () =>
+      // @ts-expect-error
       store.subscribe(() => {
         const d = document.documentElement
         d.scrollTop = store.getState().searchScrollTop
