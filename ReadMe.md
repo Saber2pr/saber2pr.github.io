@@ -24,9 +24,6 @@ yarn dev
 
 5. 支持 PWA 桌面离线应用
 
-> 由于博客中的更新日志脚本需要对主分支修改记录 blog 旧的版本，所以暂时不准备使用 action 来部署。
-> 只要支持/build、/blog、/static 下静态文件访问即可部署本程序
-
 # Publish
 
 ```bash
