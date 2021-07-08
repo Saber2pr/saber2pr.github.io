@@ -30,7 +30,8 @@ const filterUrl = url =>
   url.includes('static/data/version.json') ||
   url.includes('/api') ||
   url.includes('music.163.com') ||
-  url.includes('music.126.net')
+  url.includes('music.126.net') ||
+  url.includes('saber2pr.top/editor')
 
 self.addEventListener('fetch', event => {
   const url = event.request.url
