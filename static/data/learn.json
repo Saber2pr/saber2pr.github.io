@@ -144,9 +144,9 @@
       "icon": "https://saber2pr.top/MyWeb/resource/image/json-icon.webp"
     },
     {
-      "name": "网易云GET",
-      "href": "https://fronted-tsx-developer.github.io/demos/music.html",
-      "icon": "https://saber2pr.top/MyWeb/resource/image/wyy.webp",
+      "name": "思维导图",
+      "href": "https://fronted-tsx-developer.github.io/demos/mind.html",
+      "icon": "https://saber2pr.top/MyWeb/resource/image/minder.webp",
       "frame": true
     },
     {
