@@ -1247,6 +1247,20 @@ body {
   transition: all 0.2s ease;
   margin-top: 3rem;
 }
+.Blog-Main-Content-Edit-A:nth-child(n + 2) {
+  margin-left: 0.8rem;
+  position: relative;
+}
+.Blog-Main-Content-Edit-A:nth-child(n + 2)::before {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 2px;
+  height: 2px;
+  background-color: #6d6d6d;
+  top: 50%;
+  left: calc(-0.4rem - 1px);
+}
 .Blog-Main-Content-Edit-A:hover {
   color: #1a1a1a;
   border-color: #1a1a1a;
@@ -1282,11 +1296,15 @@ body {
   border-bottom: 1px solid #ececec;
   background-color: #f7f7f7;
   color: #6d6d6d;
-  height: 2rem;
+  height: 2.5rem;
   width: 0.7rem;
   margin-left: -0.7rem;
   cursor: pointer;
-  padding-top: 0.5rem;
+}
+.Blog-Aside-Btn .TreeBtn {
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
 }
 .Blog-Aside-Btn:hover {
   color: #61dafb;

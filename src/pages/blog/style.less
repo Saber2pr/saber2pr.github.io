@@ -57,6 +57,21 @@
           color: #6d6d6d;
           transition: all 0.2s ease;
           margin-top: 3rem;
+
+          &:nth-child(n + 2) {
+            margin-left: 0.8rem;
+            position: relative;
+            &::before {
+              position: absolute;
+              display: block;
+              content: '';
+              width: 2px;
+              height: 2px;
+              background-color: #6d6d6d;
+              top: 50%;
+              left: calc(-0.4rem - 1px);
+            }
+          }
         }
       }
 
@@ -97,12 +112,17 @@
       border-bottom: 1px solid #ececec;
       background-color: #f7f7f7;
       color: #6d6d6d;
-      height: 2rem;
+      height: 2.5rem;
       @width: 0.7rem;
       width: @width;
       margin-left: -@width;
       cursor: pointer;
-      padding-top: 0.5rem;
+
+      .TreeBtn {
+        position: absolute;
+        top: 50%;
+        margin-top: -5px;
+      }
 
       &:hover {
         color: #61dafb;

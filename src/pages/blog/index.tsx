@@ -51,6 +51,14 @@ export interface Blog {
 const createOriginHref = (href: string) =>
   API.createBlobHref(origin.userId, origin.repo, href + '.md')
 
+export const getParentPath = (path: string) => {
+  if (path) {
+    const names = path.split('/')
+    names.pop()
+    return names.join('/')
+  }
+}
+
 export const Blog = React.forwardRef<HTMLElement, Blog>(
   (
     {
@@ -103,6 +111,15 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                     >
                       编辑本页面
                     </a>
+                    {firstBlog?.path === href || (
+                      <a
+                        className="Blog-Main-Content-Edit-A"
+                        target="_blank"
+                        href={API.createNewHref(origin.md, getParentPath(href))}
+                      >
+                        新建文章
+                      </a>
+                    )}
                   </div>
                   {showOp.latest && (
                     <p className="Blog-Main-Content-Date">
