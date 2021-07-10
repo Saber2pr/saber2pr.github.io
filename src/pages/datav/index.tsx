@@ -2,8 +2,8 @@ import './style.less'
 
 import React from 'react'
 
-import { ChartCurve, ChartPie } from '../../modules'
-import { TextTree } from '../../utils'
+import { ChartCurve, ChartMind, ChartPie } from '../../modules'
+import { checkIsMob, TextTree } from '../../utils'
 
 export interface Datav {
   data: TextTree
@@ -20,6 +20,11 @@ export const Datav = ({ data }: Datav) => {
           <ChartCurve title="文章发布频率" data={data} />
         </div>
       </div>
+      {checkIsMob() || (
+        <div className="row">
+          <ChartMind />
+        </div>
+      )}
     </div>
   )
 }

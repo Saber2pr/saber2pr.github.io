@@ -19,7 +19,7 @@ type Item = {
   searchMeta?: string
 }
 
-export const SearchResult = ({  }: SearchResult) => {
+export const SearchResult = ({}: SearchResult) => {
   const result: Item[] = store.getState().context
   const [push] = usePush()
   if (!result) {
@@ -66,7 +66,7 @@ export const SearchResult = ({  }: SearchResult) => {
 
   useEffect(
     () =>
-      // @ts-expect-error
+      // @ts-ignore
       store.subscribe(() => {
         const d = document.documentElement
         d.scrollTop = store.getState().searchScrollTop
@@ -93,8 +93,9 @@ export const SearchResult = ({  }: SearchResult) => {
                   source={details}
                   target={searchMeta}
                   transform={str =>
-                    `<a class="SearchInput-List-Key SearchResult-Key" href="${"#" +
-                      path}">${str}</a>`
+                    `<a class="SearchInput-List-Key SearchResult-Key" href="${
+                      '#' + path
+                    }">${str}</a>`
                   }
                   offset={40}
                 />
@@ -104,17 +105,17 @@ export const SearchResult = ({  }: SearchResult) => {
       </ul>
       <div
         style={{
-          textAlign: "center",
-          width: "100%",
-          lineHeight: "2rem",
-          marginTop: "4rem"
+          textAlign: 'center',
+          width: '100%',
+          lineHeight: '2rem',
+          marginTop: '4rem',
         }}
       >
         {hasMore && (
           <span
             style={{
-              textDecoration: "underline",
-              cursor: "pointer"
+              textDecoration: 'underline',
+              cursor: 'pointer',
             }}
             onClick={() => setLength(length + 5)}
           >

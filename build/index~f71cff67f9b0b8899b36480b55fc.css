@@ -1469,6 +1469,14 @@ body {
 }
 
 
+.ChartMind {
+  width: 100%;
+}
+.ChartMind .container {
+  height: 70vh;
+  background: inherit !important;
+}
+
 
 .Acg {
   margin: 0 4.5rem;

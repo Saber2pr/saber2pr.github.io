@@ -13,6 +13,7 @@ export const origin = {
     version: '/static/data/version.json',
     musicList: '/static/data/musicList.json',
     acglist: '/static/data/acglist.json',
+    mind: '/static/data/mind.json',
   },
   theme: {
     light: '',

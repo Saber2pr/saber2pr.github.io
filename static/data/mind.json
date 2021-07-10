@@ -1,0 +1,143 @@
+{
+  "root": {
+    "data": {
+      "id": "ccp3700kqbk0",
+      "created": 1625882358218,
+      "text": "技术发展方向"
+    },
+    "children": [
+      {
+        "data": {
+          "id": "ccp375blv1s0",
+          "created": 1625882369769,
+          "text": "WEB IDE"
+        },
+        "children": [
+          {
+            "data": {
+              "id": "ccp3w2uqkug0",
+              "created": 1625884323499,
+              "text": "monaco",
+              "hyperlink": "https://github.com/Saber2pr/editor"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "data": {
+          "id": "ccp39p0jbs80",
+          "created": 1625882569363,
+          "text": "插件开发"
+        },
+        "children": [
+          {
+            "data": {
+              "id": "ccp3vdc7t740",
+              "created": 1625884267960,
+              "text": "vscode",
+              "hyperlink": "https://saber2pr.top/#/blog/VSCode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E6%95%99%E7%A8%8B"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "id": "ccp3vlxc0fs0",
+              "created": 1625884286651,
+              "text": "chrome",
+              "hyperlink": "https://github.com/Saber2pr/chm-ext-qrcode"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "data": {
+          "id": "ccp39pkalww0",
+          "created": 1625882570558,
+          "text": "可视化"
+        },
+        "children": [
+          {
+            "data": {
+              "id": "ccp3zgd5r9c0",
+              "created": 1625884588004,
+              "text": "数据可视化",
+              "hyperlink": "https://saber2pr.top/#/blog/ECharts/%E5%9B%BE%E8%A1%A8%E5%AE%9E%E4%BE%8B%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E6%9B%B4%E6%96%B0%E9%80%BB%E8%BE%91"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "id": "ccp3zlxh6340",
+              "created": 1625884600116,
+              "text": "低代码拖拽"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "data": {
+          "id": "ccp39pr0peo0",
+          "created": 1625882570965,
+          "text": "核心库开发"
+        },
+        "children": [
+          {
+            "data": {
+              "id": "ccp3ynfnrug0",
+              "created": 1625884525028,
+              "text": "React Like",
+              "hyperlink": "https://github.com/Saber2pr/react"
+            },
+            "children": []
+          }
+        ]
+      },
+      {
+        "data": {
+          "id": "ccp378fkydk0",
+          "created": 1625882376539,
+          "text": "模板架构",
+          "layout_mind_offset": {
+            "x": 59,
+            "y": 2
+          }
+        },
+        "children": [
+          {
+            "data": {
+              "id": "ccp40r12kuw0",
+              "created": 1625884689582,
+              "text": "Next.js定制方案",
+              "hyperlink": "https://saber2pr.top/#/blog/Nextjs%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93/ssr%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E6%B3%A8%E6%84%8F%E4%B8%8E%E4%BC%98%E5%8C%96"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "id": "ccp42gzjgxk0",
+              "created": 1625884824450,
+              "text": "H5 PWA方案",
+              "hyperlink": "https://github.com/Saber2pr/saber2pr.github.io"
+            },
+            "children": []
+          },
+          {
+            "data": {
+              "id": "ccp431u8skw0",
+              "created": 1625884869842,
+              "text": "微信小程序webview方案",
+              "hyperlink": "https://saber2pr.top/#/blog/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/webview%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"
+            },
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  "template": "default",
+  "theme": "fresh-pink",
+  "version": "1.4.43"
+}
