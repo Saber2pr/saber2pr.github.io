@@ -2,8 +2,6 @@ import './style.less'
 
 import React, { useEffect, useState } from 'react'
 
-
-
 export interface Loading {
   type?: "block" | "unset" | "line"
 }

@@ -4,7 +4,7 @@ import React, { useMemo } from 'react'
 
 import { Loading } from '../../components'
 import { useEcharts, useIsMob } from '../../hooks'
-import { collect, TextTree } from '../../utils'
+import { collect, queryRootFirstChild, TextTree } from '../../utils'
 
 export interface ChartCurve {
   data: TextTree
@@ -48,11 +48,14 @@ type ScatterItem = {
   [k: string]: any
 }
 
+type ScatterParams = { data: ScatterItem['data'][0] }
+
 export const ChartCurve = ({ data, title }: ChartCurve) => {
   const ds = useMemo(() => collect(data), [data])
-  const [xs, ys, cateMap, maxY, ratio] = useMemo(() => {
+  const [xs, ys, cateMap, maxY, ratio, map] = useMemo(() => {
     const sortMap = {}
     const cateMap: CateMap = {}
+    const cateMapTitlesMap: { [title: string]: TextTree } = {}
     for (const item of ds) {
       const month = getItemMonth(item)
       if (month) {
@@ -66,6 +69,7 @@ export const ChartCurve = ({ data, title }: ChartCurve) => {
       if (item.children) {
         if (!(item.title in cateMap)) {
           cateMap[item.title] = {}
+          cateMapTitlesMap[item.title] = item
         }
       }
       if (item['LastModified']) {
@@ -91,7 +95,7 @@ export const ChartCurve = ({ data, title }: ChartCurve) => {
       ys.push(sortMap[time])
     })
     const maxY = Math.max.apply(null, ys)
-    return [xs, ys, cateMap, maxY, maxY / xs.length]
+    return [xs, ys, cateMap, maxY, maxY / xs.length, cateMapTitlesMap]
   }, [ds])
 
   const cateKeys = useMemo(
@@ -132,12 +136,12 @@ export const ChartCurve = ({ data, title }: ChartCurve) => {
       type: 'scatter',
       label: {
         show: true,
-        formatter: (params: { data: ScatterItem['data'][0] }) => {
+        formatter: (params: ScatterParams) => {
           return `${params?.data?.cate}`
         },
         color: '#747474',
       },
-      symbolSize: (value: number, params: { data: ScatterItem['data'][0] }) =>
+      symbolSize: (value: number, params: ScatterParams) =>
         (params?.data?.cateCount * maxY) / maxCateCount,
       itemStyle: {
         color: 'rgba(132, 150, 255, 0.28)',
@@ -148,66 +152,74 @@ export const ChartCurve = ({ data, title }: ChartCurve) => {
   const isMob = useIsMob()
 
   const [ref, loading] = useEcharts(
-    {
-      tooltip: {
-        show: true,
-        trigger: 'axis',
-        formatter(params: any) {
-          const curveParams = params[0]
-          const scatterParams = params[1] as { data: ScatterItem['data'][0] }
-          return `${curveParams?.marker}${curveParams?.name}
-          <br/>${curveParams?.value}篇
-          <br/>当月focus: ${scatterParams?.data?.cate}`
-        },
-      },
-      grid: {
-        bottom: 30,
-        top: 30,
-        left: isMob ? 45 : 30,
-        right: isMob ? 45 : 30,
-      },
-      xAxis: {
-        type: 'category',
-        data: xs,
-        axisLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        splitLine: {
-          show: false,
-        },
-      },
-      yAxis: {
-        name: '发布文章数',
-        type: 'value',
-        axisLine: {
-          show: false,
-        },
-        axisTick: {
-          show: false,
-        },
-        splitLine: {
-          lineStyle: {
-            color: 'rgba(158, 158, 158, 0.2)',
+    chart => {
+      chart.on('click', 'series.scatter.label', (args: ScatterParams) => {
+        if (map[args?.data?.cate]) {
+          const firstChild = queryRootFirstChild(map[args?.data?.cate])
+          location.hash = firstChild.path
+        }
+      })
+      chart.setOption({
+        tooltip: {
+          show: true,
+          trigger: 'axis',
+          formatter(params: any) {
+            const curveParams = params[0]
+            const scatterParams = params[1] as { data: ScatterItem['data'][0] }
+            return `${curveParams?.marker}${curveParams?.name}
+            <br/>${curveParams?.value}篇
+            <br/>当月focus: ${scatterParams?.data?.cate}`
           },
         },
-        axisLabel: {
-          formatter(value: number) {
-            return `${value}`
+        grid: {
+          bottom: 30,
+          top: 30,
+          left: isMob ? 45 : 30,
+          right: isMob ? 45 : 30,
+        },
+        xAxis: {
+          type: 'category',
+          data: xs,
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          splitLine: {
+            show: false,
           },
         },
-      },
-      series: [
-        {
-          data: ys,
-          type: 'line',
-          smooth: true,
-          showSymbol: false,
+        yAxis: {
+          name: '发布文章数',
+          type: 'value',
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          splitLine: {
+            lineStyle: {
+              color: 'rgba(158, 158, 158, 0.2)',
+            },
+          },
+          axisLabel: {
+            formatter(value: number) {
+              return `${value}`
+            },
+          },
         },
-        scatter,
-      ],
+        series: [
+          {
+            data: ys,
+            type: 'line',
+            smooth: true,
+            showSymbol: false,
+          },
+          scatter,
+        ],
+      })
     },
     [xs, ys, isMob]
   )
