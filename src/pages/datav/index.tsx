@@ -1,8 +1,9 @@
 import './style.less'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { ChartCurve, ChartMind, ChartPie } from '../../modules'
+import { themeEvent } from '../../theme'
 import { checkIsMob, TextTree } from '../../utils'
 
 export interface Datav {
@@ -10,6 +11,18 @@ export interface Datav {
 }
 
 export const Datav = ({ data }: Datav) => {
+  const [key, setKey] = useState(1)
+  const update = () => {
+    setKey(key + 1)
+  }
+
+  useEffect(() => {
+    themeEvent.addEventListener('change', update)
+    return () => {
+      themeEvent.removeEventListener('change', update)
+    }
+  }, [key])
+
   return (
     <div className="Datav">
       <div className="row">
@@ -22,7 +35,7 @@ export const Datav = ({ data }: Datav) => {
       </div>
       {checkIsMob() || (
         <div className="row">
-          <ChartMind />
+          <ChartMind key={key} />
         </div>
       )}
     </div>

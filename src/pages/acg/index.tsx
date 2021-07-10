@@ -3,7 +3,7 @@ import './style.less'
 import React, { memo, useEffect, useMemo, useState } from 'react'
 import { unstable_batchedUpdates } from 'react-dom'
 
-import { LazyCom, Loading, M3u8, PreImg, KeyAudio } from '../../components'
+import { KeyAudio, LazyCom, Loading, M3u8, PreImg } from '../../components'
 import { useIsMob } from '../../hooks'
 import { request } from '../../request'
 import { getArray, toArray } from '../../utils/array'

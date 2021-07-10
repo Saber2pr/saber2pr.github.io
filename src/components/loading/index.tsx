@@ -2,7 +2,7 @@ import './style.less'
 
 import React, { useEffect, useState } from 'react'
 
-import { origin } from '../../config'
+
 
 export interface Loading {
   type?: "block" | "unset" | "line"

@@ -5,6 +5,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Loading } from '../../components'
 import { useLoadScript } from '../../hooks'
 import { request } from '../../request'
+import { getCurrentThemeType } from '../../theme'
 
 const disableMindExpand = (root: HTMLElement = document as any) => {
   Array.from(root.getElementsByTagName('g')).forEach(node => {
@@ -25,7 +26,8 @@ const resetAnchorTarget = (root: HTMLElement = document as any) => {
   })
 }
 
-const requestIdleCallback = window['requestIdleCallback'] ?? setTimeout
+const requestIdleCallback = (fn: VoidFunction, delay = 500) =>
+  setTimeout(() => fn(), delay)
 
 export const ChartMind = () => {
   const [kityminder, loading] = useLoadScript<any>(
@@ -51,6 +53,10 @@ export const ChartMind = () => {
       const minder = mindRef.current
       if (minder) {
         minder.importJson(mindJson)
+        minder.execCommand(
+          'Theme',
+          getCurrentThemeType() === 'dark' ? 'wire' : 'fresh-blue'
+        )
         window['__minder'] = minder
         requestIdleCallback(() => {
           disableMindExpand(containRef.current)

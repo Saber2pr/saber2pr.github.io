@@ -1,5 +1,5 @@
-import { jsonp } from './../request/jsonp'
 import { axios } from '../request/axios'
+import { jsonp } from '../request/jsonp'
 import { ApiUrls } from './apiUrls'
 
 export const get163Msg = async () => {
