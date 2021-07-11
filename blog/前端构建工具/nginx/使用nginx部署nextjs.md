@@ -12,3 +12,5 @@ http {
 	}
 }
 ```
+
+前端项目的部署方式一般都是 docker 守护进程，然后 nginx 反向代理加 HTTPS 和 gzip 等优化。
