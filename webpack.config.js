@@ -22,7 +22,19 @@ module.exports = WebpackConfig({
   output: {
     filename: '[name][hash].min.js',
     path: path.join(__dirname, 'build'),
-    publicPath: process.env.NODE_ENV === 'production' ? `${cdnhost}/saber2pr.github.io@master/build/` : '/',
+    publicPath:
+      process.env.NODE_ENV === 'production'
+        ? `${cdnhost}/saber2pr.github.io@master/build/`
+        : '/',
+  },
+  devServer: {
+    proxy: {
+      '/api': {
+        pathRewrite: { '^/api': '' },
+        target: 'http://blog.saber2pr.top/api',
+        secure: false,
+      },
+    },
   },
   module: {
     rules: [
@@ -61,13 +73,16 @@ module.exports = WebpackConfig({
     new HtmlWebpackPlugin({
       templateContent: templateContent('saber2prの窝', {
         injectHead: `
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
         <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
         <link rel="manifest" href="./manifest.json" />
         <script async src="${cdnhost}/click-mask@master/click-mask.min.js"></script>
         <script async src="${cdnhost}/test@master/tools/debug.min.js"></script>
-        ${Object.keys(inlinejs).map(key => `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`)}
+        <script async src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+        ${Object.keys(inlinejs).map(
+          key =>
+            `<script type="text/javascript" id="${key}">${inlinejs[key]}</script>`
+        )}
         `,
         injectBody:
           `<div id="root"></div><script>LOADING.init(` +

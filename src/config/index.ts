@@ -41,6 +41,9 @@ const Routes = {
   secret: {
     href: '/secret',
   },
+  v: {
+    href: '/v',
+  },
   notFound: {
     href: '*',
   },

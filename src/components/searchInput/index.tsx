@@ -13,6 +13,7 @@ import { store } from '../../store'
 import { checkIsMob, collect, debounce } from '../../utils'
 import { HighLightHTML } from '../highLight-html'
 import { Loading } from '../loading'
+import { pushIV } from '../../api/pushIV'
 
 type Item = {
   path: string
@@ -27,38 +28,47 @@ type Search = (value: string) => void
 const SearchGit = (value: string): Item => ({
   title: `在Github上搜索: "${value}"`,
   path: `https://github.com/search?q=${value}`,
-  isBlank: true
+  isBlank: true,
 })
 
 const SearchMDN = (value: string): Item => ({
   title: `在MDN上搜索: "${value}"`,
   path: `https://developer.mozilla.org/zh-CN/search?q=${value}`,
-  isBlank: true
+  isBlank: true,
 })
 
 const getList = (list: Item[]) =>
   Promise.all(
     list.map<Promise<Item>>(({ path, title }) =>
-      requestContent(path + ".md").then(details => ({
+      requestContent(path + '.md').then(details => ({
         path,
         title,
-        details
+        details,
       }))
     )
   )
 
-const useSearch = (blog: Blog["tree"]): [Item[], Search, string] => {
-  const list = collect(blog).filter(l => l.title && !l["children"])
+const useSearch = (blog: Blog['tree']): [Item[], Search, string] => {
+  const list = collect(blog).filter(l => l.title && !l['children'])
   const listMon = useSingleton(() => getList(list))
   const [result, set] = useState<Item[]>([])
-  const [query, setSearch] = useState("")
+  const [query, setSearch] = useState('')
 
   useEffect(() => {
     if (query) {
+      pushIV({
+        type: '搜索',
+        payload: query,
+      })
       listMon().then(res => {
         const acc: Item[] = [SearchGit(query), SearchMDN(query)]
         for (const item of res) {
-          if (item.details.concat(item.title).toLowerCase().includes(query.toLowerCase())) {
+          if (
+            item.details
+              .concat(item.title)
+              .toLowerCase()
+              .includes(query.toLowerCase())
+          ) {
             item.searchMeta = query
             acc.push(item)
           }
@@ -83,8 +93,8 @@ const Input = React.forwardRef<
 >(({ search, onblur, onfocus }, ref) => {
   const isMob = useIsMob()
   const styles = {
-    open: { width: isMob ? "7rem" : "10rem" },
-    close: { width: "0" }
+    open: { width: isMob ? '7rem' : '10rem' },
+    close: { width: '0' },
   }
   const [style, update] = useState<React.CSSProperties>(styles.close)
 
@@ -92,7 +102,7 @@ const Input = React.forwardRef<
   useImperativeHandle(
     ref,
     () => ({
-      blur: () => inputRef.current.blur()
+      blur: () => inputRef.current.blur(),
     }),
     []
   )
@@ -114,11 +124,11 @@ const Input = React.forwardRef<
         ref={inputRef}
         list="blog"
         onInput={e => {
-          const input: string = e.target["value"]
-          if (input.startsWith("encode=") || input.startsWith("decode=")) {
-            store.dispatch("context", input)
+          const input: string = e.target['value']
+          if (input.startsWith('encode=') || input.startsWith('decode=')) {
+            store.dispatch('context', input)
             push(Routes.secret.href)
-            inputRef.current.value = ""
+            inputRef.current.value = ''
           } else {
             debounce(() => search(input))
           }
@@ -194,7 +204,7 @@ const renderResult = (result: Item[], enable: boolean, onSubmit: Function) => {
 }
 
 export interface SearchInput {
-  blog: Blog["tree"]
+  blog: Blog['tree']
 }
 
 export const SearchInput = ({ blog }: SearchInput) => {
@@ -207,7 +217,7 @@ export const SearchInput = ({ blog }: SearchInput) => {
     ref.current.blur()
     if (!result[0]) return
     push(`${Routes.search.href}?q=${query}`)
-    store.dispatch("searchScrollTop", 0)
+    store.dispatch('searchScrollTop', 0)
     store.getState().context = result
   }
 

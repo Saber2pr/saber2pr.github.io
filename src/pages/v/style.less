@@ -1,0 +1,66 @@
+.PageV {
+  margin: 0 4.5rem;
+  padding-top: 1.5rem;
+  overflow: hidden;
+  padding-bottom: 7rem;
+
+  .header {
+    background: rgb(221, 221, 221);
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+  }
+
+  .col {
+    .col_item {
+      padding-left: 1rem;
+      flex-shrink: 0;
+      word-break: break-all;
+    }
+    &-date {
+      .col_item();
+      width: 20%;
+    }
+    &-ip {
+      .col_item();
+      width: 20%;
+    }
+    &-name {
+      .col_item();
+      width: 20%;
+    }
+    &-type {
+      .col_item();
+      width: 20%;
+    }
+    &-payload {
+      .col_item();
+      width: 20%;
+    }
+  }
+
+  .list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    &-item {
+      display: flex;
+      align-items: center;
+      min-height: 1.5rem;
+      margin-top: 0.5rem;
+      transition: background ease 0.3s;
+      &:hover {
+        background: rgba(221, 221, 221, 0.5);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .PageV {
+    margin: 0;
+    padding: 0;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+  }
+}

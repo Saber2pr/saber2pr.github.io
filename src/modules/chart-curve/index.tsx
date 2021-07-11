@@ -4,16 +4,17 @@ import React, { useMemo } from 'react'
 
 import { Loading } from '../../components'
 import { useEcharts, useIsMob } from '../../hooks'
-import { collect, queryRootFirstChild, TextTree } from '../../utils'
+import {
+  collect,
+  formatTime,
+  formatTimeStamp,
+  queryRootFirstChild,
+  TextTree,
+} from '../../utils'
 
 export interface ChartCurve {
   data: TextTree
   title: string
-}
-
-const formatTimeStamp = (ts: number) => {
-  const date = new Date(Number(ts))
-  return `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}`
 }
 
 const getItemMonth = (item: TextTree) => {
@@ -21,8 +22,6 @@ const getItemMonth = (item: TextTree) => {
     return formatTimeStamp(item['LastModified'])
   }
 }
-
-const formatTime = (time: string) => `${time.slice(0, 4)}/${time.slice(4)}`
 
 const getParentTitle = (item: TextTree) => {
   if (item.children) {

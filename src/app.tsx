@@ -10,6 +10,7 @@ import {
   Switch,
 } from '@saber2pr/react-router'
 
+import { pushIV } from './api/pushIV'
 import { createMusicBox, PreImg, SearchInput, Themer, Uv } from './components'
 import { HeaderMessage } from './components/header-message'
 import { origin, Routes as RS } from './config'
@@ -26,6 +27,7 @@ import {
   LearnLazy,
   LinksLazy,
   NotFound,
+  PageV,
   SearchResult,
   Secret,
 } from './pages'
@@ -61,6 +63,10 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
     } else {
       document.title = `${currentTitle} - ${origin.title}`
     }
+    pushIV({
+      type: '页面访问',
+      payload: currentTitle,
+    })
   }
   useEvent('hashchange', setTitle)
   useEffect(setTitle, [])
@@ -163,6 +169,7 @@ export const App = ({ homeInfo, aboutInfo, blogTree }: App) => {
           />
           <Route path={RS.links.href} component={() => <LinksLazy />} />
           <Route path={RS.secret.href} component={() => <Secret />} />
+          <Route path={RS.v.href} component={() => <PageV />} />
           <Route path={RS.acts.href} component={() => <ActivityLazy />} />
           <Route path={RS.learn.href} component={() => <LearnLazy />} />
           <Route path={RS.search.href} component={() => <SearchResult />} />
