@@ -1,8 +1,11 @@
+import { whenInDEV } from './../utils/whenInDEV'
 import { axios } from '../request/axios'
 import { ApiUrls } from './apiUrls'
 import { IV } from './interface'
+import { origin } from '../config'
 
-const disableIV = localStorage.getItem('__disable_iv__')
+const disableIV =
+  whenInDEV() || localStorage.getItem(origin.constants.disable_iv)
 
 export const pushIV = (action: IV['action']) => {
   if (disableIV) return

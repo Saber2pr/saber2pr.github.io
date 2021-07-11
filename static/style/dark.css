@@ -316,3 +316,11 @@ body {
 .Acg .list-item:hover .list-item-name {
   color: #6ec0e0 !important;
 }
+
+.PageV .header {
+  background: #424242;
+}
+
+.PageV .list .list-item:hover {
+  background: #dddddd2e;
+}

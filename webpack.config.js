@@ -31,7 +31,7 @@ module.exports = WebpackConfig({
     proxy: {
       '/api': {
         pathRewrite: { '^/api': '' },
-        target: 'http://blog.saber2pr.top/api',
+        target: 'https://blog.saber2pr.top/api',
         secure: false,
       },
     },

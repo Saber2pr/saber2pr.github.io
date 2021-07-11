@@ -27,5 +27,6 @@ export const origin = {
     STATIC_VERSION_KEY: 'saber2pr-pwa-static',
     DYNAMIC_VERSION_KEY: 'saber2pr-pwa-dynamic',
     DATA_LOADED: 'all-data-loaded',
+    disable_iv: '__disable_iv__',
   },
 }

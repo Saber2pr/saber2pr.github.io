@@ -4,6 +4,7 @@ import React, { useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 import { Link, usePush } from '@saber2pr/react-router'
 
+import { pushIV } from '../../api/pushIV'
 import { Routes } from '../../config'
 import { useIsMob, useSingleton } from '../../hooks'
 import { Icon } from '../../iconfont'
@@ -11,9 +12,9 @@ import { Blog } from '../../pages'
 import { requestContent } from '../../request'
 import { store } from '../../store'
 import { checkIsMob, collect, debounce } from '../../utils'
+import { handleKeyInput } from '../../utils/handleKeyInput'
 import { HighLightHTML } from '../highLight-html'
 import { Loading } from '../loading'
-import { pushIV } from '../../api/pushIV'
 
 type Item = {
   path: string
@@ -56,10 +57,6 @@ const useSearch = (blog: Blog['tree']): [Item[], Search, string] => {
 
   useEffect(() => {
     if (query) {
-      pushIV({
-        type: '搜索',
-        payload: query,
-      })
       listMon().then(res => {
         const acc: Item[] = [SearchGit(query), SearchMDN(query)]
         for (const item of res) {
@@ -219,6 +216,11 @@ export const SearchInput = ({ blog }: SearchInput) => {
     push(`${Routes.search.href}?q=${query}`)
     store.dispatch('searchScrollTop', 0)
     store.getState().context = result
+    pushIV({
+      type: '搜索',
+      payload: query,
+    })
+    handleKeyInput(query)
   }
 
   const [isMob, setIsMob] = useState(false)
