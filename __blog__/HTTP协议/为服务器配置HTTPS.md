@@ -44,3 +44,4 @@ certbot --server https://acme-v02.api.letsencrypt.org/directory -d "blog.saber2p
 ### 注意
 
 1. 这个证书是会过期的（3 个月有效期），需要执行 certbot renew 重新生成
+2. 不要对生成的证书文件进行移动、复制等操作！！（以绝对路径去读取使用）
