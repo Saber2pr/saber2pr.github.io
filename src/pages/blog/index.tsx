@@ -115,7 +115,11 @@ export const Blog = React.forwardRef<HTMLElement, Blog>(
                       <a
                         className="Blog-Main-Content-Edit-A"
                         target="_blank"
-                        href={API.createNewHref(origin.md, getParentPath(href))}
+                        href={API.createNewHref(
+                          origin.userId,
+                          origin.repo,
+                          getParentPath(href)
+                        )}
                       >
                         新建文章
                       </a>

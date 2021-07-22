@@ -13,6 +13,6 @@ export namespace API {
     repo: string,
     path: string
   ) => `https://github.com/${username}/${repo}/blob/master${path}`
-  export const createNewHref = (dir: string, path: string) =>
-    `https://github.com/Saber2pr/saber2pr.github.io/new/master/blog?filename=${`${path}/文章标题.md`}&value=${'文章正文'}`
+  export const createNewHref = (username: string, repo: string, path: string) =>
+    `https://github.com/${username}/${repo}/new/master/blog?filename=${`${path}/文章标题.md`}&value=${'文章正文'}`
 }
