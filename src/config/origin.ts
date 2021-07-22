@@ -1,7 +1,9 @@
+import config from '../../app.json'
+
 export const origin = {
-  title: 'saber2prの窝',
-  userId: 'saber2pr',
-  repo: 'saber2pr.github.io',
+  title: config.title,
+  userId: config.userId,
+  repo: config.repo,
   md: '/blog',
   data: {
     home: '/static/data/home.json',

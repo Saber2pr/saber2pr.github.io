@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const webpack = require('webpack')
 const inlinejs = require('./inlinejs.json')
+const config = require('./app.json')
 
 const { WebpackConfig, templateContent } = require('@saber2pr/webpack-configer')
 const version = () => `var version="${new Date().toLocaleString()}"`
@@ -10,7 +11,7 @@ const version = () => `var version="${new Date().toLocaleString()}"`
 const publicPath = (resourcePath, context) =>
   path.relative(path.dirname(resourcePath), context) + '/'
 
-const cdnhost = '//cdn.jsdelivr.net/gh/saber2pr'
+const cdnhost = `//cdn.jsdelivr.net/gh/${config.userId}`
 
 module.exports = WebpackConfig({
   entry: {
@@ -24,17 +25,8 @@ module.exports = WebpackConfig({
     path: path.join(__dirname, 'build'),
     publicPath:
       process.env.NODE_ENV === 'production'
-        ? `${cdnhost}/saber2pr.github.io@master/build/`
+        ? `${cdnhost}/${config.repo}@master/build/`
         : '/',
-  },
-  devServer: {
-    proxy: {
-      '/api': {
-        pathRewrite: { '^/api': '' },
-        target: 'https://blog.saber2pr.top/api',
-        secure: false,
-      },
-    },
   },
   module: {
     rules: [
@@ -71,14 +63,14 @@ module.exports = WebpackConfig({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      templateContent: templateContent('saber2prの窝', {
+      templateContent: templateContent(config.title, {
         injectHead: `
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客">
         <meta name="description" content="长期更新前端技术文章,分享前端技术经验">
         <link rel="manifest" href="./manifest.json" />
-        <script async src="${cdnhost}/click-mask@master/click-mask.min.js"></script>
-        <script async src="${cdnhost}/test@master/tools/debug.min.js"></script>
+        <script async src="//cdn.jsdelivr.net/gh/saber2pr/click-mask@master/click-mask.min.js"></script>
+        <script async src="//cdn.jsdelivr.net/gh/saber2pr/test@master/tools/debug.min.js"></script>
         <script async src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
         ${Object.keys(inlinejs).map(
           key =>
