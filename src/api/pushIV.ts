@@ -3,9 +3,12 @@ import { axios } from '../request/axios'
 import { ApiUrls } from './apiUrls'
 import { IV } from './interface'
 import { origin } from '../config'
+import config from '../../app.json'
 
 const disableIV =
-  whenInDEV() || localStorage.getItem(origin.constants.disable_iv)
+  whenInDEV() ||
+  localStorage.getItem(origin.constants.disable_iv) ||
+  config.userId !== 'saber2pr'
 
 export const pushIV = (action: IV['action']) => {
   if (disableIV) return
