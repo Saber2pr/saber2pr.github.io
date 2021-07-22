@@ -12,10 +12,12 @@
 }
 ```
 
-3. enable github pages on master branch
+> username should be your github username
+
+3. click `Settings`, replace repoName from 'saber2pr.github.io' to 'username.github.io' and enable github pages on master branch
 
 4. click `Actions` and enable `github workflow`
 
 5. select `Github Pages` and click `Run workflow` on master branch
 
-6. after workflow done, visit https://username.github.io
+6. after workflow done, visit `https://username.github.io`
