@@ -1,7 +1,7 @@
 创建yml文件：
 
 ```yml
-name: npm-publish
+name: Npm Publish
 
 on:
   push:
@@ -9,14 +9,36 @@ on:
       - 'v*.*.*'
 
 jobs:
-  npm-publish:
-    runs-on: ubuntu-latest
+  Npm-Publish:
+    runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install Deps
+        run: yarn install
+
       - name: publish with latest tag
         uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
+```
+
+package.json添加release脚本(示例)：
+
+```json
+{
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "release": "standard-version"
+  },
+  "dependencies": {
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "standard-version": "^9.3.1"
+  }
+}
 ```
 
 登陆npm：
