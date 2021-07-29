@@ -110,17 +110,24 @@ vscode 插件可以将一些配置放到首选项设置中保存，例如 icewor
 ```json
 {
   "contributes": {
-    "title": "Iceworks Application Viewer",
-    "properties": {
-      // 在首选项中的名称
-      "iceworks.packageManager": {
-        "type": "string",
-        // 默认值
-        "default": "npm",
-        // 枚举类型，会渲染一个下拉框
-        "enum": ["npm", "cnpm", "tnpm", "yarn"],
-        // 配置的描述
-        "description": "%iceworksApp.configuration.properties.iceworks.packageManager.description%"
+    "configuration": {
+      "title": "Iceworks Application Viewer",
+      "properties": {
+        // 在首选项中的名称
+        "iceworks.packageManager": {
+          "type": "string",
+          // 默认值
+          "default": "npm",
+          // 枚举类型，会渲染一个下拉框
+          "enum": [
+            "npm",
+            "cnpm",
+            "tnpm",
+            "yarn"
+          ],
+          // 配置的描述
+          "description": "%iceworksApp.configuration.properties.iceworks.packageManager.description%"
+        }
       }
     }
   }
