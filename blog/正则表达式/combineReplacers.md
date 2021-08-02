@@ -17,7 +17,7 @@ export const combineReplacers = (
 使用：
 
 ```ts
-const formatChangelog = sys.combineReplacers([
+const formatChangelog = combineReplacers([
   // clear changelog content
   [/# Change Log[\s\S]*?##/, () => '##'],
   // format no-link date title
