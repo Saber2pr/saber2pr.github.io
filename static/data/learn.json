@@ -166,6 +166,12 @@
       "href": "https://fronted-tsx-developer.github.io/demos/todotree/index.html",
       "icon": "https://saber2pr.gallerycdn.vsassets.io/extensions/saber2pr/todolist/0.1.1/1624691220769/Microsoft.VisualStudio.Services.Icons.Default",
       "frame": true
+    },
+    {
+      "name": "工具集合",
+      "href": "https://fronted-tsx-developer.github.io/demos/",
+      "icon": "https://avatars.githubusercontent.com/u/64789593?s=200&v=4",
+      "frame": true
     }
   ],
   "服务端": [
