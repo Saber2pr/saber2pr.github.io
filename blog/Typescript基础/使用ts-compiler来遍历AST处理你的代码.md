@@ -212,7 +212,7 @@ const traverse = (node: ts.Node) => {
     const library = node.moduleSpecifier.getText()
 
     // 默认导入
-    const defaultImport = node.importClause?.name?..getText()
+    const defaultImport = node.importClause?.name?.getText()
 
     // 解构导入
     const bindings = node.importClause?.namedBindings as ts.NamedImports
