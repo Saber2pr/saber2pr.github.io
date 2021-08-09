@@ -1,0 +1,23 @@
+name: PPT
+on:
+  workflow_dispatch:
+    inputs:
+      markdown:
+        description: 'markdown path'
+        required: true
+        
+jobs:
+  Deploy-Pages:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+
+      - name: Install Deps
+        run: rm package.json && yarn add markppt
+       
+      - name: Create PPT
+        run: yarn markppt ${{github.event.inputs.username}}
+
+      - name: Deploy
+        run: yarn push:build
