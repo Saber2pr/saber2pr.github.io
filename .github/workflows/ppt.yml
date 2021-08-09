@@ -17,7 +17,10 @@ jobs:
         run: rm package.json && yarn add markppt
        
       - name: Create PPT
-        run: yarn markppt ${{github.event.inputs.username}}
+        run: yarn markppt ${{github.event.inputs.markdown}}
 
       - name: Deploy
-        run: yarn push:build
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./blog
