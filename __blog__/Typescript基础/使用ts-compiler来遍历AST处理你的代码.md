@@ -273,7 +273,18 @@ ts.transpileModule(`/** typescript代码 **/`, {
 
 在 visitNodes 递归函数中，可以判断节点类型和返回新节点替换，下面可以实现一个“小需求”：
 
-需求：利用编译器实现一个注解功能，函数添加一个 jsDoc 注释 `@noexcept`，可以在静态编译的时候自动添加 try catch。
+需求：利用编译器实现一个注解功能，函数添加一个 jsDoc 注释 `@noexcept`，可以在静态编译的时候自动添加 try catch，就像这样：
+
+```ts
+/**
+ * @noexcept
+ */
+function main (): number {
+  throw new Error()
+}
+
+main() // 不会异常，会将错误log出来
+```
 
 首先需要判断节点是函数声明节点：
 
