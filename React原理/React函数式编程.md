@@ -67,4 +67,4 @@ const App = () => {
 
 在函数式编程中，这种能够对副作用进行隔离和计算的结构称为 Monad。
 
-[haskell 中的 Monad](#/blog/Haskell基础/函数式编程基本概念)
+[haskell 中的 Monad](/blog/Haskell基础/函数式编程基本概念)

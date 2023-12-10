@@ -35,4 +35,4 @@ const Parent = () => {
 
 关于这里为什么可以使用 ref，可以参考：
 
-[ref 为什么能保持引用](#/blog/React原理/ref为什么能保持引用)
+[ref 为什么能保持引用](/blog/React原理/ref为什么能保持引用)

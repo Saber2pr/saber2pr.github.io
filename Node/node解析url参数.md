@@ -9,4 +9,4 @@ import URL from "url"
 const parseURLParams = (url: string) => querystring.parse(URL.parse(url).query)
 ```
 
-[手动解析 url query](#/blog/Javascript基础/实现URL参数parser)
+[手动解析 url query](/blog/Javascript基础/实现URL参数parser)

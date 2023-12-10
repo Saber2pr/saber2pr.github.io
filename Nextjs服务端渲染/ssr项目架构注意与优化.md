@@ -145,4 +145,4 @@ export const View = ({ loading, data }) => {
 }
 ```
 
-[useFetch](#/blog/Nextjs服务端渲染/封装接口请求函数)
+[useFetch](/blog/Nextjs服务端渲染/封装接口请求函数)

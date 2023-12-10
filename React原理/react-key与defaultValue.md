@@ -13,7 +13,7 @@ const App = ({ data }) => {
 
 你会发现，不论 data.content 如何变化，Component 中的 defaultValue 都不会更新，之前我讨论过一篇：
 
-[useState 使用 props 初始化的注意点](#/blog/React原理/useState使用props初始化的注意点)
+[useState 使用 props 初始化的注意点](/blog/React原理/useState使用props初始化的注意点)
 
 是用 useEffect 去更新。但是，不能保证所有的库都去实现这个。
 

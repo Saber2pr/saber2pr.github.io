@@ -22,4 +22,4 @@ server {
 
 关于如何申请 HTTPS 证书：
 
-[为服务器配置 HTTPS](#/blog/HTTP协议/为服务器配置HTTPS)
+[为服务器配置 HTTPS](/blog/HTTP协议/为服务器配置HTTPS)

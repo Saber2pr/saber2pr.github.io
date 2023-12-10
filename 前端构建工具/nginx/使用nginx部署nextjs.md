@@ -54,4 +54,4 @@ server {
 
 HTTPS的配置请看：
 
-[为服务器配置HTTPS](#/blog/HTTP协议/为服务器配置HTTPS)
+[为服务器配置HTTPS](/blog/HTTP协议/为服务器配置HTTPS)
