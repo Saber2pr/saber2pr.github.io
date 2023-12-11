@@ -1,6 +1,6 @@
 # 编写一个 vscode 插件扩展你的右键菜单！
 
-[vscode 插件编写教程](https://saber2pr.top/#/blog/VSCode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E6%95%99%E7%A8%8B)
+[vscode 插件编写教程](https://saber2pr.top/blog/VSCode%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/vscode%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E6%95%99%E7%A8%8B)
 
 [编写一个 vscode 插件扩展你的右键菜单！](https://zhuanlan.zhihu.com/p/369595594)
 
