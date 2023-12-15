@@ -14,3 +14,5 @@ jobs:
       - uses: Saber2pr/wiki-builder@v0.0.27
         with:
           cname: saber2pr.top
+          gaId: G-6CLMYWGQBH
+          iconUrl: //saber2pr.top/MyWeb/resource/image/saber2pr-top.ico
