@@ -13,6 +13,6 @@ jobs:
       - uses: actions/checkout@v4.1.1
       - uses: Saber2pr/wiki-builder@v0.0.45
         with:
-          cname: saber2pr.top
+          cname: www.saber2pr.top
           gaId: G-6CLMYWGQBH
           iconUrl: //saber2pr.top/MyWeb/resource/image/saber2pr-top.ico
