@@ -1,5 +1,5 @@
 ```tsx
-import { Form, Modal, ModalProps } from 'antd';
+import { Form, FormProps, Modal, ModalProps } from 'antd';
 import React, { useState } from 'react';
 
 export interface FormModal<T> {
@@ -8,10 +8,19 @@ export interface FormModal<T> {
   onOk: (values: T) => any;
   forms: React.ReactNode;
   title: string;
-  modalProps: ModalProps;
+  modalProps?: ModalProps;
+  formProps?: FormProps;
 }
 
-function FormModal<T>({ visible, onCancel, onOk, forms, title, modalProps }: FormModal<T>) {
+function FormModal<T>({
+  visible,
+  onCancel,
+  onOk,
+  forms,
+  title,
+  modalProps,
+  formProps,
+}: FormModal<T>) {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   return (
@@ -24,6 +33,7 @@ function FormModal<T>({ visible, onCancel, onOk, forms, title, modalProps }: For
       onOk={() => form.submit()}
     >
       <Form
+        {...formProps}
         onFinish={async (values) => {
           try {
             setLoading(true);
@@ -48,24 +58,16 @@ export interface UseFormModal<T> {
   onOk: (values: T) => any;
   title: string;
   modalProps?: ModalProps;
+  formProps?: FormProps;
 }
 
-export function useFormModal<T>({ forms, onOk, title, modalProps }: UseFormModal<T>) {
+export function useFormModal<T>({ onOk, ...props }: UseFormModal<T>) {
   const [show, setShow] = useState(false);
 
   return {
     setShow,
     show,
-    modal: (
-      <FormModal
-        modalProps={modalProps}
-        title={title}
-        forms={forms}
-        visible={show}
-        onCancel={() => setShow(false)}
-        onOk={onOk}
-      />
-    ),
+    modal: <FormModal {...props} visible={show} onCancel={() => setShow(false)} onOk={onOk} />,
   };
 }
 ```
