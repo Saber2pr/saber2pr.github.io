@@ -1,5 +1,5 @@
 ```tsx
-import { Form, Modal, ModalProps } from 'antd';
+import { Form, Modal, ModalProps, FormProps } from 'antd';
 import React, { useState } from 'react';
 
 export interface FormModal<T> {
@@ -8,11 +8,19 @@ export interface FormModal<T> {
   onOk: (values: T) => any;
   forms: React.ReactNode;
   title: string;
-  modalProps: ModalProps;
+  modalProps?: ModalProps;
   formProps?: FormProps;
 }
 
-function FormModal<T>({ visible, onCancel, onOk, forms, title, modalProps, formProps }: FormModal<T>) {
+function FormModal<T>({
+  visible,
+  onCancel,
+  onOk,
+  forms,
+  title,
+  modalProps,
+  formProps,
+}: FormModal<T>) {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
   return (
