@@ -1,5 +1,4 @@
-输入记录
-
+Input record
 ```ts
 import { useEffect, useState } from 'react'
 
@@ -58,9 +57,7 @@ export const useInputHistory = (
   return [list, pushItem]
 }
 ```
-
-example:
-
+Example:
 ```ts
 const [searchList, setSearchList] = useInputHistory('search_user')
 ```

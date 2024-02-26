@@ -39,9 +39,7 @@ export const useIntersection = (
   return ref
 }
 ```
-
-示例：
-
+Example:
 ```tsx
 import AntdAvatar, { AvatarProps } from 'antd/lib/avatar'
 import React, { useState } from 'react'

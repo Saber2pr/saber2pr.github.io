@@ -12,7 +12,6 @@ export const useI18N = <T extends I18NProps>(options: T) => {
   return (key: keyof T) => options[key][isCN ? 'zh' : 'en'];
 };
 ```
-
 ```tsx
 const App = () => {
   const i18n = useI18N({

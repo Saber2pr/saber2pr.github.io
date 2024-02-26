@@ -1,5 +1,4 @@
-类似 class 组件的 getDerivedStateFromProps
-
+GetDerivedStateFromProps similar to class components
 ```ts
 import { useState, useMemo, useRef } from 'react'
 
@@ -19,11 +18,7 @@ export function useDerivedStateFromProps<T>(s: T): [T, (s: T) => void] {
   return [stateRef.current, setState]
 }
 ```
-
-解决什么问题？
-
-props 作为 state，当 props 变化时更新 state
-
-为什么不用 useEffect 监听 props 然后 setState？
-
-父组件更新时，子组件会 render 两次，父组件 render children 一次， effect 中 setState 一次，使用 ref 可以去掉额外的 setState。
+Solve what problem?
+Props, as state, updates state when props changes
+Why not use useEffect to listen to props and then setState?
+When the parent component is updated, the child component will render twice, the parent component render children once, and the setState in the effect once. Additional setState can be removed by using ref.

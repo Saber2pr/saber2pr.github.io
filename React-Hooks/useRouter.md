@@ -1,5 +1,4 @@
-react-navigation是一个基于路由栈的路由库，可以用于react-native页面管理
-
+React-navigation is a routing library based on routing stack, which can be used for react-native page management.
 ```ts
 import { StackActions, useNavigation, useRoute } from '@react-navigation/core';
 

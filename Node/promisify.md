@@ -1,7 +1,5 @@
-# promisify
-
-快速将 callback style 的 API 转为 Promise style.
-
+# Promisify
+Quickly change the API of callback style into Promise style.
 ```js
 import { promisify } from "util"
 import { readdir, readFile, stat, exists, mkdir, writeFile } from "fs"
@@ -13,11 +11,8 @@ export const Exists = promisify(exists)
 export const MkDir = promisify(mkdir)
 export const WriteFile = promisify(writeFile)
 ```
-
-## 原理
-
-> 简化版，一个参数。
-
+## Principle
+> simplified version, one parameter.
 ```ts
 const promiseify = <Arg, CB extends (err: Error, result: any) => any>(
   method: (arg: Arg, callback: CB) => void
@@ -32,10 +27,7 @@ const promiseify = <Arg, CB extends (err: Error, result: any) => any>(
     }
   })
 ```
-
-将(args, callback) => void 中 callback 重写，在 callback 中执行 promise 的 executor。
-
-typescript 类型中对 Arg 类型只能枚举，原因是 rest 参数只能作为最后一个参数。(看一下 node 的 types 声明)
-(同样的难题在 reselect 库中也发生)
-
-> c++可变长模板参数也是如此。
+Rewrite the callback in (args, callback) = > void, and execute the executor of promise in callback.
+Arg type can only be enumerated in typescript type, because rest parameter can only be used as the last parameter. (Look at the node types declaration)
+(the same problem occurs in the reselect library.)
+> c++ The same is true for variable length template parameters.

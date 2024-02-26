@@ -1,5 +1,4 @@
-点击复制功能
-
+Click copy function
 ```ts
 import { message } from 'antd'
 import ClipboardJS from 'clipboard'
@@ -38,9 +37,7 @@ export const useCopy = <
   }
 }
 ```
-
-example:
-
+Example:
 ```tsx
 const copy = useCopy()
 

@@ -1,5 +1,4 @@
-按需加载 js：
-
+Load js on demand:
 ```ts
 import { useEffect, useRef, useState } from 'react'
 
@@ -56,9 +55,7 @@ export const useLoadScript = <T>(
   return [ref.current, loading]
 }
 ```
-
-使用：
-
+Use:
 ```ts
 const [Hls, loading] = useLoadScript<Hls>(
   'Hls',

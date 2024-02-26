@@ -1,5 +1,4 @@
-使用:
-
+Use:
 ```tsx
 const { modal, api: progessApi } = useProgress({ title: '正在上传' })
 
@@ -7,7 +6,6 @@ progessApi.set(20, '获取上传配置')
 
 progessApi.set(100, '配置成功')
 ```
-
 ```tsx
 import { useModal } from '@/hooks/useModal'
 import { Progress } from 'antd'

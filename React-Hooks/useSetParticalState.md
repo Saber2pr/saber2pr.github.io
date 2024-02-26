@@ -1,5 +1,4 @@
-支持partical state
-
+Support for partical state
 ```ts
 import { useState } from 'react';
 

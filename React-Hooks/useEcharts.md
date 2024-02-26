@@ -1,5 +1,4 @@
-echarts 图表动态导入
-
+Dynamic Import of echarts Chart
 ```ts
 import type { ECharts } from 'echarts'
 import React, { DependencyList, useEffect, useRef, useState } from 'react'
@@ -57,9 +56,7 @@ export function useEcharts(
   return [ref, loading]
 }
 ```
-
-example:
-
+Example:
 ```tsx
 const [ref, loading] = useEcharts({
   data: [],
