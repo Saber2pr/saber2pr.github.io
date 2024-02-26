@@ -10,9 +10,4 @@ Because unlike machines, humans can do meaningless things.
 > date soul and deep sentences from time to time! And technical articles!
 ---
 Recommended reading:
-[vscode plug-in series](/blog/VSCode插件开发/vscode插件编写教程)
-[Event bubbling and Portals](/blog/React原理/事件冒泡与Portals)
-[useState Note on initialization using props](/blog/React原理/useState使用props初始化的注意点)
-[UseSelector and reselect source code reading](/blog/React生态/useSelector和reselect源码阅读)
-[Compare the use of Monad in TS and Haskell](/blog/Typescript基础/对比Monad在TS和Haskell中的使用)
-[Dependency injection (IOC) implementation](/blog/Reflect反射原理/依赖注入（IOC）实现)
+[vscode plug-in series](/posts/1456951945/2082201661/)
