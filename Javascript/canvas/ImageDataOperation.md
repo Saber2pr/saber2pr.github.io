@@ -1,21 +1,13 @@
 ### Canvas
-
-Canvas 是 HTML5 支持的标签，可以使用像素级别绘图。
-
+Canvas is a label supported by HTML5 and can be drawn at the pixel level.
 ### CanvasRenderingContext2D
-
-2d 绘图时需要的 context
-
+2d context required for drawing
 ```ts
 const ctx = canvas.getContext("2d")
 ```
-
-### ImageData 类
-
-一个缓存层，先在 ImageData 上操作，然后 put 到 ctx 上。
-
-设置指定坐标位置的像素。
-
+### ImageData class
+A cache layer that operates on ImageData and then put to ctx.
+Sets the pixel of the specified coordinate location.
 ```ts
 export function get(imageData: ImageData, x: number, y: number) {
   const color = []
@@ -38,13 +30,9 @@ export function set(
   imageData.data[4 * (imageData.width * y + x) + 3] = color[3]
 }
 ```
-
-> color 为 rgba 值(red, green, blue, 透明度)
-
-### 示例
-
-在（100, 100）坐标处画一个点。
-
+> color is the rgba value (red, green, blue, transparency)
+### Example
+Draw a point at (100,100) coordinates.
 ```ts
 const ctx = canvas.getContext("2d")
 
