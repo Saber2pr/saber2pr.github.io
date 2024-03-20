@@ -7,7 +7,7 @@ on:
       - master
 jobs:
   Deploy-Pages:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
