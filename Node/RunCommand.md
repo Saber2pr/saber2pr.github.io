@@ -30,11 +30,10 @@ export const execShell = (
         error += data
       })
 
-      task.on('close', () => {
-        if (result) {
+      task.on('close', code => {
+        if (code === 0) {
           resolve(result)
-        }
-        if (error) {
+        } else {
           reject(error)
         }
       })
