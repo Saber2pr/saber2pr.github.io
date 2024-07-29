@@ -1,0 +1,3 @@
+In addition to the latest version of html2canvas that you already know needs to be rolled back to rc4 on ios, there are a few more points:
+1. Rc4 version does not support ssr and requires the introduction of head script, or dynamic import of import ('html2canvas') .then (({default: html2canvas}) = > {})
+2. Rc4 version does not support css::LinearGradient on IOS! Will directly report an error to enter catch.
