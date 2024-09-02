@@ -40,112 +40,112 @@ docker compose run --rm freqtrade new-config --config user_data/config.json
 You will be asked several questions in a row. You can select "enter" as shown in the following log example:
 > telegram robot creation token and telegram installation, please google search and check
 ```sh
-? Do you want to enable Dry-run (simulated trades)? Yes ## 是否使用模拟账户操作，就是模拟交易。设置为false则会用你账户里的真实余额交易
-? Please insert your stake currency: USDT ## 货币单位 这里用默认的USDT
-? Please insert your stake amount (Number or 'unlimited'): unlimited ## 最大开仓占比，unlimited就是所有金额都会被机器人拿去用。也可以指定如 100，就是只给机器人 100 USDT 去交易
-? Please insert max_open_trades (Integer or -1 for unlimited open trades): 3 ## 最大开仓数量，就是可以买几种币。3就是机器人最多只买3种货币。
-? Time Have the strategy define timeframe. ## 是否用策略中的时间线，这里用默认的。一般策略中的时间线都是最好的。
-? Please insert your display Currency (for reporting): USD ## 机器人展示收益用的单位，可以设置为 CNY，会用人民币表示
-? Select exchange okx ## 选择交易所，这里示例选择okx欧易
-? Do you want to trade Perpetual Swaps (perpetual futures)? Yes ## 是否启用合约模式。设置false为现货交易。
-? Do you want to enable Telegram? Yes ## 启用 telegram 机器人
-? Insert Telegram token # telegram 机器人 token
-? Insert Telegram chat id # telegram 机器人 id
-? Do you want to enable the Rest API (includes FreqUI)? Yes # web管理控制台页面
-? Insert Api server Listen Address (0.0.0.0 for docker, otherwise best left untouched) 0.0.0.0 # web管理控制台ip端口
-? Insert api-server username freqtrader # web管理控制台账号
-? Insert api-server password ****** # web管理控制台密码
+? Do you want to enable Dry-run (simulated trades)? Yes ## Whether to use a simulated account for trading, meaning the trades will be simulated. If set to false, the bot will use your actual account balance for real trading.
+? Please insert your stake currency: USDT ## Currency unit, the default here is USDT.
+? Please insert your stake amount (Number or 'unlimited'): unlimited ## Maximum stake amount, `unlimited` means the bot will use all available funds. You can also specify an amount, like 100, meaning the bot will only use 100 USDT for trading.
+? Please insert max_open_trades (Integer or -1 for unlimited open trades): 3 ## Maximum position size, `unlimited` means the bot will use all available funds. You can also specify an amount, like 100, meaning the bot will only use 100 USDT for trading.
+? Time Have the strategy define timeframe. ## Whether to use the timeframe specified in the strategy. The default is used here, and the timeframe in the strategy is generally the best option.
+? Please insert your display Currency (for reporting): USD ## The unit for displaying the bot's profits. 
+? Select exchange okx ## Select the exchange, with OKX as an example here.
+? Do you want to trade Perpetual Swaps (perpetual futures)? Yes ## Whether to enable contract trading. Setting it to `false` will use spot trading.
+? Do you want to enable Telegram? Yes ## Enable the Telegram bot.
+? Insert Telegram token # Telegram bot token
+? Insert Telegram chat id # Telegram bot id
+? Do you want to enable the Rest API (includes FreqUI)? Yes # Web management console.
+? Insert Api server Listen Address (0.0.0.0 for docker, otherwise best left untouched) 0.0.0.0 # Web management console IP and port.
+? Insert api-server username freqtrader # Web management console username
+? Insert api-server password ****** # Web management console password
 ```
 #### 2.1 profile description:
 The configuration file of the trading robot is the most important, to explain:
 ```json
 {
-    // 交易模式，这里有三个选项，spot (默认，现货交易)，future(期货交易，可以进行做空交易)， margin（当前不可用）
+    // Trading mode, with three options: `spot` (default, for spot trading), `future` (for futures trading, which allows short selling), and `margin` (currently unavailable).
     "trading_mode": "spot",
-    // 当交易模式不是spot时，需要设置这里，当交易模式为future时，要设置为isolated， 当交易模式为margin时设置为cross（暂时不可用）
+    // When the trading mode is not `spot`, this needs to be set. For `future` trading mode, set it to `isolated`. For `margin` trading mode (currently unavailable), set it to `cross`.
     // "margin_mode": "isolated",
-    // 最大的单数
+    // Maximum number of open trades.
     "max_open_trades": 5,
-    // 用于交易的加密货币
+    // Cryptocurrency used for trading.
     "stake_currency": "USDT",
-    // 机器人可用的金额，可以开启多个机器人用于交易，平横策略间的收益差异
+    // Amount available for the bot, which allows for running multiple bots to trade and potentially profit from differences between strategies.
     "stake_amount": 200,
-    // 允许机器人交易的账户总余额的比率
+    // The ratio of the total account balance that the bot is allowed to trade.
     "tradable_balance_ratio": 1,
-    // 从虚拟币转换为哪种法定货币，这里时美金，如果转换报错，可以不设置
+    // The fiat currency to convert from virtual currencies. Here, it's set to USD. If conversion errors occur, you can leave this unset.
     // "fiat_display_currency": "USD",
-    // 运行模式，虚拟运行，还是真实运行，true是虚拟运行
+    // Running mode, either virtual or real trading. Setting it to `true` enables virtual trading.
     "dry_run": true,
-    // 要使用的时间帧 1m，5m, 15m, 30m, 1h  ...,这个歌配置可以在这里缺省，并在策略文件进行再次配置，也就是策略文件的配置强于这里
+    // Timeframe to use, such as 1m, 5m, 15m, 30m, 1h, etc. This setting can be left as default here and reconfigured in the strategy file, with the strategy file settings taking precedence.
     "timeframe": "3m",
-    // 虚拟运行的总金额
+    // Total amount for virtual trading.
     "dry_run_wallet": 1000,
-    // 在退出时取消未结订单
+    // Cancel open orders upon exit.
     "cancel_open_orders_on_exit": true,
-    // 必须的配置
+    // Required configuration.
     "unfilledtimeout": {
-        // 只要有信号，机器人将等待未完成的挂单完成多长时间（以分钟或秒为单位），之后订单将被取消并以当前（新）价格重复。
+        // The bot will wait for a specified amount of time (in minutes or seconds) for pending orders to be filled. After this time, the order will be canceled and repeated at the current (new) price.
         "entry": 10,
-        // 只要有信号，机器人将等待未履行的退出订单完成多长时间（以分钟或秒为单位），之后订单将被取消并以当前（新）价格重复
+        // The bot will wait for a specified amount of time (in minutes or seconds) for pending exit orders to be fulfilled. After this time, the order will be canceled and repeated at the current (new) price.
         "exit": 30
     },
-    // 交易所设置
+    // Exchange settings.
     "exchange": {
         "name": "okx",
         // API key
         "key": "",
         // API secret
         "secret": "",
-        // ccxt的一些配置，在国外一般用不到，在国内可以在这里配置代理
+        // Some CCXT configurations, which are generally not used abroad but can be used to configure proxies in domestic settings.
         "ccxt_config": {},
         "ccxt_async_config": {},
-        // 交易对白名单
-        // 1INCH/USDT是现货交易
-        // 1INCH/USDT:USDT是期货交易
-        // 在这里可以使用通配符进行批量的配置，不必列出所有交易对
-        // 查看交易所支持的交易对，命令：freqtrade list-markets -c config.json 或者是 freqtrade list-pairs -c config.json 
+        // Trading pair whitelist.
+        // 1INCH/USDT is for spot trading.
+        // 1INCH/USDT is for futures trading.
+        // You can use wildcards here to configure in bulk, without needing to list all trading pairs.
+        // To view the supported trading pairs on the exchange, use the command: freqtrade list-markets -c config.json or freqtrade list-pairs -c config.json 
         "pair_whitelist": [
             "1INCH/USDT:USDT",
             "ALGO/USDT:USDT"
         ],
-        // 黑名单
+        // blacklist
         "pair_blacklist": [
-            // 黑名单通配符设置，白名单同理
+            // Blacklist wildcard settings are similar to whitelist settings.
             "*/BNB"
         ]
     },
     "entry_pricing": {
-        // 必须配置，选择机器人应查看价差的一侧以获得进入率。默认same 还有 ask, bid, other
+        // Required configuration to choose which side of the spread the bot should use for entry rates. The default is `same`, with other options being `ask`, `bid`, and `other`.
         "price_side": "same",
-        // 允许使用订单簿输入中的费率进行输入。缺省值为true
+        // Allow the use of rates from the order book for entries. The default value is `true`.
         "use_order_book": true,
-        // 机器人将使用订单簿“price_side”中的前 N ​​个汇率来进入交易。即，值为 2 将允许机器人选择Order Book Entry中的第二个条目。
+        // The bot will use the top N rates from the order book’s `price_side` for entering trades. For example, a value of 2 allows the bot to select the second entry from the order book.
         "order_book_top": 1,
-        // 必须配置，插值投标价格。
+        // Required configuration, interpolation of bid prices.
         "price_last_balance": 0.0,
 
         "check_depth_of_market": {
-            // 如果Order Book中的买单和卖单有差异，则不要进入。
+            // Do not enter if there is a disparity between the buy and sell orders in the order book.
             "enabled": false,
-            // 订单簿中的买单与卖单的差额比例。值低于 1 表示卖单规模较大，而值大于 1 表示买单规模较大
+            // The difference between buy and sell orders in the order book. Values ​​below 1 indicate larger sell orders, while values ​​above 1 indicate larger buy orders.
             "bids_to_ask_delta": 1
         }
     },
     "exit_pricing": {
-        // 选择机器人应查看的价差一侧以获得退出率。默认same
+        // Select which side of the spread the robot should look at to get the exit rate. Default is same
         "price_side": "other",
         "use_order_book": true,
         "order_book_top": 1
     },
-    // 定义要使用的一个或多个配对列表。
+    //  Defines one or more pair lists to use.
     "pairlists": [
-        // 这里的方法有很多， [点击查看详情](https://www.freqtrade.io/en/stable/plugins/#pairlists-and-pairlist-handlers)
-        // 大部分默认情况下都是使用StaticPairList
+        // There are many methods here, [click to view details](https://www.freqtrade.io/en/stable/plugins/#pairlists-and-pairlist-handlers)
+        // Most of them use StaticPairList by default.
         {
             "method": "StaticPairList"
         }
     ],
-    // 后面还可以添加frequi的配置，以及telegrambot的配置
+    // You can also add frequi configuration and telegrambot configuration later.
     "bot_name": "",
     "force_entry_enable": true,
     "initial_state": "running",
@@ -308,53 +308,53 @@ In the user_data/strategies directory, you will be given a default policy file w
 > mplifying code
 ```py
 class SampleStrategy(IStrategy):
-    INTERFACE_VERSION = 3 # 版本为3的才可以做空
+    INTERFACE_VERSION = 3 # Only version 3 can be shorted
 
-    can_short: bool = False # 是否可以做空
-    # 止盈
+    can_short: bool = False # Is it possible to short sell?
+    # Take Profit
     minimal_roi = {
         "60": 0.01,
         "30": 0.02,
         "0": 0.04
     }
-    # 止损
+    # Stop Loss
     stoploss = -0.10
-    # 移动止损
+    # Trailing Stop
     trailing_stop = False
-    # 用哪个时间线的k线
+    # Which timeline K-line to use
     timeframe = '5m'
-    # 设置指标
+    # Setting up indicators
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         return dataframe
-    # 入场
+    # Entry
     def populate_entry_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe.loc[
             (
                 (qtpylib.crossed_above(dataframe['rsi'], self.buy_rsi.value))
             ),
-            'enter_long'] = 1 # 开仓信号，做多
+            'enter_long'] = 1 # Opening signal, long
 
         dataframe.loc[
             (
                 (qtpylib.crossed_above(dataframe['rsi'], self.short_rsi.value))
             ),
-            'enter_short'] = 1 # 开仓信号，做空
+            'enter_short'] = 1 # Opening signal, shorting
 
         return dataframe
-    # 出场
+    # Exit
     def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe.loc[
             (
-                (qtpylib.crossed_above(dataframe['rsi'], self.sell_rsi.value)) # rsi穿过sell_rsi
+                (qtpylib.crossed_above(dataframe['rsi'], self.sell_rsi.value)) # rsi crosses sell_rsi
             ),
 
-            'exit_long'] = 1 # 平仓信号，平多
+            'exit_long'] = 1 # Close position signal, close long
 
         dataframe.loc[
             (
-                (qtpylib.crossed_above(dataframe['rsi'], self.exit_short_rsi.value)) # rsi穿过exit_short_rsi
+                (qtpylib.crossed_above(dataframe['rsi'], self.exit_short_rsi.value)) # rsi crosses exit_short_rsi
             ),
-            'exit_short'] = 1 # 平仓信号，平空
+            'exit_short'] = 1 # Close position signal, close short
 
         return dataframe
 
@@ -367,7 +367,7 @@ Open the docker.compose.yml file:
 version: '3'
 services:
   freqtrade:
-    image: freqtradeorg/freqtrade:stable # 官方镜像
+    image: freqtradeorg/freqtrade:stable # Official images
     restart: unless-stopped
     container_name: freqtrade
     volumes:
@@ -376,10 +376,10 @@ services:
       - "127.0.0.1:8080:8080"
     command: >
       trade
-      --logfile /freqtrade/user_data/logs/freqtrade.log # 输出日志的文件
-      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite # 数据库
-      --config /freqtrade/user_data/config.json # 机器人配置文件
-      --strategy SmartTA # 策略文件class名
+      --logfile /freqtrade/user_data/logs/freqtrade.log # Output log file
+      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite # database
+      --config /freqtrade/user_data/config.json # Robot configuration file
+      --strategy SmartTA # Policy file class name
 ```
 The focus here is on the-- strategy parameter, followed by the class name in the policy code, not the file name
 Terminal execution:
