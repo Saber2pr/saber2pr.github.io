@@ -387,10 +387,11 @@ Terminal execution:
 docker compose up -d
 ```
 Boot, and then you can see the startup log in the user_data/logs/freqtrade.log file. The telegram robot will also print out logs.
-### Open source strategy website
-2 strategy websites are recommended:
-1. Https://freqst.com/
-2. Https://strat.ninja/ranking.php
-Many good strategies can be found on these two websites for reference.
+### Profitable strategy
+
+This website lists some strategies that can generate stable profits. If you are interested, you can click the link below to get the code.
+
+[https://saber2pr.top/freqer/](https://saber2pr.top/freqer/)
+
 ### Back test
 Finally, let's talk about the back test. Freqtrade provides the back test function. I can only say that it can only verify whether the code logic of the policy file has bug. The income gap between the return test and the normal test is still quite obvious. It is recommended that the actual environment dry-run is stable for a period of time before opening a real account.
