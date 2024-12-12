@@ -1,10 +1,21 @@
-2024 will be a super bull market in the currency circle, with BTC halved and US dollar interest rates cut. If you are a programmer, quantitative trading robots should learn quickly!
-> premise, you are familiar with the usage of ssh connection terminal on CVM and the basic python syntax (basic js is also acceptable)
-This paper uses python quantization robot framework freqtrade to start operation!
-[Freqtrade official documentation](https://www.freqtrade.io/en/stable/)
-There are too many official documents. Please read this article first. For further study, please refer to the official documentation.
-### 1. Prepare the docker environment for CVM
-Start with the ubuntu system selected by the CVM, configure the docker environment first, and execute the following commands:
+Here's the translation of the Markdown content strictly following your rules:
+
+---
+
+2024 will be a super bull market for the crypto world, supported by BTC halving and USD interest rate cuts. If you are a programmer, quickly learn quantitative trading robots!
+
+> Prerequisite: You are familiar with using cloud server SSH terminal connections and basic Python syntax (having a JavaScript background is also acceptable)
+
+This article uses the Python quantitative robot framework `freqtrade` to get started!
+
+[freqtrade official documentation](https://www.freqtrade.io/en/stable/)
+
+The official documentation is extensive, please follow this introductory reading first, and refer to the official documentation for further study.
+
+### 1. Prepare Cloud Server Docker Environment
+
+Choose the Ubuntu system for the cloud server and configure the Docker environment by sequentially executing the following commands:
+
 ```sh
 sudo apt update
 
@@ -18,9 +29,13 @@ sudo apt update
 
 sudo apt install docker-ce
 ```
-### two。 Install freqtrade and initialize the project
-ssh After logging into your server, press the following command in the terminal to start:
-> it is more convenient to use vscode's ssh remote container development!
+
+### 2. Install freqtrade and Initialize the Project
+
+After logging into your server via SSH, start in the terminal with the following commands:
+
+> It is recommended to use the SSH remote container of VS Code for more convenience!
+
 ```sh
 mkdir ft_userdata
 
@@ -32,120 +47,129 @@ docker compose pull
 
 docker compose run --rm freqtrade create-userdir --userdir user_data
 ```
-After execution, the docker-compose.yml file and user_data directory will be created
-Then initialize the configuration file config.json
+
+After execution, it will create a `docker-compose.yml` file and a `user_data` directory.
+
+Then initialize the configuration file `config.json`
+
 ```sh
 docker compose run --rm freqtrade new-config --config user_data/config.json
 ```
-You will be asked several questions in a row. You can select "enter" as shown in the following log example:
-> telegram robot creation token and telegram installation, please google search and check
+
+You will be asked a few questions continuously, select Y/N and press Enter, operate according to the log example below:
+
+> Please Google search for creating a Telegram bot token and Telegram installation
+
 ```sh
-? Do you want to enable Dry-run (simulated trades)? Yes ## Whether to use a simulated account for trading, meaning the trades will be simulated. If set to false, the bot will use your actual account balance for real trading.
-? Please insert your stake currency: USDT ## Currency unit, the default here is USDT.
-? Please insert your stake amount (Number or 'unlimited'): unlimited ## Maximum stake amount, `unlimited` means the bot will use all available funds. You can also specify an amount, like 100, meaning the bot will only use 100 USDT for trading.
-? Please insert max_open_trades (Integer or -1 for unlimited open trades): 3 ## Maximum position size, `unlimited` means the bot will use all available funds. You can also specify an amount, like 100, meaning the bot will only use 100 USDT for trading.
-? Time Have the strategy define timeframe. ## Whether to use the timeframe specified in the strategy. The default is used here, and the timeframe in the strategy is generally the best option.
-? Please insert your display Currency (for reporting): USD ## The unit for displaying the bot's profits. 
-? Select exchange okx ## Select the exchange, with OKX as an example here.
-? Do you want to trade Perpetual Swaps (perpetual futures)? Yes ## Whether to enable contract trading. Setting it to `false` will use spot trading.
-? Do you want to enable Telegram? Yes ## Enable the Telegram bot.
+? Do you want to enable Dry-run (simulated trades)? Yes ## Whether to use a simulated account operation, which is simulated trading. Setting to false will use the real balance in your account for trading.
+? Please insert your stake currency: USDT ## Currency unit, here defaults to USDT
+? Please insert your stake amount (Number or 'unlimited'): unlimited ## Maximum open position ratio, unlimited means all amounts will be used by the bot. You can also specify like 100, which only gives the bot 100 USDT to trade.
+? Please insert max_open_trades (Integer or -1 for unlimited open trades): 3 ## Maximum number of open positions, which means how many types of coins you can buy. 3 means the bot can buy up to 3 types of currencies.
+? Time Have the strategy define timeframe. ## Whether to use the timeline in the strategy, here the default is used. Generally, the timeline in the strategy is the best.
+? Please insert your display Currency (for reporting): USD ## The unit used for displaying returns in the bot, can be set to CNY to be displayed in RMB
+? Select exchange okx ## Select the exchange, here OKX is chosen as an example
+? Do you want to trade Perpetual Swaps (perpetual futures)? Yes ## Whether to enable contract mode, set false for spot trading.
+? Do you want to enable Telegram? Yes ## Enable Telegram bot
 ? Insert Telegram token # Telegram bot token
-? Insert Telegram chat id # Telegram bot id
-? Do you want to enable the Rest API (includes FreqUI)? Yes # Web management console.
-? Insert Api server Listen Address (0.0.0.0 for docker, otherwise best left untouched) 0.0.0.0 # Web management console IP and port.
-? Insert api-server username freqtrader # Web management console username
+? Insert Telegram chat id # Telegram bot ID
+? Do you want to enable the Rest API (includes FreqUI)? Yes # Web management console page
+? Insert Api server Listen Address (0.0.0.0 for docker, otherwise best left untouched) 0.0.0.0 # Web management console IP port
+? Insert api-server username freqtrader # Web management console account
 ? Insert api-server password ****** # Web management console password
 ```
-#### 2.1 profile description:
-The configuration file of the trading robot is the most important, to explain:
+
+#### 2.1 Configuration File Explanation:
+
+The configuration file of the trading robot is the most important, here is an explanation:
+
 ```json
 {
-    // Trading mode, with three options: `spot` (default, for spot trading), `future` (for futures trading, which allows short selling), and `margin` (currently unavailable).
+    // Trading mode, there are three options: spot (default, spot trading), future (futures trading, can short), margin (currently unavailable)
     "trading_mode": "spot",
-    // When the trading mode is not `spot`, this needs to be set. For `future` trading mode, set it to `isolated`. For `margin` trading mode (currently unavailable), set it to `cross`.
+    // When the trading mode is not spot, you need to set here. When the trading mode is future, set to isolated, and when it is margin, set to cross (temporarily unavailable)
     // "margin_mode": "isolated",
-    // Maximum number of open trades.
+    // Maximum number of trades
     "max_open_trades": 5,
-    // Cryptocurrency used for trading.
+    // Cryptocurrency used for trading
     "stake_currency": "USDT",
-    // Amount available for the bot, which allows for running multiple bots to trade and potentially profit from differences between strategies.
+    // Amount available to the bot, you can run multiple bots to trade and balance strategy differences
     "stake_amount": 200,
-    // The ratio of the total account balance that the bot is allowed to trade.
+    // Ratio of the total balance allowed for trading by the bot
     "tradable_balance_ratio": 1,
-    // The fiat currency to convert from virtual currencies. Here, it's set to USD. If conversion errors occur, you can leave this unset.
+    // Convert from cryptocurrency to which fiat currency, here is USD, if conversion errors occur, it can be unset
     // "fiat_display_currency": "USD",
-    // Running mode, either virtual or real trading. Setting it to `true` enables virtual trading.
+    // Operating mode, virtual or real, true is virtual
     "dry_run": true,
-    // Timeframe to use, such as 1m, 5m, 15m, 30m, 1h, etc. This setting can be left as default here and reconfigured in the strategy file, with the strategy file settings taking precedence.
+    // Timeframe to use 1m, 5m, 15m, 30m, 1h... this configuration can be omitted here, and reconfigured in the strategy file, meaning that the configuration in the strategy file overrides this
     "timeframe": "3m",
-    // Total amount for virtual trading.
+    // Total amount for virtual operation
     "dry_run_wallet": 1000,
-    // Cancel open orders upon exit.
+    // Cancel unfilled orders on exit
     "cancel_open_orders_on_exit": true,
-    // Required configuration.
+    // Required configuration
     "unfilledtimeout": {
-        // The bot will wait for a specified amount of time (in minutes or seconds) for pending orders to be filled. After this time, the order will be canceled and repeated at the current (new) price.
+        // As long as there is a signal, the bot will wait for how long to complete an unfilled entry order (in minutes or seconds), after which the order will be canceled and repeated at the current (new) price.
         "entry": 10,
-        // The bot will wait for a specified amount of time (in minutes or seconds) for pending exit orders to be fulfilled. After this time, the order will be canceled and repeated at the current (new) price.
+        // As long as there is a signal, the bot will wait for how long to complete unfilled exit orders (in minutes or seconds), after which the orders will be canceled and repeated at the current (new) price
         "exit": 30
     },
-    // Exchange settings.
+    // Exchange settings
     "exchange": {
         "name": "okx",
         // API key
         "key": "",
         // API secret
         "secret": "",
-        // Some CCXT configurations, which are generally not used abroad but can be used to configure proxies in domestic settings.
+        // Some settings for `ccxt`, usually unused abroad, can set proxy here in China
         "ccxt_config": {},
         "ccxt_async_config": {},
-        // Trading pair whitelist.
-        // 1INCH/USDT is for spot trading.
-        // 1INCH/USDT is for futures trading.
-        // You can use wildcards here to configure in bulk, without needing to list all trading pairs.
-        // To view the supported trading pairs on the exchange, use the command: freqtrade list-markets -c config.json or freqtrade list-pairs -c config.json 
+        // Whitelist for trading pairs
+        // 1INCH/USDT is spot trading
+        // 1INCH/USDT:USDT is futures trading
+        // You can use wildcard here for batch configuration, no need to list all trading pairs
+        // Check trading pairs supported by the exchange, command: `freqtrade list-markets -c config.json` or `freqtrade list-pairs -c config.json`
         "pair_whitelist": [
             "1INCH/USDT:USDT",
             "ALGO/USDT:USDT"
         ],
-        // blacklist
+        // Blacklist
         "pair_blacklist": [
-            // Blacklist wildcard settings are similar to whitelist settings.
+            // Blacklist wildcard settings, same as whitelist
             "*/BNB"
         ]
     },
     "entry_pricing": {
-        // Required configuration to choose which side of the spread the bot should use for entry rates. The default is `same`, with other options being `ask`, `bid`, and `other`.
+        // Must configure, select which side of the spread the robot should look at to obtain the entry rate. Default is `same`, others are `ask`, `bid`, `other`
         "price_side": "same",
-        // Allow the use of rates from the order book for entries. The default value is `true`.
+        // Allow using rates from order book entries. Default is true
         "use_order_book": true,
-        // The bot will use the top N rates from the order book’s `price_side` for entering trades. For example, a value of 2 allows the bot to select the second entry from the order book.
+        // Bot will use the first N rates from the "price_side" of the order book to enter trades. That is, a value of 2 will allow the bot to choose the second entry from the Order Book Entry.
         "order_book_top": 1,
-        // Required configuration, interpolation of bid prices.
+        // Must configure, interpolated bid price.
         "price_last_balance": 0.0,
 
         "check_depth_of_market": {
-            // Do not enter if there is a disparity between the buy and sell orders in the order book.
+            // Do not enter if there is a discrepancy between bids and asks in the Order Book.
             "enabled": false,
-            // The difference between buy and sell orders in the order book. Values ​​below 1 indicate larger sell orders, while values ​​above 1 indicate larger buy orders.
+            // The ratio difference of bids and asks in the Order Book. A value below 1 indicates a larger ask size, while a value above 1 indicates a larger bid size
             "bids_to_ask_delta": 1
         }
     },
     "exit_pricing": {
-        // Select which side of the spread the robot should look at to get the exit rate. Default is same
+        // Select which side of the spread the robot should look at to obtain the exit rate. Default is `same`
         "price_side": "other",
         "use_order_book": true,
         "order_book_top": 1
     },
-    //  Defines one or more pair lists to use.
+    // Define one or more pair lists to use.
     "pairlists": [
-        // There are many methods here, [click to view details](https://www.freqtrade.io/en/stable/plugins/#pairlists-and-pairlist-handlers)
-        // Most of them use StaticPairList by default.
+        // Many methods here, [click to see details](https://www.freqtrade.io/en/stable/plugins/#pairlists-and-pairlist-handlers)
+        // Mostly uses `StaticPairList` by default
         {
             "method": "StaticPairList"
         }
     ],
-    // You can also add frequi configuration and telegrambot configuration later.
+    // You can also add `freqUI` configs and `telegram bot` configs later
     "bot_name": "",
     "force_entry_enable": true,
     "initial_state": "running",
@@ -154,8 +178,11 @@ The configuration file of the trading robot is the most important, to explain:
     }
 }
 ```
-In config configuration, the most important ones are dry_run and trading_mode. Exchange needs to be matched with the API key and secret of the exchange, okx can create an apiKey in the API on the app.
-Put my own config file here, which is the type of contract transaction:
+
+In the config settings, the most important are `dry_run` and `trading_mode`. In the `exchange` section, configure the API key and secret of the exchange; on OKX, you can create `apiKey` in the API section of the app.
+
+Here's my own config file for contract trading type:
+
 ```json
 {
     "tradable_balance_ratio": 0.99,
@@ -303,14 +330,18 @@ Put my own config file here, which is the type of contract transaction:
     }
 }
 ```
-### 3. Write configuration transaction strategy
-In the user_data/strategies directory, you will be given a default policy file with a brief description:
-> mplifying code
+
+### 3. Write and Configure Trading Strategy
+
+In the `user_data/strategies` directory, you will be given a default strategy file, with a brief explanation of the content:
+
+> Simplified Code
+
 ```py
 class SampleStrategy(IStrategy):
-    INTERFACE_VERSION = 3 # Only version 3 can be shorted
+    INTERFACE_VERSION = 3 # Only version 3 can short
 
-    can_short: bool = False # Is it possible to short sell?
+    can_short: bool = False # Can short or not
     # Take Profit
     minimal_roi = {
         "60": 0.01,
@@ -321,9 +352,9 @@ class SampleStrategy(IStrategy):
     stoploss = -0.10
     # Trailing Stop
     trailing_stop = False
-    # Which timeline K-line to use
+    # Use which timeframe's K-line
     timeframe = '5m'
-    # Setting up indicators
+    # Set Indicator
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         return dataframe
     # Entry
@@ -332,42 +363,45 @@ class SampleStrategy(IStrategy):
             (
                 (qtpylib.crossed_above(dataframe['rsi'], self.buy_rsi.value))
             ),
-            'enter_long'] = 1 # Opening signal, long
+            'enter_long'] = 1 # Entry signal, long
 
         dataframe.loc[
             (
                 (qtpylib.crossed_above(dataframe['rsi'], self.short_rsi.value))
             ),
-            'enter_short'] = 1 # Opening signal, shorting
+            'enter_short'] = 1 # Entry signal, short
 
         return dataframe
     # Exit
     def populate_exit_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe.loc[
             (
-                (qtpylib.crossed_above(dataframe['rsi'], self.sell_rsi.value)) # rsi crosses sell_rsi
+                (qtpylib.crossed_above(dataframe['rsi'], self.sell_rsi.value)) # RSI crosses sell_rsi
             ),
 
-            'exit_long'] = 1 # Close position signal, close long
+            'exit_long'] = 1 # Exit signal, close long
 
         dataframe.loc[
             (
-                (qtpylib.crossed_above(dataframe['rsi'], self.exit_short_rsi.value)) # rsi crosses exit_short_rsi
+                (qtpylib.crossed_above(dataframe['rsi'], self.exit_short_rsi.value)) # RSI crosses exit_short_rsi
             ),
-            'exit_short'] = 1 # Close position signal, close short
+            'exit_short'] = 1 # Exit signal, close short
 
         return dataframe
-
 ```
-This is the strategy of the example, it may not be easy to use, there are many websites in the community that can find the strategy and copy it directly to use it.
-### Start the project
-Open the docker.compose.yml file:
+
+This is a sample strategy and may not be optimal. There are many community websites where you can find strategies that can be copied and used directly.
+
+### Start the Project
+
+Open the `docker.compose.yml` file:
+
 ```yml
 ---
 version: '3'
 services:
   freqtrade:
-    image: freqtradeorg/freqtrade:stable # Official images
+    image: freqtradeorg/freqtrade:stable # Official image
     restart: unless-stopped
     container_name: freqtrade
     volumes:
@@ -377,21 +411,28 @@ services:
     command: >
       trade
       --logfile /freqtrade/user_data/logs/freqtrade.log # Output log file
-      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite # database
-      --config /freqtrade/user_data/config.json # Robot configuration file
-      --strategy SmartTA # Policy file class name
+      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite # Database
+      --config /freqtrade/user_data/config.json # Robot config file
+      --strategy SmartTA # Strategy file class name
 ```
-The focus here is on the-- strategy parameter, followed by the class name in the policy code, not the file name
-Terminal execution:
+
+Focus on the `--strategy` parameter. The name following it is the class name in the strategy code, not the file name.
+
+In the terminal, execute:
+
 ```sh
 docker compose up -d
 ```
-Boot, and then you can see the startup log in the user_data/logs/freqtrade.log file. The telegram robot will also print out logs.
-### Profitable strategy
 
-This website lists some strategies that can generate stable profits. If you are interested, you can click the link below to get the code.
+Start, and you can see the startup log in the `user_data/logs/freqtrade.log` file. The Telegram bot will also print out logs.
 
-[https://saber2pr.top/freqer/](https://saber2pr.top/freqer/)
+### Backtesting
 
-### Back test
-Finally, let's talk about the back test. Freqtrade provides the back test function. I can only say that it can only verify whether the code logic of the policy file has bug. The income gap between the return test and the normal test is still quite obvious. It is recommended that the actual environment dry-run is stable for a period of time before opening a real account.
+Lastly, regarding backtesting, freqtrade provides the functionality to backtest. I can only say it can verify if there are any bugs in the strategy file code logic. The yield results from backtesting and normal actual test runs vary significantly. It is suggested to run in a real environment with dry-run for some time before switching to a real account.
+
+### Recommended Reading
+
+If you want to delve deeper into the field of quantification, read the following articles:
+
+1. [Interpretation of freqtrade strategy E0V1E support level](/zh/posts/3516500479/1259322740/)
+2. [How to correctly DCA with Freqtrade](/zh/posts/3516500479/1606919060/)
