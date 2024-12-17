@@ -1,0 +1,10 @@
+As the development process of native Mini Program is too ancient, at present, many front-end tools are unavailable or difficult to use, so using webview to achieve Mini Program is a good way.
+> Note that webview Mini Program can only be used with an enterprise-certified account. Not individual independent developers.
+### Design ideas
+1. When Mini Program loads, determine whether there is cookie in storage. If so, jump to webview,webview (h5) with cookie parameter to determine whether there is cookie parameter on url. If so, request user information, initialize data and other operations, and store cookie in document.cookie at the same time.
+two。 If there is no cookie in storage, which means the user is not registered, skip to the registration / login page to obtain cookie. After successful acquisition, store cookie in Mini Program storage, and jump to webview with cookie parameter.
+3. Token expiration processing: in step 1, take cookie to access the backend interface before jumping to webview. If there is no exception such as 401, it means that the token has not expired, and you can jump to webview. If it expires, jump to the landing page to get a new cookie and then jump to webview. Or intercept the 401in webview and use jsdk to jump to the Mini Program login page to get the token again.
+4. You need to take advantage of Mini Program capabilities in webview: for example, if webview pays to use WeChat Pay, you need to create a new pay page in Mini Program, use jsdk's wx.navigateTo in webview to jump to this pay page, and pass the required parameters to Mini Program through the url parameter. Mini Program obtains the payment parameters from webview and performs WeChat Pay.
+> Note that WeChat Pay needs to apply for activation at the backend before he can use it.
+> h5 in webview needs to put the verification file txt (Development Management-> Development Settings-> Business Domain name) in the root directory (next.js is / public).
+> unlike h5 in webview, requests in Mini Program do not cross domains, but you need to set the server domain name (Development Management-> Development Settings-> Server Domain name).
