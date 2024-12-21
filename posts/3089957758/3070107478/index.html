@@ -1,0 +1,1404 @@
+<!doctype html><html lang="en"><head>
+      <link rel="icon" href="//saber2pr.top/MyWeb/resource/image/saber2pr-top.ico" type="image/x-icon" />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3641373095149503" crossorigin="anonymous"></script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-6CLMYWGQBH"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-6CLMYWGQBH');
+      </script>
+    <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    @keyframes skeleton-loading {
+      0% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0 50%;
+      }
+    }
+
+    .skeleton-loading-list {
+      margin: 3rem 1rem 10rem;
+    }
+
+    .skeleton-loading-item {
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+      background-size: 400% 100%;
+      animation-name: skeleton-loading;
+      animation-duration: 1.4s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      height: 16px;
+      margin-top: 16px;
+    }
+    </style>
+
+    <style>
+      .ssr-a {
+        color: #6d6d6d;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .ssr-a:hover {
+        color: black;
+      }
+
+      .ssr-a-active {
+        color: black;
+        font-weight: 700;
+        border-left: 0.25rem solid #61dafb;
+        padding-left: 10px;
+      }
+
+      .ssr-li {
+        line-height: 2rem;
+      }
+
+      .ssr-ul {
+        list-style: none;
+        padding-left: 16px;
+        margin: 4px;
+      }
+
+      .ssr-dir {
+        color: #6d6d6d;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+
+      .ssr-dir-active {
+        color: #1a1a1a;
+      }
+
+      .ssr-div-name:hover {
+        outline: -webkit-focus-ring-color auto 1px;
+        color: #1a1a1a;
+      }
+
+      .ssr-topheader {
+        width: 100%;
+        height: 40px;
+        background-color: #20232a;
+        position: fixed;
+        left:0;
+        top:0;
+      }
+      .ssr-topheader-a {
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        display: inline-block;
+        padding-left: 0.7rem;
+        padding-right: 0.7rem;
+        color: #d5d5d7;
+        border-bottom: none;
+        line-height: 40px;
+      }
+
+      .ssr-content-title {
+        word-break: break-all;
+        font-size: 3rem;
+        margin-top: calc(3rem + 40px);
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+
+      .ssr-wiki-menu {
+        width: 30%;
+        background-color: #f7f7f7;
+        border-left: 1px solid #ececec;
+        height: calc(100vh - 40px);
+        position: fixed;
+        right:-1rem;
+        top:40px;
+        overflow-y:auto;
+      }
+
+      #root-pre {
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        position: fixed;
+        left:0;
+        top:0;
+        z-index:999;
+      }
+      #root {
+        position: relative;
+        z-index:0;
+      }
+    </style>
+    <script>
+    window.__title = "PwaOfflineApplication"
+    window.__backgroundImage = ""
+    window.__basename = ''
+    window.__expandAllMenu = ''
+    window.__adsSlotHtml = '%3Cins%20class%3D%22adsbygoogle%22%20style%3D%22display%3Ablock%3B%20text-align%3Acenter%3B%22%20data-ad-layout%3D%22in-article%22%20data-ad-format%3D%22fluid%22%20data-ad-client%3D%22ca-pub-3641373095149503%22%20data-ad-slot%3D%225932086556%22%3E%3C%2Fins%3E%3Cscript%3E(adsbygoogle%20%3D%20window.adsbygoogle%20%7C%7C%20%5B%5D).push(%7B%7D)%3B%3C%2Fscript%3E'
+    window.__i18nConfig = [{"name":"English","key":"/"},{"name":"Chinese","key":"/zh"}]
+    window.__expandDirs = ["/blog/BrowserBasics"]
+    window.__wiki = `
+Linux
+  SetUpAGlobalHttpProxy:1406167115/3996949654
+  InstallTheLatestNodejs:1406167115/2692094341
+  TtyTerminal:1406167115/325969752
+  UbuntuMaintenance:1406167115/3205616118
+  OpenPort:1406167115/3307971880
+  ShellCommand:1406167115/216087976
+  SshConnectsToTheServer:1406167115/2653300000
+  ResumeUbuntuBootAfterDualSystemReinstallation:1406167115/269866125
+Practise
+  ToTestIt:3428336713/1406935570
+Typescript
+  TypeCovarianceAndInversion:3622367105/3223532213
+  AxiosInterceptorType:3622367105/173172859
+  CompareTheUseOfMonadInTsAndHaskell:3622367105/2154024551
+  TypescriptTypeOperation:3622367105/2901916542
+  UseTsCompilerToTraverseAstToProcessYourCode:3622367105/4028832837
+CompilationPrinciple
+  BnfImplementationOfJsxSyntax:1962834019/1793992562
+  UncertainPushdownAutomaton:1962834019/1550298028
+  UnderstandRecursiveDescentAnalysisAndParsecApplication:1962834019/2964989597
+VSCodeExtension
+  Iceworks
+    ABriefIntroductionToThePrincipleOfIceworksAppImplementation:1456951945/2169518944/636012704
+    ABriefIntroductionToThePrincipleOfIceworksProjectCreatorImplementation:1456951945/2169518944/210525664
+    IceworksI18NMultilingualPrinciple:1456951945/2169518944/2533179631
+  VscodePlugInPathDependent:1456951945/3880112545
+  OpenALinkUsingTheDefaultBrowser:1456951945/162333230
+  ImplementARealTimeCompilationOfReactForWebIde:1456951945/354805185
+  VscodePluginWritingTutorial:1456951945/2082201661
+BlogConstructionLog
+  UpdateForTheFrontDeskOfTheBlogIsReleased:674514131/623244521
+  WebsiteRefactoringOptimizationLog:674514131/966284556
+  WebsiteConstructionProcess:674514131/1523983103
+  PrivacyPolicy:674514131/886977854
+  WebsiteArchitectureAndTechnologyStack:674514131/1289486500
+ReactPrinciples
+  PropTypesVerification:2847575829/293452327
+  EventBubblingAndPortals:2847575829/2500547918
+  ReactKeyAndDefaultValue:2847575829/3769121444
+  ReactFiberImplementation:2847575829/682259335
+  ComponentCommunication:2847575829/3976119683
+  KeepLiveMethod:2847575829/2918522892
+  BatchUpdate:2847575829/3200243810
+  HowToFindAlternate:2847575829/2557015567
+  reconciler
+    CreateElement:2847575829/1767245028/4264654181
+    UpdateHostProperties:2847575829/1767245028/2251925698
+    WorkLoop:2847575829/1767245028/3474890464
+    CommitAllWork:2847575829/1767245028/566659062
+    CommitWork:2847575829/1767245028/1170408144
+    ReconcileChildren:2847575829/1767245028/4252644636
+    BeginWork:2847575829/1767245028/464940167
+    PerformWork:2847575829/1767245028/1688787467
+    GlobalVariable:2847575829/1767245028/3885218975
+    Render:2847575829/1767245028/2482019420
+    hook
+      UseState:2847575829/1767245028/2757247829/1496153206
+      UseRef:2847575829/1767245028/2757247829/2355627160
+      CreateContext:2847575829/1767245028/2757247829/1563209250
+      UseMemo:2847575829/1767245028/2757247829/450461236
+      UseEffect:2847575829/1767245028/2757247829/630444225
+    PerformUnitOfWork:2847575829/1767245028/1187791708
+  ServerRenderingSsrPrinciple:2847575829/2609817636
+  DepsRulesOfUseEffect:2847575829/424752871
+  LifeCycle:2847575829/372355473
+  ReactPerformanceOptimization:2847575829/2410771406
+  ReactUnderlyingXssDefense:2847575829/4287521741
+  ReactFunctionalProgramming:2847575829/4210229746
+  RerenderCausedByContext:2847575829/2725082293
+  TraversingTheFiberList:2847575829/870323708
+  ErrorHandlingInReact:2847575829/863578248
+  WhyCanRefKeepReferences:2847575829/1824485008
+  ReactFunctionComponentsVsClassComponents:2847575829/396578658
+  ContextRerenderSchemeReplacesRedux:2847575829/1443096038
+  DataStructureType
+    Fiber:2847575829/560764065/3127734977
+    AboutTheTypeDefinitionOfTsx:2847575829/560764065/1352364602
+  NotesOnUseStateInitializationUsingProps:2847575829/4055183108
+  RefForwarding:2847575829/581341048
+HTTP
+  HttpEncryption:2716721158/4145208951
+  HttpCrossDomainOptionsRequests:2716721158/1213119834
+  BasicConcept:2716721158/815173238
+  ConfigureHttpsForTheServer:2716721158/185749224
+  HttpCachingMechanism:2716721158/2867515358
+OtherCommonlyUsedCommands
+  WinCommonCommands:201068957/1675390960
+  CadBasicCommand:201068957/4044230377
+NetworkBasics
+  OptimizationOfGithubAccessTimeout:420261171/2278836550
+  Ipv4:420261171/3413674558
+ReactComponents
+  PicturePreoccupationComponent:2038412553/3615772771
+  ErrorBoundaryExceptionHandlingComponent:2038412553/845775453
+  SuggestionsForWritingReactComponents:2038412553/1906391671
+  AsyncHookComponent:2038412553/576965892
+  EventHookComponent:2038412553/2669645172
+  LazyLoadingComponent:2038412553/1653389650
+  ImageHoverComponent:2038412553/1917597643
+  DropDownMenu:2038412553/583955205
+  UsingTheVscStyledPlugInToWriteInlineStyles:2038412553/990116656
+  CopyClipboardHook:2038412553/2614841412
+  CaptchaToSendTimingComponent:2038412553/498470485
+  ReadTheRefValueThatIsDestroyedOnce:2038412553/2999321818
+NestJs
+  NestjsBreakpointDebugging:1017805429/1813059996
+  EntityDesignSpecification:1017805429/152499661
+  ParameterFieldFilter:1017805429/55216613
+  Timing:1017805429/337482717
+  DeployingNestjsWithNowshServerless:1017805429/738739454
+  ClassLoadingRelationAndExceptionLocation:1017805429/2413708745
+Node
+  KoaMiddlewareMechanism:625821563/61068252
+  ReceiveBase64Images:625821563/2867492225
+  GetPostBody:625821563/4254559575
+  RunCommand:625821563/4247062054
+  base64:625821563/3482464886
+  LoadCommonjsModuleFromUrl:625821563/1164763516
+  GetNativeIpIpv4:625821563/997763777
+  SimpleFileReadWriteEncapsulation:625821563/552583385
+  CliHeaderComment:625821563/3997222807
+  DownloadTarballAndExtractItToTheDirectory:625821563/1379768496
+  ParsingUrlParametersByNode:625821563/2918054037
+  NodeRouting:625821563/2717449623
+  promisify:625821563/2174455366
+Infrastructure
+  AutomateDeploymentWithGitlabAndDrone:474859848/1730360906
+BrowserAPI
+  MobileSideAcquiresClientXy:1579525336/3263121170
+  NavigatorObject:1579525336/3357145392
+  MutationObserver:1579525336/1632717425
+  RequestIdleCallbackMethod:1579525336/495346329
+  DomObjectInheritanceSystem:1579525336/704748357
+  PageXPageYOffsetXOffsetYClientXClientYXYScreenXScreenY:1579525336/2222340522
+  TheDifferenceBetweenClientHeightAndScrollHeight:1579525336/1385850900
+  RequestAnimationFrame:1579525336/3338523060
+  DocumentElement:1579525336/1097404382
+  DifferencesAmongOffsetClientAndScroll:1579525336/4059846620
+React-Hooks
+  useDerivedStateFromProps:3451527288/294402496
+  useRouter:3451527288/1422930357
+  useCopy:3451527288/865364992
+  useTimer:3451527288/1763185345
+  useI18N:3451527288/3122065372
+  useFormModal:3451527288/1224126869
+  useLoadScript:3451527288/351511116
+  useAsync:3451527288/1826049885
+  useIntersection:3451527288/2140043833
+  useInterval:3451527288/1793779673
+  useSetParticalState:3451527288/3769657112
+  useEcharts:3451527288/3312377071
+  useModal:3451527288/2956032774
+  useProgress:3451527288/1361967700
+  useInputHistory:3451527288/3653149325
+Haskell
+  CreatingHaskellEnvironment:3089486481/2785486107
+  HaskellAndJs:3089486481/2259500328
+  FunctionalDesign:3089486481/3273569209
+  BasicConceptsOfFunctionalProgramming:3089486481/1117953918
+WeChat
+  AuditAttentionItemsOfMiniProgram:359719769/305679618
+  WebviewMiniProgramSolution:359719769/4293120404
+  ViewTextAndBlock:359719769/4090157249
+  ThreeLoginSchemesForWebviewMiniProgram:359719769/452069558
+  WebviewDebuggingMethod:359719769/3110835772
+  LoginCodeAndEncryptionVector:359719769/1499190675
+  GetTheUrlParameter:359719769/2671488411
+  LogInWithTheOfficialAccountH5:359719769/855866612
+  BasicArchitectureDesignOfWebviewMiniProgram:359719769/3651968919
+  RefreshThePreviousPageBeforeReturning:359719769/1100000063
+Nextjs
+  NextjsDataContextTransfer:2117065174/499385560
+  ProblemsAndOptimizationOfUsingLinkToRealizeTab:2117065174/1331666233
+  ApiRouteInterception:2117065174/2629981479
+  NonApiReverseProxy:2117065174/2066443773
+  ProblemsExistingInAutomaticStaticOptimizationOfNextjs:2117065174/1075608236
+  AttentionAndOptimizationOfSsrProjectArchitecture:2117065174/2204476099
+  TokenForwarding:2117065174/511866385
+  PrincipleOfNextjsMicroService:2117065174/3905364591
+  OptimizationOfRenderingSpeedOfNextjsFirstScreen:2117065174/3922814334
+  ProxyService:2117065174/2317664234
+  EncapsulateTheInterfaceRequestFunction:2117065174/4153559788
+  DefineNextConfigTypes:2117065174/1810968978
+Saber2pr's Blog:1412107753
+C++
+  TemplateAndConstexpr:1464987298/915539559
+  Namespace:1464987298/2970675701
+  VirtualFunctionTable:1464987298/2366071826
+  RightValueReferenceAndMobileSemantics:1464987298/3760512640
+  FunctionTypesAndFunctionPointers:1464987298/852159225
+  qt
+    QbsConfiguration:1464987298/546697069/4023703788
+Database
+  mysql
+    RunMysql8OnThe512MbService:807756920/2501908538/2200803087
+    InstallMysqlUsingDocker:807756920/2501908538/3064728970
+  mongodb
+    NodejsOperationMongodb:807756920/4026166152/790012311
+    MongodbAdditionDeletionAndModification:807756920/4026166152/888070896
+    AddADatabaseAdministrator:807756920/4026166152/1649327560
+Kubernetes
+  RunTheFirstDockerInstance:2596981504/764062325
+Golang
+  GolangGetsStartedQuickly:2830114965/129795242
+HTML
+  FormInput:787223889/1377627004
+  List:787223889/3841611558
+  CommonlyUsedMetaAndLinkTags:787223889/2552978781
+  Iframe:787223889/3931058647
+  EditableRegion:787223889/2325570114
+  DisableTwoFingerMagnificationOnMobile:787223889/524100566
+  Form:787223889/4072297073
+Html2canvas
+  IosCompatible:4184327779/1873543574
+  TheBrowserPrintsTheDomNode:4184327779/2884859958
+Ant-Design
+  InitializeFormItemsAsynchronously:4211238733/2390831603
+  FormFormValidation:4211238733/4190732630
+  PictureUpload:4211238733/2844640014
+  InputStyleReset:4211238733/1809376328
+  RightClickMenu:4211238733/893616960
+  MenuComponentStyleSelector:4211238733/1091782524
+  TableTransfer:4211238733/2085038609
+  SortTable:4211238733/3197305472
+  AntdDemandLoading:4211238733/3196904878
+  TableFrontEndAndBackEndPaging:4211238733/1893829911
+  DetailsOfSomePitsInAntdConstantlyUpdated:4211238733/1546719053
+  ResetModalStyl:4211238733/2144052264
+  UsingCheckboxInForm:4211238733/185822712
+  LearnTheDesignOfAntdComponents:4211238733/3647680490
+  TheProblemOfDoubleScrollOfModalMask:4211238733/1220793151
+FrontEndBuildTools
+  babel
+    Installation:3560843609/2979524233/76263753
+  docker
+    LimitOnTheNumberOfTimesDockerImagesArePulledInCiEnvironment:3560843609/4065722285/2486777591
+    ViewBackgroundLogs:3560843609/4065722285/462693983
+    UbuntuInstallDocker:3560843609/4065722285/2492097519
+    OneClickToCleanUpNoneImage:3560843609/4065722285/1197254479
+    WslDataMigration:3560843609/4065722285/1911251775
+    TheDockerContainerUsesTheHostHttpProxy:3560843609/4065722285/1559609029
+    CopyTheImageFileLocally:3560843609/4065722285/1746714855
+    InstallDockerInTheDockerImage:3560843609/4065722285/792156413
+    DockerProjectUpdate:3560843609/4065722285/3966745238
+    SolvingTheProblemOfExcessiveMemoryConsumptionOfWsl:3560843609/4065722285/3522193200
+    BuildAPlatformSpecificImage:3560843609/4065722285/2249313337
+    FrontEndProjectDockerDeployment:3560843609/4065722285/3064948932
+  webpack
+    LoaderAndPluginOfWebpack:3560843609/3119647264/571568046
+    TurnOffLogForDevServer:3560843609/3119647264/2316746584
+    plugin
+      BannerPlugin:3560843609/3119647264/3916310420/3517195473
+    PrincipleOfWebpackCaching:3560843609/3119647264/784321926
+    RealMachineRemoteDebugging:3560843609/3119647264/1839944770
+    HotUpdateWatchOptions:3560843609/3119647264/1929372035
+    CraBuildToolReactScripts:3560843609/3119647264/2421134642
+    AccessJsdelivr:3560843609/3119647264/1121536847
+  AliOss
+    UsingOssApiOnNodejs:3560843609/3656555233/2957240983
+  PackageManager
+    YarnProfile:3560843609/1060499618/2665687092
+    NpmCommonCommands:3560843609/1060499618/1058678889
+  nginx
+    NginxDirectoryStructure:3560843609/2759310851/3730232541
+    DeployNextjsUsingNginx:3560843609/2759310851/3443363537
+    NginxLog:3560843609/2759310851/4167406887
+    UseNginxToUpgradeHttps:3560843609/2759310851/1756715521
+    NginxInstallationAndCommonCommands:3560843609/2759310851/2347465071
+  terser
+    TerserQuickCompressionCommand:3560843609/1101211557/3132169560
+wordpress
+  DatabaseConnectionProblem:678694731/189213099
+CSS
+  Triangle:3999917138/652283857
+  InputStyleReset:4211238733/1809376328
+  MediaInquiry:3999917138/3372195017
+  PictureSubstitutionElementContentFillAndAlignment:3999917138/29350083
+  ControlsTheStyleOfElementsWhenPlotting:3999917138/2462200547
+  MaskMask:3999917138/1731642661
+  MarginOfIosSafetyZone:3999917138/687292247
+  VerticalCenter:3999917138/1978791269
+  CenteredHorizontally:3999917138/2836737880
+  CommonlyUsedLayout:3999917138/2006115625
+  RealizationOfEightDiagramsByCss:3999917138/4263337429
+  HorizontalAndVerticalCenter:3999917138/1483311988
+  LinearGradient:3999917138/1620085526
+  DodgeClick:3999917138/144562467
+  Flex:3999917138/2560789589
+  Css3Selector:3999917138/1542195827
+  RollTheContainerHorizontally:3999917138/181592317
+  ResolvingZIndexDoesNotWork:3999917138/2568380485
+  StyledComponentsUsed:3999917138/3314747969
+  VisualDesign:3999917138/255217966
+  BoxModel:3999917138/1147339673
+  PseudoElementImplementationSplitLine:3999917138/750469979
+RegularExpression
+  BasicGrammar:1446563812/2914487391
+  LearningSkills:1446563812/1800653880
+  CommonlyUsedRegularity:1446563812/2016839513
+  UnderstandRegularExpressionsAndCollationOfCommonRegularExpressions:1446563812/1790025591
+  CombineReplacers:1446563812/1754126299
+Github-API
+  UseGithubIssueApiToMakeCommentSystem:3519632019/2863986062
+  UsingActionToAutomatePublishingPages:3519632019/2902480889
+  RestFulV3:3519632019/4131062311
+  GithubAuthentication:3519632019/2491388840
+  PublishingDockerImagesUsingActionAutomation:3519632019/3728099253
+  PublishNpmPackagesUsingGithubAction:3519632019/3662512570
+DataStructureAlgorithm
+  KmpAlgorithm:2904071896/2798702978
+  CaesarEncryption:2904071896/4250606864
+  Base64Algorithm:2904071896/1133073839
+  SortingAlgorithm:2904071896/525303389
+  TreeTraversalDeletionOfNodes:2904071896/2425889148
+  CalculateStringHashFingerprint:2904071896/1215087402
+Redux
+  CreateStore:3410066374/1687033302
+  DoubleBufferingTechnologyOfNextListener:3410066374/1395834668
+  ReduxThunk:3410066374/87737900
+  ReduxThought:3410066374/1425140157
+  CombineReducers:3410066374/1991894720
+  ApplyMiddleware:3410066374/1567349913
+  Compose:3410066374/1643195786
+  BindActionCreators:3410066374/2681908999
+Web3
+  WhatIsAnEncryptedCurrencyPledge:3516500479/3504731899
+  ETH:3516500479/801163211
+  BuildFreqtradeCryptocurrencyQuantitativeTransactionRobot:3516500479/2005007654
+  WhatIsTheCryptocurrencyCarryTrade:3516500479/3979943198
+  InterpretationOfFreqtradeStrategyE0V1ESupportLevel:3516500479/2133260459
+  HowToSeizeTheOpportunityOfAirdropOfCryptocurrency:3516500479/3574163844
+  HowToProperlyPerformDCAWithFreqtrade:3516500479/2272706637
+  WhatIsCryptocurrencyHedging:3516500479/3738437078
+  EightBestWaysToMakeMoneyWithCryptocurrencyIn2024:3516500479/2879533213
+  FreqtradePositionManagementStrategyOptimization:3516500479/1006044720
+  OptimizeTheGridIncrementInTheBitcoinStrategyGrid:3516500479/2758217016
+  EnterTheAgeOfMainstreamEncryption:3516500479/3348293722
+  WhatIsAPerpetualContract:3516500479/3888183448
+  FiveKeyPointsToImproveTheLevelOfContractAndFuturesTraders:3516500479/3690143913
+  BOLLBollingerBands:3516500479/1819446403
+  UnderstandTheHistoryOfSolana:3516500479/125711332
+  HowToUseFreqtradeToTestAPolicyThroughPythonAndTradeAnEncryptedCurrency:3516500479/372393687
+  HowAHalvingOfBitcoinWillAffectItsFuturePrice:3516500479/4149991026
+  SOL:3516500479/2570065802
+  BTC:3516500479/3176990918
+  HowToMakeNft:3516500479/2798848502
+  FreqtradeBacktestingTrailingStopTrap:3516500479/921292352
+  FreqtradeProfileDescription:3516500479/4253608591
+MacOS
+  ViewCpuSchemas:717872510/1298137792
+  CleanUpDiskOccupancy:717872510/3238001418
+  DsStoreFile:717872510/344074506
+Javascript
+  ThePictureIsTransferredToBase64:3417805607/3685589998
+  ScrollToTheTop:3417805607/81525406
+  VdomRendering:3417805607/426998763
+  DragAndDropSort:3417805607/3432979548
+  Combiner:3417805607/1253101459
+  ThrottlingAndAntiShaking:3417805607/789398390
+  es7
+    AsyncAwaitPrinciple:3417805607/233988067/3629772785
+  ArrayCloneArrayEs6ApiImplementation:3417805607/362919906
+  FileReadingAndFileDragUpload:3417805607/2690240174
+  DeepCopy:3417805607/2086454714
+  RandomColor:3417805607/491912776
+  EncapsulateAnAjax:3417805607/2323766415
+  RemoveNbspFromTheDocument:3417805607/2247384215
+  es6
+    PromisePrinciple:3417805607/2062905205/1953568787
+  ScopeAndClosure:3417805607/1064263777
+  PartialFunctionAndCosmization:3417805607/357771658
+  JsonpCrossDomain:3417805607/4212480502
+  ReturnToTheTopOfThePage:3417805607/1914401785
+  DetermineThatThePageScrollsToTheBottomReact:3417805607/3023536777
+  MonitoringKeyCombination:3417805607/3204287944
+  EnterViewportRangeDetection:3417805607/1207317264
+  HtmlSpecialCharacterEscape:3417805607/2973854493
+  NewFeaturesOfEs7Es8Es9Es10:3417805607/2005396737
+  FiberTraversal:3417805607/959485650
+  Classnames:3417805607/1412828612
+  canvas
+    ConversionBetweenRgbaAndHex:3417805607/2778688536/2714981660
+    ImageDataOperation:3417805607/2778688536/3250733426
+    PrintToPicture:3417805607/2778688536/110935766
+    CanvasPathDrawing:3417805607/2778688536/1311491289
+  GetsTheDistanceOfTheElementFromTheTopOfTheDocument:3417805607/3394333094
+  tryAsync:3417805607/1914603159
+  PublishAndSubscribe:3417805607/468817117
+  Join:3417805607/2287171561
+  GetFolderName:3417805607/3711773930
+  IframeHeartbeatDetection:3417805607/4157237213
+  DetermineWhetherItIsAMobileTerminalOrNot:3417805607/2554602735
+  BindCallApplySumPrinciple:3417805607/4166081949
+  PrototypeChain:3417805607/69820435
+  IterableIterable:3417805607/4004459858
+  SimpleAlgorithmRequirement:3417805607/1070088730
+  ClipboardOperation:3417805607/3346472757
+  MonitoringAndDragging:3417805607/78464010
+  IsCommonlyUsedJudgment:3417805607/3144479192
+  TwoWayBinding:3417805607/4159783498
+  UploadAndSendPictures:3417805607/1925313347
+  FileDownload:3417805607/3061015448
+  ImplementTheUrlParameterParser:3417805607/3498319363
+  RectangularIntersection:3417805607/1810585844
+  SolveThePromiseRaceProblem:3417805607/3487389898
+  CommonToolFunctionPackage:3417805607/1627384014
+  SaveTheFileToLocal:3417805607/1497814401
+  LocalStorageCaching:3417805607/1820740471
+  ClassesAndInheritance:3417805607/985131558
+  RemLayoutPrinciple:3417805607/1076347605
+  EventCaptureBubbling:3417805607/2679886877
+PerformanceOptimization
+  MemorizeFunction:1161180844/3927914985
+  AboutTimeCalculation:1161180844/242690562
+  FrontEndPerformanceOptimization:1161180844/4230526599
+  ObjectPoolForUndoAndUndo:1161180844/2137494120
+  ApiCaching:1161180844/1410359226
+  ConcurrentRequestQueue:1161180844/4231098156
+  PackagingOptimization:1161180844/1434260416
+JustWriteSomething
+  PrincipleOfDualSystemUse:470112193/468644827
+  RecordABugJsIntegerOverflow:470112193/1992084431
+  DailySummary:470112193/1638487080
+  FavoriteWebAddress:470112193/3106771894
+  TheProblemOfCloneFunctionOfZrenderOfEcharts:470112193/1541800515
+  ProjectSpecification:470112193/3611396014
+  SomethingThatMakesPeopleCrazy:470112193/1112396620
+  AttentionMoment:470112193/3251410077
+  RecordABugEnvironmentVariablesInNextjsIsomorphicEnvironment:470112193/1688594565
+  EfficiencyImprovementMethodology:470112193/994870033
+  TheDevelopmentRouteOfTyrania:470112193/1265222726
+  PopmotionLibraryPit:470112193/2972133921
+  PseudoArrayDeconstructionErrorOfRegularMatchingResult:470112193/1085601437
+  IfIWasInterviewingSomeone:470112193/3167268517
+  CheckNpmPackageVersionCompatibility:470112193/3367388326
+  ActionTrail:470112193/3740397129
+  AboutFrontEndReusability:470112193/1441291649
+  DocumentTransferStation:470112193/3769688344
+  Barrier:470112193/787727156
+ECharts
+  ChartInstanceInitializationAndUpdateLogic:4251021762/4275837107
+  PublicConfigurationItem:4251021762/3813380105
+Reflect
+  ReflectMetadataImplementationAndItsPrinciple:1094318037/1315910772
+  IOCBasedHttpServer
+    ImplementingAHttpServerFrameworkBasedOnIocPartI:1094318037/2514031133/231016437
+    ImplementAHttpServerFrameworkBasedOnIocPartTwo:1094318037/2514031133/1431988678
+  OptimizationOfReadSpeedOfHashMapGiantObjectInReflectMetadata:1094318037/1501427606
+  DependencyInjectionIocImplementation:1094318037/168644574
+DailySummary:470112193/1638487080
+  2021Q2:1638487080/1303199131
+  January112021:1638487080/1687040183
+Git
+  ShallowClone:1774397340/1497802064
+  ConnectToGithubUsingAPassword:1774397340/833412631
+  PullAutomaticMergeUsingLocalVersion:1774397340/552268216
+  CloneAFolderOrPathInTheGitRepository:1774397340/60684746
+  UndoTheLastSubmission:1774397340/112085486
+  Branch:1774397340/3156876841
+  GitClearsLoginStatus:1774397340/3358704509
+  Log:1774397340/3077713445
+  DailyNewspaperGeneration:1774397340/1398384704
+  Checkout:1774397340/1447972632
+  CheckTheContentOfTheLastChangeSubmission:1774397340/1662094074
+  GitSubmitErrorRpCfailedHttp2:1774397340/2782696321
+  Rebase:1774397340/1084674335
+  GithubAndGit:1774397340/888634100
+  UpdateUpstreamAfterFork:1774397340/3555646902
+  SetUserName:1774397340/3563209554
+BrowserBasics
+  PwaOfflineApplication:3089957758/3070107478
+  PrincipleOfPageRendering:3089957758/2033684770
+  BrowserKernel:3089957758/201535461
+  PageReflowAndRedrawing:3089957758/2072093402
+  FromEnteringUrlToPageRendering:3089957758/3949610141
+ReactEcosystem
+  UseSelectorAndReselectSourceCodeRead:1316063026/78338755
+  HoistNonReactStaticsSourceCodeRead:1316063026/208234261
+  ReactEcologicalSourceCodeReading:1316063026/3539138593
+  SomeOperationsThatReact16WillNotNeedInTheFuture:1316063026/4055071101
+  WhatDidReactReduxDo:1316063026/545052142
+`
+    window.__blog = `PWA%20is%20called%20Progressive%20Web%20App.%20A%20technology%20that%20can%20add%20web%20pages%20to%20the%20desktop%20and%20can%20be%20accessed%20offline%2C%20just%20like%20local%20App.%0ATo%20turn%20a%20React%20single-page%20application%20into%20PWA%2C%20you%20only%20need%20to%20add%20two%20files%20to%20the%20original%20project.%20Manifest%20configuration%20files%20and%20service%20worker%20scripts.%0AHere%20are%20the%20brief%20steps%20to%20turn%20the%20project%20into%20a%20PWA%20application.%0A%23%23%23%20Manifest.json%0AThis%20file%20is%20used%20to%20describe%20app%20information%2C%20such%20as%20the%20icon%20icon%2C%20the%20name%20application%20name%2C%20and%20the%20start_url%20starting%20path.%0AFor%20example%3A%0AManifest.json%0A%60%60%60js%0A%7B%0A%20%20%22name%22%3A%20%22saber2pr%E3%81%AE%E7%AA%9D%22%2C%0A%20%20%22display%22%3A%20%22standalone%22%2C%0A%20%20%22start_url%22%3A%20%22%2F%22%2C%0A%20%20%22icons%22%3A%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20%22src%22%3A%20%22%2Fstatic%2Ficon%2Fsaber2pr-144x144.png%22%2C%0A%20%20%20%20%20%20%22sizes%22%3A%20%22144x144%22%2C%0A%20%20%20%20%20%20%22type%22%3A%20%22image%2Fpng%22%0A%20%20%20%20%7D%0A%20%20%5D%0A%7D%0A%60%60%60%0AThen%20add%20meta%20information%20to%20the%20index.html%3A%0A%60%60%60html%0A%3Clink%20rel%3D%22manifest%22%20href%3D%22.%2Fmanifest.json%22%20%2F%3E%0A%60%60%60%0A%3E%20manifest.json%20and%20service-worker.js%20are%20best%20placed%20in%20the%20root%20directory.%0AYou%20can%20see%20the%20app%20message%20in%20the%20chrome%20console%20%3E%20Application%20%3E%20Manifest.%0A%23%23%23%20Service%20worker%0AUsed%20to%20intercept%20http%20requests%2C%20use%20and%20create%20caches.%0ACommon%20lifecycle%20events%20in%20service%20worker%20are%20install%2C%20fetch%2C%20and%20active.%0A1.%20Installation%20events%20are%20triggered%20on%20initialization%0A%3E%20inly%20adding%20caches%20for%20static%20resources%0AService-worker.js%0A%60%60%60js%0Aconst%20cacheKey%20%3D%20%22pwa-test%22%0A%0Aself.addEventListener(%22install%22%2C%20event%20%3D%3E%0A%20%20event.waitUntil(%0A%20%20%20%20caches%0A%20%20%20%20%20%20.open(cacheKey)%0A%20%20%20%20%20%20.then(cache%20%3D%3E%0A%20%20%20%20%20%20%20%20cache.addAll(%5B%22%2F%22%2C%20%22%2Fbuild%2Fbundle.min.js%22%2C%20%22%2Fbuild%2Fstyle.min.css%22%5D)%0A%20%20%20%20%20%20)%0A%20%20)%0A)%0A%60%60%60%0ALike%20other%20worker%2C%20you%20cannot%20access%20DOM.%20There%20is%20no%20window%20object%2C%20use%20self%20instead%2C%20these%20events%20are%20also%20unique%20to%20service%20worker.%0AThe%20event%20object%20has%20a%20waitUntil%20method%20that%20waits%20for%20promise%20to%20complete.%20Of%20course%2C%20you%20can%20also%20use%20async%20(there%20seems%20to%20be%20a%20hole).%0ACaches%20is%20a%20global%20object%2C%20and%20the%20open%20method%20requires%20a%20key%20to%20open%20a%20cache%20entry.%0AThe%20cache.addAll%20method%20passes%20in%20an%20array%20of%20strings%2C%20adding%20caches%20in%20batches.%0Atwo%E3%80%82%20Intercept%20request%0A%3E%20ding%20caches%20for%20dynamic%20resources%0A%60%60%60js%0A%2F%2F%20%E7%9B%91%E5%90%ACfetch%E4%BA%8B%E4%BB%B6%0Aself.addEventListener(%22fetch%22%2C%20event%20%3D%3E%0A%20%20%2F%2F%20event.respondWith()%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94%EF%BC%8C%E7%B1%BB%E4%BC%BCnodejs%E4%B8%8A%E7%9A%84res.end()%EF%BC%8C%E4%BD%86%E6%8E%A5%E6%94%B6%E7%9A%84%E6%98%AFpromise%E3%80%82%0A%20%20event.respondWith(%0A%20%20%20%20%2F%2F%20caches.match%E5%8C%B9%E9%85%8D%E7%BC%93%E5%AD%98%E3%80%82%0A%20%20%20%20caches.match(event.request).then(resFromCache%20%3D%3E%20%7B%0A%20%20%20%20%20%20%2F%2F%20%E7%BC%93%E5%AD%98%E5%91%BD%E4%B8%AD%EF%BC%8C%E8%BF%94%E5%9B%9E%E7%BC%93%E5%AD%98%E3%80%82%E8%B7%B3%E8%BF%87http%E8%AF%B7%E6%B1%82%E3%80%82%0A%20%20%20%20%20%20if%20(resFromCache)%20return%20resFromCache%0A%20%20%20%20%20%20%2F%2F%20event.request%E6%98%AF%60%E6%B5%81%E5%AF%B9%E8%B1%A1%60%EF%BC%8C%E5%8F%AA%E8%83%BD%E4%BD%BF%E7%94%A8%E4%B8%80%E6%AC%A1%EF%BC%8C%E6%88%96%E8%80%85%E4%BD%BF%E7%94%A8clone%E5%85%8B%E9%9A%86%E3%80%82%0A%20%20%20%20%20%20const%20reqToCache%20%3D%20event.request.clone()%0A%0A%20%20%20%20%20%20%2F%2F%20%E6%B2%A1%E6%9C%89%E7%BC%93%E5%AD%98%EF%BC%8C%E4%BB%8E%E7%BD%91%E7%BB%9C%E8%8E%B7%E5%8F%96%E8%B5%84%E6%BA%90%0A%20%20%20%20%20%20return%20fetch(reqToCache).then(resFromNet%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%2F%2F%20%E5%9B%A0%E4%B8%BA%E8%BF%99%E9%87%8C%E7%9A%84response%E8%A6%81%E4%BD%BF%E7%94%A8%E4%B8%A4%E6%AC%A1%EF%BC%8Ccache.put%E6%B6%88%E8%80%97%E4%B8%80%E6%AC%A1%EF%BC%8C%E6%89%80%E4%BB%A5%E8%A6%81clone%0A%20%20%20%20%20%20%20%20const%20resToCache%20%3D%20resFromNet.clone()%0A%20%20%20%20%20%20%20%20%2F%2F%20%E5%AD%98%E5%85%A5%E7%BC%93%E5%AD%98%0A%20%20%20%20%20%20%20%20caches%0A%20%20%20%20%20%20%20%20%20%20.open(cacheKey)%0A%20%20%20%20%20%20%20%20%20%20.then(cache%20%3D%3E%20cache.put(event.request%2C%20resToCache))%0A%20%20%20%20%20%20%20%20return%20resFromNet%20%2F%2F%20%E8%BF%94%E5%9B%9E%E5%93%8D%E5%BA%94%0A%20%20%20%20%20%20%7D)%0A%20%20%20%20%7D)%0A%20%20)%0A)%0A%60%60%60%0ANote%20that%20cache%20operations%20consume%20streams%2C%20so%20clone%20is%20required.%0A%3E%20there%20seems%20to%20be%20an%20error%20when%20using%20async%2C%20but%20it's%20worth%20a%20try.%0AAfter%20writing%2C%20introduce%20the%20following%20in%20index.ts%3A%0A%60%60%60ts%0Awindow.addEventListener(%22load%22%2C%20()%20%3D%3E%20%7B%0A%20%20if%20(%22serviceWorker%22%20in%20navigator)%20%7B%0A%20%20%20%20PWAInstaller()%0A%20%20%7D%0A%7D)%0A%60%60%60%0AYou%20can%20register%20for%20service%20worker.%0A%3E%20because%20worker%20is%20a%20thread%20resource%20and%20takes%20a%20long%20time%2C%20it%20is%20better%20in%20load%20events.%0AYou%20can%20view%20the%20current%20worker%20status%20in%20the%20chrome%20console%20%3E%20Application%20%3E%20Service%20Workers.%0AYou%20can%20see%20the%20cache%20in%20Application%20%3E%20Cache%20%3E%20Cache%20Storage.%0ADebugging%20method%3A%20in%20the%20chrome%20console%20%3E%20Network%2C%20change%20Online%20to%20Offline%2C%20and%20then%20refresh%20the%20page%20to%20see%20if%20there%20is%20a%20response.%0A%23%23%23%20Resource%20update%0A1.%20Update%20resources%20in%20the%20active%20event%0A%60%60%60ts%0Aself.addEventListener(%22activate%22%2C%20e%20%3D%3E%20%7B%0A%20%20e.waitUntil(%0A%20%20%20%20caches.keys().then(keys%20%3D%3E%0A%20%20%20%20%20%20Promise.all(%0A%20%20%20%20%20%20%20%20keys.map(key%20%3D%3E%20%7B%0A%20%20%20%20%20%20%20%20%20%20%2F%2F%20%E9%80%9A%E8%BF%87cacheKey%E6%9D%A5%E5%88%A4%E6%96%AD%E7%BC%93%E5%AD%98%E8%B5%84%E6%BA%90%E7%89%88%E6%9C%AC%0A%20%20%20%20%20%20%20%20%20%20if%20(key%20!%3D%3D%20cacheKey)%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20caches.delete(key)%0A%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D)%0A%20%20%20%20%20%20)%0A%20%20%20%20)%0A%20%20)%0A%0A%20%20return%20self.clients.claim()%20%2F%2F%20claim%E5%88%B7%E6%96%B0%E7%BC%93%E5%AD%98%0A%7D)%0A%60%60%60%0Atwo%E3%80%82%20Use%20the%20version%20number%20to%20determine%20whether%20the%20service%20worker%20needs%20to%20be%20updated%2C%20for%20example%3A%0A%3E%20the%20version%20here%20is%20best%20obtained%20from%20the%20server%20side%2C%20and%20do%20not%20add%20its%20cache.%0A%60%60%60ts%0Adeclare%20const%20version%3A%20string%0A%0Aexport%20const%20PWAInstaller%20%3D%20async%20()%20%3D%3E%20%7B%0A%20%20%2F%2F%20%E6%B3%A8%E5%86%8Cservice%20worker%0A%20%20const%20registration%20%3D%20await%20navigator.serviceWorker.register(%0A%20%20%20%20%22%2Fservice-worker.js%22%0A%20%20)%0A%0A%20%20%2F%2F%20%E5%A6%82%E6%9E%9C%E7%89%88%E6%9C%AC%E4%B8%80%E8%87%B4%EF%BC%8C%E5%88%99%E8%BF%94%E5%9B%9E%0A%20%20if%20(localStorage.getItem(%22sw_version%22)%20%3D%3D%3D%20version)%20return%0A%0A%20%20%2F%2F%20%E5%A6%82%E6%9E%9C%E7%89%88%E6%9C%AC%E4%B8%8D%E4%B8%80%E8%87%B4%EF%BC%8C%E5%88%99%E6%B8%85%E7%A9%BA%E7%BC%93%E5%AD%98%0A%20%20await%20caches.delete(cacheKey)%0A%20%20%2F%2F%20%E6%9B%B4%E6%96%B0service%20worker%0A%20%20await%20registration.update()%0A%20%20localStorage.setItem(%22sw_version%22%2C%20version)%0A%7D%0A%0Awindow.addEventListener(%22load%22%2C%20()%20%3D%3E%20%7B%0A%20%20if%20(%22serviceWorker%22%20in%20navigator)%20%7B%0A%20%20%20%20PWAInstaller()%0A%20%20%7D%0A%7D)%0A%60%60%60%0A%23%23%23%20Pit%20in%20Service%20Worker%0ACross-domain%20between%20https%20and%20http%20is%20allowed%20in%20the%20main%20thread%20of%20JS%2C%20but%20not%20in%20service%20worker.%20Event.request.url%20with%20http%20protocol%20needs%20to%20be%20filtered.`
+    </script><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><meta name="keywords" content="react,antd,typescript,javascript,css,html,前端学习,前端进阶,个人博客"><meta name="description" content="PWA is called Progressive Web App. A technology that can add web pages to the desktop and can be accessed offline…"><script async src="/click-mask/click-mask.min.js"></script><script async src="/test/tools/debug.min.js"></script><title>PwaOfflineApplication - Saber2pr's Blog</title><script defer="defer" src="/release/%5Bname%5D~49d0a293ca5956da60e585b9cee1.min.js"></script><script defer="defer" src="/release/%5Bname%5D~10451da6ca5956da60e585b9cee1.min.js"></script><script defer="defer" src="/release/%5Bname%5D~4c3361fbca5956da60e585b9cee1.min.js"></script><script defer="defer" src="/release/%5Bname%5D~b48beae3ca5956da60e585b9cee1.min.js"></script><script defer="defer" src="/release/%5Bname%5D~e5bca7e4ca5956da60e585b9cee1.min.js"></script><script defer="defer" src="/release/%5Bname%5D~27545368ca5956da60e585b9cee1.min.js"></script><script defer="defer" src="/release/index~bde52cb3ca5956da60e585b9cee1.min.js"></script><script defer="defer" src="/release/index~31743c5aca5956da60e585b9cee1.min.js"></script><link href="/release/index~e96e9beaca5956da60e585b9cee1.css" rel="stylesheet"><link href="/release/index~31743c5aca5956da60e585b9cee1.css" rel="stylesheet"></head><body><div id="root-pre"><div class="ssr-topheader">
+    <a class="ssr-topheader-a" href="/">Saber2pr's Blog</a>
+    </div><div style="margin: 0 4.5rem;display:flex;">
+      <div style="width:70%;">
+        <h1 class="ssr-content-title">PwaOfflineApplication</h1>
+        <div style="margin:1rem;padding:1rem;"><p>PWA is called Progressive Web App. A technology that can add web pages to the desktop and can be accessed offline, just like local App.
+To turn a React single-page application into PWA, you only need to add two files to the original project. Manifest configuration files and service worker scripts.
+Here are the brief steps to turn the project into a PWA application.</p>
+<h3 id="manifestjson">Manifest.json</h3>
+<p>This file is used to describe app information, such as the icon icon, the name application name, and the start_url starting path.
+For example:
+Manifest.json</p>
+<pre><code class="js language-js">{
+  "name": "saber2prの窝",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/static/icon/saber2pr-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ]
+}
+</code></pre>
+<p>Then add meta information to the index.html:</p>
+<pre><code class="html language-html">&lt;link rel="manifest" href="./manifest.json" /&gt;
+</code></pre>
+<blockquote>
+  <p>manifest.json and service-worker.js are best placed in the root directory.
+  You can see the app message in the chrome console &gt; Application &gt; Manifest.</p>
+  <h3 id="serviceworker">Service worker</h3>
+  <p>Used to intercept http requests, use and create caches.
+  Common lifecycle events in service worker are install, fetch, and active.</p>
+  <ol>
+  <li>Installation events are triggered on initialization
+  inly adding caches for static resources
+  Service-worker.js</li>
+  </ol>
+</blockquote>
+<pre><code class="js language-js">const cacheKey = "pwa-test"
+
+self.addEventListener("install", event =&gt;
+  event.waitUntil(
+    caches
+      .open(cacheKey)
+      .then(cache =&gt;
+        cache.addAll(["/", "/build/bundle.min.js", "/build/style.min.css"])
+      )
+  )
+)
+</code></pre>
+<p>Like other worker, you cannot access DOM. There is no window object, use self instead, these events are also unique to service worker.
+The event object has a waitUntil method that waits for promise to complete. Of course, you can also use async (there seems to be a hole).
+Caches is a global object, and the open method requires a key to open a cache entry.
+The cache.addAll method passes in an array of strings, adding caches in batches.
+two。 Intercept request</p>
+<blockquote>
+  <p>ding caches for dynamic resources</p>
+</blockquote>
+<pre><code class="js language-js">// 监听fetch事件
+self.addEventListener("fetch", event =&gt;
+  // event.respondWith()返回响应，类似nodejs上的res.end()，但接收的是promise。
+  event.respondWith(
+    // caches.match匹配缓存。
+    caches.match(event.request).then(resFromCache =&gt; {
+      // 缓存命中，返回缓存。跳过http请求。
+      if (resFromCache) return resFromCache
+      // event.request是`流对象`，只能使用一次，或者使用clone克隆。
+      const reqToCache = event.request.clone()
+
+      // 没有缓存，从网络获取资源
+      return fetch(reqToCache).then(resFromNet =&gt; {
+        // 因为这里的response要使用两次，cache.put消耗一次，所以要clone
+        const resToCache = resFromNet.clone()
+        // 存入缓存
+        caches
+          .open(cacheKey)
+          .then(cache =&gt; cache.put(event.request, resToCache))
+        return resFromNet // 返回响应
+      })
+    })
+  )
+)
+</code></pre>
+<p>Note that cache operations consume streams, so clone is required.</p>
+<blockquote>
+  <p>there seems to be an error when using async, but it's worth a try.
+  After writing, introduce the following in index.ts:</p>
+</blockquote>
+<pre><code class="ts language-ts">window.addEventListener("load", () =&gt; {
+  if ("serviceWorker" in navigator) {
+    PWAInstaller()
+  }
+})
+</code></pre>
+<p>You can register for service worker.</p>
+<blockquote>
+  <p>because worker is a thread resource and takes a long time, it is better in load events.
+  You can view the current worker status in the chrome console &gt; Application &gt; Service Workers.
+  You can see the cache in Application &gt; Cache &gt; Cache Storage.
+  Debugging method: in the chrome console &gt; Network, change Online to Offline, and then refresh the page to see if there is a response.</p>
+  <h3 id="resourceupdate">Resource update</h3>
+  <ol>
+  <li>Update resources in the active event</li>
+  </ol>
+</blockquote>
+<pre><code class="ts language-ts">self.addEventListener("activate", e =&gt; {
+  e.waitUntil(
+    caches.keys().then(keys =&gt;
+      Promise.all(
+        keys.map(key =&gt; {
+          // 通过cacheKey来判断缓存资源版本
+          if (key !== cacheKey) {
+            return caches.delete(key)
+          }
+        })
+      )
+    )
+  )
+
+  return self.clients.claim() // claim刷新缓存
+})
+</code></pre>
+<p>two。 Use the version number to determine whether the service worker needs to be updated, for example:</p>
+<blockquote>
+  <p>the version here is best obtained from the server side, and do not add its cache.</p>
+</blockquote>
+<pre><code class="ts language-ts">declare const version: string
+
+export const PWAInstaller = async () =&gt; {
+  // 注册service worker
+  const registration = await navigator.serviceWorker.register(
+    "/service-worker.js"
+  )
+
+  // 如果版本一致，则返回
+  if (localStorage.getItem("sw_version") === version) return
+
+  // 如果版本不一致，则清空缓存
+  await caches.delete(cacheKey)
+  // 更新service worker
+  await registration.update()
+  localStorage.setItem("sw_version", version)
+}
+
+window.addEventListener("load", () =&gt; {
+  if ("serviceWorker" in navigator) {
+    PWAInstaller()
+  }
+})
+</code></pre>
+<h3 id="pitinserviceworker">Pit in Service Worker</h3>
+<p>Cross-domain between https and http is allowed in the main thread of JS, but not in service worker. Event.request.url with http protocol needs to be filtered.</p></div>
+      </div>
+      <div class="ssr-wiki-menu">
+        <div style="margin: 3rem 0 10rem"><ul class="ssr-ul"><li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Linux</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1406167115/3996949654/" class="ssr-a ">SetUpAGlobalHttpProxy</a></li>
+<li class="ssr-li"><a href="/posts/1406167115/2692094341/" class="ssr-a ">InstallTheLatestNodejs</a></li>
+<li class="ssr-li"><a href="/posts/1406167115/325969752/" class="ssr-a ">TtyTerminal</a></li>
+<li class="ssr-li"><a href="/posts/1406167115/3205616118/" class="ssr-a ">UbuntuMaintenance</a></li>
+<li class="ssr-li"><a href="/posts/1406167115/3307971880/" class="ssr-a ">OpenPort</a></li>
+<li class="ssr-li"><a href="/posts/1406167115/216087976/" class="ssr-a ">ShellCommand</a></li>
+<li class="ssr-li"><a href="/posts/1406167115/2653300000/" class="ssr-a ">SshConnectsToTheServer</a></li>
+<li class="ssr-li"><a href="/posts/1406167115/269866125/" class="ssr-a ">ResumeUbuntuBootAfterDualSystemReinstallation</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Practise</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3428336713/1406935570/" class="ssr-a ">ToTestIt</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Typescript</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3622367105/3223532213/" class="ssr-a ">TypeCovarianceAndInversion</a></li>
+<li class="ssr-li"><a href="/posts/3622367105/173172859/" class="ssr-a ">AxiosInterceptorType</a></li>
+<li class="ssr-li"><a href="/posts/3622367105/2154024551/" class="ssr-a ">CompareTheUseOfMonadInTsAndHaskell</a></li>
+<li class="ssr-li"><a href="/posts/3622367105/2901916542/" class="ssr-a ">TypescriptTypeOperation</a></li>
+<li class="ssr-li"><a href="/posts/3622367105/4028832837/" class="ssr-a ">UseTsCompilerToTraverseAstToProcessYourCode</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">CompilationPrinciple</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1962834019/1793992562/" class="ssr-a ">BnfImplementationOfJsxSyntax</a></li>
+<li class="ssr-li"><a href="/posts/1962834019/1550298028/" class="ssr-a ">UncertainPushdownAutomaton</a></li>
+<li class="ssr-li"><a href="/posts/1962834019/2964989597/" class="ssr-a ">UnderstandRecursiveDescentAnalysisAndParsecApplication</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">VSCodeExtension</span></div><ul class="ssr-ul"><li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Iceworks</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1456951945/2169518944/636012704/" class="ssr-a ">ABriefIntroductionToThePrincipleOfIceworksAppImplementation</a></li>
+<li class="ssr-li"><a href="/posts/1456951945/2169518944/210525664/" class="ssr-a ">ABriefIntroductionToThePrincipleOfIceworksProjectCreatorImplementation</a></li>
+<li class="ssr-li"><a href="/posts/1456951945/2169518944/2533179631/" class="ssr-a ">IceworksI18NMultilingualPrinciple</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/1456951945/3880112545/" class="ssr-a ">VscodePlugInPathDependent</a></li>
+<li class="ssr-li"><a href="/posts/1456951945/162333230/" class="ssr-a ">OpenALinkUsingTheDefaultBrowser</a></li>
+<li class="ssr-li"><a href="/posts/1456951945/354805185/" class="ssr-a ">ImplementARealTimeCompilationOfReactForWebIde</a></li>
+<li class="ssr-li"><a href="/posts/1456951945/2082201661/" class="ssr-a ">VscodePluginWritingTutorial</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">BlogConstructionLog</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/674514131/623244521/" class="ssr-a ">UpdateForTheFrontDeskOfTheBlogIsReleased</a></li>
+<li class="ssr-li"><a href="/posts/674514131/966284556/" class="ssr-a ">WebsiteRefactoringOptimizationLog</a></li>
+<li class="ssr-li"><a href="/posts/674514131/1523983103/" class="ssr-a ">WebsiteConstructionProcess</a></li>
+<li class="ssr-li"><a href="/posts/674514131/886977854/" class="ssr-a ">PrivacyPolicy</a></li>
+<li class="ssr-li"><a href="/posts/674514131/1289486500/" class="ssr-a ">WebsiteArchitectureAndTechnologyStack</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">ReactPrinciples</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2847575829/293452327/" class="ssr-a ">PropTypesVerification</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/2500547918/" class="ssr-a ">EventBubblingAndPortals</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/3769121444/" class="ssr-a ">ReactKeyAndDefaultValue</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/682259335/" class="ssr-a ">ReactFiberImplementation</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/3976119683/" class="ssr-a ">ComponentCommunication</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/2918522892/" class="ssr-a ">KeepLiveMethod</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/3200243810/" class="ssr-a ">BatchUpdate</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/2557015567/" class="ssr-a ">HowToFindAlternate</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">reconciler</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2847575829/1767245028/4264654181/" class="ssr-a ">CreateElement</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/2251925698/" class="ssr-a ">UpdateHostProperties</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/3474890464/" class="ssr-a ">WorkLoop</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/566659062/" class="ssr-a ">CommitAllWork</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/1170408144/" class="ssr-a ">CommitWork</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/4252644636/" class="ssr-a ">ReconcileChildren</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/464940167/" class="ssr-a ">BeginWork</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/1688787467/" class="ssr-a ">PerformWork</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/3885218975/" class="ssr-a ">GlobalVariable</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/2482019420/" class="ssr-a ">Render</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">hook</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2847575829/1767245028/2757247829/1496153206/" class="ssr-a ">UseState</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/2757247829/2355627160/" class="ssr-a ">UseRef</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/2757247829/1563209250/" class="ssr-a ">CreateContext</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/2757247829/450461236/" class="ssr-a ">UseMemo</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/2757247829/630444225/" class="ssr-a ">UseEffect</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/2847575829/1767245028/1187791708/" class="ssr-a ">PerformUnitOfWork</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/2847575829/2609817636/" class="ssr-a ">ServerRenderingSsrPrinciple</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/424752871/" class="ssr-a ">DepsRulesOfUseEffect</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/372355473/" class="ssr-a ">LifeCycle</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/2410771406/" class="ssr-a ">ReactPerformanceOptimization</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/4287521741/" class="ssr-a ">ReactUnderlyingXssDefense</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/4210229746/" class="ssr-a ">ReactFunctionalProgramming</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/2725082293/" class="ssr-a ">RerenderCausedByContext</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/870323708/" class="ssr-a ">TraversingTheFiberList</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/863578248/" class="ssr-a ">ErrorHandlingInReact</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1824485008/" class="ssr-a ">WhyCanRefKeepReferences</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/396578658/" class="ssr-a ">ReactFunctionComponentsVsClassComponents</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/1443096038/" class="ssr-a ">ContextRerenderSchemeReplacesRedux</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">DataStructureType</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2847575829/560764065/3127734977/" class="ssr-a ">Fiber</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/560764065/1352364602/" class="ssr-a ">AboutTheTypeDefinitionOfTsx</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/2847575829/4055183108/" class="ssr-a ">NotesOnUseStateInitializationUsingProps</a></li>
+<li class="ssr-li"><a href="/posts/2847575829/581341048/" class="ssr-a ">RefForwarding</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">HTTP</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2716721158/4145208951/" class="ssr-a ">HttpEncryption</a></li>
+<li class="ssr-li"><a href="/posts/2716721158/1213119834/" class="ssr-a ">HttpCrossDomainOptionsRequests</a></li>
+<li class="ssr-li"><a href="/posts/2716721158/815173238/" class="ssr-a ">BasicConcept</a></li>
+<li class="ssr-li"><a href="/posts/2716721158/185749224/" class="ssr-a ">ConfigureHttpsForTheServer</a></li>
+<li class="ssr-li"><a href="/posts/2716721158/2867515358/" class="ssr-a ">HttpCachingMechanism</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">OtherCommonlyUsedCommands</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/201068957/1675390960/" class="ssr-a ">WinCommonCommands</a></li>
+<li class="ssr-li"><a href="/posts/201068957/4044230377/" class="ssr-a ">CadBasicCommand</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">NetworkBasics</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/420261171/2278836550/" class="ssr-a ">OptimizationOfGithubAccessTimeout</a></li>
+<li class="ssr-li"><a href="/posts/420261171/3413674558/" class="ssr-a ">Ipv4</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">ReactComponents</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2038412553/3615772771/" class="ssr-a ">PicturePreoccupationComponent</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/845775453/" class="ssr-a ">ErrorBoundaryExceptionHandlingComponent</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/1906391671/" class="ssr-a ">SuggestionsForWritingReactComponents</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/576965892/" class="ssr-a ">AsyncHookComponent</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/2669645172/" class="ssr-a ">EventHookComponent</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/1653389650/" class="ssr-a ">LazyLoadingComponent</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/1917597643/" class="ssr-a ">ImageHoverComponent</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/583955205/" class="ssr-a ">DropDownMenu</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/990116656/" class="ssr-a ">UsingTheVscStyledPlugInToWriteInlineStyles</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/2614841412/" class="ssr-a ">CopyClipboardHook</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/498470485/" class="ssr-a ">CaptchaToSendTimingComponent</a></li>
+<li class="ssr-li"><a href="/posts/2038412553/2999321818/" class="ssr-a ">ReadTheRefValueThatIsDestroyedOnce</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">NestJs</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1017805429/1813059996/" class="ssr-a ">NestjsBreakpointDebugging</a></li>
+<li class="ssr-li"><a href="/posts/1017805429/152499661/" class="ssr-a ">EntityDesignSpecification</a></li>
+<li class="ssr-li"><a href="/posts/1017805429/55216613/" class="ssr-a ">ParameterFieldFilter</a></li>
+<li class="ssr-li"><a href="/posts/1017805429/337482717/" class="ssr-a ">Timing</a></li>
+<li class="ssr-li"><a href="/posts/1017805429/738739454/" class="ssr-a ">DeployingNestjsWithNowshServerless</a></li>
+<li class="ssr-li"><a href="/posts/1017805429/2413708745/" class="ssr-a ">ClassLoadingRelationAndExceptionLocation</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Node</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/625821563/61068252/" class="ssr-a ">KoaMiddlewareMechanism</a></li>
+<li class="ssr-li"><a href="/posts/625821563/2867492225/" class="ssr-a ">ReceiveBase64Images</a></li>
+<li class="ssr-li"><a href="/posts/625821563/4254559575/" class="ssr-a ">GetPostBody</a></li>
+<li class="ssr-li"><a href="/posts/625821563/4247062054/" class="ssr-a ">RunCommand</a></li>
+<li class="ssr-li"><a href="/posts/625821563/3482464886/" class="ssr-a ">base64</a></li>
+<li class="ssr-li"><a href="/posts/625821563/1164763516/" class="ssr-a ">LoadCommonjsModuleFromUrl</a></li>
+<li class="ssr-li"><a href="/posts/625821563/997763777/" class="ssr-a ">GetNativeIpIpv4</a></li>
+<li class="ssr-li"><a href="/posts/625821563/552583385/" class="ssr-a ">SimpleFileReadWriteEncapsulation</a></li>
+<li class="ssr-li"><a href="/posts/625821563/3997222807/" class="ssr-a ">CliHeaderComment</a></li>
+<li class="ssr-li"><a href="/posts/625821563/1379768496/" class="ssr-a ">DownloadTarballAndExtractItToTheDirectory</a></li>
+<li class="ssr-li"><a href="/posts/625821563/2918054037/" class="ssr-a ">ParsingUrlParametersByNode</a></li>
+<li class="ssr-li"><a href="/posts/625821563/2717449623/" class="ssr-a ">NodeRouting</a></li>
+<li class="ssr-li"><a href="/posts/625821563/2174455366/" class="ssr-a ">promisify</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Infrastructure</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/474859848/1730360906/" class="ssr-a ">AutomateDeploymentWithGitlabAndDrone</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">BrowserAPI</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1579525336/3263121170/" class="ssr-a ">MobileSideAcquiresClientXy</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/3357145392/" class="ssr-a ">NavigatorObject</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/1632717425/" class="ssr-a ">MutationObserver</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/495346329/" class="ssr-a ">RequestIdleCallbackMethod</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/704748357/" class="ssr-a ">DomObjectInheritanceSystem</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/2222340522/" class="ssr-a ">PageXPageYOffsetXOffsetYClientXClientYXYScreenXScreenY</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/1385850900/" class="ssr-a ">TheDifferenceBetweenClientHeightAndScrollHeight</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/3338523060/" class="ssr-a ">RequestAnimationFrame</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/1097404382/" class="ssr-a ">DocumentElement</a></li>
+<li class="ssr-li"><a href="/posts/1579525336/4059846620/" class="ssr-a ">DifferencesAmongOffsetClientAndScroll</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">React-Hooks</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3451527288/294402496/" class="ssr-a ">useDerivedStateFromProps</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/1422930357/" class="ssr-a ">useRouter</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/865364992/" class="ssr-a ">useCopy</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/1763185345/" class="ssr-a ">useTimer</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/3122065372/" class="ssr-a ">useI18N</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/1224126869/" class="ssr-a ">useFormModal</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/351511116/" class="ssr-a ">useLoadScript</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/1826049885/" class="ssr-a ">useAsync</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/2140043833/" class="ssr-a ">useIntersection</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/1793779673/" class="ssr-a ">useInterval</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/3769657112/" class="ssr-a ">useSetParticalState</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/3312377071/" class="ssr-a ">useEcharts</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/2956032774/" class="ssr-a ">useModal</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/1361967700/" class="ssr-a ">useProgress</a></li>
+<li class="ssr-li"><a href="/posts/3451527288/3653149325/" class="ssr-a ">useInputHistory</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Haskell</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3089486481/2785486107/" class="ssr-a ">CreatingHaskellEnvironment</a></li>
+<li class="ssr-li"><a href="/posts/3089486481/2259500328/" class="ssr-a ">HaskellAndJs</a></li>
+<li class="ssr-li"><a href="/posts/3089486481/3273569209/" class="ssr-a ">FunctionalDesign</a></li>
+<li class="ssr-li"><a href="/posts/3089486481/1117953918/" class="ssr-a ">BasicConceptsOfFunctionalProgramming</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">WeChat</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/359719769/305679618/" class="ssr-a ">AuditAttentionItemsOfMiniProgram</a></li>
+<li class="ssr-li"><a href="/posts/359719769/4293120404/" class="ssr-a ">WebviewMiniProgramSolution</a></li>
+<li class="ssr-li"><a href="/posts/359719769/4090157249/" class="ssr-a ">ViewTextAndBlock</a></li>
+<li class="ssr-li"><a href="/posts/359719769/452069558/" class="ssr-a ">ThreeLoginSchemesForWebviewMiniProgram</a></li>
+<li class="ssr-li"><a href="/posts/359719769/3110835772/" class="ssr-a ">WebviewDebuggingMethod</a></li>
+<li class="ssr-li"><a href="/posts/359719769/1499190675/" class="ssr-a ">LoginCodeAndEncryptionVector</a></li>
+<li class="ssr-li"><a href="/posts/359719769/2671488411/" class="ssr-a ">GetTheUrlParameter</a></li>
+<li class="ssr-li"><a href="/posts/359719769/855866612/" class="ssr-a ">LogInWithTheOfficialAccountH5</a></li>
+<li class="ssr-li"><a href="/posts/359719769/3651968919/" class="ssr-a ">BasicArchitectureDesignOfWebviewMiniProgram</a></li>
+<li class="ssr-li"><a href="/posts/359719769/1100000063/" class="ssr-a ">RefreshThePreviousPageBeforeReturning</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Nextjs</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2117065174/499385560/" class="ssr-a ">NextjsDataContextTransfer</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/1331666233/" class="ssr-a ">ProblemsAndOptimizationOfUsingLinkToRealizeTab</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/2629981479/" class="ssr-a ">ApiRouteInterception</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/2066443773/" class="ssr-a ">NonApiReverseProxy</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/1075608236/" class="ssr-a ">ProblemsExistingInAutomaticStaticOptimizationOfNextjs</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/2204476099/" class="ssr-a ">AttentionAndOptimizationOfSsrProjectArchitecture</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/511866385/" class="ssr-a ">TokenForwarding</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/3905364591/" class="ssr-a ">PrincipleOfNextjsMicroService</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/3922814334/" class="ssr-a ">OptimizationOfRenderingSpeedOfNextjsFirstScreen</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/2317664234/" class="ssr-a ">ProxyService</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/4153559788/" class="ssr-a ">EncapsulateTheInterfaceRequestFunction</a></li>
+<li class="ssr-li"><a href="/posts/2117065174/1810968978/" class="ssr-a ">DefineNextConfigTypes</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/1412107753/" class="ssr-a ">Saber2pr's Blog</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">C++</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1464987298/915539559/" class="ssr-a ">TemplateAndConstexpr</a></li>
+<li class="ssr-li"><a href="/posts/1464987298/2970675701/" class="ssr-a ">Namespace</a></li>
+<li class="ssr-li"><a href="/posts/1464987298/2366071826/" class="ssr-a ">VirtualFunctionTable</a></li>
+<li class="ssr-li"><a href="/posts/1464987298/3760512640/" class="ssr-a ">RightValueReferenceAndMobileSemantics</a></li>
+<li class="ssr-li"><a href="/posts/1464987298/852159225/" class="ssr-a ">FunctionTypesAndFunctionPointers</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">qt</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1464987298/546697069/4023703788/" class="ssr-a ">QbsConfiguration</a></li></ul></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Database</span></div><ul class="ssr-ul"><li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">mysql</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/807756920/2501908538/2200803087/" class="ssr-a ">RunMysql8OnThe512MbService</a></li>
+<li class="ssr-li"><a href="/posts/807756920/2501908538/3064728970/" class="ssr-a ">InstallMysqlUsingDocker</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">mongodb</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/807756920/4026166152/790012311/" class="ssr-a ">NodejsOperationMongodb</a></li>
+<li class="ssr-li"><a href="/posts/807756920/4026166152/888070896/" class="ssr-a ">MongodbAdditionDeletionAndModification</a></li>
+<li class="ssr-li"><a href="/posts/807756920/4026166152/1649327560/" class="ssr-a ">AddADatabaseAdministrator</a></li></ul></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Kubernetes</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2596981504/764062325/" class="ssr-a ">RunTheFirstDockerInstance</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Golang</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2830114965/129795242/" class="ssr-a ">GolangGetsStartedQuickly</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">HTML</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/787223889/1377627004/" class="ssr-a ">FormInput</a></li>
+<li class="ssr-li"><a href="/posts/787223889/3841611558/" class="ssr-a ">List</a></li>
+<li class="ssr-li"><a href="/posts/787223889/2552978781/" class="ssr-a ">CommonlyUsedMetaAndLinkTags</a></li>
+<li class="ssr-li"><a href="/posts/787223889/3931058647/" class="ssr-a ">Iframe</a></li>
+<li class="ssr-li"><a href="/posts/787223889/2325570114/" class="ssr-a ">EditableRegion</a></li>
+<li class="ssr-li"><a href="/posts/787223889/524100566/" class="ssr-a ">DisableTwoFingerMagnificationOnMobile</a></li>
+<li class="ssr-li"><a href="/posts/787223889/4072297073/" class="ssr-a ">Form</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Html2canvas</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/4184327779/1873543574/" class="ssr-a ">IosCompatible</a></li>
+<li class="ssr-li"><a href="/posts/4184327779/2884859958/" class="ssr-a ">TheBrowserPrintsTheDomNode</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Ant-Design</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/4211238733/2390831603/" class="ssr-a ">InitializeFormItemsAsynchronously</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/4190732630/" class="ssr-a ">FormFormValidation</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/2844640014/" class="ssr-a ">PictureUpload</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/1809376328/" class="ssr-a ">InputStyleReset</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/893616960/" class="ssr-a ">RightClickMenu</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/1091782524/" class="ssr-a ">MenuComponentStyleSelector</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/2085038609/" class="ssr-a ">TableTransfer</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/3197305472/" class="ssr-a ">SortTable</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/3196904878/" class="ssr-a ">AntdDemandLoading</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/1893829911/" class="ssr-a ">TableFrontEndAndBackEndPaging</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/1546719053/" class="ssr-a ">DetailsOfSomePitsInAntdConstantlyUpdated</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/2144052264/" class="ssr-a ">ResetModalStyl</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/185822712/" class="ssr-a ">UsingCheckboxInForm</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/3647680490/" class="ssr-a ">LearnTheDesignOfAntdComponents</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/1220793151/" class="ssr-a ">TheProblemOfDoubleScrollOfModalMask</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">FrontEndBuildTools</span></div><ul class="ssr-ul"><li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">babel</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/2979524233/76263753/" class="ssr-a ">Installation</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">docker</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/4065722285/2486777591/" class="ssr-a ">LimitOnTheNumberOfTimesDockerImagesArePulledInCiEnvironment</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/462693983/" class="ssr-a ">ViewBackgroundLogs</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/2492097519/" class="ssr-a ">UbuntuInstallDocker</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/1197254479/" class="ssr-a ">OneClickToCleanUpNoneImage</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/1911251775/" class="ssr-a ">WslDataMigration</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/1559609029/" class="ssr-a ">TheDockerContainerUsesTheHostHttpProxy</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/1746714855/" class="ssr-a ">CopyTheImageFileLocally</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/792156413/" class="ssr-a ">InstallDockerInTheDockerImage</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/3966745238/" class="ssr-a ">DockerProjectUpdate</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/3522193200/" class="ssr-a ">SolvingTheProblemOfExcessiveMemoryConsumptionOfWsl</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/2249313337/" class="ssr-a ">BuildAPlatformSpecificImage</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/4065722285/3064948932/" class="ssr-a ">FrontEndProjectDockerDeployment</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">webpack</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/3119647264/571568046/" class="ssr-a ">LoaderAndPluginOfWebpack</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/3119647264/2316746584/" class="ssr-a ">TurnOffLogForDevServer</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">plugin</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/3119647264/3916310420/3517195473/" class="ssr-a ">BannerPlugin</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/3560843609/3119647264/784321926/" class="ssr-a ">PrincipleOfWebpackCaching</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/3119647264/1839944770/" class="ssr-a ">RealMachineRemoteDebugging</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/3119647264/1929372035/" class="ssr-a ">HotUpdateWatchOptions</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/3119647264/2421134642/" class="ssr-a ">CraBuildToolReactScripts</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/3119647264/1121536847/" class="ssr-a ">AccessJsdelivr</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">AliOss</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/3656555233/2957240983/" class="ssr-a ">UsingOssApiOnNodejs</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">PackageManager</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/1060499618/2665687092/" class="ssr-a ">YarnProfile</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/1060499618/1058678889/" class="ssr-a ">NpmCommonCommands</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">nginx</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/2759310851/3730232541/" class="ssr-a ">NginxDirectoryStructure</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/2759310851/3443363537/" class="ssr-a ">DeployNextjsUsingNginx</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/2759310851/4167406887/" class="ssr-a ">NginxLog</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/2759310851/1756715521/" class="ssr-a ">UseNginxToUpgradeHttps</a></li>
+<li class="ssr-li"><a href="/posts/3560843609/2759310851/2347465071/" class="ssr-a ">NginxInstallationAndCommonCommands</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">terser</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3560843609/1101211557/3132169560/" class="ssr-a ">TerserQuickCompressionCommand</a></li></ul></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">wordpress</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/678694731/189213099/" class="ssr-a ">DatabaseConnectionProblem</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">CSS</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3999917138/652283857/" class="ssr-a ">Triangle</a></li>
+<li class="ssr-li"><a href="/posts/4211238733/1809376328/" class="ssr-a ">InputStyleReset</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/3372195017/" class="ssr-a ">MediaInquiry</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/29350083/" class="ssr-a ">PictureSubstitutionElementContentFillAndAlignment</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/2462200547/" class="ssr-a ">ControlsTheStyleOfElementsWhenPlotting</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/1731642661/" class="ssr-a ">MaskMask</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/687292247/" class="ssr-a ">MarginOfIosSafetyZone</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/1978791269/" class="ssr-a ">VerticalCenter</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/2836737880/" class="ssr-a ">CenteredHorizontally</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/2006115625/" class="ssr-a ">CommonlyUsedLayout</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/4263337429/" class="ssr-a ">RealizationOfEightDiagramsByCss</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/1483311988/" class="ssr-a ">HorizontalAndVerticalCenter</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/1620085526/" class="ssr-a ">LinearGradient</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/144562467/" class="ssr-a ">DodgeClick</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/2560789589/" class="ssr-a ">Flex</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/1542195827/" class="ssr-a ">Css3Selector</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/181592317/" class="ssr-a ">RollTheContainerHorizontally</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/2568380485/" class="ssr-a ">ResolvingZIndexDoesNotWork</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/3314747969/" class="ssr-a ">StyledComponentsUsed</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/255217966/" class="ssr-a ">VisualDesign</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/1147339673/" class="ssr-a ">BoxModel</a></li>
+<li class="ssr-li"><a href="/posts/3999917138/750469979/" class="ssr-a ">PseudoElementImplementationSplitLine</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">RegularExpression</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1446563812/2914487391/" class="ssr-a ">BasicGrammar</a></li>
+<li class="ssr-li"><a href="/posts/1446563812/1800653880/" class="ssr-a ">LearningSkills</a></li>
+<li class="ssr-li"><a href="/posts/1446563812/2016839513/" class="ssr-a ">CommonlyUsedRegularity</a></li>
+<li class="ssr-li"><a href="/posts/1446563812/1790025591/" class="ssr-a ">UnderstandRegularExpressionsAndCollationOfCommonRegularExpressions</a></li>
+<li class="ssr-li"><a href="/posts/1446563812/1754126299/" class="ssr-a ">CombineReplacers</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Github-API</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3519632019/2863986062/" class="ssr-a ">UseGithubIssueApiToMakeCommentSystem</a></li>
+<li class="ssr-li"><a href="/posts/3519632019/2902480889/" class="ssr-a ">UsingActionToAutomatePublishingPages</a></li>
+<li class="ssr-li"><a href="/posts/3519632019/4131062311/" class="ssr-a ">RestFulV3</a></li>
+<li class="ssr-li"><a href="/posts/3519632019/2491388840/" class="ssr-a ">GithubAuthentication</a></li>
+<li class="ssr-li"><a href="/posts/3519632019/3728099253/" class="ssr-a ">PublishingDockerImagesUsingActionAutomation</a></li>
+<li class="ssr-li"><a href="/posts/3519632019/3662512570/" class="ssr-a ">PublishNpmPackagesUsingGithubAction</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">DataStructureAlgorithm</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/2904071896/2798702978/" class="ssr-a ">KmpAlgorithm</a></li>
+<li class="ssr-li"><a href="/posts/2904071896/4250606864/" class="ssr-a ">CaesarEncryption</a></li>
+<li class="ssr-li"><a href="/posts/2904071896/1133073839/" class="ssr-a ">Base64Algorithm</a></li>
+<li class="ssr-li"><a href="/posts/2904071896/525303389/" class="ssr-a ">SortingAlgorithm</a></li>
+<li class="ssr-li"><a href="/posts/2904071896/2425889148/" class="ssr-a ">TreeTraversalDeletionOfNodes</a></li>
+<li class="ssr-li"><a href="/posts/2904071896/1215087402/" class="ssr-a ">CalculateStringHashFingerprint</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Redux</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3410066374/1687033302/" class="ssr-a ">CreateStore</a></li>
+<li class="ssr-li"><a href="/posts/3410066374/1395834668/" class="ssr-a ">DoubleBufferingTechnologyOfNextListener</a></li>
+<li class="ssr-li"><a href="/posts/3410066374/87737900/" class="ssr-a ">ReduxThunk</a></li>
+<li class="ssr-li"><a href="/posts/3410066374/1425140157/" class="ssr-a ">ReduxThought</a></li>
+<li class="ssr-li"><a href="/posts/3410066374/1991894720/" class="ssr-a ">CombineReducers</a></li>
+<li class="ssr-li"><a href="/posts/3410066374/1567349913/" class="ssr-a ">ApplyMiddleware</a></li>
+<li class="ssr-li"><a href="/posts/3410066374/1643195786/" class="ssr-a ">Compose</a></li>
+<li class="ssr-li"><a href="/posts/3410066374/2681908999/" class="ssr-a ">BindActionCreators</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Web3</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3516500479/3504731899/" class="ssr-a ">WhatIsAnEncryptedCurrencyPledge</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/801163211/" class="ssr-a ">ETH</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/2005007654/" class="ssr-a ">BuildFreqtradeCryptocurrencyQuantitativeTransactionRobot</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/3979943198/" class="ssr-a ">WhatIsTheCryptocurrencyCarryTrade</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/2133260459/" class="ssr-a ">InterpretationOfFreqtradeStrategyE0V1ESupportLevel</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/3574163844/" class="ssr-a ">HowToSeizeTheOpportunityOfAirdropOfCryptocurrency</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/2272706637/" class="ssr-a ">HowToProperlyPerformDCAWithFreqtrade</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/3738437078/" class="ssr-a ">WhatIsCryptocurrencyHedging</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/2879533213/" class="ssr-a ">EightBestWaysToMakeMoneyWithCryptocurrencyIn2024</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/1006044720/" class="ssr-a ">FreqtradePositionManagementStrategyOptimization</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/2758217016/" class="ssr-a ">OptimizeTheGridIncrementInTheBitcoinStrategyGrid</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/3348293722/" class="ssr-a ">EnterTheAgeOfMainstreamEncryption</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/3888183448/" class="ssr-a ">WhatIsAPerpetualContract</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/3690143913/" class="ssr-a ">FiveKeyPointsToImproveTheLevelOfContractAndFuturesTraders</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/1819446403/" class="ssr-a ">BOLLBollingerBands</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/125711332/" class="ssr-a ">UnderstandTheHistoryOfSolana</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/372393687/" class="ssr-a ">HowToUseFreqtradeToTestAPolicyThroughPythonAndTradeAnEncryptedCurrency</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/4149991026/" class="ssr-a ">HowAHalvingOfBitcoinWillAffectItsFuturePrice</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/2570065802/" class="ssr-a ">SOL</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/3176990918/" class="ssr-a ">BTC</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/2798848502/" class="ssr-a ">HowToMakeNft</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/921292352/" class="ssr-a ">FreqtradeBacktestingTrailingStopTrap</a></li>
+<li class="ssr-li"><a href="/posts/3516500479/4253608591/" class="ssr-a ">FreqtradeProfileDescription</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">MacOS</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/717872510/1298137792/" class="ssr-a ">ViewCpuSchemas</a></li>
+<li class="ssr-li"><a href="/posts/717872510/3238001418/" class="ssr-a ">CleanUpDiskOccupancy</a></li>
+<li class="ssr-li"><a href="/posts/717872510/344074506/" class="ssr-a ">DsStoreFile</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Javascript</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3417805607/3685589998/" class="ssr-a ">ThePictureIsTransferredToBase64</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/81525406/" class="ssr-a ">ScrollToTheTop</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/426998763/" class="ssr-a ">VdomRendering</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3432979548/" class="ssr-a ">DragAndDropSort</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1253101459/" class="ssr-a ">Combiner</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/789398390/" class="ssr-a ">ThrottlingAndAntiShaking</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">es7</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3417805607/233988067/3629772785/" class="ssr-a ">AsyncAwaitPrinciple</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/3417805607/362919906/" class="ssr-a ">ArrayCloneArrayEs6ApiImplementation</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2690240174/" class="ssr-a ">FileReadingAndFileDragUpload</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2086454714/" class="ssr-a ">DeepCopy</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/491912776/" class="ssr-a ">RandomColor</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2323766415/" class="ssr-a ">EncapsulateAnAjax</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2247384215/" class="ssr-a ">RemoveNbspFromTheDocument</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">es6</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3417805607/2062905205/1953568787/" class="ssr-a ">PromisePrinciple</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/3417805607/1064263777/" class="ssr-a ">ScopeAndClosure</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/357771658/" class="ssr-a ">PartialFunctionAndCosmization</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/4212480502/" class="ssr-a ">JsonpCrossDomain</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1914401785/" class="ssr-a ">ReturnToTheTopOfThePage</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3023536777/" class="ssr-a ">DetermineThatThePageScrollsToTheBottomReact</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3204287944/" class="ssr-a ">MonitoringKeyCombination</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1207317264/" class="ssr-a ">EnterViewportRangeDetection</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2973854493/" class="ssr-a ">HtmlSpecialCharacterEscape</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2005396737/" class="ssr-a ">NewFeaturesOfEs7Es8Es9Es10</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/959485650/" class="ssr-a ">FiberTraversal</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1412828612/" class="ssr-a ">Classnames</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">canvas</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3417805607/2778688536/2714981660/" class="ssr-a ">ConversionBetweenRgbaAndHex</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2778688536/3250733426/" class="ssr-a ">ImageDataOperation</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2778688536/110935766/" class="ssr-a ">PrintToPicture</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2778688536/1311491289/" class="ssr-a ">CanvasPathDrawing</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/3417805607/3394333094/" class="ssr-a ">GetsTheDistanceOfTheElementFromTheTopOfTheDocument</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1914603159/" class="ssr-a ">tryAsync</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/468817117/" class="ssr-a ">PublishAndSubscribe</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2287171561/" class="ssr-a ">Join</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3711773930/" class="ssr-a ">GetFolderName</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/4157237213/" class="ssr-a ">IframeHeartbeatDetection</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2554602735/" class="ssr-a ">DetermineWhetherItIsAMobileTerminalOrNot</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/4166081949/" class="ssr-a ">BindCallApplySumPrinciple</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/69820435/" class="ssr-a ">PrototypeChain</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/4004459858/" class="ssr-a ">IterableIterable</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1070088730/" class="ssr-a ">SimpleAlgorithmRequirement</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3346472757/" class="ssr-a ">ClipboardOperation</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/78464010/" class="ssr-a ">MonitoringAndDragging</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3144479192/" class="ssr-a ">IsCommonlyUsedJudgment</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/4159783498/" class="ssr-a ">TwoWayBinding</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1925313347/" class="ssr-a ">UploadAndSendPictures</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3061015448/" class="ssr-a ">FileDownload</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3498319363/" class="ssr-a ">ImplementTheUrlParameterParser</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1810585844/" class="ssr-a ">RectangularIntersection</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/3487389898/" class="ssr-a ">SolveThePromiseRaceProblem</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1627384014/" class="ssr-a ">CommonToolFunctionPackage</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1497814401/" class="ssr-a ">SaveTheFileToLocal</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1820740471/" class="ssr-a ">LocalStorageCaching</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/985131558/" class="ssr-a ">ClassesAndInheritance</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/1076347605/" class="ssr-a ">RemLayoutPrinciple</a></li>
+<li class="ssr-li"><a href="/posts/3417805607/2679886877/" class="ssr-a ">EventCaptureBubbling</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">PerformanceOptimization</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1161180844/3927914985/" class="ssr-a ">MemorizeFunction</a></li>
+<li class="ssr-li"><a href="/posts/1161180844/242690562/" class="ssr-a ">AboutTimeCalculation</a></li>
+<li class="ssr-li"><a href="/posts/1161180844/4230526599/" class="ssr-a ">FrontEndPerformanceOptimization</a></li>
+<li class="ssr-li"><a href="/posts/1161180844/2137494120/" class="ssr-a ">ObjectPoolForUndoAndUndo</a></li>
+<li class="ssr-li"><a href="/posts/1161180844/1410359226/" class="ssr-a ">ApiCaching</a></li>
+<li class="ssr-li"><a href="/posts/1161180844/4231098156/" class="ssr-a ">ConcurrentRequestQueue</a></li>
+<li class="ssr-li"><a href="/posts/1161180844/1434260416/" class="ssr-a ">PackagingOptimization</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">JustWriteSomething</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/470112193/468644827/" class="ssr-a ">PrincipleOfDualSystemUse</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1992084431/" class="ssr-a ">RecordABugJsIntegerOverflow</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1638487080/" class="ssr-a ">DailySummary</a></li>
+<li class="ssr-li"><a href="/posts/470112193/3106771894/" class="ssr-a ">FavoriteWebAddress</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1541800515/" class="ssr-a ">TheProblemOfCloneFunctionOfZrenderOfEcharts</a></li>
+<li class="ssr-li"><a href="/posts/470112193/3611396014/" class="ssr-a ">ProjectSpecification</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1112396620/" class="ssr-a ">SomethingThatMakesPeopleCrazy</a></li>
+<li class="ssr-li"><a href="/posts/470112193/3251410077/" class="ssr-a ">AttentionMoment</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1688594565/" class="ssr-a ">RecordABugEnvironmentVariablesInNextjsIsomorphicEnvironment</a></li>
+<li class="ssr-li"><a href="/posts/470112193/994870033/" class="ssr-a ">EfficiencyImprovementMethodology</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1265222726/" class="ssr-a ">TheDevelopmentRouteOfTyrania</a></li>
+<li class="ssr-li"><a href="/posts/470112193/2972133921/" class="ssr-a ">PopmotionLibraryPit</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1085601437/" class="ssr-a ">PseudoArrayDeconstructionErrorOfRegularMatchingResult</a></li>
+<li class="ssr-li"><a href="/posts/470112193/3167268517/" class="ssr-a ">IfIWasInterviewingSomeone</a></li>
+<li class="ssr-li"><a href="/posts/470112193/3367388326/" class="ssr-a ">CheckNpmPackageVersionCompatibility</a></li>
+<li class="ssr-li"><a href="/posts/470112193/3740397129/" class="ssr-a ">ActionTrail</a></li>
+<li class="ssr-li"><a href="/posts/470112193/1441291649/" class="ssr-a ">AboutFrontEndReusability</a></li>
+<li class="ssr-li"><a href="/posts/470112193/3769688344/" class="ssr-a ">DocumentTransferStation</a></li>
+<li class="ssr-li"><a href="/posts/470112193/787727156/" class="ssr-a ">Barrier</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">ECharts</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/4251021762/4275837107/" class="ssr-a ">ChartInstanceInitializationAndUpdateLogic</a></li>
+<li class="ssr-li"><a href="/posts/4251021762/3813380105/" class="ssr-a ">PublicConfigurationItem</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Reflect</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1094318037/1315910772/" class="ssr-a ">ReflectMetadataImplementationAndItsPrinciple</a></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">IOCBasedHttpServer</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1094318037/2514031133/231016437/" class="ssr-a ">ImplementingAHttpServerFrameworkBasedOnIocPartI</a></li>
+<li class="ssr-li"><a href="/posts/1094318037/2514031133/1431988678/" class="ssr-a ">ImplementAHttpServerFrameworkBasedOnIocPartTwo</a></li></ul></li>
+<li class="ssr-li"><a href="/posts/1094318037/1501427606/" class="ssr-a ">OptimizationOfReadSpeedOfHashMapGiantObjectInReflectMetadata</a></li>
+<li class="ssr-li"><a href="/posts/1094318037/168644574/" class="ssr-a ">DependencyInjectionIocImplementation</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">DailySummary:470112193/1638487080</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1638487080/1303199131/" class="ssr-a ">2021Q2</a></li>
+<li class="ssr-li"><a href="/posts/1638487080/1687040183/" class="ssr-a ">January112021</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">Git</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1774397340/1497802064/" class="ssr-a ">ShallowClone</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/833412631/" class="ssr-a ">ConnectToGithubUsingAPassword</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/552268216/" class="ssr-a ">PullAutomaticMergeUsingLocalVersion</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/60684746/" class="ssr-a ">CloneAFolderOrPathInTheGitRepository</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/112085486/" class="ssr-a ">UndoTheLastSubmission</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/3156876841/" class="ssr-a ">Branch</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/3358704509/" class="ssr-a ">GitClearsLoginStatus</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/3077713445/" class="ssr-a ">Log</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/1398384704/" class="ssr-a ">DailyNewspaperGeneration</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/1447972632/" class="ssr-a ">Checkout</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/1662094074/" class="ssr-a ">CheckTheContentOfTheLastChangeSubmission</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/2782696321/" class="ssr-a ">GitSubmitErrorRpCfailedHttp2</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/1084674335/" class="ssr-a ">Rebase</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/888634100/" class="ssr-a ">GithubAndGit</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/3555646902/" class="ssr-a ">UpdateUpstreamAfterFork</a></li>
+<li class="ssr-li"><a href="/posts/1774397340/3563209554/" class="ssr-a ">SetUserName</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ssr-dir-active">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">BrowserBasics</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/3089957758/3070107478/" class="ssr-a ssr-a-active">PwaOfflineApplication</a></li>
+<li class="ssr-li"><a href="/posts/3089957758/2033684770/" class="ssr-a ">PrincipleOfPageRendering</a></li>
+<li class="ssr-li"><a href="/posts/3089957758/201535461/" class="ssr-a ">BrowserKernel</a></li>
+<li class="ssr-li"><a href="/posts/3089957758/2072093402/" class="ssr-a ">PageReflowAndRedrawing</a></li>
+<li class="ssr-li"><a href="/posts/3089957758/3949610141/" class="ssr-a ">FromEnteringUrlToPageRendering</a></li></ul></li>
+<li class="ssr-li"><div class="ssr-dir ">
+  <svg class="TreeBtn" viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="10" height="10" style="transform: rotateX(0deg); transition: transform 0.2s ease 0s;"><g transform="translate(904.92214,-879.1482)"><path d=" m -673.67664,1221.6502 -231.2455,-231.24803 55.6165, -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894, 0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892, -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696, -174.68583 0.6895,0 26.281,25.03215 56.8701, 55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864 -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688, -104.0616 -231.873,-231.248 z
+" fill="currentColor"></path></g></svg>
+  <span class="ssr-div-name">ReactEcosystem</span></div><ul class="ssr-ul"><li class="ssr-li"><a href="/posts/1316063026/78338755/" class="ssr-a ">UseSelectorAndReselectSourceCodeRead</a></li>
+<li class="ssr-li"><a href="/posts/1316063026/208234261/" class="ssr-a ">HoistNonReactStaticsSourceCodeRead</a></li>
+<li class="ssr-li"><a href="/posts/1316063026/3539138593/" class="ssr-a ">ReactEcologicalSourceCodeReading</a></li>
+<li class="ssr-li"><a href="/posts/1316063026/4055071101/" class="ssr-a ">SomeOperationsThatReact16WillNotNeedInTheFuture</a></li>
+<li class="ssr-li"><a href="/posts/1316063026/545052142/" class="ssr-a ">WhatDidReactReduxDo</a></li></ul></li></ul></div>
+      </div>
+    </div></div><div id="root"></div></body></html>
