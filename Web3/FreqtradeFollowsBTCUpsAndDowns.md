@@ -89,9 +89,20 @@ class MyStrategy(IStrategy):
     # Define the timeframe for the trading pair
     timeframe = '5m'
 
-    # Define the indicators for your strategy
-    def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        dataframe['ema_20'] = ta.EMA(dataframe, timeperiod=20)
+    # Add this code above the populate_indicators function
+    @informative('1M')
+    def populate_indicators_1M(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
+        # This will provide 1-minute data for the current trading pair
+        return dataframe
+
+    @informative('1M', 'BTC/USDT:USDT', fmt='{column}_{base}_{timeframe}')
+    def populate_indicators_btc_1M(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
+        # This will provide 1-minute data for BTC/USDT
+        return dataframe
+
+    @informative('1h', 'BTC/USDT:USDT', fmt='{column}_{base}_{timeframe}')
+    def populate_indicators_btc_1h(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
+        # This will provide 1-hour data for BTC/USDT
         return dataframe
 
     # Define long entry condition
