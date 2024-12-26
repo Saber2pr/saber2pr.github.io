@@ -1,4 +1,11 @@
-![loading](https://saber2pr.top/MyWeb/resource/image/blog-bg.webp)
+<img src="https://saber2pr.top/MyWeb/resource/image/blog-bg-small.webp" 
+     srcset="https://saber2pr.top/MyWeb/resource/image/blog-bg-small.webp 600w, 
+             https://saber2pr.top/MyWeb/resource/image/blog-bg-2.webp 1200w" 
+     sizes="(max-width: 600px) 100vw, 
+            (max-width: 1024px) 100vw, 
+            100vw" 
+     alt="blog bg">
+
 > A sense of perception?
 Eternity does not exist, because there is no place to hold it.
 The only constant is change. Because time does not stop, so not only people in the world are changing, everything is changing. The next moment you are not the moment you are.
