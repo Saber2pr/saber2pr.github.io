@@ -4,7 +4,8 @@
      sizes="(max-width: 600px) 100vw, 
             (max-width: 1024px) 100vw, 
             100vw" 
-     alt="blog bg">
+     style="width:100%"
+     alt="blog bg"/>
 
 > A sense of perception?
 Eternity does not exist, because there is no place to hold it.
