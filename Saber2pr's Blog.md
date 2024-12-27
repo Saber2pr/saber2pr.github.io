@@ -5,6 +5,7 @@
             (max-width: 1024px) 100vw, 
             100vw" 
      style="width:100%"
+     fetchpriority="high"
      alt="blog bg"/>
 
 > A sense of perception?
