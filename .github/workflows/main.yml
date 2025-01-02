@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: Saber2pr/wiki-builder@v0.0.77
+      - uses: Saber2pr/wiki-builder@v0.0.78
         with:
           cname: saber2pr.top
           gaId: G-6CLMYWGQBH
@@ -20,3 +20,4 @@ jobs:
           gaAdsSlotHtml: <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-3641373095149503" data-ad-slot="5932086556"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
           iconUrl: //saber2pr.top/MyWeb/resource/image/saber2pr-top.ico
           i18nConfig: '[{"name":"English","key":"/"},{"name":"Chinese","key":"/zh"}]'
+          buttomlinksUri: https://saber2pr.top/links.json?ts=1302
