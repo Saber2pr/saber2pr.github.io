@@ -434,5 +434,4 @@ Lastly, regarding backtesting, freqtrade provides the functionality to backtest.
 
 If you want to delve deeper into the field of quantification, read the following articles:
 
-1. [Interpretation of freqtrade strategy E0V1E support level](/zh/posts/3516500479/1259322740/)
-2. [How to correctly DCA with Freqtrade](/zh/posts/3516500479/1606919060/)
+1. [How to correctly DCA with Freqtrade](/zh/posts/3516500479/1606919060/)
