@@ -1,0 +1,3 @@
+Server rendering frameworks such as next can only request server-side data on page pages, and components can only request data through http, so data is often transferred to the component one layer down through props on page pages.
+Generally, this kind of problem will be solved by context in react. Next.js, as a react ssr framework, can also use context. In a custom App, you can intercept the data requested by the page (or directly take `_ _ NEXT_DATA__`), and then set the data to context, usually initialReduxState, and then directly useSelector the ssr data in the component.
+Next redux rule: all the data on the page is placed in initialReduxState, the data of ssr is set to a specific value, and the data of csr is set to null when ssr

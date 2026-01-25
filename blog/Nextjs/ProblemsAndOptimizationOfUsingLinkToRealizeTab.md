@@ -1,0 +1,3 @@
+If the Tab in the page is implemented as a Link page, there will be a problem, that is, when you click back, you cannot directly exit the current page, but return to the state of the previous tab.
+Because Link is the browser routing stack, each click on Link will push a new record in history, so you can only go back to the last time you clicked Link.
+Optimization: next/link provides the replace option to indicate whether or not to replace the current history, that is, it will not add a new history but directly replace the current one.

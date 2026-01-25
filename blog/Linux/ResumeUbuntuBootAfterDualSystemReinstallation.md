@@ -1,0 +1,1 @@
+Use EasyBCD to modify the boot file, add an entry type of grub2, and the partition is automatically detected.
