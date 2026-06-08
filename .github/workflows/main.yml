@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4.1.1
         with:
           fetch-depth: 0 # 拉取完整历史
-      - uses: Saber2pr/wiki-builder@v0.0.90
+      - uses: Saber2pr/wiki-builder@v0.0.91
         with:
           cname: saber2pr.top
           gaId: G-6CLMYWGQBH
