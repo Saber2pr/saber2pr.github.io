@@ -1,0 +1,3 @@
+The maximum concurrency number of browsers is 6, in order to avoid a large number of requests to deplete system resources, so minimize the number of interface requests and merge interface requests.
+The maximum number of concurrency is for the same domain name, so you can also request it by different domain names.
+It is common to open multiple tabs on a website at the same time. Multiple tabs share the 6 connection numbers, and the tab pages behind will be blocked and cannot be opened.

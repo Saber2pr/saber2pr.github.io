@@ -1,0 +1,3 @@
+Time calculations are often required in front-end projects, such as subtracting timestamps to calculate time intervals. However, be careful not to use Date.now () because it gets the local time and is affected by the user's system time.
+So you need to get the time on the server and save it to store.
+Date.now is only recommended for the following scenarios: solving api cache, throttling and anti-shaking, etc.

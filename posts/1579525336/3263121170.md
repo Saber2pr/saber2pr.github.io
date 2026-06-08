@@ -1,0 +1,4 @@
+On the PC side, you can get the clientXY directly in the click event event object, but the touch event event object on the mobile side does not. The main reason is the existence of multi-touch on mobile, as shown in the figure:
+![MPclientXY](https://saber2pr.top/MyWeb/resource/image/MPclientXY.webp)
+The coordinate-related properties in the touch event event object are touches, targetTouches, and changedTouches, all of which are array types. Touches is a collection of all touch points, arranged in the order in which they are clicked; the targetTouches array represents the touch points on a single element, such as two fingers zooming in on an element; and the changedTouches array represents the touch on different elements.
+As for clientX, it represents the distance between the click position and the left end of the browser, and the mobile end can be represented by touches [0] .clientX.

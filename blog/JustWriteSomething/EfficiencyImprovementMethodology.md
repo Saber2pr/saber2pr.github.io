@@ -1,0 +1,1 @@
+Write a vscode login plug-in and save the login token locally. Then encapsulate a sdk to read the token, or encapsulate a request method to automatically carry the local token. In this way, you can write scripts to call api of various systems! At the same time, other plug-ins can also log in to the internal system.
