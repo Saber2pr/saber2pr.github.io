@@ -1,0 +1,5 @@
+Model: alternate constructor instance.
+So alternate links not only new and old fiber. Instead, a static constructor is used as a reflector to associate the two. So it is said that the relationship between the three.
+For example, after the function component executes, the new fiber is {type, props}, and the type must be the function component itself (function). You can save an old fiber by setting an alternate property on the type. This allows the new fiber to access the old fiber through type.alternate.
+So it is with the help of the function component itself as the host of the alternate, so that each time you generate a new fiber, you can get the old fiber directly from the type.
+So it can only be found on hook fiber that the alternate on alternate,host fiber is actually generated in reconcileChildren.

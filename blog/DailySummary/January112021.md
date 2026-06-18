@@ -1,0 +1,5 @@
+1. If you search node on dockerHub, there will be many versions. Buster means stable version, alpine simplified version and stretch old version. Alpine generally has built-in yarn and does not support the cpp plug-in. Alpine is generally recommended for front-end projects. If the project is using yarn,dockerFile, you must also use yarn,yarn.lock files to submit. If you always find that the local development is normal, you will report an error as soon as you arrive online, indicating that the project has not submitted a lock file. Lock files are used to lock dependent versions to avoid dependency conflicts, incompatibilities, and so on!
+2. When logging out, log out to reach the same state as if this website had not been visited, that is, clear the localStorage, sessionStorage, cookies and other client storage of this website! Try not to use localStorage values to render the interface, keep localStorage tokens unique, that is, rely only on tokens, and avoid other problems caused by caching.
+---
+This page has been redirected to:
+[Daily summary](/blog/随便写点儿？/每日总结)
